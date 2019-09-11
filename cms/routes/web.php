@@ -13,7 +13,7 @@
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-	'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
 ], function()
 {
     Route::get('/', function () {
