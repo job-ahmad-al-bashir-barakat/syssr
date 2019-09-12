@@ -68,13 +68,15 @@ $kt-app-config: (
     // Detail
     .kt-app__detail {
         margin-left: $grid-gutter-width;
-        
-        // Default size
-        @include kt-app-detail-width(550px);
 
         // Small size
         &.kt-app__detail--sm {
             @include kt-app-detail-width(400px);
+        }
+
+        // Mediaum size
+        &.kt-app__detail--sm {
+            @include kt-app-detail-width(550px);
         }
 
         // Large size

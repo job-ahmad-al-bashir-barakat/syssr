@@ -97,10 +97,10 @@ var KTAvatar = function(elementId, options) {
                     if (event.one == true) {
                         if (event.fired == false) {
                             the.events[i].fired = true;
-                            event.handler.call(this, the);
+                            return event.handler.call(this, the);
                         }
                     } else {
-                        event.handler.call(this, the);
+                        return event.handler.call(this, the);
                     }
                 }
             }
@@ -149,3 +149,8 @@ var KTAvatar = function(elementId, options) {
 
     return the;
 };
+
+// webpack support
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = KTAvatar;
+}

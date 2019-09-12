@@ -11,7 +11,7 @@
 // Global theme config(sass/theme/core/config.scss)
 @import "../../config";
 
-// Demo config(e.g: sass/theme/demos/demo1/config.scss) that overrides global theme config. 
+// Demo config(e.g: sass/theme/layout/[demo]/config.scss) that overrides global theme config.
 // Do not change this path, build tool automatically finds current demo's config file.    
 @import "config.scss";
 
@@ -279,6 +279,30 @@
 
 // Print media
 @media print {
+	// Hide partials
+	.kt-header,
+    .kt-header-mobile,
+    .kt-aside,
+    .kt-footer,
+    .kt-subheader,
+    .kt-scrolltop,
+    .kt-quick-panel,
+    .kt-demo-panel,
+    .kt-sticky-toolbar {
+        display: none !important;
+    }
+
+	// Parent containers
+    body,
+    .kt-wrapper,
+    .kt-body,
+    .kt-content {		
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+	}
+		
+	// Invoice
 	.kt-invoice-2 {
 		@include kt-rounded {
 			border-top-left-radius: 0;

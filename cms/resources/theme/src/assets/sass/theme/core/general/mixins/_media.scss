@@ -4,7 +4,7 @@
 
 
 
-@mixin kt-user-pic-size($image-size, $font-size) {
+@mixin kt-media-size($image-size, $font-size) {
     img {
         width: 100%;
         max-width: $image-size; 
@@ -19,8 +19,15 @@
             font-size: $font-size;
         }
     }
+
+    &.kt-media--fixed {
+        width: $image-size; 
+        height: $image-size;
+
+        img {
+            width: $image-size; 
+            height: $image-size;
+            max-width: auto;
+        }
+    }
 }
-
-
-
- 

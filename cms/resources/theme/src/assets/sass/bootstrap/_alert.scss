@@ -8,9 +8,12 @@
 .alert {
     display: flex;
     align-items: stretch;
-    padding: 1rem 2rem;
-    border-radius: 3px;
+    padding: 1rem 2rem;;
     margin: 0 0 $grid-gutter-width 0;
+
+    @include kt-rounded {
+        border-radius: $kt-border-radius;
+    }
 
     .alert-icon {
         display: flex;
@@ -83,7 +86,7 @@
 	    	.alert-close {
 	    		i {
 	    			color: kt-get($kt-state-colors, $name, inverse);
-	    		}	
+	    		}
 	    	}
 	    }
 
@@ -104,10 +107,10 @@
 	    	.alert-close {
 	    		i {
 	    			color: kt-get($kt-state-colors, $name, base);
-	    		}	
+	    		}
 	    	}
         }
-        
+
         &.alert-solid-#{$name} {
             background: rgba(kt-get($kt-state-colors, $name, base), 0.1);
 	        border-color: transparent;
@@ -126,7 +129,7 @@
 	    	.alert-close {
 	    		i {
 	    			color: kt-get($kt-state-colors, $name, base);
-	    		}	
+	    		}
 	    	}
 	    }
     }

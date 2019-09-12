@@ -11,7 +11,7 @@ body {
 	background-position: auto top;
 	background-repeat: no-repeat;
 
-	// Container 
+	// Container
 	.kt-container {
 		.kt-container {
 			width: 100%;
@@ -28,7 +28,15 @@ body {
 		margin-left: kt-get($kt-page-padding, desktop);
 	}
 
-	// Main 
+	// Title
+	.kt-subheader__title {
+		// Mobile Toggler
+		.kt-subheader__mobile-toggle {
+			display: none;
+		}
+	}
+
+	// Main
 	.kt-subheader__main {
 		flex-direction: column;
 		align-items: flex-start;
@@ -118,18 +126,18 @@ body {
 		// Options button
 		.btn.kt-subheader__btn-options {
 			height: auto;
-			padding: 1.5rem 2rem; 
+			padding: 1.5rem 2rem;
 
 			@include kt-rounded {
 				border-radius: $kt-border-radius;
 			}
 		}
-	}	
+	}
 }
 
 // Desktop(1024px and above)
 @include kt-desktop() {
-	// Container 
+	// Container
 	.kt-container {
 		padding: 0 kt-get($kt-page-padding, desktop);
 	}
@@ -138,6 +146,22 @@ body {
 	.kt-body {
 		> .kt-container {
 			padding-right: 0 !important;
+		}
+	}
+
+	// Support Center/FAQ 3
+	.kt-sc-faq-3 {
+		.kt-sc__title {
+			color:#fff;
+			margin-bottom: 0.5rem;
+		}
+
+		.kt-sc__subtitle {
+			color: rgba(#fff, 0.7);
+		}
+
+		.kt-sc__bg {
+			margin-top: 4rem;
 		}
 	}
 }
@@ -169,6 +193,29 @@ body {
 		// Fixed Header
 		.kt-header-mobile--fixed & {
 			padding-top: kt-get($kt-header-config, base, mobile, self, default, height);
+		}
+	}
+
+	// Subheader
+	.kt-subheader {
+		padding: kt-get($kt-page-padding, mobile) 0 !important;
+		height: auto;
+
+		// Main
+		.kt-subheader__main {
+			// Title
+			.kt-subheader__title {
+				display: flex;
+				align-items: center;
+
+				// Mobile Toggler
+				@include kt-burger-icon-build(kt-subheader__mobile-toggle, kt-get($kt-subheader, toggle));
+				@include kt-burger-icon-skin(kt-subheader__mobile-toggle, kt-get($kt-subheader, toggle, color));
+
+				.kt-subheader__mobile-toggle {
+					margin-right: 1rem;
+				}
+			}
 		}
 	}
 }

@@ -12,7 +12,7 @@
     	overflow-y: initial !important;
 
     	&:not(.kt-sweetalert2--nopadding) {
-    		padding-right: 0 !important;	
+    		padding-right: 0 !important;
     	}
 
     	@include kt-hack-ie {
@@ -20,21 +20,27 @@
 		}
 	}
 
-	.swal2-popup {	   	
+	.swal2-popup {
+		padding: 2rem;
+
 		@include kt-rounded {
 			border-radius: $kt-border-radius;
 		}
-		padding: 3rem;
+
+		.swal2-icon {
+			margin: 2rem 0 0rem 0;
+		}
 
 		.swal2-title {
 			font-weight: 500;
-			font-size: 1.2rem;
-			margin: 0 0 1rem;
+			font-size: 1.3rem;
+			margin: 2rem 0 0 0;
 		}
 
 		.swal2-content {
 			font-weight: normal;
-			font-size: 1rem;
+			font-size: 1.1rem;
+			margin-top: 1.5rem;
 		}
 
 		.btn {
@@ -45,6 +51,10 @@
 			&:focus {
 				box-shadow: none;
 			}
+		}
+
+		.swal2-actions {
+			margin: 1.5rem auto 1rem auto;
 		}
 	}
 
@@ -62,7 +72,7 @@
     	background-color: rgba(0, 0, 0, 0.2);
 	}
 
-    .swal2-popup {	   	
+    .swal2-popup {
 		.swal2-title {
 			color: kt-base-color(label, 4);
 		}

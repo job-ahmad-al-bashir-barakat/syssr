@@ -203,10 +203,10 @@ var KTOffcanvas = function(elementId, options) {
                     if (event.one == true) {
                         if (event.fired == false) {
                             the.events[i].fired = true;
-                            event.handler.call(this, the, args);
+                            return event.handler.call(this, the, args);
                         }
                     } else {
-                        event.handler.call(this, the, args);
+                        return event.handler.call(this, the, args);
                     }
                 }
             }
@@ -262,3 +262,8 @@ var KTOffcanvas = function(elementId, options) {
     // Return plugin instance
     return the;
 };
+
+// webpack support
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = KTOffcanvas;
+}

@@ -15,6 +15,13 @@
 	}
 }
 
+// Tags
+label.btn,
+input.btn,
+button.btn {
+	cursor: pointer;
+}
+
 // Clean button
 .btn.btn-clean {
 	border-color: transparent;
@@ -408,6 +415,7 @@ input.btn.btn-label {
 		cursor: text !important;
 	}
 
+	label.btn.btn-label-#{$name},
 	a.btn.btn-label-#{$name},
 	button.btn.btn-label-#{$name},
 	input.btn.btn-label-#{$name} {

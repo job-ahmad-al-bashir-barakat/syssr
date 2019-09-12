@@ -19,7 +19,7 @@
 
 	.invalid-feedback,
 	.valid-feedback {
-		font-weight: 400;	
+		font-weight: 400;
 	}
 
 	.form-text {
@@ -54,7 +54,7 @@
 	&[readonly] {
 		background-color: $input-readonly-bg;
 	}
-	  
+
 	// Pill style
 	&.form-control-pill {
 		border-radius: 50px;

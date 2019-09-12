@@ -6,7 +6,7 @@
 
 
 @mixin kt-clearfix() {
-	&:before, 
+	&:before,
 	&:after {
 		content: " "; // 1
 		display: table; // 2
@@ -19,15 +19,15 @@
 @mixin kt-button-reset() {
     appearance: none;
     box-shadow: none;
-    border-radius: none; 
+    border-radius: none;
     border: none;
     cursor: pointer;
     background: none;
-    outline: none !important; 
+    outline: none !important;
     margin: 0;
     padding: 0;
 }
-    
+
 @mixin kt-input-reset() {
 	border: 0;
 	background: none;
@@ -45,19 +45,19 @@
 
 @mixin kt-fix-fixed-position-lags() {
 	// webkit hack for smooth font view on fixed positioned elements
-	-webkit-backface-visibility:hidden; 
-	backface-visibility:hidden; 
+	-webkit-backface-visibility:hidden;
+	backface-visibility:hidden;
 }
 
 @mixin kt-fix-animation-lags() {
-    transform: translateZ(0); 
+    transform: translateZ(0);
     -webkit-transform-style: preserve-3d;
 }
 
 @mixin kt-attr($attr, $value, $important: '') {
     @if  $value != null  {
-        #{$attr}: #{$value} #{$important}; 
-    } 
+        #{$attr}: #{$value} #{$important};
+    }
 }
 
 @mixin kt-hack-ie {
@@ -117,21 +117,21 @@
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin kt-icons-size($config) {
     // Lineawesome
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"] {
         font-size: kt-get($config, lineawesome);
-    } 
+    }
 
-    // Fontawesome 
-    [class^="fa-"], 
+    // Fontawesome
+    [class^="fa-"],
     [class*=" fa-"] {
         font-size: kt-get($config, fontawesome);
-    } 
+    }
 
-    // Flaticon 
-    [class^="flaticon-"], 
+    // Flaticon
+    [class^="flaticon-"],
     [class*=" flaticon-"],
-    [class^="flaticon2-"], 
+    [class^="flaticon2-"],
     [class*=" flaticon2-"] {
         font-size: kt-get($config, flaticon);
     }
@@ -141,21 +141,21 @@
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin kt-icons-style($attr, $config) {
     // lineawesome
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"] {
         #{$attr}: kt-get($config, lineawesome);
-    } 
+    }
 
-    // Fontawesome 
-    [class^="fa-"], 
+    // Fontawesome
+    [class^="fa-"],
     [class*=" fa-"] {
         #{$attr}: kt-get($config, fontawesome);
-    } 
+    }
 
-    // Flaticon 
-    [class^="flaticon-"], 
+    // Flaticon
+    [class^="flaticon-"],
     [class*=" flaticon-"],
-    [class^="flaticon2-"], 
+    [class^="flaticon2-"],
     [class*=" flaticon2-"] {
         #{$attr}: kt-get($config, flaticon);
     }
@@ -163,13 +163,13 @@
 
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin kt-icons {
-    [class^="la-"], 
+    [class^="la-"],
     [class*=" la-"],
-    [class^="fa-"], 
+    [class^="fa-"],
     [class*=" fa-"],
-    [class^="flaticon-"], 
+    [class^="flaticon-"],
     [class*=" flaticon-"],
-    [class^="flaticon2-"], 
+    [class^="flaticon2-"],
     [class*=" flaticon2-"] {
         @content;
     }
@@ -184,7 +184,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    
+
     &:before {
         content: "#{$icon}";
     }
@@ -267,7 +267,7 @@
     }
 }
 
-// Svg icon color 
+// Svg icon color
 @mixin kt-svg-icon-color($color) {
     g {
         [fill] {
@@ -359,13 +359,13 @@
     @media (max-width: #{kt-media-breakpoint(md)}) {
         @content;
     }
-} 
+}
 
 @mixin kt-mobile-sm {
     @media (max-width: #{kt-media-breakpoint(sm)}) {
         @content;
     }
-} 
+}
 
 @mixin kt-responsive-below($width) {
     @media (max-width: #{$width}) {

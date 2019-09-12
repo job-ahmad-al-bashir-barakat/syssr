@@ -311,7 +311,7 @@ b, strong {
     font-weight: bold;
 }
 
-// State font color
+// State colors
 @each $name, $color in $kt-state-colors {
 	.kt-font-#{$name} {
 		color: kt-get($color, base) !important;
@@ -342,6 +342,13 @@ b, strong {
 
 	.kt-bg-light-#{$name} {
 		background-color: rgba(kt-get($color, base), 0.1) !important;
+	}
+}
+
+// Social colors
+@each $name, $color in $kt-social-colors {
+	.kt-font-#{$name} {
+		color: kt-get($color, base) !important;
 	}
 }
 

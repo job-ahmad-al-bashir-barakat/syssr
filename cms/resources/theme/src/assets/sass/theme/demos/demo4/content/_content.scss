@@ -23,11 +23,11 @@
 		.kt-subheader--enabled.kt-subheader--transparent:not(.kt-subheader--fixed) & {
 			padding-top: 0;
 		}
-			
+
 		// Fixed footer
 		.kt-footer--fixed & {
 			padding-bottom: kt-get($kt-footer-config, self, fixed, height);
-		} 
+		}
 	}
 }
 

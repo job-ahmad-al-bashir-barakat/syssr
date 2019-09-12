@@ -248,6 +248,27 @@ $kt-radio-config: (
             background: $solid-bg-checked-color; 
         }
     }
+
+    // Tick
+    &.kt-radio--tick {
+        > span {
+            background: kt-get($kt-checkbox-config, solid, bg, default);
+            border: 1px solid transparent !important;
+        }
+        
+        > input:focus ~ span {  
+            border: 1px solid transparent !important;
+        }
+
+        > input:checked ~ span {
+            background: kt-get($kt-checkbox-config, solid, bg, default);
+
+            &:after {
+                border: solid $solid-bg-checked-color;
+                background: $solid-bg-checked-color;
+            }
+        }
+    }
 }
 
 // Default

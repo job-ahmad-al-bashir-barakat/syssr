@@ -14,8 +14,7 @@ var KTWizard = function(elementId, options) {
 
     // Default options
     var defaultOptions = {
-        startStep: 1,
-        manualStepForward: false
+        startStep: 1
     };
 
     ////////////////////////////
@@ -84,31 +83,31 @@ var KTWizard = function(elementId, options) {
             // Next button event handler
             KTUtil.addEvent(the.btnNext, 'click', function(e) {
                 e.preventDefault();
-                Plugin.goNext();
+                Plugin.goTo(Plugin.getNextStep(), true);
             });
 
             // Prev button event handler
             KTUtil.addEvent(the.btnPrev, 'click', function(e) {
                 e.preventDefault();
-                Plugin.goPrev();
+                Plugin.goTo(Plugin.getPrevStep(), true);
             });
 
             // First button event handler
             KTUtil.addEvent(the.btnFirst, 'click', function(e) {
                 e.preventDefault();
-                Plugin.goFirst();
+                Plugin.goTo(Plugin.getFirstStep(), true);
             });
 
             // Last button event handler
             KTUtil.addEvent(the.btnLast, 'click', function(e) {
                 e.preventDefault();
-                Plugin.goLast();
+                Plugin.goTo(Plugin.getLastStep(), true);
             });
 
             KTUtil.on(element, 'a[data-ktwizard-type="step"]', 'click', function() {
                 var index = KTUtil.index(this) + 1;
                 if (index !== the.currentStep) {
-                    Plugin.goTo(index);
+                    Plugin.goTo(index, true);
                 }                
             });
         },
@@ -116,7 +115,7 @@ var KTWizard = function(elementId, options) {
         /**
          * Handles wizard click wizard
          */
-        goTo: function(number) {
+        goTo: function(number, eventHandle) {
             // Skip if this step is already shown
             if (number === the.currentStep || number > the.totalSteps || number < 0) {
                 return;
@@ -132,10 +131,12 @@ var KTWizard = function(elementId, options) {
             // Before next and prev events
             var callback;
 
-            if (number > the.currentStep) {
-                callback = Plugin.eventTrigger('beforeNext');
-            } else {
-                callback = Plugin.eventTrigger('beforePrev');
+            if (eventHandle === true) {
+                if (number > the.currentStep) {
+                    callback = Plugin.eventTrigger('beforeNext');
+                } else {
+                    callback = Plugin.eventTrigger('beforePrev');
+                }
             }
             
             // Skip if stopped
@@ -147,7 +148,9 @@ var KTWizard = function(elementId, options) {
             // Continue if no exit
             if (callback !== false) {
                 // Before change
-                Plugin.eventTrigger('beforeChange');
+                if (eventHandle === true) {
+                    Plugin.eventTrigger('beforeChange');
+                }
 
                 // Set current step 
                 the.currentStep = number;
@@ -155,14 +158,18 @@ var KTWizard = function(elementId, options) {
                 Plugin.updateUI();
 
                 // Trigger change event
-                Plugin.eventTrigger('change');
+                if (eventHandle === true) {
+                    Plugin.eventTrigger('change');
+                }
             }
 
             // After next and prev events
-            if (number > the.startStep) {
-                Plugin.eventTrigger('afterNext');
-            } else {
-                Plugin.eventTrigger('afterPrev');
+            if (eventHandle === true) {
+                if (number > the.startStep) {
+                    Plugin.eventTrigger('afterNext');
+                } else {
+                    Plugin.eventTrigger('afterPrev');
+                }
             }
 
             return the;
@@ -201,34 +208,6 @@ var KTWizard = function(elementId, options) {
          */
         isBetweenStep: function() {
             return Plugin.isLastStep() === false && Plugin.isFirstStep() === false;
-        },
-
-        /**
-         * Go to the next step
-         */
-        goNext: function() {
-            return Plugin.goTo(Plugin.getNextStep());
-        },
-
-        /**
-         * Go to the prev step
-         */
-        goPrev: function() {
-            return Plugin.goTo(Plugin.getPrevStep());
-        },
-
-        /**
-         * Go to the last step
-         */
-        goLast: function() {
-            return Plugin.goTo(the.totalSteps);
-        },
-
-        /**
-         * Go to the first step
-         */
-        goFirst: function() {
-            return Plugin.goTo(1);
         },
 
         /**
@@ -315,7 +294,7 @@ var KTWizard = function(elementId, options) {
         /**
          * Trigger events
          */
-        eventTrigger: function(name) {
+        eventTrigger: function(name, nested) {
             //KTUtil.triggerCustomEvent(name);
             for (var i = 0; i < the.events.length; i++) {
                 var event = the.events[i];
@@ -323,10 +302,10 @@ var KTWizard = function(elementId, options) {
                     if (event.one == true) {
                         if (event.fired == false) {
                             the.events[i].fired = true;
-                            event.handler.call(this, the);
+                            return event.handler.call(this, the);
                         }
                     } else {
-                        event.handler.call(this, the);
+                        return event.handler.call(this, the);
                     }
                 }
             }
@@ -359,22 +338,36 @@ var KTWizard = function(elementId, options) {
     /**
      * Go to the next step 
      */
-    the.goNext = function() {
-        return Plugin.goNext();
+    the.goNext = function(eventHandle) {
+        return Plugin.goTo(Plugin.getNextStep(), eventHandle);
     };
 
     /**
      * Go to the prev step 
      */
-    the.goPrev = function() {
-        return Plugin.goPrev();
+    the.goPrev = function(eventHandle) {
+        return Plugin.goTo(Plugin.getPrevStep(),eventHandle);
     };
 
     /**
      * Go to the last step 
      */
-    the.goLast = function() {
-        return Plugin.goLast();
+    the.goLast = function(eventHandle) {
+        return Plugin.goTo(Plugin.getLastStep(), eventHandle);
+    };
+
+    /**
+     * Go to the first step 
+     */
+    the.goFirst = function(eventHandle) {
+        return Plugin.goTo(Plugin.getFirstStep(), eventHandle);
+    };
+
+    /**
+     * Go to a step
+     */
+    the.goTo = function(number, eventHandle) {
+        return Plugin.goTo(number, eventHandle);
     };
 
     /**
@@ -389,20 +382,6 @@ var KTWizard = function(elementId, options) {
      */
     the.start = function() {
         return Plugin.start();
-    };
-
-    /**
-     * Go to the first step 
-     */
-    the.goFirst = function() {
-        return Plugin.goFirst();
-    };
-
-    /**
-     * Go to a step
-     */
-    the.goTo = function(number) {
-        return Plugin.goTo(number);
     };
 
     /**
@@ -445,3 +424,8 @@ var KTWizard = function(elementId, options) {
 
     return the;
 };
+
+// webpack support
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = KTWizard;
+}

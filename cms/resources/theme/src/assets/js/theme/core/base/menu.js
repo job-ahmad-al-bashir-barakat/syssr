@@ -6,19 +6,19 @@ var KTMenu = function(elementId, options) {
 
     // Get element object
     var element = KTUtil.get(elementId);
-    var body = KTUtil.get('body');  
+    var body = KTUtil.get('body');
 
     if (!element) {
         return;
     }
 
     // Default options
-    var defaultOptions = {       
+    var defaultOptions = {
         // scrollable area with Perfect Scroll
         scroll: {
             rememberPosition: false
         },
-        
+
         // accordion submenu mode
         accordion: {
             slideSpeed: 200, // accordion toggle slide speed in milliseconds
@@ -140,7 +140,7 @@ var KTMenu = function(elementId, options) {
          * Reset menu
          * @returns {KTMenu}
          */
-        reset: function() { 
+        reset: function() {
             KTUtil.off( element, 'click', the.eventHandlers['event_1']);
 
             // dropdown submenu - hover toggle
@@ -150,7 +150,7 @@ var KTMenu = function(elementId, options) {
             // dropdown submenu - click toggle
             KTUtil.off( element, 'click', the.eventHandlers['event_4']);
             KTUtil.off( element, 'click', the.eventHandlers['event_5']);
-            
+
             // handle link click
             KTUtil.off(element, 'click', the.eventHandlers['event_6']);
         },
@@ -165,7 +165,7 @@ var KTMenu = function(elementId, options) {
                 KTUtil.scrollInit(element, {mobileNativeScroll: true, windowScroll: false, resetHeightOnDestroy: true, handleWindowResize: true, height: the.options.scroll.height, rememberPosition: the.options.scroll.rememberPosition});
             } else {
                 KTUtil.scrollDestroy(element);
-            }           
+            }
         },
 
         /**
@@ -236,7 +236,7 @@ var KTMenu = function(elementId, options) {
             if ( submenus ) {
                 for (var i = 0, len = submenus.length; i < len; i++) {
                     KTUtil.css(submenus[0], 'display', '');
-                    KTUtil.css(submenus[0], 'overflow', '');                                        
+                    KTUtil.css(submenus[0], 'overflow', '');
                 }
             }
         },
@@ -287,11 +287,11 @@ var KTMenu = function(elementId, options) {
             var timeout = setTimeout(function() {
                 if ( item.getAttribute('data-hover') == '1' ) {
                     Plugin.hideSubmenuDropdown(item, true);
-                } 
+                }
             }, time);
 
             item.setAttribute('data-hover', '1');
-            item.setAttribute('data-timeout', timeout);  
+            item.setAttribute('data-timeout', timeout);
         },
 
         /**
@@ -302,7 +302,7 @@ var KTMenu = function(elementId, options) {
             if ( Plugin.getSubmenuMode(this) === 'accordion' ) {
                 return;
             }
- 
+
             var item = this.closest('.kt-menu__item');
 
             if ( item.getAttribute('data-ktmenu-submenu-mode') == 'accordion' ) {
@@ -353,7 +353,7 @@ var KTMenu = function(elementId, options) {
             var result = Plugin.eventTrigger('linkClick', this, e);
             if (result === false) {
                 return;
-            } 
+            }
 
             if ( submenu && Plugin.getSubmenuMode(submenu) === 'dropdown' ) {
                 Plugin.hideSubmenuDropdowns();
@@ -409,7 +409,7 @@ var KTMenu = function(elementId, options) {
                 var hasClosables = false;
 
                 if ( KTUtil.hasClass(li, 'kt-menu__item--open') === false ) {
-                    // hide other accordions                    
+                    // hide other accordions
                     if ( the.options.accordion.expandAll === false ) {
                         var subnav = item.closest('.kt-menu__nav, .kt-menu__subnav');
                         var closables = KTUtil.children(subnav, '.kt-menu__item.kt-menu__item--open.kt-menu__item--submenu:not(.kt-menu__item--here):not(.kt-menu__item--open-always)');
@@ -422,7 +422,7 @@ var KTMenu = function(elementId, options) {
                                     KTUtil.slideUp(submenu_, speed, function() {
                                         Plugin.scrollUpdate();
                                         KTUtil.removeClass(el_, 'kt-menu__item--open');
-                                    });                    
+                                    });
                                 }
                             }
                         }
@@ -431,10 +431,10 @@ var KTMenu = function(elementId, options) {
                     KTUtil.slideDown(submenu, speed, function() {
                         Plugin.scrollToItem(item);
                         Plugin.scrollUpdate();
-                        
+
                         Plugin.eventTrigger('submenuToggle', submenu, e);
                     });
-                
+
                     KTUtil.addClass(li, 'kt-menu__item--open');
 
                 } else {
@@ -510,11 +510,11 @@ var KTMenu = function(elementId, options) {
                         Plugin.hideSubmenuDropdown(el, true);
                     }
                 }
-            } 
+            }
 
             // add submenu activation class
             KTUtil.addClass(item, 'kt-menu__item--hover');
-            
+
             if ( item.getAttribute('data-ktmenu-dropdown-toggle-class') ) {
                 KTUtil.addClass(body, item.getAttribute('data-ktmenu-dropdown-toggle-class'));
             }
@@ -569,7 +569,7 @@ var KTMenu = function(elementId, options) {
             var parents;
 
             list = element.querySelectorAll('.kt-menu__item--active');
-            
+
             for (var i = 0, len = list.length; i < len; i++) {
                 var el = list[0];
                 KTUtil.removeClass(el, 'kt-menu__item--active');
@@ -688,7 +688,7 @@ var KTMenu = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -810,7 +810,7 @@ var KTMenu = function(elementId, options) {
     KTUtil.addResizeHandler(function() {
         if (init) {
             the.reload();
-        }  
+        }
     });
 
     // Init done
@@ -819,6 +819,11 @@ var KTMenu = function(elementId, options) {
     // Return plugin instance
     return the;
 };
+
+// webpack support
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = KTMenu;
+}
 
 // Plugin global lazy initialization
 document.addEventListener("click", function (e) {
@@ -842,7 +847,7 @@ document.addEventListener("click", function (e) {
                 if ( e.target !== element && element.contains(e.target) === false ) {
                     the.hideDropdowns();
                 }
-            }            
+            }
         }
-    } 
+    }
 });

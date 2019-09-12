@@ -245,6 +245,23 @@
       text-align: right; } }
 
 @media print {
+  .kt-header,
+  .kt-header-mobile,
+  .kt-aside,
+  .kt-footer,
+  .kt-subheader,
+  .kt-scrolltop,
+  .kt-quick-panel,
+  .kt-demo-panel,
+  .kt-sticky-toolbar {
+    display: none !important; }
+  body,
+  .kt-wrapper,
+  .kt-body,
+  .kt-content {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important; }
   .kt-invoice-1 {
     border-top-right-radius: 0;
     border-top-left-radius: 0; }

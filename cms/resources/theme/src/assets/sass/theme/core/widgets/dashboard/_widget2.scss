@@ -67,8 +67,7 @@
         .kt-widget2__actions {
             flex-grow: 1; 
             text-align: right;
-            padding: 0 0.5rem 0 0.8rem;                             
-            visibility: hidden;                
+            padding: 0 0.5rem 0 0.8rem;      
 
             a {
                 text-decoration: none;
@@ -82,7 +81,7 @@
         // kt-widget2__action hover
         &:hover {
             .kt-widget2__actions {
-                visibility: visible; 
+                //opacity: 1; 
             }
         }
 

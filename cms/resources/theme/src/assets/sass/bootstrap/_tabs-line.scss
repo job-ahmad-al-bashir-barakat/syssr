@@ -241,6 +241,11 @@
                 }
             }
         }
+
+        // Clear base border
+        &.nav-tabs-clear {
+            border-bottom-color: transparent !important;
+        }
     }     
 }
 

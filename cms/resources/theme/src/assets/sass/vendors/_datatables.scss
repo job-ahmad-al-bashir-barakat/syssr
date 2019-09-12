@@ -10,6 +10,7 @@
     // Pagination colors
     $page-size: 2.25rem;
 
+    // Base wrapper
     .dataTables_wrapper {
         padding: 0 !important;
         
@@ -41,6 +42,18 @@
                 
                 &.dt-right { 
                     text-align: right; 
+                }
+
+                // Sorting
+                &.sorting_desc,
+                &.orting_asc_disabled,
+                &.orting_desc_disabled,
+                &.sorting_asc,
+                &.sorting {
+                    &:before,
+                    &:after {
+                        bottom: 1.25rem !important;
+                    }
                 }
             }
 
@@ -245,6 +258,7 @@
         }
     }
 
+    // Bootstrap 4
     .dt-bootstrap4 {
         .dropdown {
             .dropdown-menu.dropdown-menu-right {
@@ -265,6 +279,7 @@
     $page-active: kt-state-color(brand, base);
     $page-active-font: kt-state-color(brand, inverse);
     
+    // Base wrapper
     .dataTables_wrapper {
          // Table
         .dataTable {

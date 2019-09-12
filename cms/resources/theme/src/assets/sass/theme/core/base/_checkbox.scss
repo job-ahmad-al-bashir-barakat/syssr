@@ -250,10 +250,36 @@ $kt-checkbox-config: (
             background: $solid-bg-checked-color; 
         }
     }
+
+    // Tick
+    &.kt-checkbox--tick {
+        > span {
+            background:kt-get($kt-checkbox-config, solid, bg, default);
+            border: 1px solid transparent !important;
+
+            &:after {
+                border: solid $solid-tick-color;
+            }
+        }
+        
+        > input:focus ~ span {  
+            border: 1px solid transparent !important;
+        }
+
+        > input:checked ~ span {
+            border: 1px solid transparent !important;
+            background: kt-get($kt-checkbox-config, solid, bg, default);
+
+            &:after {
+                border: solid $solid-bg-checked-color;
+            }
+        }
+    }
 }
 
 // Default
 .kt-checkbox {
+    // Base
     @include kt-checkbox-theme(
         kt-get($kt-checkbox-config, outline, border, default),
         kt-get($kt-checkbox-config, outline, border, checked),
@@ -261,7 +287,7 @@ $kt-checkbox-config: (
         kt-get($kt-checkbox-config, solid, bg, default),
         kt-get($kt-checkbox-config, solid, bg, checked),
         kt-get($kt-checkbox-config, solid, tick)
-        );
+    );
 
     // State Colors
     @each $name, $color in $kt-state-colors {

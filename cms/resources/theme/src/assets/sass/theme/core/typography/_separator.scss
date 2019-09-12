@@ -11,18 +11,18 @@
     border-bottom: 1px solid kt-base-color(grey, 2);
 
     // Dashed style
-    &.kt-separator--border-dashed,    
+    &.kt-separator--border-dashed,
     &.kt-separator--dashed {
         border-bottom: 1px dashed kt-base-color(grey, 2);
     }
 
     &.kt-separator--border-2x {
-        border-bottom-width: 2px; 
+        border-bottom-width: 2px;
     }
 
     // No border
     &.kt-separator--space {
-        border-bottom: 0; 
+        border-bottom: 0;
     }
 
     // Sizing

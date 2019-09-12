@@ -17,7 +17,7 @@
                 font-weight: 500;
                 font-size: 1.3rem;
                 color: kt-base-color(label, 4);
-            
+
                 small {
                     font-weight: 400;
                     font-size: 0.9rem;
@@ -28,18 +28,18 @@
             .close {
                 outline:none !important;
                 color: kt-base-color(label, 2);
-            
+
                 @include kt-close-icon();
                 @include kt-hover-transition();
-            
+
                 &:before {
                     font-size: 1.3rem;
                 }
-            
+
                 span {
                     display: none;
                 }
-            
+
                 &:hover {
                     color: kt-brand-color();
                 }
@@ -49,8 +49,16 @@
 
     // Stick to bottom right
     &.modal-sticky-bottom-right {
+        $width-default: 500px;
+        $width-lg: 600px;
+
         padding: 0 !important;
-        max-width: 500px;
+        max-width: $width-default;
+
+        &.modal-sticky-lg {
+            max-width: $width-lg;
+        }
+
         height: auto;
         position: fixed;
         left: auto;
@@ -63,31 +71,37 @@
         @include kt-rounded {
             border-radius: $kt-border-radius;
         }
-        
+
         @include kt-tablet-and-mobile {
             bottom: 10px;
             right: 10px;
         }
-        
+
         @include kt-mobile {
             max-width: 90%;
         }
-        
+
         .modal-dialog {
             position: static;
-            max-width: 500px;
+            max-width: $width-default;
             width: auto;
             margin: 0;
 
             @include kt-rounded {
                 border-radius: $kt-border-radius;
             }
-            
+
             .modal-content {
                 border: 0;
                 @include kt-rounded {
                     border-radius: $kt-border-radius;
                 }
+            }
+        }
+
+        &.modal-sticky-lg {
+            .modal-dialog {
+                max-width: $width-lg;
             }
         }
     }

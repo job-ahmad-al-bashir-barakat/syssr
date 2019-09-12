@@ -1692,8 +1692,7 @@
 						// get visible page
 						var pagerNumber = $(pager).find('.' + pfx + 'datatable__pager-link-number');
 						// get page before of first visible
-						var morePrevPage = Math.max($(pagerNumber).first().data('page') - 1,
-							1);
+						var morePrevPage = Math.max($(pagerNumber).first().data('page') - 1, 1);
 						$(pagerMorePrev).each(function(i, prev) {
 							$(prev).attr('data-page', morePrevPage);
 						});
@@ -2061,10 +2060,12 @@
 							var column = $.grep(options.columns, function(n, i) {
 								return field === n.field;
 							})[0];
-							$(detailSubTable).
-								append($('<tr class="' + pfx + 'datatable__row"></tr>').
-									append($('<td class="' + pfx + 'datatable__cell"></td>').append($('<span/>').append(column.title))).
-									append(this));
+							if (typeof column === 'undefined' || column.visible !== false) {
+								$(detailSubTable).
+										append($('<tr class="' + pfx + 'datatable__row"></tr>').
+												append($('<td class="' + pfx + 'datatable__cell"></td>').append($('<span/>').append(column.title))).
+												append(this));
+							}
 						});
 						$(detailRowTd).append(detailSubTable);
 
@@ -3222,12 +3223,12 @@
 
 					if (bool) {
 						if (Plugin.recentNode === Plugin.nodeCols) {
-							delete options.columns[index].visible;
+							delete options.columns[index-1].visible;
 						}
 						$(Plugin.recentNode).show();
 					} else {
 						if (Plugin.recentNode === Plugin.nodeCols) {
-							Plugin.setOption('columns.' + index + '.visible', false);
+							Plugin.setOption('columns.' + (index-1) + '.visible', false);
 						}
 						$(Plugin.recentNode).hide();
 					}
@@ -3342,7 +3343,7 @@
 			class: pfx + 'datatable--brand', // custom wrapper class
 			scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
 			height: null, // datatable's body's fixed height
-			minHeight: 500,
+			minHeight: null,
 			footer: false, // display/hide footer
 			header: true, // display/hide header
 			customScrollbar: true, // set false to disable custom scrollbar

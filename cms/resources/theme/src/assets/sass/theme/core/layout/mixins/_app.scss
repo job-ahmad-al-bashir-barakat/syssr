@@ -12,22 +12,21 @@
         width: $width; 
     }
 
-    // Media range 1024px to 1399px(see: $kt-media-breakpoints in sass/theme/_config.scss and sass/themes/core/_mixins.scss)
-    @include kt-media-range(lg, xl) {
-        width: ($width * 0.75); // reduce width to 25% for smaller screen
+    // If beliw given width
+    @include kt-media-below($width + 50px) {
+        width: $width - 50px;
     }
 }
 
 // App aside mixins
 @mixin kt-app-detail-width($width) {
-
     // Media range 1024px and above(see: $kt-media-breakpoints in sass/theme/_config.scss and sass/themes/core/_mixins.scss)
     @include kt-desktop {
         width: $width; 
     }
 
-    // Media range 1024px to 1399px(see: $kt-media-breakpoints in sass/theme/_config.scss and sass/themes/core/_mixins.scss)
-    @include kt-media-range(lg, xl) {
-        width: ($width * 0.8);  // reduce width to 20% for smaller screen 
+    // If beliw given width
+    @include kt-media-below($width + 50px) {
+        width: $width - 50px;
     }
 }

@@ -16,24 +16,21 @@
             position: relative;
             outline: none !important;
             padding: $input-btn-padding-y $input-btn-padding-x;
-            
+
             @include kt-rounded {
-                border-radius: $input-border-radius !important; 
+                border-radius: $input-border-radius !important;
             }
 
             &:focus {
-                outline: none !important; 
+                outline: none !important;
             }
 
             &:after {
                 border: 0;
                 margin-right: -2px;
                 font-size: 0.6rem;
-                //right: ($input-btn-padding-x);
-                display: inline-block;           
-                
-                //@include kt-arrow-icon(down, true);
-                @include kt-flaticon2-icon('\f1b1');
+                display: inline-block;
+                @include kt-flaticon2-icon(kt-get($kt-action-bold-icons, down));
             }
 
             &:before {
@@ -65,11 +62,11 @@
 
                 &.selected {
                     > a {
-                        span.check-mark { 
+                        span.check-mark {
                             @include kt-la-icon('\f17b');
                             top: 50%;
                             position: absolute;
-                            margin-top: - (0.85rem / 2);  
+                            margin-top: - (0.85rem / 2);
                             font-size: 0.85rem;
                             right: $input-btn-padding-x;
                             display: inline-block;
@@ -104,8 +101,8 @@
             }
         }
 
-        .bs-searchbox, 
-        .bs-actionsbox, 
+        .bs-searchbox,
+        .bs-actionsbox,
         .bs-donebutton {
             padding: $kt-title-padding;
         }
@@ -176,7 +173,7 @@
         &.is-invalid {
             .btn.dropdown-toggle {
                 border-color: kt-state-color(danger, base);
-                
+
             }
         }
 

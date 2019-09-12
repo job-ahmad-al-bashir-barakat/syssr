@@ -19,7 +19,7 @@
             display: flex; 
 
             .kt-widget__media {
-                .kt-userpic {  
+                .kt-media {  
                     .kt-widget__icon {                    
                         max-width: 62px;
                         height: 62px;
@@ -38,7 +38,7 @@
             }
     
             .kt-widget__info {
-                padding: 0.25rem 0 0 1rem;
+                padding: 0.25rem 0 0 1rem;                
     
                 .kt-widget__title {
                     font-size: 1.3rem;
@@ -145,7 +145,7 @@
             padding: 1rem 0 1.3rem 0;
             display: flex;   
             flex-wrap: wrap;  
-            align-items: center;
+            //align-items: center;
 
             .kt-widget__details {
                 margin-right: 3.7rem;
@@ -177,8 +177,12 @@
                     margin-right: 0;
 
                     .kt-widget__subtitle {                        
-                        margin-top: -0.2rem;                   
+                        margin-top: 0rem;                   
                     }
+                }
+
+                .kt-media-group {
+                    margin-top: -0.5rem
                 }
             }
         }
@@ -231,15 +235,15 @@
             padding: kt-get($kt-portlet, space, mobile);
             
             .kt-widget__media {
-                .kt-userpic {                
-                    @include kt-user-pic-size(50px, 1.2rem);  
+                .kt-media {                
+                    @include kt-media-size(50px, 1.2rem);  
                     
                     img {
                         width: 50px;
                     }
 
-                    &.kt-userpic--md {
-                        @include kt-user-pic-size(45px, 1rem); 
+                    &.kt-media--md {
+                        @include kt-media-size(45px, 1rem); 
                         
                         img {
                             width: 47px;

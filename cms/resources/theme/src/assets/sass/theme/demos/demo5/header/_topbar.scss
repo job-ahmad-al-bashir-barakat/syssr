@@ -65,6 +65,7 @@ $kt-topbar-mobile-icon-size: 34px;
 
 				@each $name, $color in $kt-state-colors {
 		            &.kt-header__topbar-icon--#{$name} {
+						transition: all 0.3s ease;
 		                background: rgba(kt-get($color, base), 0.10);
 
 		                i {
@@ -75,20 +76,26 @@ $kt-topbar-mobile-icon-size: 34px;
 							color: kt-get($color, base);
 						}
 
+						svg {
+							@include kt-svg-icon-color(kt-get($color, base));
+						}
+
 
 						&:hover,
 						&.show  {
-							@include kt-transition();
+							transition: all 0.3s ease;
 							background: kt-get($color, base);
 
 							i {
-								color: kt-brand-color(inverse);
+								color: kt-get($color, inverse);
 							}
 
-							@include kt-svg-icon-color(kt-brand-color(inverse));
+							svg {
+								@include kt-svg-icon-color(kt-get($color, inverse));
+							}							
 
 							b {									
-								color: kt-brand-color(inverse);
+								color: kt-get($color, inverse);
 							}
 						}		              
 		            }

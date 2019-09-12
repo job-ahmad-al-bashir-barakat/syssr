@@ -45,6 +45,11 @@
 					line-height: 0;
 				}
 
+				&.kt-nav__link-icon--center {
+					text-align: center;
+					margin-right: 0.25rem;
+				}
+
 				// Svg icon
 				@include kt-svg-icon-color(kt-base-color(label, 1));
 			} 
@@ -128,6 +133,7 @@
 		}
 		
 		// Hover & active state
+		&.kt-nav__item--active,
 		&.active,
 		&:hover:not(.kt-nav__item--disabled):not(.kt-nav__item--sub) {
 			>.kt-nav__link {
@@ -224,7 +230,25 @@
 		&.kt-nav__separator--dashed {
 			border-bottom: 1px dashed kt-base-color(grey, 2);
 		}
-	} 
+	}
+	
+	// Space
+	.kt-nav__space {
+		height: 0;
+		margin: 0.5rem 0;
+
+		&.kt-nav__space--sm {
+			margin: 0.25rem 0;
+		}
+
+		&.kt-nav__space--lg {
+			margin: 0.75rem 0;
+		}
+
+		&.kt-nav__space--xl {
+			margin: 1rem 0;
+		}
+	}
 	
 	// Head & Foot
 	.kt-nav__head,

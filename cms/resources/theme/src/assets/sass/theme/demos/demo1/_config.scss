@@ -1,5 +1,7 @@
 //
 // Demo Config
+// Here you can set the demo level SASS variables and override the global variables for this demo.
+// Note: To override the global variables in the demo level use the variables without "!default". More info:  https://sass-lang.com/documentation/variables
 //
 
 
@@ -9,8 +11,6 @@
 $kt-aside-default-width: 265px;
 $kt-aside-minimize-width: 70px;
 $kt-aside-offcanvas-width: 255px;
-
-
 
 // Brand Color
 $kt-state-colors: (

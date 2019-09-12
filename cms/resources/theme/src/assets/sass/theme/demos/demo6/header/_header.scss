@@ -29,6 +29,12 @@ $kt-header-item-hover-bg: rgba(#f0f3ff, 0.7);
 			z-index: kt-get($kt-header-config, base, desktop, fixed, zindex);
 		}
 
+		// Fixed header & fixed subheader 
+		.kt-header--fixed.kt-subheader--fixed & {
+			border-bottom: 1px solid #eff0f6;
+			box-shadow: none;
+		}
+
 		// Title
 		.kt-header__title {
 			display: flex;

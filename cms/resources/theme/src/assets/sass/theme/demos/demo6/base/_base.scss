@@ -75,6 +75,12 @@ body {
 			left: kt-get($kt-aside-config, base, minimize, width);
 			transition: kt-get($kt-aside-config, base, minimize, transition);
 		}
+
+		// Static header & solid subheader
+		.kt-header--static.kt-subheader--solid & {
+			margin: 0 0 kt-get($kt-page-padding, desktop) 0;
+			min-height: kt-get($kt-subheader-config, fixed, height);
+		}
 	}
 
 	// Container 
