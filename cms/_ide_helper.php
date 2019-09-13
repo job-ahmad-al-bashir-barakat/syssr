@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.0.1 on 2019-09-10 11:01:40.
+ * Generated for Laravel 6.0.3 on 2019-09-13 18:38:14.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3795,6 +3795,110 @@ namespace Illuminate\Support\Facades {
         public static function hasMacro($name)
         {
                         return \Illuminate\Cookie\CookieJar::hasMacro($name);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     * @see \Illuminate\Encryption\Encrypter
+     */ 
+    class Crypt {
+        
+        /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */ 
+        public static function supported($key, $cipher)
+        {
+                        return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+        
+        /**
+         * Create a new encryption key for the given cipher.
+         *
+         * @param string $cipher
+         * @return string 
+         * @static 
+         */ 
+        public static function generateKey($cipher)
+        {
+                        return \Illuminate\Encryption\Encrypter::generateKey($cipher);
+        }
+        
+        /**
+         * Encrypt the given value.
+         *
+         * @param mixed $value
+         * @param bool $serialize
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */ 
+        public static function encrypt($value, $serialize = true)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->encrypt($value, $serialize);
+        }
+        
+        /**
+         * Encrypt a string without serialization.
+         *
+         * @param string $value
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */ 
+        public static function encryptString($value)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->encryptString($value);
+        }
+        
+        /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @param bool $unserialize
+         * @return mixed 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */ 
+        public static function decrypt($payload, $unserialize = true)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->decrypt($payload, $unserialize);
+        }
+        
+        /**
+         * Decrypt the given string without unserialization.
+         *
+         * @param string $payload
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */ 
+        public static function decryptString($payload)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->decryptString($payload);
+        }
+        
+        /**
+         * Get the encryption key.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getKey()
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->getKey();
         }
          
     }
@@ -15118,6 +15222,609 @@ namespace Mcamara\LaravelLocalization\Facades {
  
 }
 
+namespace Nwidart\Modules\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Module {
+        
+        /**
+         * Add other module location.
+         *
+         * @param string $path
+         * @return \Nwidart\Modules\Laravel\LaravelFileRepository 
+         * @static 
+         */ 
+        public static function addLocation($path)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->addLocation($path);
+        }
+        
+        /**
+         * Get all additional paths.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getPaths()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getPaths();
+        }
+        
+        /**
+         * Get scanned modules paths.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getScanPaths()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getScanPaths();
+        }
+        
+        /**
+         * Get & scan all modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function scan()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->scan();
+        }
+        
+        /**
+         * Get all modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function all()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->all();
+        }
+        
+        /**
+         * Get cached modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getCached()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getCached();
+        }
+        
+        /**
+         * Get all modules as collection instance.
+         *
+         * @return \Nwidart\Modules\Collection 
+         * @static 
+         */ 
+        public static function toCollection()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->toCollection();
+        }
+        
+        /**
+         * Get modules by status.
+         *
+         * @param $status
+         * @return array 
+         * @static 
+         */ 
+        public static function getByStatus($status)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getByStatus($status);
+        }
+        
+        /**
+         * Determine whether the given module exist.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->has($name);
+        }
+        
+        /**
+         * Get list of enabled modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function allEnabled()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->allEnabled();
+        }
+        
+        /**
+         * Get list of disabled modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function allDisabled()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->allDisabled();
+        }
+        
+        /**
+         * Get count from all modules.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function count()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->count();
+        }
+        
+        /**
+         * Get all ordered modules.
+         *
+         * @param string $direction
+         * @return array 
+         * @static 
+         */ 
+        public static function getOrdered($direction = 'asc')
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getOrdered($direction);
+        }
+        
+        /**
+         * Get a module path.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getPath()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getPath();
+        }
+        
+        /**
+         * Register the modules.
+         *
+         * @static 
+         */ 
+        public static function register()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->register();
+        }
+        
+        /**
+         * Boot the modules.
+         *
+         * @static 
+         */ 
+        public static function boot()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->boot();
+        }
+        
+        /**
+         * Find a specific module.
+         *
+         * @param $name
+         * @return mixed|void 
+         * @static 
+         */ 
+        public static function find($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->find($name);
+        }
+        
+        /**
+         * Find a specific module by its alias.
+         *
+         * @param $alias
+         * @return mixed|void 
+         * @static 
+         */ 
+        public static function findByAlias($alias)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findByAlias($alias);
+        }
+        
+        /**
+         * Find all modules that are required by a module. If the module cannot be found, throw an exception.
+         *
+         * @param $name
+         * @return array 
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function findRequirements($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findRequirements($name);
+        }
+        
+        /**
+         * Find a specific module, if there return that, otherwise throw exception.
+         *
+         * @param $name
+         * @return \Module 
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function findOrFail($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findOrFail($name);
+        }
+        
+        /**
+         * Get all modules as laravel collection instance.
+         *
+         * @param $status
+         * @return \Nwidart\Modules\Collection 
+         * @static 
+         */ 
+        public static function collections($status = 1)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->collections($status);
+        }
+        
+        /**
+         * Get module path for a specific module.
+         *
+         * @param $module
+         * @return string 
+         * @static 
+         */ 
+        public static function getModulePath($module)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getModulePath($module);
+        }
+        
+        /**
+         * Get asset path for a specific module.
+         *
+         * @param $module
+         * @return string 
+         * @static 
+         */ 
+        public static function assetPath($module)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->assetPath($module);
+        }
+        
+        /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function config($key, $default = null)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->config($key, $default);
+        }
+        
+        /**
+         * Get storage path for module used.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getUsedStoragePath()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getUsedStoragePath();
+        }
+        
+        /**
+         * Set module used for cli session.
+         *
+         * @param $name
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function setUsed($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->setUsed($name);
+        }
+        
+        /**
+         * Forget the module used for cli session.
+         *
+         * @static 
+         */ 
+        public static function forgetUsed()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->forgetUsed();
+        }
+        
+        /**
+         * Get module used for cli session.
+         *
+         * @return string 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function getUsedNow()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getUsedNow();
+        }
+        
+        /**
+         * Get laravel filesystem instance.
+         *
+         * @return \Nwidart\Modules\Filesystem 
+         * @static 
+         */ 
+        public static function getFiles()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getFiles();
+        }
+        
+        /**
+         * Get module assets path.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getAssetsPath()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getAssetsPath();
+        }
+        
+        /**
+         * Get asset url from a specific module.
+         *
+         * @param string $asset
+         * @return string 
+         * @throws InvalidAssetPath
+         * @static 
+         */ 
+        public static function asset($asset)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->asset($asset);
+        }
+        
+        /**
+         * Determine whether the given module is activated.
+         *
+         * @param string $name
+         * @return bool 
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function enabled($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->enabled($name);
+        }
+        
+        /**
+         * Determine whether the given module is not activated.
+         *
+         * @param string $name
+         * @return bool 
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function disabled($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->disabled($name);
+        }
+        
+        /**
+         * Enabling a specific module.
+         *
+         * @param string $name
+         * @return void 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function enable($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        $instance->enable($name);
+        }
+        
+        /**
+         * Disabling a specific module.
+         *
+         * @param string $name
+         * @return void 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function disable($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        $instance->disable($name);
+        }
+        
+        /**
+         * Delete a specific module.
+         *
+         * @param string $name
+         * @return bool 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function delete($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->delete($name);
+        }
+        
+        /**
+         * Update dependencies for the specified module.
+         *
+         * @param string $module
+         * @static 
+         */ 
+        public static function update($module)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->update($module);
+        }
+        
+        /**
+         * Install the specified module.
+         *
+         * @param string $name
+         * @param string $version
+         * @param string $type
+         * @param bool $subtree
+         * @return \Symfony\Component\Process\Process 
+         * @static 
+         */ 
+        public static function install($name, $version = 'dev-master', $type = 'composer', $subtree = false)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->install($name, $version, $type, $subtree);
+        }
+        
+        /**
+         * Get stub path.
+         *
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getStubPath()
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getStubPath();
+        }
+        
+        /**
+         * Set stub path.
+         *
+         * @param string $stubPath
+         * @return \Nwidart\Modules\Laravel\LaravelFileRepository 
+         * @static 
+         */ 
+        public static function setStubPath($stubPath)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->setStubPath($stubPath);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        \Nwidart\Modules\Laravel\LaravelFileRepository::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        \Nwidart\Modules\Laravel\LaravelFileRepository::mixin($mixin, $replace);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            //Method inherited from \Nwidart\Modules\FileRepository            
+                        return \Nwidart\Modules\Laravel\LaravelFileRepository::hasMacro($name);
+        }
+         
+    }
+ 
+}
+
 namespace Yajra\DataTables\Facades { 
 
     /**
@@ -15324,6 +16031,8 @@ namespace  {
     class Config extends \Illuminate\Support\Facades\Config {}
 
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
+
+    class Crypt extends \Illuminate\Support\Facades\Crypt {}
 
     class DB extends \Illuminate\Support\Facades\DB {}
 
@@ -15995,7 +16704,7 @@ namespace  {
              * Execute the query and get the first result.
              *
              * @param array $columns
-             * @return \Illuminate\Database\Eloquent\Model|object|null 
+             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
              * @static 
              */ 
             public static function first($columns = array())
@@ -18114,6 +18823,8 @@ namespace  {
     class Flare extends \Facade\Ignition\Facades\Flare {}
 
     class LaravelLocalization extends \Mcamara\LaravelLocalization\Facades\LaravelLocalization {}
+
+    class Module extends \Nwidart\Modules\Facades\Module {}
 
     class DataTables extends \Yajra\DataTables\Facades\DataTables {}
  
