@@ -17,3 +17,13 @@
 <!-- beging::the logo of the cms -->
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 <!-- end::the logo of the cms -->
+
+
+@if($lang=='ar')
+    <link rel="stylesheet" href="{{asset('fonts/J-flat-font/font.css')}}">
+    <style>
+        *{
+            font-family: "JF Flat Regular";
+        }
+    </style>
+@endif

@@ -12,12 +12,24 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     <!-- end::the logo of the cms -->
 
-    <title>Syssr | @yield('title')</title>
- 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">        
+    <title>{{trans('cms.syssr')}} | @yield('title')</title>
 
     <link href="{{ asset('theme/css/pages/login/login-6.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('theme/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    
+
+    @if($lang=='ar')
+
+        <link rel="stylesheet" href="{{asset('fonts/J-flat-font/font.css')}}">
+        <style>
+            *{
+                font-family: "JF Flat Regular";
+            }
+        </style>
+        <link href="{{ asset('theme/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+    @else
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+        <link href="{{ asset('theme/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    @endif
 
 </head>
 <body  class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading"  >
