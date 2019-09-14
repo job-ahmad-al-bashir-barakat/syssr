@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{app()->getLocale()}}">
+<html lang="{{$lang}}" dir="{{$dir}}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,15 +29,6 @@
     </script>
     <script src="{{ asset('theme/vendors/global/jquery/dist/jquery.js') }}" type="text/javascript"></script>
     <script src="{{ asset('theme/vendors/global/sticky-js/dist/sticky.min.js') }}" type="text/javascript"></script>
-    <!-- <script src="{{ asset('theme/vendors/global/popper.js/dist/umd/popper.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('theme/vendors/global/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('theme/vendors/global/js-cookie/src/js.cookie.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('theme/vendors/global/moment/min/moment.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('theme/vendors/global/tooltip.js/dist/umd/tooltip.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('theme/vendors/global/perfect-scrollbar/dist/perfect-scrollbar.js') }}" type="text/javascript"></script>
-    
-    <script src="{{ asset('theme/vendors/global/wnumb/wNumb.js') }}" type="text/javascript"></script> -->
-
     <script src="{{ asset('theme/js/scripts.bundle.js') }}" type="text/javascript"></script>
 
     @yield('js')
