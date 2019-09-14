@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>@yield('title')</title>
+    <title>Syssr | @yield('title')</title>
 
     @include('parts._meta')
     @include('parts._scripts_head')

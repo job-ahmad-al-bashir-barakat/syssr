@@ -1,73 +1,87 @@
-@extends('layouts.app')
+@extends('layouts.auth')
+
+@section('title', 'Login')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <div class="kt-grid kt-grid--ver kt-grid--root">
+		<div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v6 kt-login--signin" id="kt_login">
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+                <div class="kt-grid__item  kt-grid__item--order-tablet-and-mobile-2  kt-grid kt-grid--hor kt-login__aside">
+                    <div class="kt-login__wrapper">
+                        <div class="kt-login__container">
+                            <div class="kt-login__body">
+                                <div class="kt-login__logo">
+                                    <img src="{{asset('logo_icon/logo.png')}}" alt="syssr-logo">
+                                </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                <div class="kt-login__signin">
+                                    <div class="kt-login__head">
+                                        <h3 class="kt-login__title">{{ __('Login To CMS') }}</h3>
+                                    </div>
+                                    <div class="kt-login__form">
+                                        <form method="POST" action="{{ route('login') }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <input id="username" name="username" type="text" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required autocomplete="username" autofocus>
+                                                @error('username')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control form-control-last @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="kt-login__extra">
+                                                <label class="kt-checkbox">
+                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                                    <span></span>
+                                                </label>        
+                                                @if (Route::has('password.request'))
+                                                    <a href="{{ route('password.request') }}">
+                                                        {{ __('Forgot Password?') }}
+                                                    </a>
+                                                @endif                
+                                            </div>
+                                            <div class="kt-login__actions">
+                                                <button type="submit" id="kt_login_signin_submit" class="btn btn-brand btn-pill btn-elevate">{{ __('Login') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                <div class="kt-grid__item kt-grid__item--fluid kt-grid__item--center kt-grid kt-grid--ver kt-login__content" style="background-image: url('{{asset('theme/media//bg/bg-5.jpg')}}');">
+                    <div class="kt-login__section">
+                        <div class="kt-login__block">
+                            <h3 class="kt-login__title">Quote of the day</h3>
+                            <div class="kt-login__desc" id="login-quote">
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>         	
     </div>
-</div>
+
 @endsection
+
+@section('js')
+<script>
+    $(function(){
+        $.get('http://quotes.rest/qod.json',function(res){
+            var quote = res.contents.quotes[0].quote;
+            $('#login-quote').text(quote);
+        });
+    });
+</script>
+@stop
