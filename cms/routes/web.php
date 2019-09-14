@@ -19,6 +19,9 @@ Route::group([
     Route::get('/', function () {
         return view('welcome');
     });
-});
 
+    Route::get('/dashboard', 'IndexController@index')->name('dashboard');
+
+    Auth::routes(['verify' => true, 'register' => false]);
+});
 

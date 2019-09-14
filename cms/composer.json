@@ -12,7 +12,10 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.0",
         "mcamara/laravel-localization": "^1.4",
+        "nwidart/laravel-modules": "^5.1",
+        "spatie/laravel-translatable": "^4.2",
         "yajra/laravel-datatables-oracle": "^9.6"
     },
     "require-dev": {
@@ -38,7 +41,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Modules\\": "Modules/"
         },
         "classmap": [
             "database/seeds",
