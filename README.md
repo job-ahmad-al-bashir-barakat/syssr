@@ -13,6 +13,12 @@
 	- `DB_PASSWORD=`
  5. Also in each folder, execute `php artisan module:migrate`
 
+## Run the project
+ - Run (xampp, wampp or any program for [Apache & MySQL])
+ - Then open the following URLs:
+   - [CMS](http://localhost/MNV/syssr/cms/public/en/login)
+   - [Website](http://localhost/MNV/syssr/website/public/en/login)
+
 ## Steps every pull
 Open in each folder [cms, website] the cmd or terminal and execute the following commands:
  1. execute `Composer update`
