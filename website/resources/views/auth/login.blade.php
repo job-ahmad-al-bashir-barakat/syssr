@@ -54,7 +54,7 @@
                                                 <div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
                                                     <div>
                                                         <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }} required>
-                                                        <label class="brk-form-checkbox-label" for="checkbox-strict-1">Remember Me</label>
+                                                        <label class="brk-form-checkbox-label" for="remember">Remember Me</label>
                                                     </div>
                                                     @if (Route::has('password.request'))
                                                     <div>
