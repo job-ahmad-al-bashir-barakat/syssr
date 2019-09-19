@@ -7,11 +7,11 @@
     - `Composer install`
     - `cp .env.example .env`
     - `php artisan key:generate`
- 4. Open `.env` file and edit the following: 
+ 4. Also in each folder, open `.env` file and edit the following: 
  	- `DB_DATABASE=syssr_db`
 	- `DB_USERNAME=root`
 	- `DB_PASSWORD=`
- 5. execute `php artisan module:migrate`
+ 5. Also in each folder, execute `php artisan module:migrate`
 
 ## Steps every pull
 Open in each folder [cms, website] the cmd or terminal and execute the following commands:
