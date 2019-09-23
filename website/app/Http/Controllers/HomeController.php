@@ -25,4 +25,49 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function about_us()
+    {
+        return view('about_us');
+    }
+
+    public function view_society()
+    {
+        return view('view_society');
+    }
+
+    public function members_society()
+    {
+        return view('members_society');
+    }
+
+    public function join_us()
+    {
+        return view('join_us');
+    }
+
+    public function ads()
+    {
+        return view('ads');
+    }
+
+    public function opportunity_job()
+    {
+        return view('opportunity_job');
+    }
+
+    public function news_members()
+    {
+        return view('news_members');
+    }
+
+    public function workshop()
+    {
+        return view('workshop');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

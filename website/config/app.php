@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // --
+        Packages\Url\Providers\RouteUrlsServiceProvider::class
 
     ],
 
@@ -226,6 +228,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         *  Application Facades
+         */
+        'RouteUrls' => Packages\Url\Facades\RouteUrls::class
     ],
 
 ];

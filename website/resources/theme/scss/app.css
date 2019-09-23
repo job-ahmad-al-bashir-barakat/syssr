@@ -171,3 +171,30 @@
     box-shadow: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
 /* brk-user */
+
+/*custom brk-user*/
+.brk-user__block .brk-user__content .user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 0 20px;
+    border-radius: 50%;
+}
+.brk-user__block .brk-user__content a {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+}
+.brk-user__block .brk-user__content .user-info img {
+    border-radius: 50%;
+    width: 50px;
+}
+.brk-user__block .brk-user__content .user-name {
+    padding: 20px;
+    font: 700 0.9rem "Open Sans";
+}
+.brk-user__block .brk-user__content .user-name span {
+    display: block;
+    color: #7a7a7a;
+    font: 400 0.7rem "Open Sans";
+}
+/*end custom brk-user*/
