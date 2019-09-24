@@ -78,9 +78,6 @@
                             <div class="brk-user__title">User Menu</div>
                         </div>
                         <div class="brk-user__block">
-                            <div class="brk-user__header">
-                                <span class="font__family-montserrat font__weight-bold font__size-18">User Menu</span>
-                            </div>
                             <div class="brk-user__content">
                                 <div class="user-info">
                                     <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="image">
