@@ -14,7 +14,10 @@
         @yield('content')
     </div>
     <footer class="brk-footer position-relative" data-brk-library="component__footer">
-        <div class="brk-footer__wrapper pt-sm-70 pt-40"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_2.jpg" alt="alt" class="brk-abs-img lazyload"> <span class="brk-abs-overlay brk-blue-86-overlay"></span>
+        <div class="brk-footer__wrapper  @if(Route::currentRouteName() == 'home') pt-sm-70 pt-40 @endif">
+            @if(Route::currentRouteName() == 'home')
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_2.jpg" alt="alt" class="brk-abs-img lazyload">
+            <span class="brk-abs-overlay brk-blue-86-overlay"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-6 col-lg-4 order-sm-1 order-2">
@@ -37,6 +40,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="brk-base-bg-6">
                 <div class="container">
                     <div class="d-flex justify-content-sm-between justify-content-center align-items-center flex-wrap pt-20 pb-15">
