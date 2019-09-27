@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('style')
-    <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
+    <style xmlns="">.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
+    <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
 @endsection
 
 @section('content')
@@ -23,20 +24,39 @@
     <h1 class="sr-only">Profile</h1>
     <div class=" bg-cover bg-norepeat bg-position_bottom-center pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
         <div class="container">
-{{--            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1170x478_1.jpg" alt="alt" class="img-fluid mb-50 lazyload">--}}
             <form enctype="multipart/form-data" method="POST">
-                <div class="brk-form brk-form-round" data-brk-library="component__form">
-                    <div class="row">
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">Email</label> <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold">Gender</label>
-                            <select name="select">
-                                <option value="Option 1">Male</option>
-                                <option value="Option 2">Female</option>
-                            </select>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="brk-form brk-form-round" data-brk-library="component__form">
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">Email</label>
+                                <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com" value="{{ $user->email ?? '' }}">
+                            </div>
+
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold">Gender</label>
+                                <select name="gender">
+                                    <option value="M" @if($user->gender == 'M') selected @endif>Male</option>
+                                    <option value="F" @if($user->gender == 'F') selected @endif>Female</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold">Birth date</label>
+                                <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
+                            </div>
                         </div>
-                        <div class="col-md-6"><label class="brk-form-label font__family-montserrat font__weight-bold">Birth date</label> <input id="date-id-round" class="brk-form-date" name="date-round" type="date"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="brk-form p-5" style="width: 70%; margin: 0 auto;">
+                            <div class="slim" id="slim-cropper">
+                                <input type="file" id="avatar" name="avatar">
+                                <img src="{{ asset('custom/img/user-image.png') }}" alt="">
+                            </div>
+                            <div class="text-center mt-2">
+                                <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">Press on image to change file</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="brk-form brk-form-round" data-brk-library="component__form">
@@ -54,4 +74,39 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
+    <script>
+        jQuery(function () {
+            jQuery('#slim-cropper').slim({
+                ratio: '1:1',
+                minSize: {
+                    width: 60,
+                    height: 60,
+                },
+                crop: {
+                    x: 0,
+                    y: 0,
+                    width: 1000,
+                    height: 1000
+                },
+                service: 'upload-async.php',
+                download: false,
+                willSave: function(data, ready) {
+                    alert('saving!');
+                    ready(data);
+                },
+                label: 'Drop your personal image here.',
+                buttonConfirmLabel: 'Ok',
+                meta: {
+                    userId:'1234'
+                }
+            });
+            jQuery.get('http://127.0.0.1:8001/members', function () {
+
+            })
+        });
+    </script>
 @endsection

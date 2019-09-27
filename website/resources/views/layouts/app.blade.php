@@ -44,8 +44,12 @@
             <div class="brk-base-bg-6">
                 <div class="container">
                     <div class="d-flex justify-content-sm-between justify-content-center align-items-center flex-wrap pt-20 pb-15">
-                        <p class="brk-white-font-color font__family-open-sans font__size-14">&#xA9; 2018 <span class="font__weight-bold">Berserk</span> All rights reserved</p>
-                        <div class="brk-social-links brk-white-font-color font__size-12" data-brk-library="component__social_links"><a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-instagram"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-google-plus-g"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vimeo"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vk"></i></a></div>
+                        <p class="brk-white-font-color font__family-open-sans font__size-14">&#xA9; {{ date('Y') }} <span class="font__weight-bold">SySSR</span> All rights reserved</p>
+                        <div class="brk-social-links brk-white-font-color font__size-12" data-brk-library="component__social_links">
+                            <a href="#" class="brk-social-links__item"><i class="fab fa-facebook"></i> </a>
+                            <a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a>
+                            <a href="#" class="brk-social-links__item"><i class="fab fa-linkedin"></i> </a>
+                        </div>
                     </div>
                 </div>
             </div>

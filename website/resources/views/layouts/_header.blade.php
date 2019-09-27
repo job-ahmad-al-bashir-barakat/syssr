@@ -46,15 +46,22 @@
                 <div class="col-lg-2 align-self-lg-center d-none d-lg-block">
                     <div class="text-center">
                         <a href="/" class="brk-header__logo brk-header__item @@modifier" style="width: 110px;">
-                            <img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
-                            <img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
+                            <img class="brk-header__logo-1 lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
+                            <img class="brk-header__logo-2 lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-5 align-self-lg-stretch text-lg-right">
                     <div class="brk-header__title font__family-montserrat font__weight-bold">Menu Extra</div>
                     <div class="brk-call-us brk-header__item"><a href="tel:88001234567" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i> 8 800 12 34 567</a> <a href="tel:88001234567" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a></div>
-                    <div class="brk-lang brk-header__item"><span class="brk-lang__selected">EN <i class="fa fa-caret-down" aria-hidden="true"></i></span> <span class="brk-lang__open"><i class="fa fa-language"></i> Language <span class="brk-lang__active-lang text-white brk-bg-primary">US</span></span>
+                    <div class="brk-lang brk-header__item">
+                        <span class="brk-lang__selected">EN
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </span>
+                        <span class="brk-lang__open">
+                            <i class="fa fa-language"></i> Language
+                            <span class="brk-lang__active-lang text-white brk-bg-primary">US</span>
+                        </span>
                         <ul class="brk-lang__option">
                             <li><a href="#">EN</a></li>
                             <li><a href="#">AR</a></li>
@@ -80,22 +87,22 @@
                         <div class="brk-user__block">
                             <div class="brk-user__content">
                                 <div class="user-info">
-                                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="image">
-                                    <div class="user-name">
-                                        @Ahmad
-                                        <span>Full Stack Dev</span>
+                                    <img src="{{ asset('custom/img/user-image.png') }}" alt="image">
+                                    <div class="user-info-wrapper">
+                                        <div class="user-name">
+                                            <span>@Ahmad Al Bashir</span>
+                                        </div>
+                                        <div class="user-links">
+                                            <a href="{{ RouteUrls::profile() }}">Profile</a>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                                <div><a href="{{ RouteUrls::profile() }}">Profile</a></div>
-                                <div>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                 </div>
                             </div>
                         </div>
