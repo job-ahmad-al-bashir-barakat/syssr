@@ -1,7 +1,6 @@
 
 <!--begin::Global Theme Styles(used by all pages) -->
 <link href="{{ asset('theme/vendors/global/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('theme/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 
 <!--end::Global Theme Styles -->
 
@@ -26,4 +25,8 @@
             font-family: "JF Flat Regular";
         }
     </style>
+    <link href="{{ asset('theme/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+@else
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+    <link href="{{ asset('theme/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 @endif

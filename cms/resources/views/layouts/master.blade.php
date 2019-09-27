@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{$lang}}" dir="{{$dir}}">
 <head>
     <title>Syssr | @yield('title')</title>
 
@@ -35,6 +35,10 @@
                 </div>
 
                 @include('parts._footer')
+
+                <div id="kt_scrolltop" class="kt-scrolltop">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
 
             </div>
         </div>
