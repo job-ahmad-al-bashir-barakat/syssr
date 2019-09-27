@@ -15,7 +15,7 @@
  	- `DB_DATABASE=syssr_db`
 	- `DB_USERNAME=root`
 	- `DB_PASSWORD=`
- 5. Execute in [cms] folder by (cmd or terminal) the command  `php artisan module:migrate:refresh`
+ 5. Execute in [cms] folder by (cmd or terminal) the command  `php artisan module:migrate`
  5. Execute in [website] folder by (cmd or terminal) the command  `php artisan migrate`
 
 ## Run the project
