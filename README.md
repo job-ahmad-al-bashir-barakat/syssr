@@ -30,7 +30,7 @@ Open in each folder [cms, website] the cmd or terminal and execute the following
    - `php artisan module:migrate-refresh`
    - `Composer update`
  2. Execute in [website] folder by (cmd or terminal) the commands:
-   - `php artisan migrate`
+   - `php artisan migrate:refresh`
    - `Composer update`
 
 ## CMS login info
