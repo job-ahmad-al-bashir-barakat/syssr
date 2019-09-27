@@ -20,4 +20,26 @@ return [
     'remember_me'               =>      'Remember Me',
     'forgot_password'           =>      'Forgot Password?',
 //-----------------------------------------------------------------------//
+//---------------------aside-----------------------//
+//-----------------------------------------------------------------------//
+    'modules'                   =>      'Modules',
+    'users'                     =>      'Users',
+    'all_users'                 =>      'All Users',
+    'new_user'                  =>      'New User',
+    'members'                   =>      'Members',
+    'all_members'               =>      'All Members',
+    'new_member'                =>      'New Member',
+    'permissions_roles'         =>      'Permissions & Roles',
+    'permissions'               =>      'Permissions',
+    'roles'                     =>      'Roles',
+    'settings'                  =>      'Settings',
+    'lang_vars'                 =>      'Language Vars',
+    'logos'                     =>      'Logos',
+//-----------------------------------------------------------------------//
+//---------------------header-----------------------//
+//-----------------------------------------------------------------------//
+    'hi'                        =>      'Hi',
+    'profile'                   =>      'Profile',
+    'logout'                    =>      'Logout',
+//-----------------------------------------------------------------------//
 ];
