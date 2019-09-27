@@ -1,5 +1,9 @@
 # syssr
 
+## Prerequisites to run the project
+ 1. `PHP 7.3.9` (for back-end) & `MySQL` (for database), you can download any program (xampp, wampp, laragon ...) can provide that or this direct link for [xampp](https://www.apachefriends.org/download.html)
+ 2. [Composer](https://getcomposer.org/) for running some commands later
+
 ## First Pull
  1. Create database with the name `syssr_db`
  2. Install on your machine [Composer](https://getcomposer.org/) if not exist.
