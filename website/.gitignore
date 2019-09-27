@@ -11,6 +11,7 @@ _ide_helper_models.php
 .env
 .env.backup
 .phpunit.result.cache
+.phpstorm.meta.php
 Homestead.json
 Homestead.yaml
 npm-debug.log
