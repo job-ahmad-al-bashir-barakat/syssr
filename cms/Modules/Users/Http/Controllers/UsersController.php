@@ -92,7 +92,7 @@ class UsersController extends Controller
         ->addColumn('full_name',function ($col){
             return $col->first_name.' '.$col->last_name;
         })->addColumn('verified',function ($col){
-            return $col->email_verified_at ? true:false;
+            return $col->email_verified_at ? 'Y':'N';
         })->make(true);
     }
 //----------------------------------------------------------------------//

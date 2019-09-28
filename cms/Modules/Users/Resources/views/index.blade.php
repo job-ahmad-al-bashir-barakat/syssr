@@ -88,10 +88,37 @@
 				textAlign: 'center',
                 }, {
                     field: "full_name",title: "{{trans('users::main.full_name')}}",width: 200,
+                    template: function(data, i) {
+                        var stateNo = KTUtil.getRandomInt(0, 6);
+						var states = ['success','brand','danger','success','warning','primary','info'];
+						var state = states[stateNo];
+
+						var output = '<div class="kt-user-card-v2">\
+								<div class="kt-user-card-v2__pic">\
+									<div class="kt-badge kt-badge--xl kt-badge--' + state + '">' + data.full_name.substring(0, 1) + '</div>\
+								</div>\
+								<div class="kt-user-card-v2__details">\
+									<a href="#" class="kt-user-card-v2__name">' + data.full_name + '</a>\
+									<span class="kt-user-card-v2__desc">user role</span>\
+								</div>\
+							</div>';
+
+                        return output;
+                    }
                 }, {
-                    field: "username",title: "{{trans('users::main.username')}}",width: 200,
+                    field: "username",title: "{{trans('users::main.username')}}",width: 125,
                 }, {
-                    field: "email",title: "{{trans('users::main.email')}}",width: 200,
+                    field: "email",title: "{{trans('users::main.email')}}",width: 150,
+                }, {
+                    field: "verified",title: "{{trans('users::main.verified')}}",width: 100,textAlign: 'center',
+                    template: function(data) {
+                        var status = {
+                            'Y': {'title': '{{trans('cms.yes')}}', 'state': 'success'},
+                            'N': {'title': '{{trans('cms.no')}}', 'state': 'danger'},
+                        };
+                        return '<span class="kt-badge kt-badge--' + status[data.verified].state + ' kt-badge--dot"></span>&nbsp;<span class="kt-font-bold kt-font-' + status[data.verified].state + '">' +
+                                status[data.verified].title + '</span>';
+                    },
                 }, {
                     field: "Actions",width: 80,title: "{{trans('cms.actions')}}",sortable: false,autoHide: false,overflow: 'visible',
                     template: function() {
