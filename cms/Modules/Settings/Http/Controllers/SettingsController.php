@@ -5,75 +5,36 @@ namespace Modules\Settings\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
-class SettingsController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
-    public function index()
-    {
-        return view('settings::index');
+class SettingsController extends Controller{
+    public $notAllowedLang = [];
+//----------------------------------------------------------------------//
+    public function __construct(){
+        $this->middleware(['auth','verified']);
+        $this->notAllowedLang = ['auth','datatable','validation','pagination'];
     }
+//----------------------------------------------------------------------//
+    public function lang_vars(){
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('settings::create');
-    }
+        array_push($this->notAllowedLang,'meta');
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $files = File::allFiles(resource_path("lang/ar"));
+        $filesArr = [];
+        foreach($files as $file){
+            $filename = basename($file,'.php');
+            if(!in_array($filename,$this->notAllowedLang)) {
+                $tmpArr = [
+                    'filename'  => $filename,
+                    'ar'        => trans($filename, [], 'ar'),
+                    'en'        => trans($filename, [], 'en')
+                ];
+                array_push($filesArr, $tmpArr);
+            }
+        }
+        // dd($filesArr);
+        return view('settings::lang_vars',compact('filesArr'));
     }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('settings::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('settings::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+//----------------------------------------------------------------------//
 }

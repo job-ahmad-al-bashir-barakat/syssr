@@ -133,8 +133,8 @@
                     <h4 class="kt-menu__section-text"><i class="fa fa-cogs"></i>&nbsp;{{trans('cms.settings')}}</h4>
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
-                <li class="kt-menu__item " aria-haspopup="true">
-                    <a href="custom/apps/inbox.html" class="kt-menu__link ">
+                <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@lang_vars') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                    <a href="{{url('settings/lang-vars')}}" class="kt-menu__link ">
                         <span class="kt-menu__link-icon"><i class="fa fa-language"></i></span>
                         <span class="kt-menu__link-text">{{trans('cms.lang_vars')}}</span>
                     </a>
