@@ -27,3 +27,5 @@
 <script src="{{ asset('theme/js/scripts.bundle.js') }}" type="text/javascript"></script>
 
 <!--end::Global Theme Bundle -->
+
+<script src="{{ asset('js/main.js') }}" type="text/javascript"></script>

@@ -11,6 +11,19 @@
 |
 */
 
-Route::prefix('users')->group(function() {
-    Route::get('/', 'UsersController@index');
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
+], function() {
+   
+    Route::prefix('users')->group(function() {
+        
+        Route::resource('/', 'UsersController');
+        Route::get('/getDatatableUsers', [
+            'as' => 'getDatatableUsers.data', 'uses' => 'UsersController@getDatatableUsers',
+        ]);
+
+    });
+
 });

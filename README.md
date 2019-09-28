@@ -15,7 +15,8 @@
  	- `DB_DATABASE=syssr_db`
 	- `DB_USERNAME=root`
 	- `DB_PASSWORD=`
- 5. Also in each folder, execute `php artisan module:migrate`
+ 5. Execute in [cms] folder by (cmd or terminal) the command  `php artisan module:migrate`
+ 5. Execute in [website] folder by (cmd or terminal) the command  `php artisan migrate`
 
 ## Run the project
  - Run (xampp, wampp or any program for [Apache & MySQL])
@@ -25,8 +26,12 @@
 
 ## Steps every pull
 Open in each folder [cms, website] the cmd or terminal and execute the following commands:
- 1. execute `Composer update`
- 2. execute `php artisan module:migrate`
+ 1. Execute in [cms] folder by (cmd or terminal) the commands: 
+   - `php artisan module:migrate-refresh`
+   - `Composer update`
+ 2. Execute in [website] folder by (cmd or terminal) the commands:
+   - `php artisan migrate:refresh`
+   - `Composer update`
 
 ## CMS login info
  - Username: **admin**

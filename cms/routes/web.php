@@ -16,11 +16,12 @@ Route::group([
     'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
 ], function()
 {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
 
-    Route::get('/dashboard', 'IndexController@index')->name('dashboard');
+    Route::get('/', 'IndexController@index')->name('dashboard');
+    // Route::get('/dashboard', 'IndexController@index')->name('dashboard');
 
     Auth::routes(['verify' => true, 'register' => false]);
 });

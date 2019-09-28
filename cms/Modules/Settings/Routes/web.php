@@ -11,6 +11,15 @@
 |
 */
 
-Route::prefix('settings')->group(function() {
-    Route::get('/', 'SettingsController@index');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
+], function() {
+   
+    Route::prefix('settings')->group(function() {
+        
+        Route::get('/lang-vars', 'SettingsController@lang_vars');
+
+    });
+
 });
