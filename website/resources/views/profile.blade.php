@@ -24,26 +24,37 @@
     <h1 class="sr-only">Profile</h1>
     <div class=" bg-cover bg-norepeat bg-position_bottom-center pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
         <div class="container">
-            <form enctype="multipart/form-data" method="POST">
+            <form id="form-profile" enctype="multipart/form-data" method="POST" data-parsley-validate>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="brk-form brk-form-round" data-brk-library="component__form">
+
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">
+                                    User Name
+                                    <div id="username-error" class="d-inline-block text-danger float-right"></div>
+                                </label>
+                                <input id="brk-username-form" name="username" type="text" placeholder="Username" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
+                            </div>
+
                             <div class="mb-50">
                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">Email</label>
-                                <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com" value="{{ $user->email ?? '' }}">
+                                <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com" value="{{ $user->email ?? '' }}" required>
                             </div>
 
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold">Gender</label>
-                                <select name="gender">
-                                    <option value="M" @if($user->gender == 'M') selected @endif>Male</option>
-                                    <option value="F" @if($user->gender == 'F') selected @endif>Female</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold">Birth date</label>
-                                <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-50">
+                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">First Name</label>
+                                        <input id="brk-firstname-form" name="firstname" type="text" placeholder="First Name" value="{{ $user->first_name ?? '' }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-50">
+                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">Last Name</label>
+                                        <input id="brk-lastname-form" name="lastname" type="text" placeholder="Last Name" value="{{ $user->last_name ?? '' }}" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,15 +72,39 @@
                 </div>
                 <div class="brk-form brk-form-round" data-brk-library="component__form">
                     <div class="row">
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">Old Password</label> <input id="brk-pass-form" name="password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
+                        <div class="col-md-6">
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="gender">Gender</label>
+                                <select id="gender" name="gender">
+                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option value="M" @if($user->gender == 'M') selected @endif>Male</option>
+                                    <option value="F" @if($user->gender == 'F') selected @endif>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-50">
+                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">Birth date</label>
+                                <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brk-form brk-form-round" data-brk-library="component__form">
+                    <div class="row">
+                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-old-pass-form">Old Password</label> <input id="brk-old-pass-form" name="old_password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">New Password</label> <input id="brk-pass-form" name="password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">Confirm Password</label> <input id="brk-pass-form" name="password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
+                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-pass-form">New Password</label> <input id="brk-new-pass-form" name="new_password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
+                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-confirm-pass-form">Confirm Password</label> <input id="brk-new-confirm-pass-form" name="new_password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
                     </div>
                 </div>
                 <div class="text-center pt-70">
-                    <a href="#" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-25 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button"><span class="before">Save</span><span class="text">Click Me</span><span class="after">Save</span></a>
+                    <button type="submit" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-25 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
+                        <span class="before">Save</span>
+                        <span class="text">Click Me</span>
+                        <span class="after">Save</span>
+                    </button>
                 </div>
             </form>
         </div>
@@ -77,6 +112,7 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
     <script>
         jQuery(function () {
@@ -107,6 +143,16 @@
             jQuery.get('http://127.0.0.1:8001/members', function () {
 
             })
+            jQuery('#form-profile').parsley({
+                errorsContainer: function(parsleyField) {
+                    console.log(parsleyField);
+                    return parsleyField;
+                }
+            }).on('field:validated', function() {
+
+            }).on('form:submit', function() {
+                    return false; // Don't submit form for this demo
+            });
         });
     </script>
 @endsection

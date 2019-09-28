@@ -1,14 +1,13 @@
 <?php
 
-namespace App;
+namespace Modules\Members\Entities;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Member extends Authenticatable
+class Member extends Model
 {
-    use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +15,7 @@ class Member extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'first_name', 'last_name', 'email', 'password'
+        'username', 'first_name', 'last_name', 'email', 'password','birth_date', 'gender', 'avatar'
     ];
 
     /**
@@ -34,6 +33,7 @@ class Member extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'birth_date'        => 'date',
         'email_verified_at' => 'datetime',
     ];
 }

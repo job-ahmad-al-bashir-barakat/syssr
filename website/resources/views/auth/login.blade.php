@@ -27,52 +27,67 @@
                             <div class="full-screen d-flex align-items-center pt-30 pb-30 pt-lg-0 pb-lg-0">
                                 <div class="container-fluid">
                                     <div class="row justify-content-lg-start justify-content-center">
-                                        <div class="col-lg-2 d-none d-lg-block"></div>
-                                        <div class="col-12 col-lg-10">
+                                        <div class="col-12 offset-lg-2 col-md-10 offset-md-1">
                                             <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">
                                                 LOGIN</h1>
                                             <form method="POST" action="{{ route('login') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
                                                   data-brk-library="component__form">
                                                 @csrf
 
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="E-Mail Address" required autocomplete="email" autofocus>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="E-Mail Address" required autocomplete="email" autofocus>
 
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
-
-                                                @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-
-                                                <div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
-                                                    <div>
-                                                        <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }} required>
-                                                        <label class="brk-form-checkbox-label" for="remember">Remember Me</label>
+                                                        @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
                                                     </div>
-                                                    @if (Route::has('password.request'))
-                                                    <div>
-                                                        <a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ route('password.request') }}">Forgot password?</a>
-                                                    </div>
-                                                    @endif
-
                                                 </div>
-                                                <div class="d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
-                                                    <button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
-                                                            data-brk-library="component__button"><span class="text">Login Now</span>
-                                                        <span class="before"><i
-                                                                    class="far fa-hand-point-right"></i></span></button>
-                                                    <a href="{{ route('register') }}"
-                                                       class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
-                                                       data-brk-library="component__button"><span
-                                                                class="text">Sign up</span> <span class="before"><i
-                                                                    class="fas fa-user"></i></span></a></div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
+
+                                                        @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
+                                                            <div>
+                                                                <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }} required>
+                                                                <label class="brk-form-checkbox-label" for="remember">Remember Me</label>
+                                                            </div>
+                                                            @if (Route::has('password.request'))
+                                                            <div>
+                                                                <a class="font__size-14 line__height-24 brk-base-font-color text-decoration_underline" href="{{ route('password.request') }}">Forgot password?</a>
+                                                            </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
+                                                            <button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
+                                                                    data-brk-library="component__button"><span class="text">Login Now</span>
+                                                                <span class="before"><i
+                                                                        class="far fa-hand-point-right"></i></span></button>
+                                                            <a href="{{ route('register') }}"
+                                                               class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
+                                                               data-brk-library="component__button"><span
+                                                                    class="text">REGISTER</span> <span class="before"><i
+                                                                        class="fas fa-user"></i></span></a></div>
+                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

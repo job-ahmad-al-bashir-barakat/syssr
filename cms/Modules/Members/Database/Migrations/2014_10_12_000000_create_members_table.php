@@ -26,6 +26,7 @@ class CreateMembersTable extends Migration
             $table->string('avatar',255)->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

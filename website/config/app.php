@@ -175,8 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // --
-        Packages\Url\Providers\RouteUrlsServiceProvider::class
-
+        Packages\Url\Providers\RouteUrlsServiceProvider::class,
+        Packages\Api\Providers\ApiServiceProvider::class
     ],
 
     /*
@@ -231,7 +231,8 @@ return [
         /*
          *  Application Facades
          */
-        'RouteUrls' => Packages\Url\Facades\RouteUrls::class
+        'RouteUrls' => Packages\Url\Facades\RouteUrls::class,
+        'Api' => Packages\Api\Facades\Api::class
     ],
 
 ];
