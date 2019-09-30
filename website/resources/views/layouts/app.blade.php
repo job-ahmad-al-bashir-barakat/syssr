@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html class="brk-preloader" lang="en" data-brk-skin="brk-gray-yellow.css">
+@extends('layouts.shared')
 
-@include('layouts._head')
-
-<body>
+@section('shared')
 <div class="main-page">
     <div class="brk-header-mobile">
         <div class="brk-header-mobile__open brk-header-mobile__open_white"><span></span></div>
@@ -56,9 +53,4 @@
         </div>
     </footer>
 </div>
-<a href="#top" id="toTop"></a>
-<script src="{{ asset('js/scripts.min.js') }}"></script>
-@yield('script')
-</body>
-
-</html>
+@endsection

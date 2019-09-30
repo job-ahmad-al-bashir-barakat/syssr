@@ -9,8 +9,10 @@ class Api
         $this->request = new Request();
     }
 
-    function members()
+    function member()
     {
-        return $this->request->get('members');
+        $id = \Auth::id();
+
+        return $this->request->get("member/{$id}");
     }
 }

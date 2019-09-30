@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-
+@section('title',trans('app.title_login'))
 @section('content')
     <div class="main-wrapper">
         <main class="main-container">
@@ -27,7 +27,7 @@
                             <div class="full-screen d-flex align-items-center pt-30 pb-30 pt-lg-0 pb-lg-0">
                                 <div class="container-fluid">
                                     <div class="row justify-content-lg-start justify-content-center">
-                                        <div class="col-12 offset-lg-2 col-md-10 offset-md-1">
+                                        <div class="col-12 col-md-10 m-auto">
                                             <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">
                                                 LOGIN</h1>
                                             <form method="POST" action="{{ route('login') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
@@ -62,7 +62,7 @@
                                                     <div class="col-12">
                                                         <div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
                                                             <div>
-                                                                <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }} required>
+                                                                <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                                 <label class="brk-form-checkbox-label" for="remember">Remember Me</label>
                                                             </div>
                                                             @if (Route::has('password.request'))

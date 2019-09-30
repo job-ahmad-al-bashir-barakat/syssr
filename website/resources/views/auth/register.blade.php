@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-
+@section('title',trans('app.title_register'))
 @section('content')
     <div class="main-wrapper">
         <main class="main-container">
@@ -25,11 +25,11 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-7 order-1 order-lg-2">
+                        <div class="col-12 col-lg-7">
                             <div class="full-screen d-flex align-items-center">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-12 offset-lg-2 col-md-10 offset-md-1">
+                                        <div class="col-12 col-md-10 m-auto">
                                             <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">REGISTER</h1>
                                             <form method="POST" action="{{ route('register') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
                                                 @csrf
@@ -38,7 +38,7 @@
                                                     <div class="col-12">
                                                         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="Username" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                         @error('name')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                         @enderror
@@ -49,7 +49,7 @@
                                                     <div class="col-12">
                                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="E-Mail Address" value="{{ old('email') }}" required autocomplete="email">
                                                         @error('email')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                         @enderror
@@ -60,7 +60,7 @@
                                                     <div class="col-6">
                                                         <input id="fname" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="First Name" value="{{ old('first_name') }}" required autocomplete="first_name">
                                                         @error('first_name')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                         @enderror
@@ -68,7 +68,7 @@
                                                     <div class="col-6">
                                                         <input id="lname" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="Last Name" value="{{ old('last_name') }}" required autocomplete="last_name">
                                                         @error('last_name')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                         @enderror
@@ -79,7 +79,7 @@
                                                     <div class="col-6">
                                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="password" required autocomplete="new-password">
                                                         @error('password')
-                                                        <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                         @enderror

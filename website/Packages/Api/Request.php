@@ -4,42 +4,47 @@ namespace Packages\Api;
 
 class Request
 {
-    protected $base_url;
+    protected $client;
+
+    protected $request_header;
 
     public function __construct()
     {
-        $this->base_url = config('api.base_url');
+        $token = \Auth::user()->getAttribute('api_token');
+        $this->client = new \GuzzleHttp\Client(['base_uri' => config('api.base_url')]);
+        $this->request_header = [
+            'headers' => [
+                'Authorization' => 'Bearer '.$token,
+                'Accept' => 'application/json',
+            ]
+        ];
     }
 
-    public function get($url = '')
+    public function get($url = '', $data = [])
     {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->get("{$this->base_url}{$url}");
+        $request = $this->client->get($url,  array_merge($this->request_header, $data));
         $response = $request->getBody()->getContents();
-        return $response;
+        return json_decode($response);
     }
 
     public function post($url = '', $data = [])
     {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->post("{$this->base_url}{$url}",  ['body'=> $data ]);
+        $request = $this->client->post($url,  array_merge($this->request_header, $data));
         $response = $request->send();
-        return $response;
+        return  json_decode($response);
     }
 
     public function put($url = '', $data = [])
     {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->put("{$this->base_url}{$url}",  ['body' => $data]);
+        $request = $this->client->put($url,  array_merge($this->request_header, $data));
         $response = $request->send();
-        return $response;
+        return json_decode($response);
     }
 
     public function delete($url = '', $data = [])
     {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->delete("{$this->base_url}{$url}",  ['body' => $data]);
+        $request = $this->client->delete($url,  array_merge($this->request_header, $data));
         $response = $request->send();
-        return $response;
+        return json_decode($response);
     }
 }

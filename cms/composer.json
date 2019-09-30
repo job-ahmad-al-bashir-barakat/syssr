@@ -19,6 +19,7 @@
         "yajra/laravel-datatables-oracle": "^9.6"
     },
     "require-dev": {
+        "barryvdh/laravel-cors": "^0.11.4",
         "barryvdh/laravel-ide-helper": "^2.6",
         "doctrine/dbal": "^2.9",
         "facade/ignition": "^1.4",

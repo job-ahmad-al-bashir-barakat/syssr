@@ -30,29 +30,30 @@
                         <div class="brk-form brk-form-round" data-brk-library="component__form">
 
                             <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">
-                                    User Name
-                                    <div id="username-error" class="d-inline-block text-danger float-right"></div>
-                                </label>
+                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">User Name</label>
                                 <input id="brk-username-form" name="username" type="text" placeholder="Username" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
+                                <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
                             </div>
 
                             <div class="mb-50">
                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">Email</label>
-                                <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com" value="{{ $user->email ?? '' }}" required>
+                                <input id="brk-email-form" name="email" type="email" placeholder="enter-your@mail.com" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error">
+                                <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-50">
                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">First Name</label>
-                                        <input id="brk-firstname-form" name="firstname" type="text" placeholder="First Name" value="{{ $user->first_name ?? '' }}" required>
+                                        <input id="brk-firstname-form" name="firstname" type="text" placeholder="First Name" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
+                                        <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-50">
                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">Last Name</label>
-                                        <input id="brk-lastname-form" name="lastname" type="text" placeholder="Last Name" value="{{ $user->last_name ?? '' }}" required>
+                                        <input id="brk-lastname-form" name="lastname" type="text" placeholder="Last Name" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
+                                        <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +96,15 @@
                         <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-old-pass-form">Old Password</label> <input id="brk-old-pass-form" name="old_password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-pass-form">New Password</label> <input id="brk-new-pass-form" name="new_password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
-                        <div class="col-md-6 mb-50"><label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-confirm-pass-form">Confirm Password</label> <input id="brk-new-confirm-pass-form" name="new_password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;"></div>
+                        <div class="col-md-6 mb-50">
+                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-pass-form">New Password</label>
+                            <input id="brk-new-pass-form" name="new_password" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                        </div>
+                        <div class="col-md-6 mb-50">
+                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-new-confirm-pass-form">Confirm Password</label>
+                            <input id="brk-new-confirm-pass-form" name="new_password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" data-parsley-equalto="#brk-new-pass-form" data-parsley-errors-container="#confirm-pass-error">
+                            <div id="confirm-pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="text-center pt-70">
@@ -116,6 +124,9 @@
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
     <script>
         jQuery(function () {
+            var api_token = jQuery('meta[name="api-token"]').attr('content');
+            var api_url = "{{ config('api.base_url') }}";
+
             jQuery('#slim-cropper').slim({
                 ratio: '1:1',
                 minSize: {
@@ -140,18 +151,23 @@
                     userId:'1234'
                 }
             });
-            jQuery.get('http://127.0.0.1:8001/members', function () {
-
-            })
-            jQuery('#form-profile').parsley({
-                errorsContainer: function(parsleyField) {
-                    console.log(parsleyField);
-                    return parsleyField;
-                }
-            }).on('field:validated', function() {
-
-            }).on('form:submit', function() {
-                    return false; // Don't submit form for this demo
+            // jQuery.ajaxSetup({
+            //     beforeSend: function (xhr)
+            //     {
+            //         xhr.setRequestHeader("Accept","application/json");
+            //         xhr.setRequestHeader("Authorization",'Bearer ' + api_token);
+            //     }
+            // });
+            jQuery('#form-profile').parsley().on('form:submit', function() {
+                jQuery.ajax({
+                    url: api_url + 'member',
+                    data: {api_token: api_token},
+                    type: "POST",
+                    // crossDomain: true,
+                    success: function() { alert("Success"); },
+                    error: function() { alert('Failed!'); },
+                });
+                return false;
             });
         });
     </script>

@@ -15,6 +15,12 @@
  	- `DB_DATABASE=syssr_db`
 	- `DB_USERNAME=root`
 	- `DB_PASSWORD=`
+
+ 4-2 - open `.env` on [cms] file and edit the following (this only for dev): 
+    - `API_ALLOW_CORS to your domain [website] url http://localhost:8000 this will allow you to make post,put,delete on localhost`
+ 4-2 - open `.env` on [website] file and edit the following: 
+    - `API_URL to your domain api url http://domain.com/api`
+
  5. Execute in [cms] folder by (cmd or terminal) the command  `php artisan module:migrate`
  5. Execute in [website] folder by (cmd or terminal) the command  `php artisan migrate`
 
@@ -31,8 +37,13 @@ Open in each folder [cms, website] the cmd or terminal and execute the following
    - `Composer update`
  2. Execute in [website] folder by (cmd or terminal) the commands:
    - `php artisan migrate:refresh`
-   - `Composer update`
-
+   - `Composer update with Composer dump-autoload`
+   - `php artisan run dev`
+   
 ## CMS login info
  - Username: **admin**
  - Password: **admin**
+
+## For Dev: this step is required for assets to work on localhost
+ - Execute in [cms] folder by (cmd or terminal) the command  `php artisan serve`
+ - Execute in [website] folder by (cmd or terminal) the command  `php artisan serve`
