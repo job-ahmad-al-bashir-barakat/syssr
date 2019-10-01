@@ -12,10 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->get('/member/{id}', function (Request $request, $id) {
-    return \Modules\Members\Entities\Member::findOrFail($id);
-});
 
-Route::middleware('auth:api')->post('/member', function (Request $request) {
-    return  Response::json(['data' => $request->input()]);
-});
+Route::middleware('auth:api')->post('upload/avatar', 'AvatarController@upload');
+

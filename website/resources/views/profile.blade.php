@@ -125,6 +125,7 @@
     <script>
         jQuery(function () {
             var api_token = jQuery('meta[name="api-token"]').attr('content');
+            var csrf_token = jQuery('meta[name="csrf-token"]').attr('content');
             var api_url = "{{ config('api.base_url') }}";
 
             jQuery('#slim-cropper').slim({
@@ -139,7 +140,7 @@
                     width: 1000,
                     height: 1000
                 },
-                service: 'upload-async.php',
+                service: api_url + 'upload/avatar',
                 download: false,
                 willSave: function(data, ready) {
                     alert('saving!');
@@ -151,19 +152,32 @@
                     userId:'1234'
                 }
             });
-            // jQuery.ajaxSetup({
-            //     beforeSend: function (xhr)
-            //     {
-            //         xhr.setRequestHeader("Accept","application/json");
-            //         xhr.setRequestHeader("Authorization",'Bearer ' + api_token);
-            //     }
-            // });
+            jQuery.ajaxSetup({
+                data: {
+                    api_token: api_token
+                },
+                headers: {
+                    // 'X-CSRF-TOKEN': csrf_token,
+                    // 'Authorization': 'Bearer ' + api_token,
+                    // 'Accept': 'application/json'
+                }
+            });
+            // add FormData api_token
+            jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+                if (originalOptions.data instanceof FormData) {
+                    originalOptions.data.append('api_token', api_token);
+                }
+            });
             jQuery('#form-profile').parsley().on('form:submit', function() {
+                var form = jQuery('#form-profile')[0];
+                var formData = new FormData(form);
+
                 jQuery.ajax({
                     url: api_url + 'member',
-                    data: {api_token: api_token},
+                    data: formData,
                     type: "POST",
-                    // crossDomain: true,
+                    contentType: false,
+                    processData: false,
                     success: function() { alert("Success"); },
                     error: function() { alert('Failed!'); },
                 });
