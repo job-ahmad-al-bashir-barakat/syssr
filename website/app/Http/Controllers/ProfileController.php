@@ -23,7 +23,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = \Api::members();
+        $user = \Api::member();
 
         return view('profile',compact('user'));
     }

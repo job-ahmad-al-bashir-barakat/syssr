@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'base_url' => 'http://127.0.0.1:8001/api/'
+    'base_url' => env('API_URL', 'http://localhost:80/api/')
 ];

@@ -1,8 +1,9 @@
 <head>
-    <title>{{ trans('app.title') }}</title>
+    <title>@yield('title',trans('app.title_main')){{ trans('app.title_org') }}</title>
     <base href="{{ url('/') }}">
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="api-token" content="@if(\Auth::check()){{ \Auth::user()->getAttribute('api_token') }}@endif">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta name="theme-color" content="#2775FF">

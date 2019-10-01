@@ -40,6 +40,9 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+
+            // Package Middleware
+            \Barryvdh\Cors\HandleCors::class,
         ],
     ];
 
