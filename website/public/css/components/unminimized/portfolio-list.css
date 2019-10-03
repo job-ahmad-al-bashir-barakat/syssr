@@ -13,14 +13,9 @@
     position: relative;
     height: 318px;
     max-width: none;
-    width: -webkit-calc(100% + 50px);
     width: calc(100% + 50px);
     opacity: 0.95;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
-    -webkit-transform: translateX(-40px);
     transform: translateX(-40px);
     -o-object-fit: cover;
        object-fit: cover; }
@@ -28,21 +23,14 @@
       .brk-ic-left-slide__img {
         height: auto; } }
   .brk-ic-left-slide:hover .brk-ic-left-slide__img {
-    -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1; }
   .brk-ic-left-slide__wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: -webkit-calc(100% - 80px);
     width: calc(100% - 80px);
     padding: 0 29px 26px 25px;
     z-index: 2; }
@@ -58,12 +46,11 @@
       width: auto;
       max-width: 100%;
       padding: 24px 67px 22px 40px;
-      -webkit-clip-path: polygon(0 0, -webkit-calc(100% - 47px) 0, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0 0, calc(100% - 47px) 0, 100% 100%, 0% 100%);
               clip-path: polygon(0 0, calc(100% - 47px) 0, 100% 100%, 0% 100%); }
     .brk-ic-left-slide__wrapper_btn-left {
       left: auto;
       right: 0;
-      width: -webkit-calc(100% - 125px);
       width: calc(100% - 125px);
       padding: 0 29px 44px 25px; }
   .brk-ic-left-slide__subtitle {
@@ -93,34 +80,26 @@
 
 .brs-portfolio-list {
   height: 320px;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #e8e8e8; }
+  border: 1px solid #e8e8e8; }
   @media (max-width: 767px) {
     .brs-portfolio-list {
-      -webkit-flex-wrap: wrap;
-              flex-wrap: wrap;
+      flex-wrap: wrap;
       height: auto; } }
   .brs-portfolio-list__about {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     padding: 39px 35px 90px 52px;
     position: relative;
-    width: -webkit-calc(100% / 1170 * 600 + 6px);
     width: calc(100% / 1170 * 600 + 6px);
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0; }
+    flex-shrink: 0; }
     @media (max-width: 767px) {
       .brs-portfolio-list__about {
         width: 100%; } }
+  .brs-portfolio-list__img-container {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
   .brs-portfolio-list__subtitle {
     margin-bottom: 4px;
     text-transform: uppercase;
@@ -136,15 +115,9 @@
     text-overflow: ellipsis;
     color: #9f9f9f; }
   .brs-portfolio-list__more {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
     width: 211px;
     height: 54px;
     padding-left: 1px;
@@ -153,15 +126,13 @@
     left: 0;
     bottom: 0;
     color: var(--white);
-    -webkit-clip-path: polygon(0 0, -webkit-calc(100% - 25px) 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0% 100%);
             clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 0% 100%); }
     .brs-portfolio-list__more:hover {
       color: var(--white); }
     .brs-portfolio-list__more__icon {
       font-size: 21px;
       margin-left: 12px;
-      margin-bottom: -1px;
-      -webkit-transition: .3s ease right;
       transition: .3s ease right;
       position: relative;
       right: 0; }

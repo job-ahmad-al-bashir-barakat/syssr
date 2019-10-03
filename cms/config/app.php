@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
+        // CMS Package
+        \Packages\Upload\Providers\UploadServiceProvider::class
     ],
 
     /*
@@ -227,6 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // CMS Package
+        'Upload' => \Packages\Upload\Facades\Upload::class,
     ],
 
 ];

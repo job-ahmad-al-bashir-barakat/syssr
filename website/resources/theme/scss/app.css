@@ -1,3 +1,8 @@
+/* header */
+.brk-header-mobile-wrap__logo img {
+    width: 110px;
+}
+
 /* brk-user */
 .brk-user {
     display: inline-block;

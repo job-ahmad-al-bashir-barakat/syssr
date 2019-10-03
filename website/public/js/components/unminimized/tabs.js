@@ -11,24 +11,28 @@
       }
 
       $('.brk-tabs:not(.rendered)', context).addClass('rendered').each(function () {
+        var _, tab, tabItem, tabsNav, tabActive, nav, index;
+
         if (!$(this).hasClass('brk-tabs-hovers')) {
-          var _ = $(this),
-            tab = _.find('.brk-tab'),
-            tabItem = _.find('.brk-tab-item'),
-            index = _.data('index'),
-            hash = _.data('hash'),
-            tabIndex = window.location.hash;
+              _     = $(this);
+            tab     = _.find('.brk-tab');
+            tabItem = _.find('.brk-tab-item');
+            index   = _.data('index');
 
           index = index ? index : 0;
 
+          //tabItem.hide().eq(index).fadeIn();
+
           $(window).on('load', function () {
-            tabItem.hide().eq(index).fadeIn();
+            setTimeout(function () {
+              tabItem.hide().eq(index).fadeIn();
+            }, 300)
           });
 
           tab.on('click', function () {
             $(this).addClass('active').siblings('.active').removeClass('active no-hover');
             tabItem.hide().eq($(this).index()).fadeIn();
-                        
+
             var sliders = tabItem.eq($(this).index()).find(".slick-slider");
             if(sliders.length){
               sliders.each(function () {
@@ -36,19 +40,19 @@
                 setSlickPosition(_this);
               })
             }
-            
+
           }).eq(index).addClass("active");
 
         } else {
 
-          var _ = $(this),
-            tabsNav = _.find('.brk-tabs-nav'),
-            tab = _.find('.brk-tab'),
-            tabItem = _.find('.brk-tab-item'),
-            index = _.data('index'),
-            headerStyle_1 = _.closest('.brk-header_style-1'),
-            headerStyle_2 = _.closest('.brk-header_style-2'),
-            headerStyle_3 = _.closest('.brk-header_style-3');
+                  _           = $(this);
+            tabsNav           = _.find('.brk-tabs-nav');
+            tab               = _.find('.brk-tab');
+            tabItem           = _.find('.brk-tab-item');
+            index             = _.data('index');
+            var headerStyle_1 = _.closest('.brk-header_style-1'),
+            headerStyle_2     = _.closest('.brk-header_style-2'),
+            headerStyle_3     = _.closest('.brk-header_style-3');
 
           index = index ? index : 0;
 
@@ -133,15 +137,15 @@
 
         if ($(this).hasClass('brk-tabs-simple-top') || $(this).hasClass('brk-tabs-simple-bottom') || $(this).hasClass('brk-tabs-bottom-top') || $(this).hasClass('brk-tabs-bottom-bottom') || $(this).hasClass('brk-tabs-parallax') || $(this).hasClass('brk-tabs_tabbed-filter')) {
 
-          var _ = $(this),
-            nav = _.find('.brk-tabs-nav'),
-            tab = _.find('.brk-tab'),
+               _      = $(this);
+            nav       = _.find('.brk-tabs-nav');
+            tab       = _.find('.brk-tab');
             tabActive = _.find('.brk-tab.active');
           nav.append("<span class='magic-line'></span>");
 
           var magicLine = _.find(".magic-line");
 
-          window.addEventListener('load', function () {
+          $(window).on('load', function () {
             setTimeout(function () {
               magicLineFunc(magicLine, tabActive)
             }, 500)

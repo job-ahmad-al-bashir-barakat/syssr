@@ -3,6 +3,7 @@
 namespace Packages\Upload\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Packages\Upload\Upload;
 use Route;
 
 class UploadServiceProvider extends ServiceProvider
@@ -37,6 +38,10 @@ class UploadServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton('Upload', function ($app) {
+            return new Upload();
+        });
+
         $this->registerController();
     }
 

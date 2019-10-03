@@ -80,7 +80,7 @@
         $menu,
         i;
       function needsMenu($itemOfInterest) {
-        var result = (Math.ceil($itemOfInterest.offset().top) >= (firstItemTop + firstItemHeight)) ? true : false;
+        var result = (Math.ceil($itemOfInterest.offset().top) > firstItemTop + 40) ? true : false;
         // Values may be calculated from em and give us something other than round numbers. Browsers may round these inconsistently. So, let's round numbers to make it easier to trigger flexMenu.
         return result;
       }

@@ -4,261 +4,65 @@
 .big {
   font-size: 18px; }
 
-.font {
-  /*&__size {
-    &-224 {
-      font-size: rem(76);
-      @media(min-width: 768px) {
-				font-size: 224px;
-			}
-    }
-    &-196 {
-      font-size: rem(76);
-      @media(min-width: 768px) {
-				font-size: 196px;
-			}
-    }
-    &-186 {
-      font-size: rem(76);
-      @media(min-width: 768px) {
-				font-size: 186px;
-			}
-    }
-    &-156 {
-      font-size: rem(76);
-      @media(min-width: 768px) {
-				font-size: 156px;
-			}
-    }
-		&-124 {
-			font-size: rem(76);
-			@media(min-width: 768px) {
-				font-size: 124px;
-			}
-		}
-		&-120 {
-      font-size: rem(76);
-      @media(min-width: 768px) {
-				font-size: 120px;
-			}
-		}
-		&-106 {
-      font-size: rem(50);
-      @media(min-width: 768px) {
-				font-size: 106px;
-			}
-    }
+.font__family-open-sans {
+  font-family: 'Open Sans', sans-serif; }
 
-		&-100 {
-			font-size: rem(50);
-			@media(min-width: 768px) {
-				font-size: rem(100);
-			}
-		}
+.font__family-montserrat {
+  font-family: 'Montserrat', sans-serif; }
 
-		&-98 {
-      font-size: rem(50);
-      @media(min-width: 768px) {
-				font-size: 98px;
-			}
-    }
-		&-96 {
-      font-size: rem(50);
-      @media(min-width: 768px) {
-				font-size: 96px;
-			}
-    }
-    &-86{
-      font-size: 86px;
-    }
-    &-84{
-      font-size: 3rem;
-      @media(min-width: 768px) {
-        font-size: rem(84);
-      }
-    }
-		&-82 {
-			font-size: rem(82);
-		}
-		&-78 {
-			font-size: rem(56);
-			@media(min-width: 480px) {
-				font-size: 66px;
-			}
-			@media(min-width: 768px) {
-				font-size: 78px;
-			}
-		}
-		&-72 {
-			font-size: rem(40);
-			@media(min-width: 768px) {
-				font-size: 72px;
-			}
-		}
-		&-64 {
-			font-size: rem(40);
-			@media(min-width: 768px) {
-				font-size: 64px;
-			}
-		}
-		&-58 {
-			font-size: rem(40);
-			@media(min-width: 768px) {
-				font-size: 58px;
-			}
-		}
-		&-56 {
-			font-size: rem(40);
-			@media(min-width: 768px) {
-				font-size: 56px;
-			}
-		}
-		&-54 {
-			font-size: rem(54);
-    }
-    &-50 {
-			font-size: rem(50);
-		}
-		&-48 {
-			font-size: rem(38);
-			@media(min-width: 768px) {
-				font-size: 48px;
-			}
-		}
-		&-42 {
-			font-size: rem(42);
-		}
-		&-46 {
-			font-size: rem(46);
-		}
-		&-40 {
-			font-size: rem(40);
-		}
-		&-36 {
-			font-size: rem(30);
-			@media(min-width: 768px) {
-				font-size: 36px;
-			}
-		}
-		&-36-i {
-			font-size: rem(30) !important;
-			@media(min-width: 768px) {
-				font-size: 36px !important;
-			}
-		}
-		&-38 {
-			font-size: rem(38);
-		}
-		&-36 {
-			font-size: rem(36);
-		}
-		&-34 {
-			font-size: rem(34);
-		}
-		&-32 {
-			font-size: rem(32);
-		}
-		&-30 {
-			font-size: rem(30);
-		}
-		&-28 {
-			font-size: rem(28);
-    }
-    &-27 {
-			font-size: rem(27);
-		}
-		&-26 {
-			font-size: rem(26);
-		}
-		&-25 {
-			font-size: rem(25);
-		}
-		&-24 {
-			font-size: rem(24);
-		}
-		&-23 {
-			font-size: rem(23);
-		}
-		&-22 {
-			font-size: rem(22);
-		}
-		&-21 {
-			font-size: rem(21);
-		}
-		&-20 {
-			font-size: rem(20);
-		}
-		&-19 {
-			font-size: rem(19);
-		}
-		&-18 {
-			font-size: rem(18);
-		}
-		&-17 {
-			font-size: rem(17);
-		}
-		&-16 {
-			font-size: rem(16);
-		}
-		&-15 {
-			font-size: rem(15);
-		}
-		&-14 {
-			font-size: rem(14);
-		}
-		&-13 {
-			font-size: rem(13);
-		}
-		&-12 {
-			font-size: rem(12);
-		}
-		&-11 {
-			font-size: rem(11);
-		}
-		&-10 {
-			font-size: rem(10);
-		}
-	}*/ }
-  .font__family-open-sans {
-    font-family: 'Open Sans', sans-serif; }
-  .font__family-montserrat {
-    font-family: 'Montserrat', sans-serif; }
-  .font__family-montserrat-alt {
-    font-family: 'Montserrat Alternates', sans-serif; }
-  .font__family-playfair {
-    font-family: 'Playfair Display', sans-serif; }
-  .font__family-poppins {
-    font-family: 'Poppins', sans-serif; }
-  .font__family-pacifico {
-    font-family: 'Pacifico', sans-serif; }
-  .font__family-roboto {
-    font-family: 'Roboto', sans-serif; }
-  .font__family-roboto-slab {
-    font-family: 'Roboto Slab', sans-serif; }
-  .font__family-oxygen {
-    font-family: 'Oxygen', sans-serif; }
-  .font__family-times-new-roman {
-    font-family: 'Times New Roman', sans-serif; }
-  .font__weight-thin {
-    font-weight: 100; }
-  .font__weight-ultralight {
-    font-weight: 200; }
-  .font__weight-light {
-    font-weight: 300; }
-  .font__weight-normal {
-    font-weight: 400; }
-  .font__weight-medium {
-    font-weight: 500; }
-  .font__weight-semibold {
-    font-weight: 600; }
-  .font__weight-bold {
-    font-weight: 700; }
-  .font__weight-extrabold {
-    font-weight: 800; }
-  .font__style-italic {
-    font-style: italic; }
-  .font__style-normal {
-    font-style: normal; }
+.font__family-montserrat-alt {
+  font-family: 'Montserrat Alternates', sans-serif; }
+
+.font__family-playfair {
+  font-family: 'Playfair Display', sans-serif; }
+
+.font__family-poppins {
+  font-family: 'Poppins', sans-serif; }
+
+.font__family-pacifico {
+  font-family: 'Pacifico', sans-serif; }
+
+.font__family-roboto {
+  font-family: 'Roboto', sans-serif; }
+
+.font__family-roboto-slab {
+  font-family: 'Roboto Slab', sans-serif; }
+
+.font__family-oxygen {
+  font-family: 'Oxygen', sans-serif; }
+
+.font__family-times-new-roman {
+  font-family: 'Times New Roman', sans-serif; }
+
+.font__weight-thin {
+  font-weight: 100; }
+
+.font__weight-ultralight {
+  font-weight: 200; }
+
+.font__weight-light {
+  font-weight: 300; }
+
+.font__weight-normal {
+  font-weight: 400; }
+
+.font__weight-medium {
+  font-weight: 500; }
+
+.font__weight-semibold {
+  font-weight: 600; }
+
+.font__weight-bold {
+  font-weight: 700; }
+
+.font__weight-extrabold {
+  font-weight: 800; }
+
+.font__style-italic {
+  font-style: italic; }
+
+.font__style-normal {
+  font-style: normal; }
 
 .font__size-10 {
   font-size: 0.625rem; }
@@ -317,59 +121,176 @@
 .font__size-28 {
   font-size: 1.75rem; }
 
+.font__size-29 {
+  font-size: 1.8125rem; }
+
 .font__size-30 {
   font-size: 1.875rem; }
+
+.font__size-31 {
+  font-size: 1.9375rem; }
 
 .font__size-32 {
   font-size: 2rem; }
 
+.font__size-33 {
+  font-size: 2.0625rem; }
+
 .font__size-34 {
   font-size: 2.125rem; }
+
+.font__size-35 {
+  font-size: 2.1875rem; }
 
 .font__size-36 {
   font-size: 2.25rem; }
 
+.font__size-37 {
+  font-size: 2.3125rem; }
+
 .font__size-38 {
   font-size: 2.375rem; }
+
+.font__size-39 {
+  font-size: 2.4375rem; }
 
 .font__size-40 {
   font-size: 2.5rem; }
 
+.font__size-41 {
+  font-size: 2.5625rem; }
+
 .font__size-42 {
   font-size: 2.625rem; }
+
+.font__size-43 {
+  font-size: 2.6875rem; }
+
+.font__size-44 {
+  font-size: 2.75rem; }
+
+.font__size-45 {
+  font-size: 2.8125rem; }
 
 .font__size-46 {
   font-size: 2.875rem; }
 
+.font__size-47 {
+  font-size: 2.9375rem; }
+
 .font__size-48 {
   font-size: 3rem; }
+
+.font__size-49 {
+  font-size: 3.0625rem; }
 
 .font__size-50 {
   font-size: 3.125rem; }
 
+.font__size-51 {
+  font-size: 3.1875rem; }
+
+.font__size-52 {
+  font-size: 3.25rem; }
+
+.font__size-53 {
+  font-size: 3.3125rem; }
+
 .font__size-54 {
   font-size: 3.375rem; }
+
+.font__size-55 {
+  font-size: 3.4375rem; }
 
 .font__size-56 {
   font-size: 3.5rem; }
 
+.font__size-57 {
+  font-size: 3.5625rem; }
+
 .font__size-58 {
   font-size: 3.625rem; }
+
+.font__size-59 {
+  font-size: 3.6875rem; }
+
+.font__size-60 {
+  font-size: 3.75rem; }
+
+.font__size-61 {
+  font-size: 3.8125rem; }
+
+.font__size-62 {
+  font-size: 3.875rem; }
+
+.font__size-63 {
+  font-size: 3.9375rem; }
 
 .font__size-64 {
   font-size: 4rem; }
 
+.font__size-65 {
+  font-size: 4.0625rem; }
+
+.font__size-66 {
+  font-size: 4.125rem; }
+
+.font__size-67 {
+  font-size: 4.1875rem; }
+
+.font__size-68 {
+  font-size: 4.25rem; }
+
+.font__size-69 {
+  font-size: 4.3125rem; }
+
+.font__size-70 {
+  font-size: 4.375rem; }
+
+.font__size-71 {
+  font-size: 4.4375rem; }
+
 .font__size-72 {
   font-size: 4.5rem; }
+
+.font__size-73 {
+  font-size: 4.5625rem; }
+
+.font__size-74 {
+  font-size: 4.625rem; }
+
+.font__size-75 {
+  font-size: 4.6875rem; }
+
+.font__size-76 {
+  font-size: 4.75rem; }
+
+.font__size-77 {
+  font-size: 4.8125rem; }
 
 .font__size-78 {
   font-size: 4.875rem; }
 
+.font__size-79 {
+  font-size: 4.9375rem; }
+
+.font__size-80 {
+  font-size: 5rem; }
+
+.font__size-81 {
+  font-size: 5.0625rem; }
+
 .font__size-82 {
   font-size: 5.125rem; }
 
+.font__size-83 {
+  font-size: 5.1875rem; }
+
 .font__size-84 {
   font-size: 5.25rem; }
+
+.font__size-85 {
+  font-size: 5.3125rem; }
 
 .font__size-86 {
   font-size: 5.375rem; }
@@ -443,42 +364,120 @@
     font-size: 1.6875rem; }
   .font__size-sm-28 {
     font-size: 1.75rem; }
+  .font__size-sm-29 {
+    font-size: 1.8125rem; }
   .font__size-sm-30 {
     font-size: 1.875rem; }
+  .font__size-sm-31 {
+    font-size: 1.9375rem; }
   .font__size-sm-32 {
     font-size: 2rem; }
+  .font__size-sm-33 {
+    font-size: 2.0625rem; }
   .font__size-sm-34 {
     font-size: 2.125rem; }
+  .font__size-sm-35 {
+    font-size: 2.1875rem; }
   .font__size-sm-36 {
     font-size: 2.25rem; }
+  .font__size-sm-37 {
+    font-size: 2.3125rem; }
   .font__size-sm-38 {
     font-size: 2.375rem; }
+  .font__size-sm-39 {
+    font-size: 2.4375rem; }
   .font__size-sm-40 {
     font-size: 2.5rem; }
+  .font__size-sm-41 {
+    font-size: 2.5625rem; }
   .font__size-sm-42 {
     font-size: 2.625rem; }
+  .font__size-sm-43 {
+    font-size: 2.6875rem; }
+  .font__size-sm-44 {
+    font-size: 2.75rem; }
+  .font__size-sm-45 {
+    font-size: 2.8125rem; }
   .font__size-sm-46 {
     font-size: 2.875rem; }
+  .font__size-sm-47 {
+    font-size: 2.9375rem; }
   .font__size-sm-48 {
     font-size: 3rem; }
+  .font__size-sm-49 {
+    font-size: 3.0625rem; }
   .font__size-sm-50 {
     font-size: 3.125rem; }
+  .font__size-sm-51 {
+    font-size: 3.1875rem; }
+  .font__size-sm-52 {
+    font-size: 3.25rem; }
+  .font__size-sm-53 {
+    font-size: 3.3125rem; }
   .font__size-sm-54 {
     font-size: 3.375rem; }
+  .font__size-sm-55 {
+    font-size: 3.4375rem; }
   .font__size-sm-56 {
     font-size: 3.5rem; }
+  .font__size-sm-57 {
+    font-size: 3.5625rem; }
   .font__size-sm-58 {
     font-size: 3.625rem; }
+  .font__size-sm-59 {
+    font-size: 3.6875rem; }
+  .font__size-sm-60 {
+    font-size: 3.75rem; }
+  .font__size-sm-61 {
+    font-size: 3.8125rem; }
+  .font__size-sm-62 {
+    font-size: 3.875rem; }
+  .font__size-sm-63 {
+    font-size: 3.9375rem; }
   .font__size-sm-64 {
     font-size: 4rem; }
+  .font__size-sm-65 {
+    font-size: 4.0625rem; }
+  .font__size-sm-66 {
+    font-size: 4.125rem; }
+  .font__size-sm-67 {
+    font-size: 4.1875rem; }
+  .font__size-sm-68 {
+    font-size: 4.25rem; }
+  .font__size-sm-69 {
+    font-size: 4.3125rem; }
+  .font__size-sm-70 {
+    font-size: 4.375rem; }
+  .font__size-sm-71 {
+    font-size: 4.4375rem; }
   .font__size-sm-72 {
     font-size: 4.5rem; }
+  .font__size-sm-73 {
+    font-size: 4.5625rem; }
+  .font__size-sm-74 {
+    font-size: 4.625rem; }
+  .font__size-sm-75 {
+    font-size: 4.6875rem; }
+  .font__size-sm-76 {
+    font-size: 4.75rem; }
+  .font__size-sm-77 {
+    font-size: 4.8125rem; }
   .font__size-sm-78 {
     font-size: 4.875rem; }
+  .font__size-sm-79 {
+    font-size: 4.9375rem; }
+  .font__size-sm-80 {
+    font-size: 5rem; }
+  .font__size-sm-81 {
+    font-size: 5.0625rem; }
   .font__size-sm-82 {
     font-size: 5.125rem; }
+  .font__size-sm-83 {
+    font-size: 5.1875rem; }
   .font__size-sm-84 {
     font-size: 5.25rem; }
+  .font__size-sm-85 {
+    font-size: 5.3125rem; }
   .font__size-sm-86 {
     font-size: 5.375rem; }
   .font__size-sm-96 {
@@ -541,42 +540,120 @@
     font-size: 1.6875rem; }
   .font__size-md-28 {
     font-size: 1.75rem; }
+  .font__size-md-29 {
+    font-size: 1.8125rem; }
   .font__size-md-30 {
     font-size: 1.875rem; }
+  .font__size-md-31 {
+    font-size: 1.9375rem; }
   .font__size-md-32 {
     font-size: 2rem; }
+  .font__size-md-33 {
+    font-size: 2.0625rem; }
   .font__size-md-34 {
     font-size: 2.125rem; }
+  .font__size-md-35 {
+    font-size: 2.1875rem; }
   .font__size-md-36 {
     font-size: 2.25rem; }
+  .font__size-md-37 {
+    font-size: 2.3125rem; }
   .font__size-md-38 {
     font-size: 2.375rem; }
+  .font__size-md-39 {
+    font-size: 2.4375rem; }
   .font__size-md-40 {
     font-size: 2.5rem; }
+  .font__size-md-41 {
+    font-size: 2.5625rem; }
   .font__size-md-42 {
     font-size: 2.625rem; }
+  .font__size-md-43 {
+    font-size: 2.6875rem; }
+  .font__size-md-44 {
+    font-size: 2.75rem; }
+  .font__size-md-45 {
+    font-size: 2.8125rem; }
   .font__size-md-46 {
     font-size: 2.875rem; }
+  .font__size-md-47 {
+    font-size: 2.9375rem; }
   .font__size-md-48 {
     font-size: 3rem; }
+  .font__size-md-49 {
+    font-size: 3.0625rem; }
   .font__size-md-50 {
     font-size: 3.125rem; }
+  .font__size-md-51 {
+    font-size: 3.1875rem; }
+  .font__size-md-52 {
+    font-size: 3.25rem; }
+  .font__size-md-53 {
+    font-size: 3.3125rem; }
   .font__size-md-54 {
     font-size: 3.375rem; }
+  .font__size-md-55 {
+    font-size: 3.4375rem; }
   .font__size-md-56 {
     font-size: 3.5rem; }
+  .font__size-md-57 {
+    font-size: 3.5625rem; }
   .font__size-md-58 {
     font-size: 3.625rem; }
+  .font__size-md-59 {
+    font-size: 3.6875rem; }
+  .font__size-md-60 {
+    font-size: 3.75rem; }
+  .font__size-md-61 {
+    font-size: 3.8125rem; }
+  .font__size-md-62 {
+    font-size: 3.875rem; }
+  .font__size-md-63 {
+    font-size: 3.9375rem; }
   .font__size-md-64 {
     font-size: 4rem; }
+  .font__size-md-65 {
+    font-size: 4.0625rem; }
+  .font__size-md-66 {
+    font-size: 4.125rem; }
+  .font__size-md-67 {
+    font-size: 4.1875rem; }
+  .font__size-md-68 {
+    font-size: 4.25rem; }
+  .font__size-md-69 {
+    font-size: 4.3125rem; }
+  .font__size-md-70 {
+    font-size: 4.375rem; }
+  .font__size-md-71 {
+    font-size: 4.4375rem; }
   .font__size-md-72 {
     font-size: 4.5rem; }
+  .font__size-md-73 {
+    font-size: 4.5625rem; }
+  .font__size-md-74 {
+    font-size: 4.625rem; }
+  .font__size-md-75 {
+    font-size: 4.6875rem; }
+  .font__size-md-76 {
+    font-size: 4.75rem; }
+  .font__size-md-77 {
+    font-size: 4.8125rem; }
   .font__size-md-78 {
     font-size: 4.875rem; }
+  .font__size-md-79 {
+    font-size: 4.9375rem; }
+  .font__size-md-80 {
+    font-size: 5rem; }
+  .font__size-md-81 {
+    font-size: 5.0625rem; }
   .font__size-md-82 {
     font-size: 5.125rem; }
+  .font__size-md-83 {
+    font-size: 5.1875rem; }
   .font__size-md-84 {
     font-size: 5.25rem; }
+  .font__size-md-85 {
+    font-size: 5.3125rem; }
   .font__size-md-86 {
     font-size: 5.375rem; }
   .font__size-md-96 {
@@ -639,42 +716,120 @@
     font-size: 1.6875rem; }
   .font__size-lg-28 {
     font-size: 1.75rem; }
+  .font__size-lg-29 {
+    font-size: 1.8125rem; }
   .font__size-lg-30 {
     font-size: 1.875rem; }
+  .font__size-lg-31 {
+    font-size: 1.9375rem; }
   .font__size-lg-32 {
     font-size: 2rem; }
+  .font__size-lg-33 {
+    font-size: 2.0625rem; }
   .font__size-lg-34 {
     font-size: 2.125rem; }
+  .font__size-lg-35 {
+    font-size: 2.1875rem; }
   .font__size-lg-36 {
     font-size: 2.25rem; }
+  .font__size-lg-37 {
+    font-size: 2.3125rem; }
   .font__size-lg-38 {
     font-size: 2.375rem; }
+  .font__size-lg-39 {
+    font-size: 2.4375rem; }
   .font__size-lg-40 {
     font-size: 2.5rem; }
+  .font__size-lg-41 {
+    font-size: 2.5625rem; }
   .font__size-lg-42 {
     font-size: 2.625rem; }
+  .font__size-lg-43 {
+    font-size: 2.6875rem; }
+  .font__size-lg-44 {
+    font-size: 2.75rem; }
+  .font__size-lg-45 {
+    font-size: 2.8125rem; }
   .font__size-lg-46 {
     font-size: 2.875rem; }
+  .font__size-lg-47 {
+    font-size: 2.9375rem; }
   .font__size-lg-48 {
     font-size: 3rem; }
+  .font__size-lg-49 {
+    font-size: 3.0625rem; }
   .font__size-lg-50 {
     font-size: 3.125rem; }
+  .font__size-lg-51 {
+    font-size: 3.1875rem; }
+  .font__size-lg-52 {
+    font-size: 3.25rem; }
+  .font__size-lg-53 {
+    font-size: 3.3125rem; }
   .font__size-lg-54 {
     font-size: 3.375rem; }
+  .font__size-lg-55 {
+    font-size: 3.4375rem; }
   .font__size-lg-56 {
     font-size: 3.5rem; }
+  .font__size-lg-57 {
+    font-size: 3.5625rem; }
   .font__size-lg-58 {
     font-size: 3.625rem; }
+  .font__size-lg-59 {
+    font-size: 3.6875rem; }
+  .font__size-lg-60 {
+    font-size: 3.75rem; }
+  .font__size-lg-61 {
+    font-size: 3.8125rem; }
+  .font__size-lg-62 {
+    font-size: 3.875rem; }
+  .font__size-lg-63 {
+    font-size: 3.9375rem; }
   .font__size-lg-64 {
     font-size: 4rem; }
+  .font__size-lg-65 {
+    font-size: 4.0625rem; }
+  .font__size-lg-66 {
+    font-size: 4.125rem; }
+  .font__size-lg-67 {
+    font-size: 4.1875rem; }
+  .font__size-lg-68 {
+    font-size: 4.25rem; }
+  .font__size-lg-69 {
+    font-size: 4.3125rem; }
+  .font__size-lg-70 {
+    font-size: 4.375rem; }
+  .font__size-lg-71 {
+    font-size: 4.4375rem; }
   .font__size-lg-72 {
     font-size: 4.5rem; }
+  .font__size-lg-73 {
+    font-size: 4.5625rem; }
+  .font__size-lg-74 {
+    font-size: 4.625rem; }
+  .font__size-lg-75 {
+    font-size: 4.6875rem; }
+  .font__size-lg-76 {
+    font-size: 4.75rem; }
+  .font__size-lg-77 {
+    font-size: 4.8125rem; }
   .font__size-lg-78 {
     font-size: 4.875rem; }
+  .font__size-lg-79 {
+    font-size: 4.9375rem; }
+  .font__size-lg-80 {
+    font-size: 5rem; }
+  .font__size-lg-81 {
+    font-size: 5.0625rem; }
   .font__size-lg-82 {
     font-size: 5.125rem; }
+  .font__size-lg-83 {
+    font-size: 5.1875rem; }
   .font__size-lg-84 {
     font-size: 5.25rem; }
+  .font__size-lg-85 {
+    font-size: 5.3125rem; }
   .font__size-lg-86 {
     font-size: 5.375rem; }
   .font__size-lg-96 {
@@ -737,42 +892,120 @@
     font-size: 1.6875rem; }
   .font__size-xl-28 {
     font-size: 1.75rem; }
+  .font__size-xl-29 {
+    font-size: 1.8125rem; }
   .font__size-xl-30 {
     font-size: 1.875rem; }
+  .font__size-xl-31 {
+    font-size: 1.9375rem; }
   .font__size-xl-32 {
     font-size: 2rem; }
+  .font__size-xl-33 {
+    font-size: 2.0625rem; }
   .font__size-xl-34 {
     font-size: 2.125rem; }
+  .font__size-xl-35 {
+    font-size: 2.1875rem; }
   .font__size-xl-36 {
     font-size: 2.25rem; }
+  .font__size-xl-37 {
+    font-size: 2.3125rem; }
   .font__size-xl-38 {
     font-size: 2.375rem; }
+  .font__size-xl-39 {
+    font-size: 2.4375rem; }
   .font__size-xl-40 {
     font-size: 2.5rem; }
+  .font__size-xl-41 {
+    font-size: 2.5625rem; }
   .font__size-xl-42 {
     font-size: 2.625rem; }
+  .font__size-xl-43 {
+    font-size: 2.6875rem; }
+  .font__size-xl-44 {
+    font-size: 2.75rem; }
+  .font__size-xl-45 {
+    font-size: 2.8125rem; }
   .font__size-xl-46 {
     font-size: 2.875rem; }
+  .font__size-xl-47 {
+    font-size: 2.9375rem; }
   .font__size-xl-48 {
     font-size: 3rem; }
+  .font__size-xl-49 {
+    font-size: 3.0625rem; }
   .font__size-xl-50 {
     font-size: 3.125rem; }
+  .font__size-xl-51 {
+    font-size: 3.1875rem; }
+  .font__size-xl-52 {
+    font-size: 3.25rem; }
+  .font__size-xl-53 {
+    font-size: 3.3125rem; }
   .font__size-xl-54 {
     font-size: 3.375rem; }
+  .font__size-xl-55 {
+    font-size: 3.4375rem; }
   .font__size-xl-56 {
     font-size: 3.5rem; }
+  .font__size-xl-57 {
+    font-size: 3.5625rem; }
   .font__size-xl-58 {
     font-size: 3.625rem; }
+  .font__size-xl-59 {
+    font-size: 3.6875rem; }
+  .font__size-xl-60 {
+    font-size: 3.75rem; }
+  .font__size-xl-61 {
+    font-size: 3.8125rem; }
+  .font__size-xl-62 {
+    font-size: 3.875rem; }
+  .font__size-xl-63 {
+    font-size: 3.9375rem; }
   .font__size-xl-64 {
     font-size: 4rem; }
+  .font__size-xl-65 {
+    font-size: 4.0625rem; }
+  .font__size-xl-66 {
+    font-size: 4.125rem; }
+  .font__size-xl-67 {
+    font-size: 4.1875rem; }
+  .font__size-xl-68 {
+    font-size: 4.25rem; }
+  .font__size-xl-69 {
+    font-size: 4.3125rem; }
+  .font__size-xl-70 {
+    font-size: 4.375rem; }
+  .font__size-xl-71 {
+    font-size: 4.4375rem; }
   .font__size-xl-72 {
     font-size: 4.5rem; }
+  .font__size-xl-73 {
+    font-size: 4.5625rem; }
+  .font__size-xl-74 {
+    font-size: 4.625rem; }
+  .font__size-xl-75 {
+    font-size: 4.6875rem; }
+  .font__size-xl-76 {
+    font-size: 4.75rem; }
+  .font__size-xl-77 {
+    font-size: 4.8125rem; }
   .font__size-xl-78 {
     font-size: 4.875rem; }
+  .font__size-xl-79 {
+    font-size: 4.9375rem; }
+  .font__size-xl-80 {
+    font-size: 5rem; }
+  .font__size-xl-81 {
+    font-size: 5.0625rem; }
   .font__size-xl-82 {
     font-size: 5.125rem; }
+  .font__size-xl-83 {
+    font-size: 5.1875rem; }
   .font__size-xl-84 {
     font-size: 5.25rem; }
+  .font__size-xl-85 {
+    font-size: 5.3125rem; }
   .font__size-xl-86 {
     font-size: 5.375rem; }
   .font__size-xl-96 {
@@ -844,137 +1077,215 @@
 .letter-spacing-300 {
   letter-spacing: 0.3em; }
 
-.line__height-224 {
-  line-height: 4.75rem; }
-  @media (min-width: 768px) {
-    .line__height-224 {
-      line-height: 224px; } }
+.line__height-10 {
+  line-height: 0.625rem; }
 
-.line__height-156 {
-  line-height: 4.75rem; }
-  @media (min-width: 768px) {
-    .line__height-156 {
-      line-height: 156px; } }
-
-.line__height-98 {
-  line-height: 50px; }
-  @media (min-width: 768px) {
-    .line__height-98 {
-      line-height: 98px; } }
-
-.line__height-96 {
-  line-height: 50px; }
-  @media (min-width: 768px) {
-    .line__height-96 {
-      line-height: 96px; } }
-
-.line__height-88 {
-  line-height: 50px; }
-  @media (min-width: 768px) {
-    .line__height-88 {
-      line-height: 88px; } }
-
-.line__height-84 {
-  line-height: 84px; }
-
-.line__height-78 {
-  line-height: 50px; }
-  @media (min-width: 768px) {
-    .line__height-78 {
-      line-height: 78px; } }
-
-.line__height-68 {
-  line-height: 50px; }
-  @media (min-width: 768px) {
-    .line__height-68 {
-      line-height: 68px; } }
-
-.line__height-64 {
-  line-height: 64px; }
-
-.line__height-60 {
-  line-height: 60px; }
-
-.line__height-56 {
-  line-height: 56px; }
-
-.line__height-52 {
-  line-height: 52px; }
-
-.line__height-50 {
-  line-height: 50px; }
-
-.line__height-48 {
-  line-height: 48px; }
-
-.line__height-46 {
-  line-height: 46px; }
-
-.line__height-44 {
-  line-height: 44px; }
-
-.line__height-42 {
-  line-height: 42px; }
-
-.line__height-40 {
-  line-height: 40px; }
-
-.line__height-38 {
-  line-height: 38px; }
-
-.line__height-36 {
-  line-height: 36px; }
-
-.line__height-34 {
-  line-height: 34px; }
-
-.line__height-32 {
-  line-height: 32px; }
-
-.line__height-30 {
-  line-height: 30px; }
-
-.line__height-28 {
-  line-height: 28px; }
-
-.line__height-27 {
-  line-height: 27px; }
-
-.line__height-26 {
-  line-height: 26px; }
-
-.line__height-24 {
-  line-height: 24px; }
-
-.line__height-22 {
-  line-height: 22px; }
-
-.line__height-21 {
-  line-height: 21px; }
-
-.line__height-20 {
-  line-height: 20px; }
-
-.line__height-19 {
-  line-height: 19px; }
-
-.line__height-16 {
-  line-height: 16px; }
-
-.line__height-15 {
-  line-height: 15px; }
-
-.line__height-14 {
-  line-height: 14px; }
+.line__height-11 {
+  line-height: 0.6875rem; }
 
 .line__height-12 {
-  line-height: 12px; }
+  line-height: 0.75rem; }
 
-.line__height-10 {
-  line-height: 10px; }
+.line__height-13 {
+  line-height: 0.8125rem; }
 
-.line__height-8 {
-  line-height: 8px; }
+.line__height-14 {
+  line-height: 0.875rem; }
+
+.line__height-15 {
+  line-height: 0.9375rem; }
+
+.line__height-16 {
+  line-height: 1rem; }
+
+.line__height-17 {
+  line-height: 1.0625rem; }
+
+.line__height-18 {
+  line-height: 1.125rem; }
+
+.line__height-19 {
+  line-height: 1.1875rem; }
+
+.line__height-20 {
+  line-height: 1.25rem; }
+
+.line__height-21 {
+  line-height: 1.3125rem; }
+
+.line__height-22 {
+  line-height: 1.375rem; }
+
+.line__height-23 {
+  line-height: 1.4375rem; }
+
+.line__height-24 {
+  line-height: 1.5rem; }
+
+.line__height-25 {
+  line-height: 1.5625rem; }
+
+.line__height-26 {
+  line-height: 1.625rem; }
+
+.line__height-27 {
+  line-height: 1.6875rem; }
+
+.line__height-28 {
+  line-height: 1.75rem; }
+
+.line__height-29 {
+  line-height: 1.8125rem; }
+
+.line__height-30 {
+  line-height: 1.875rem; }
+
+.line__height-31 {
+  line-height: 1.9375rem; }
+
+.line__height-32 {
+  line-height: 2rem; }
+
+.line__height-33 {
+  line-height: 2.0625rem; }
+
+.line__height-34 {
+  line-height: 2.125rem; }
+
+.line__height-35 {
+  line-height: 2.1875rem; }
+
+.line__height-36 {
+  line-height: 2.25rem; }
+
+.line__height-37 {
+  line-height: 2.3125rem; }
+
+.line__height-38 {
+  line-height: 2.375rem; }
+
+.line__height-39 {
+  line-height: 2.4375rem; }
+
+.line__height-40 {
+  line-height: 2.5rem; }
+
+.line__height-41 {
+  line-height: 2.5625rem; }
+
+.line__height-42 {
+  line-height: 2.625rem; }
+
+.line__height-43 {
+  line-height: 2.6875rem; }
+
+.line__height-44 {
+  line-height: 2.75rem; }
+
+.line__height-45 {
+  line-height: 2.8125rem; }
+
+.line__height-46 {
+  line-height: 2.875rem; }
+
+.line__height-47 {
+  line-height: 2.9375rem; }
+
+.line__height-48 {
+  line-height: 3rem; }
+
+.line__height-49 {
+  line-height: 3.0625rem; }
+
+.line__height-50 {
+  line-height: 3.125rem; }
+
+.line__height-51 {
+  line-height: 3.1875rem; }
+
+.line__height-52 {
+  line-height: 3.25rem; }
+
+.line__height-53 {
+  line-height: 3.3125rem; }
+
+.line__height-54 {
+  line-height: 3.375rem; }
+
+.line__height-55 {
+  line-height: 3.4375rem; }
+
+.line__height-56 {
+  line-height: 3.5rem; }
+
+.line__height-57 {
+  line-height: 3.5625rem; }
+
+.line__height-58 {
+  line-height: 3.625rem; }
+
+.line__height-59 {
+  line-height: 3.6875rem; }
+
+.line__height-60 {
+  line-height: 3.75rem; }
+
+.line__height-61 {
+  line-height: 3.8125rem; }
+
+.line__height-62 {
+  line-height: 3.875rem; }
+
+.line__height-63 {
+  line-height: 3.9375rem; }
+
+.line__height-64 {
+  line-height: 4rem; }
+
+.line__height-65 {
+  line-height: 4.0625rem; }
+
+.line__height-66 {
+  line-height: 4.125rem; }
+
+.line__height-67 {
+  line-height: 4.1875rem; }
+
+.line__height-68 {
+  line-height: 4.25rem; }
+
+.line__height-69 {
+  line-height: 4.3125rem; }
+
+.line__height-70 {
+  line-height: 4.375rem; }
+
+.line__height-78 {
+  line-height: 4.875rem; }
+
+.line__height-84 {
+  line-height: 5.25rem; }
+
+.line__height-88 {
+  line-height: 5.5rem; }
+
+.line__height-96 {
+  line-height: 6rem; }
+
+.line__height-98 {
+  line-height: 6.125rem; }
+
+.line__height-156 {
+  line-height: 9.75rem; }
+
+.line__height-224 {
+  line-height: 14rem; }
+
+.line-height-0-75 {
+  line-height: .75; }
+
+.line-height-0-875 {
+  line-height: .875; }
 
 .line-height-1 {
   line-height: 1; }

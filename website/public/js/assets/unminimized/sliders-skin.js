@@ -371,40 +371,6 @@
 
       });
 
-      $(context).parent().find('.brk-services-slider__items:not(.rendered)').addClass("rendered").each(function(){
-        $(this).slick({
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          swipeToSlide: true,
-          infinite: true,
-          accessibility: false,
-          arrows: false,
-          dots: true,
-          draggable: true,
-          pauseOnHover: true,
-          rtl: htmlRtl,
-          responsive: [{
-            breakpoint: 1230,
-            settings: {
-              slidesToShow: 3
-            }
-          },
-            {
-              breakpoint: 992,
-              settings: {
-                slidesToShow: 2
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1
-              }
-            },
-          ]
-        })
-      });
-
       $(context).parent().find('.brk-slider-shop:not(.rendered)').addClass("rendered").each(function () {
 
         var nav_prev  = $(this).find('.brk-slider__nav-prev');
@@ -492,27 +458,25 @@
       ////////////////////////// 
 
       // element: .dots-base-skin
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          $(context).parent().find('.dots-base-skin:not(.dots-rendered), .dots-landscape-skin:not(.dots-rendered)').addClass('dots-rendered').each(function (i, el) {
-            var slickDots = $(el).find('.slick-dots');
-            slickDots.wrap('<div class="dots-wrap"></div>');
- 
-            var dotsWrap = $(el).find('.dots-wrap');
-            dotsWrap.prepend('<button class="l-prev" type="button"><i class="fas fa-angle-left"></i></button>');
-            dotsWrap.append('<button class="l-next" type="button"><i class="fas fa-angle-right"></i></button>');
+      setTimeout(function () {
+        $(context).parent().find('.dots-base-skin:not(.dots-rendered), .dots-landscape-skin:not(.dots-rendered)').addClass('dots-rendered').each(function (i, el) {
+          var slickDots = $(el).find('.slick-dots');
+          slickDots.wrap('<div class="dots-wrap"></div>');
 
-            var l_prev = dotsWrap.find('.l-prev');
-            var l_next = dotsWrap.find('.l-next');
-            l_prev.on('click', function () {
-              $(el).slick("slickPrev")
-            });
-            l_next.on('click', function () {
-              $(el).slick("slickNext")
-            });
+          var dotsWrap = $(el).find('.dots-wrap');
+          dotsWrap.prepend('<button class="l-prev" type="button"><i class="fas fa-angle-left"></i></button>');
+          dotsWrap.append('<button class="l-next" type="button"><i class="fas fa-angle-right"></i></button>');
+
+          var l_prev = dotsWrap.find('.l-prev');
+          var l_next = dotsWrap.find('.l-next');
+          l_prev.on('click', function () {
+            $(el).slick("slickPrev")
           });
-        }, 150);
-      });
+          l_next.on('click', function () {
+            $(el).slick("slickNext")
+          });
+        });
+      }, 220);
 
     }
   }

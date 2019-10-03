@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // --
+        // Website Packages
+        App\Providers\ComposerServiceProvider::class,
         Packages\Url\Providers\RouteUrlsServiceProvider::class,
         Packages\Api\Providers\ApiServiceProvider::class
     ],
@@ -229,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
-         *  Application Facades
+         *  Website Facades
          */
         'RouteUrls' => Packages\Url\Facades\RouteUrls::class,
         'Api' => Packages\Api\Facades\Api::class

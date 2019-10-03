@@ -10,8 +10,7 @@
     border: 3px solid #ffffff;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     top: -80px;
     overflow: hidden; }
   .brk-forum-author-card__img {

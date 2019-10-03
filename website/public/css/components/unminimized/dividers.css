@@ -42,8 +42,7 @@
     border: 2px solid;
     position: relative;
     left: 50%;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     bottom: -25px; }
     [dir="rtl"] .title__divider--square .line {
       left: auto;
@@ -112,23 +111,17 @@
         width: 24px;
         border-color: var(--brk-base-3); }
     .title__divider--angle .line-left {
-      right: -webkit-calc(50% + 15px);
       right: calc(50% + 15px); }
       .title__divider--angle .line-left:after {
         right: -23px;
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg);
-        -webkit-transform-origin: left top;
-                transform-origin: left top; }
+        transform: rotate(45deg);
+        transform-origin: left top; }
     .title__divider--angle .line-right {
-      left: -webkit-calc(50% + 15px);
       left: calc(50% + 15px); }
       .title__divider--angle .line-right:after {
         left: -23px;
-        -webkit-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-        -webkit-transform-origin: right top;
-                transform-origin: right top; }
+        transform: rotate(-45deg);
+        transform-origin: right top; }
   .title__divider--shadow {
     overflow: visible; }
     .title__divider--shadow .title__divider__wrapper {
@@ -182,8 +175,7 @@
           .title__divider--shadow.text-left .shadow:before, .title__divider--shadow.text-left .shadow:after {
             left: 0; } }
       .title__divider--shadow.text-left .shadow:after {
-        -webkit-transform: rotate(-6deg);
-                transform: rotate(-6deg); }
+        transform: rotate(-6deg); }
     .title__divider--shadow.text-center .shadow {
       left: -15%; }
       @media screen and (max-width: 575px) {
@@ -208,5 +200,4 @@
           .title__divider--shadow.text-right .shadow:before, .title__divider--shadow.text-right .shadow:after {
             right: 10%; } }
       .title__divider--shadow.text-right .shadow:after {
-        -webkit-transform: rotate(6deg);
-                transform: rotate(6deg); }
+        transform: rotate(6deg); }

@@ -53,7 +53,7 @@
           if (filterName === 'all') {
             counter.html(gradient_slider.children().length)
           } else {
-            var selector = "[data-filter='" + filterName + "']";
+            var selector = "[data-filter*='" + filterName + "']";
             counter.html(gradient_slider.find(selector).length)
           }
         });
@@ -85,7 +85,7 @@
         });
         // Filter end
 
-        gradient_slider.slick({
+        var optionSlick = {
           slidesToShow: 3,
           slidesToScroll: 1,
           swipeToSlide: true,
@@ -101,11 +101,11 @@
           draggable: true,
           pauseOnHover: true,
           responsive: [{
-              breakpoint: 1230,
-              settings: {
-                slidesToShow: 2
-              }
-            },
+            breakpoint: 1230,
+            settings: {
+              slidesToShow: 2
+            }
+          },
             {
               breakpoint: 700,
               settings: {
@@ -113,7 +113,10 @@
               }
             },
           ]
-        });
+        };
+
+        gradient_slider.slick(optionSlick);
+
       });
 
 

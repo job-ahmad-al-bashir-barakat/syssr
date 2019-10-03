@@ -8,20 +8,19 @@
   width: 100%;
   min-height: 200px; }
   .brk-sc-honeycomb_line {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center; }
+    flex-wrap: wrap;
+    justify-content: center; }
+  .brk-sc-honeycomb_nigative-line {
+    margin-bottom: 30px; }
+    @media (min-width: 992px) {
+      .brk-sc-honeycomb_nigative-line {
+        margin-top: -90px; } }
   .brk-sc-honeycomb-one {
     position: relative;
     width: 220px;
     height: 380px;
     box-shadow: 0 1px 14px rgba(0, 0, 0, 0.06);
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin: 30px 0;
     background-color: #fff;
@@ -110,19 +109,15 @@
       .brk-sc-honeycomb-one:hover .brk-sc-honeycomb-one__layer {
         opacity: 1; }
       .brk-sc-honeycomb-one:hover .brk-sc-honeycomb-one__thumb {
-        -webkit-transform: scale(0);
-                transform: scale(0);
+        transform: scale(0);
         max-height: 0; }
       .brk-sc-honeycomb-one:hover .brk-sc-honeycomb-one__desc {
-        -webkit-transform: scale(1);
-                transform: scale(1);
+        transform: scale(1);
         max-height: 999px;
-        -webkit-transition: all .3s ease-in-out;
         transition: all .3s ease-in-out; }
       .brk-sc-honeycomb-one:hover .brk-sc-honeycomb-one__buy {
         bottom: 80px;
-        -webkit-transform: translate(-50%, 0);
-                transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
         background-color: var(--white);
         color: var(--brand-primary); }
@@ -146,17 +141,13 @@
       height: 100%;
       z-index: -1;
       box-shadow: inherit;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
+      transform-origin: center center;
       background-color: #fff; }
     .brk-sc-honeycomb-one:before {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-one:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-one__hex-1, .brk-sc-honeycomb-one__hex-2 {
       position: absolute;
       background: inherit;
@@ -167,22 +158,18 @@
       overflow: hidden;
       z-index: 1; }
     .brk-sc-honeycomb-one__hex-1 {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-one__hex-2 {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-one__layer {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2;
       width: 200%;
       height: 100%;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
               clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
@@ -195,16 +182,13 @@
       height: 100%;
       z-index: 3;
       text-align: center;
-      -webkit-transition-property: padding-top, background-color;
       transition-property: padding-top, background-color;
-      -webkit-transition-duration: .3s;
-              transition-duration: .3s;
+      transition-duration: .3s;
       padding-top: 50px; }
     .brk-sc-honeycomb-one__title {
       font-size: 1.3125rem;
       line-height: 25px;
       text-transform: uppercase;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       min-height: 50px;
       font-weight: 200; }
@@ -222,7 +206,6 @@
     .brk-sc-honeycomb-one__thumb {
       width: 100%;
       height: 250px;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       margin-top: 5px; }
       @media (min-width: 992px) and (max-width: 1229px) {
@@ -240,8 +223,7 @@
       font-size: 1rem;
       line-height: 26px;
       font-weight: 300;
-      -webkit-transform: scale(0);
-              transform: scale(0);
+      transform: scale(0);
       margin-top: 16px;
       max-height: 0;
       color: var(--brk-base-4); }
@@ -259,8 +241,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      -webkit-transform: translate(-50%, 50%);
-              transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
       width: 162px;
       height: 44px;
       font-size: 1rem;
@@ -268,7 +249,6 @@
       border-radius: 22px;
       display: inline-block;
       text-align: center;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       color: var(--white);
       box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.5); }
@@ -288,8 +268,7 @@
       position: absolute;
       top: 0;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       margin: 0;
       padding-top: 5px;
       padding-bottom: 5px;
@@ -297,7 +276,6 @@
       font-size: 0.875rem;
       font-weight: 500;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
     .brk-sc-honeycomb-one__right-sticker, .brk-sc-honeycomb-one__left-sticker {
       position: absolute;
@@ -323,56 +301,40 @@
           letter-spacing: 0.07em; }
     .brk-sc-honeycomb-one__right-sticker {
       right: 0;
-      -webkit-transform: translateX(55%);
-              transform: translateX(55%); }
+      transform: translateX(55%); }
       .brk-sc-honeycomb-one__right-sticker-layer {
         right: 0;
-        -webkit-transform-origin: 100% 100%;
-                transform-origin: 100% 100%;
-        -webkit-transform: rotate(-30deg);
-                transform: rotate(-30deg); }
+        transform-origin: 100% 100%;
+        transform: rotate(-30deg); }
       .brk-sc-honeycomb-one__right-sticker-value {
         left: 100%;
-        -webkit-transform-origin: 0 100%;
-                transform-origin: 0 100%;
-        -webkit-transform: rotate(-16.5deg);
-                transform: rotate(-16.5deg);
+        transform-origin: 0 100%;
+        transform: rotate(-16.5deg);
         background-image: linear-gradient(160deg, var(--brk-base-2), var(--brk-base-5)); }
         .brk-sc-honeycomb-one__right-sticker-value span {
           top: 34px;
           left: 25px;
-          -webkit-transform-origin: 0 0;
-                  transform-origin: 0 0;
-          -webkit-transform: rotate(90deg);
-                  transform: rotate(90deg); }
+          transform-origin: 0 0;
+          transform: rotate(90deg); }
     .brk-sc-honeycomb-one__left-sticker {
       left: 0;
-      -webkit-transform: translateX(-55%);
-              transform: translateX(-55%); }
+      transform: translateX(-55%); }
       .brk-sc-honeycomb-one__left-sticker-layer {
         left: 0;
-        -webkit-transform-origin: 0 100%;
-                transform-origin: 0 100%;
-        -webkit-transform: rotate(30deg);
-                transform: rotate(30deg); }
+        transform-origin: 0 100%;
+        transform: rotate(30deg); }
       .brk-sc-honeycomb-one__left-sticker-value {
         right: 100%;
-        -webkit-transform-origin: 100% 100%;
-                transform-origin: 100% 100%;
-        -webkit-transform: rotate(16.5deg);
-                transform: rotate(16.5deg);
-        background-image: -webkit-gradient(linear, left top, right top, color-stop(1%, var(--brk-secondary-1)), to(var(--brk-secondary-6)));
+        transform-origin: 100% 100%;
+        transform: rotate(16.5deg);
         background-image: linear-gradient(to right, var(--brk-secondary-1) 1%, var(--brk-secondary-6)); }
         .brk-sc-honeycomb-one__left-sticker-value span {
           top: 4px;
           right: 0;
-          -webkit-transform-origin: 100% 100%;
-                  transform-origin: 100% 100%;
-          -webkit-transform: rotate(-90deg);
-                  transform: rotate(-90deg); }
+          transform-origin: 100% 100%;
+          transform: rotate(-90deg); }
     .brk-sc-honeycomb-one__hide-btn {
       opacity: 0;
-      -webkit-transition: .3s opacity;
       transition: .3s opacity; }
     .brk-sc-honeycomb-one__header .after {
       height: 2px !important;
@@ -386,7 +348,6 @@
     width: 140px;
     height: 243px;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin: 40px 70px;
     background-color: #fff;
@@ -414,8 +375,7 @@
         .brk-sc-honeycomb-two_cell {
           margin: 40px 70px; } }
     .brk-sc-honeycomb-two:hover .brk-sc-honeycomb-two__content {
-      -webkit-transform: translateX(-50%) scale(1);
-              transform: translateX(-50%) scale(1); }
+      transform: translateX(-50%) scale(1); }
     .brk-sc-honeycomb-two:hover .brk-sc-honeycomb-two__layer {
       opacity: 1; }
     .brk-sc-honeycomb-two:hover .brk-sc-honeycomb-two__sticker {
@@ -426,11 +386,9 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       background-color: var(--white); }
       .brk-sc-honeycomb-two:hover .brk-sc-honeycomb-two__buy .price {
-        -webkit-transform: translate(-50%, -50%) scale(0);
-                transform: translate(-50%, -50%) scale(0); }
+        transform: translate(-50%, -50%) scale(0); }
       .brk-sc-honeycomb-two:hover .brk-sc-honeycomb-two__buy .buy {
-        -webkit-transform: translate(-50%, -50%) scale(1);
-                transform: translate(-50%, -50%) scale(1); }
+        transform: translate(-50%, -50%) scale(1); }
     .brk-sc-honeycomb-two:hover .added_to_cart {
       opacity: 1; }
     @supports not ((-webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%)) or (clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%))) {
@@ -450,16 +408,12 @@
       z-index: -1;
       background-color: inherit;
       box-shadow: inherit;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      -webkit-transform-origin: center center;
-              transform-origin: center center; }
+      transform-origin: center center; }
     .brk-sc-honeycomb-two:before {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-two:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-two__hex-1, .brk-sc-honeycomb-two__hex-2 {
       position: absolute;
       background: inherit;
@@ -470,22 +424,18 @@
       overflow: hidden;
       z-index: 1; }
     .brk-sc-honeycomb-two__hex-1 {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-two__hex-2 {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-two__layer {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 3;
       width: 200%;
       height: 100%;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
               clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
@@ -499,15 +449,9 @@
       height: 100%;
       padding: 27px 0 50px;
       z-index: 2;
-      display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-              align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-              justify-content: center; }
+      align-items: center;
+      justify-content: center; }
       @supports not ((-webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%)) or (clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%))) {
         .brk-sc-honeycomb-two__thumb {
           width: 100%;
@@ -521,13 +465,11 @@
       position: absolute;
       top: 0;
       left: 50%;
-      -webkit-transform: translateX(-50%) scale(0);
-              transform: translateX(-50%) scale(0);
+      transform: translateX(-50%) scale(0);
       width: 120%;
       height: 100%;
       padding: 25px 0;
       z-index: 4;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
     .brk-sc-honeycomb-two__title {
       font-size: 1.125rem;
@@ -542,8 +484,7 @@
       position: absolute;
       top: 0;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       min-width: 58px;
       height: 21px;
       padding: 0 10px;
@@ -551,7 +492,6 @@
       line-height: 22px;
       text-align: center;
       border-radius: 11px;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       z-index: 9;
       color: var(--white);
@@ -561,8 +501,7 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      -webkit-transform: translate(-50%, 50%);
-              transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
       z-index: 9;
       width: 106px;
       height: 42px;
@@ -571,7 +510,6 @@
       line-height: 18px;
       font-weight: bold;
       display: block;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       background-color: var(--brand-primary);
       box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.5); }
@@ -581,9 +519,7 @@
         left: 50%;
         width: 100%;
         text-align: center;
-        -webkit-transform: translate(-50%, -50%) scale(1);
-                transform: translate(-50%, -50%) scale(1);
-        -webkit-transition: inherit;
+        transform: translate(-50%, -50%) scale(1);
         transition: inherit;
         color: var(--white); }
       .brk-sc-honeycomb-two__buy .buy {
@@ -593,9 +529,7 @@
         width: 100%;
         text-align: center;
         text-transform: uppercase;
-        -webkit-transform: translate(-50%, -50%) scale(0);
-                transform: translate(-50%, -50%) scale(0);
-        -webkit-transition: inherit;
+        transform: translate(-50%, -50%) scale(0);
         transition: inherit;
         color: var(--brand-primary); }
         .brk-sc-honeycomb-two__buy .buy i {
@@ -607,20 +541,17 @@
       z-index: 9;
       bottom: 0;
       left: 50%;
-      -webkit-transform: translate(-50%, 50%);
-              transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
       margin: 0;
       font-size: 0.8125rem;
       padding: 9px 20px;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
   .brk-sc-honeycomb-three {
     position: relative;
     width: 135px;
     height: 234px;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin: 40px 68px;
     background-color: #fff;
@@ -656,8 +587,7 @@
       .brk-sc-honeycomb-three:nth-child(4) {
         margin-top: 0; } }
     .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__content {
-      -webkit-transform: translateX(-50%) scale(1);
-              transform: translateX(-50%) scale(1); }
+      transform: translateX(-50%) scale(1); }
     .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__layer {
       opacity: 1; }
     .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__sticker {
@@ -668,11 +598,9 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       background-color: var(--white); }
       .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__buy .price {
-        -webkit-transform: translate(-50%, -50%) scale(0);
-                transform: translate(-50%, -50%) scale(0); }
+        transform: translate(-50%, -50%) scale(0); }
       .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__buy .buy {
-        -webkit-transform: translate(-50%, -50%) scale(1);
-                transform: translate(-50%, -50%) scale(1); }
+        transform: translate(-50%, -50%) scale(1); }
     .brk-sc-honeycomb-three:hover .added_to_cart {
       opacity: 1; }
     .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__before {
@@ -686,26 +614,20 @@
 
 @-webkit-keyframes pulse-honeycomb-three {
   0% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1); }
+    transform: translate(-50%, -50%) scale(1); }
   50% {
-    -webkit-transform: translate(-50%, -50%) scale(1.55);
-            transform: translate(-50%, -50%) scale(1.55); }
+    transform: translate(-50%, -50%) scale(1.55); }
   100% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0; } }
 
 @keyframes pulse-honeycomb-three {
   0% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1); }
+    transform: translate(-50%, -50%) scale(1); }
   50% {
-    -webkit-transform: translate(-50%, -50%) scale(1.55);
-            transform: translate(-50%, -50%) scale(1.55); }
+    transform: translate(-50%, -50%) scale(1.55); }
   100% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0; } }
     @supports not ((-webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%)) or (clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%))) {
       .brk-sc-honeycomb-three:hover .brk-sc-honeycomb-three__hex-2,
@@ -723,17 +645,13 @@
       height: 100%;
       z-index: -1;
       box-shadow: inherit;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
+      transform-origin: center center;
       background-color: rgba(var(--brand-primary-rgb), 0.1); }
     .brk-sc-honeycomb-three:before {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-three:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-three__hex-1, .brk-sc-honeycomb-three__hex-2 {
       position: absolute;
       background: #fff;
@@ -744,17 +662,14 @@
       overflow: hidden;
       z-index: 1; }
     .brk-sc-honeycomb-three__hex-1 {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-three__hex-2 {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-three__before, .brk-sc-honeycomb-three__after {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       width: 199%;
       height: 99%;
       -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
@@ -767,13 +682,11 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 3;
       width: 200%;
       height: 100%;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
               clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
@@ -787,15 +700,9 @@
       height: 100%;
       padding: 27px 0 50px;
       z-index: 2;
-      display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-              align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-              justify-content: center; }
+      align-items: center;
+      justify-content: center; }
       @supports not ((-webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%)) or (clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%))) {
         .brk-sc-honeycomb-three__thumb {
           width: 100%;
@@ -809,13 +716,11 @@
       position: absolute;
       top: 0;
       left: 50%;
-      -webkit-transform: translateX(-50%) scale(0);
-              transform: translateX(-50%) scale(0);
+      transform: translateX(-50%) scale(0);
       width: 120%;
       height: 100%;
       padding: 25px 0;
       z-index: 4;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
     .brk-sc-honeycomb-three__title {
       font-size: 1.125rem;
@@ -836,7 +741,6 @@
       line-height: 62px;
       text-align: center;
       border-radius: 50%;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       z-index: 9;
       color: var(--white);
@@ -845,8 +749,7 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      -webkit-transform: translate(-50%, 50%);
-              transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
       z-index: 9;
       width: 106px;
       height: 42px;
@@ -855,7 +758,6 @@
       line-height: 18px;
       font-weight: bold;
       display: block;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       background-color: var(--brand-primary);
       box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.5); }
@@ -865,9 +767,7 @@
         left: 50%;
         width: 100%;
         text-align: center;
-        -webkit-transform: translate(-50%, -50%) scale(1);
-                transform: translate(-50%, -50%) scale(1);
-        -webkit-transition: inherit;
+        transform: translate(-50%, -50%) scale(1);
         transition: inherit;
         color: var(--white); }
       .brk-sc-honeycomb-three__buy .buy {
@@ -877,9 +777,7 @@
         width: 100%;
         text-align: center;
         text-transform: uppercase;
-        -webkit-transform: translate(-50%, -50%) scale(0);
-                transform: translate(-50%, -50%) scale(0);
-        -webkit-transition: inherit;
+        transform: translate(-50%, -50%) scale(0);
         transition: inherit;
         color: var(--brand-primary); }
         .brk-sc-honeycomb-three__buy .buy i {
@@ -890,19 +788,16 @@
       z-index: 9;
       bottom: 0;
       left: 50%;
-      -webkit-transform: translate(-50%, 50%);
-              transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
       margin: 0;
       font-size: 0.8125rem;
       padding: 9px 20px;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
   .brk-sc-honeycomb-four {
     position: relative;
     width: 220px;
     height: 380px;
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin: 15px 0;
     background-color: #f5f5f5;
@@ -977,27 +872,21 @@
       height: 100%;
       z-index: -1;
       background-color: inherit;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      -webkit-transform-origin: center center;
-              transform-origin: center center; }
+      transform-origin: center center; }
     .brk-sc-honeycomb-four:before {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-four:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-four__layer {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2;
       width: 200%;
       height: 100%;
       opacity: 0;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
               clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
@@ -1015,8 +904,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      -webkit-transform: translateX(50%);
-              transform: translateX(50%);
+      transform: translateX(50%);
       -webkit-clip-path: polygon(0% 0%, 50% 0, 100% 50%, 50% 100%, 0% 100%);
               clip-path: polygon(0% 0%, 50% 0, 100% 50%, 50% 100%, 0% 100%); }
       .brk-sc-honeycomb-four__thumb img {
@@ -1050,7 +938,6 @@
       font-size: 1.5rem;
       line-height: 26px;
       font-weight: bold;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       margin-bottom: 2px; }
     .brk-sc-honeycomb-four__price {
@@ -1065,18 +952,15 @@
         padding: 0 12px;
         font-weight: 600;
         box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), 0.5);
-        -webkit-transition: .3s box-shadow, .3s background-color;
         transition: .3s box-shadow, .3s background-color; }
     .brk-sc-honeycomb-four .brk-rating__layer i,
     .brk-sc-honeycomb-four .brk-rating__imposition i {
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
   .brk-sc-honeycomb-five {
     position: relative;
     width: 230px;
     height: 397px;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
-    -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin: 12px 0;
     background-color: var(--white);
@@ -1149,25 +1033,20 @@
       z-index: -1;
       background-color: inherit;
       box-shadow: inherit;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      -webkit-transform-origin: center center;
-              transform-origin: center center; }
+      transform-origin: center center; }
       @supports not ((-webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%)) or (clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%))) {
         .brk-sc-honeycomb-five:before, .brk-sc-honeycomb-five:after {
           box-shadow: none; } }
     .brk-sc-honeycomb-five:before {
-      -webkit-transform: translate(-50%, -50%) rotate(60deg);
-              transform: translate(-50%, -50%) rotate(60deg); }
+      transform: translate(-50%, -50%) rotate(60deg); }
     .brk-sc-honeycomb-five:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-              transform: translate(-50%, -50%) rotate(-60deg); }
+      transform: translate(-50%, -50%) rotate(-60deg); }
     .brk-sc-honeycomb-five__thumb {
       position: absolute;
       top: 0;
       left: 50%;
-      -webkit-transform: translateX(-50%);
-              transform: translateX(-50%);
+      transform: translateX(-50%);
       width: 200%;
       height: 100%;
       z-index: 1;
@@ -1204,17 +1083,12 @@
         text-decoration: none !important; }
       .brk-sc-honeycomb-five_white-style .brk-sc-honeycomb-five__content {
         left: 50%;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
+        transform: translateX(-50%);
         width: 130%; }
     .brk-sc-honeycomb-five__link-sticker {
       text-align: center;
-      display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-              justify-content: center;
+      justify-content: center;
       margin-bottom: 45px; }
       .brk-sc-honeycomb-five__link-sticker .sticker {
         display: inline-block;
@@ -1350,8 +1224,7 @@
     .brk-sc-hexagon .brk-sc-hexagon__img-main img {
       position: absolute;
       left: 50%;
-      -webkit-transform: translateX(-50%);
-              transform: translateX(-50%);
+      transform: translateX(-50%);
       max-height: none;
       max-width: none;
       width: 460px;
@@ -1367,8 +1240,7 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    -webkit-transform: skewX(-30deg);
-            transform: skewX(-30deg); }
+    transform: skewX(-30deg); }
     .brk-sc-hexagon .brk-sc-hexagon__angle-1 img {
       max-height: none;
       max-width: none;
@@ -1378,8 +1250,7 @@
          object-fit: cover;
       -o-object-position: 50% 0px;
          object-position: 50% 0px;
-      -webkit-transform: skewX(30deg);
-              transform: skewX(30deg);
+      transform: skewX(30deg);
       position: absolute;
       left: 17px; }
   .brk-sc-hexagon .brk-sc-hexagon__angle-2 {
@@ -1389,8 +1260,7 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    -webkit-transform: skewX(30deg);
-            transform: skewX(30deg); }
+    transform: skewX(30deg); }
     .brk-sc-hexagon .brk-sc-hexagon__angle-2 img {
       max-height: none;
       max-width: none;
@@ -1398,8 +1268,7 @@
       height: 460px;
       -o-object-fit: cover;
          object-fit: cover;
-      -webkit-transform: skewX(-30deg);
-              transform: skewX(-30deg);
+      transform: skewX(-30deg);
       position: absolute;
       top: -198px;
       left: -20px;
@@ -1412,8 +1281,7 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    -webkit-transform: skewX(30deg);
-            transform: skewX(30deg); }
+    transform: skewX(30deg); }
     .brk-sc-hexagon .brk-sc-hexagon__angle-3 img {
       max-height: none;
       max-width: none;
@@ -1423,8 +1291,7 @@
          object-fit: cover;
       -o-object-position: 50% 0px;
          object-position: 50% 0px;
-      -webkit-transform: skewX(-30deg);
-              transform: skewX(-30deg);
+      transform: skewX(-30deg);
       position: absolute;
       left: -250px; }
   .brk-sc-hexagon .brk-sc-hexagon__angle-4 {
@@ -1434,8 +1301,7 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    -webkit-transform: skewX(-30deg);
-            transform: skewX(-30deg); }
+    transform: skewX(-30deg); }
     .brk-sc-hexagon .brk-sc-hexagon__angle-4 img {
       max-height: none;
       max-width: none;
@@ -1443,8 +1309,7 @@
       height: 460px;
       -o-object-fit: cover;
          object-fit: cover;
-      -webkit-transform: skewX(30deg);
-              transform: skewX(30deg);
+      transform: skewX(30deg);
       position: absolute;
       -o-object-position: 50% 0;
          object-position: 50% 0;

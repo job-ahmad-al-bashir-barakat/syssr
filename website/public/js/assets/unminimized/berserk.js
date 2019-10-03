@@ -4,7 +4,7 @@ var Berserk = Berserk || {'settings': {timeout_delay: 200}, 'behaviors': {}};
 
 var brk_xmode = false;
 // Put your google maps api key here
-Berserk.settings.gmap_api_key = typeof brk !== 'undefined' && typeof brk.gmap_api_key !== 'undefined' ? brk.gmap_api_key : "AIzaSyDEE4w3qmvL1fF91KiHhySPYZNiULI0YRo";
+Berserk.settings.gmap_api_key = typeof brk !== 'undefined' && typeof brk.gmap_api_key !== 'undefined' ? brk.gmap_api_key : "";
 // Put your Re-Captcha key here
 Berserk.settings.recaptcha_api_key = typeof brk !== 'undefined' && typeof brk.recaptcha_api_key !== 'undefined' ? brk.recaptcha_api_key : "6Lfsu3QUAAAAAO6j2iAsncliNSQqISfipl0DjPAp";
 // Advanced: If your real project path is different then in the URL
@@ -23,10 +23,10 @@ function isSafari() {
   var hasSafariInUa = !!ua.match(/Safari/i);
   var noOtherBrowsersInUa = !ua.match(/Chrome|CriOS|OPiOS|mercury|FxiOS|Firefox/i);
   var result = false;
-  if(iOS) { //detecting Safari in IOS mobile browsers
+  if (iOS) { //detecting Safari in IOS mobile browsers
     var webkit = !!ua.match(/WebKit/i);
     result = webkit && hasSafariInUa && noOtherBrowsersInUa
-  } else if(window.safari !== undefined){ //detecting Safari in Desktop Browsers
+  } else if (window.safari !== undefined) { //detecting Safari in Desktop Browsers
     result = true;
   } else { // detecting Safari in other platforms
     result = hasSafariInUa && noOtherBrowsersInUa
@@ -37,10 +37,10 @@ function isSafari() {
 
 /* RTL Detect */
 (function () {
-  if(!brk_xmode) {
+  if (!brk_xmode) {
     var brkDirectionBootstrap = document.getElementById('brk-direction-bootstrap'),
-        brkDirectionOffsets   = document.getElementById('brk-direction-offsets'),
-        revSlider             = document.getElementsByClassName('rev_slider_wrapper');
+      brkDirectionOffsets = document.getElementById('brk-direction-offsets'),
+      revSlider = document.getElementsByClassName('rev_slider_wrapper');
 
     if (location.search.indexOf('dir=rtl') + 1) {
       document.documentElement.setAttribute('dir', 'rtl');
@@ -48,10 +48,10 @@ function isSafari() {
       brkDirectionBootstrap.setAttribute('href', 'css/assets/bootstrap-rtl.css');
       brkDirectionOffsets.setAttribute('href', 'css/assets/offsets-rtl.css');
 
-      if(revSlider.length){
+      if (revSlider.length) {
         revSlider[0].style.direction = 'ltr';
       }
-    } else if(location.search.indexOf('dir=ltr') + 1) {
+    } else if (location.search.indexOf('dir=ltr') + 1) {
       document.documentElement.setAttribute('dir', 'ltr');
 
       brkDirectionBootstrap.setAttribute('href', 'css/assets/bootstrap.css');
@@ -63,7 +63,7 @@ function isSafari() {
 
 (function ($) {
 
-  if(isSafari()) {
+  if (isSafari()) {
     $('html').addClass('brk-safari')
   }
 
@@ -120,7 +120,7 @@ function isSafari() {
     var fonts = {
       '.font__family-oxygen': 'Oxygen:300,400,700',
       '.font__family-montserrat': 'Montserrat:100,200,300,400,500,600,700',
-      '.font__family-open-sans': 'Open+Sans:200,300,400,600,700',
+      '.font__family-open-sans': 'Open+Sans:300,400,600,700',
       '.font__family-playfair': 'Playfair+Display:400,400i,700',
       '.font__family-roboto': 'Roboto:100,300,400,700',
       '.font__family-roboto-slab': 'Roboto+Slab:100,300,400,700',
@@ -147,7 +147,7 @@ function isSafari() {
     $document = $(document),
     $window = $(window),
     i = 0;
-  
+
   $.fn.isOnScreen = function (test) {
     var height = this.outerHeight();
     var width = this.outerWidth();
@@ -293,7 +293,7 @@ function isSafari() {
     });
   }
 
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function () {
     // Scroll to anchor
     $("a:not(.nohash-animat)").on('click', function (event) {
       var $href = $(this).attr('href');
@@ -307,7 +307,7 @@ function isSafari() {
       ) {
         event.preventDefault();
         var hash = this.hash;
-        if($(hash).length) {
+        if ($(hash).length) {
           $('html, body').animate({
             scrollTop: $(hash).offset().top
           }, 800, 'swing', function () {
@@ -316,11 +316,11 @@ function isSafari() {
         }
       }
     });
-    if(window.location.hash) { 
-      window.scrollTo(0,0);
-      setTimeout(function() {
+    if (window.location.hash) {
+      window.scrollTo(0, 0);
+      setTimeout(function () {
         $('html, body').animate({
-            scrollTop: $(window.location.hash).offset().top
+          scrollTop: $(window.location.hash).offset().top
         }, 800, 'swing');
       }, 800)
     }
@@ -337,7 +337,7 @@ function isSafari() {
         var $this = $(this);
 
         $(window).on('scroll', function () {
-          if($this.is('[id="toTop"]')) {
+          if ($this.is('[id="toTop"]')) {
             if ($(this).scrollTop() > top_show) $this.fadeIn();
             else $this.fadeOut();
           }
@@ -356,9 +356,9 @@ function isSafari() {
   Berserk.behaviors.border_theme_init = {
     attach: function (context, settings) {
       if ($('body').hasClass('brk-bordered-theme')) {
-        $(':root').attr('style',  '--b-radius: ' + $('body').attr('data-border') + 'px;');
+        $(':root').attr('style', '--b-radius: ' + $('body').attr('data-border') + 'px;');
       } else {
-        $(':root').attr('style',  '--b-radius:;');
+        $(':root').attr('style', '--b-radius:;');
       }
     }
   };
@@ -397,18 +397,19 @@ function isSafari() {
 
   // WOW init
   $(document).ready(function () {
-  if (typeof(WOW) !== 'undefined') {
-    var wow = new WOW();
+    if (typeof (WOW) !== 'undefined') {
+      var wow = new WOW();
       wow.init();
     }
   });
   // WOW init end
 
-  // Fancy box 
+  // Fancy box
+  var mr = window.innerWidth - document.documentElement.clientWidth;
   Berserk.behaviors.fancybox_init = {
     attach: function (context, settings) {
 
-      if($('.fancybox:not(.rendered), .fancybox-media:not(.rendered)').length < 1) {
+      if ($('.fancybox:not(.rendered), .fancybox-media:not(.rendered)').length < 1) {
         return;
       }
 
@@ -425,7 +426,15 @@ function isSafari() {
       if (fancybox.length) {
         fancybox.fancybox({
           openEffect: 'elastic',
-          closeEffect: 'elastic'
+          closeEffect: 'elastic',
+          beforeShow: function (instance, slide) {
+            $('.brk-header').addClass('compensate-for-scrollbar');
+          },
+          beforeClose: function (instance, slide) {
+            setTimeout(function () {
+              $('.brk-header').removeClass('compensate-for-scrollbar');
+            }, 400)
+          }
         }).addClass('rendered');
       }
 
@@ -435,6 +444,14 @@ function isSafari() {
           closeEffect: 'fade',
           helpers: {
             media: {}
+          },
+          beforeShow: function (instance, slide) {
+            $('.brk-header').addClass('compensate-for-scrollbar');
+          },
+          beforeClose: function (instance, slide) {
+            setTimeout(function () {
+              $('.brk-header').removeClass('compensate-for-scrollbar');
+            }, 400)
           }
         }).addClass('rendered');
       }
@@ -480,71 +497,71 @@ function isSafari() {
   var adds = {
       'css': {},
       'js': {}
-  },
-  brk_added_libraries = {},
-  uniqueUrls = {
-    // CSS
-    "css/assets/brk-header-elements.css": true,
-    "css/components/theme-options.css": true,
-    "css/components/accordions.css": true,
-    "css/components/tabs.css": true,
-    "css/components/buttons.css": true,
-    "css/components/pricing-tables.css": true,
-    "css/components/testimonials.css": true,
-    "css/components/CFA.css": true,
-    "css/components/form-controls.css": true,
-    "css/components/flip-boxes.css": true,
-    "css/components/elements.css": true,
-    "css/components/titles.css": true,
-    "vendor/fancybox/css/jquery.fancybox.min.css": true,
-    // JS
-    "js/assets/brk-customizer.js": true,
-    "js/assets/brk-header.js": true,
-    "js/components/accordions.js": true,
-    "js/components/tabs.js": true,
-    "js/components/buttons.js": true,
-    "js/components/form-controls.js": true,
-    "vendor/formStyler/js/jquery.formstyler.min.js": true,
-    // TEST
-    "css/components/footer.css": true,
-    "css/components/image-map.css": true,
-    "css/components/media-embeds.css": true,
-    // TEST JS
-    "js/components/media-embeds.js": true,
-    "js/components/image-map.js": true,
-    "js/components/footer.js": true,
-    "js/components/portfolio-masonry.js": true,
-    "js/components/progress-bars.js": true,
-    "js/components/portfolio-rows.js": true,
-    "js/components/steps.js": true,
-    "js/components/parallax-video.js": true,
-    "js/components/counter.js": true,
-    "js/components/sliders.js": true,
-    "js/components/breadcrumbs.js": true,
-    "js/components/info-box.js": true,
-    "js/components/shop-components-tiles.js": true,
-    "js/components/blog-page.js": true,
-  },
-  lazyUrls = {
-    "component__map": {
-      "js": [
-        "https://maps.googleapis.com/maps/api/js?key=" + Berserk.settings.gmap_api_key,
-        "js/components/google-maps.js"
-      ]
     },
-    "twitter_init": {
-      "js": [
-        "js/assets/twitter-init.js"
-      ]
+    brk_added_libraries = {},
+    uniqueUrls = {
+      // CSS
+      "css/assets/brk-header-elements.css": true,
+      "css/components/theme-options.css": true,
+      "css/components/accordions.css": true,
+      "css/components/tabs.css": true,
+      "css/components/buttons.css": true,
+      "css/components/pricing-tables.css": true,
+      "css/components/testimonials.css": true,
+      "css/components/CFA.css": true,
+      "css/components/form-controls.css": true,
+      "css/components/flip-boxes.css": true,
+      "css/components/elements.css": true,
+      "css/components/titles.css": true,
+      "vendor/fancybox/css/jquery.fancybox.min.css": true,
+      // JS
+      "js/assets/brk-customizer.js": true,
+      "js/assets/brk-header.js": true,
+      "js/components/accordions.js": true,
+      "js/components/tabs.js": true,
+      "js/components/buttons.js": true,
+      "js/components/form-controls.js": true,
+      "vendor/formStyler/js/jquery.formstyler.min.js": true,
+      // TEST
+      "css/components/footer.css": true,
+      "css/components/image-map.css": true,
+      "css/components/media-embeds.css": true,
+      // TEST JS
+      "js/components/media-embeds.js": true,
+      "js/components/image-map.js": true,
+      "js/components/footer.js": true,
+      "js/components/portfolio-masonry.js": true,
+      "js/components/progress-bars.js": true,
+      "js/components/portfolio-rows.js": true,
+      "js/components/steps.js": true,
+      "js/components/parallax-video.js": true,
+      "js/components/counter.js": true,
+      "js/components/sliders.js": true,
+      "js/components/breadcrumbs.js": true,
+      "js/components/info-box.js": true,
+      "js/components/shop-components-tiles.js": true,
+      "js/components/blog-page.js": true,
     },
-    "recaptcha": {
-      "js": [
-        "https://www.google.com/recaptcha/api.js?render=" + Berserk.settings.recaptcha_api_key,
-        "js/assets/recaptcha.js"
-      ]
-    }
-  },
-  uniqueLazyUrls = {};
+    lazyUrls = {
+      "component__map": {
+        "js": [
+          "https://maps.googleapis.com/maps/api/js?key=" + Berserk.settings.gmap_api_key,
+          "js/components/google-maps.js"
+        ]
+      },
+      "twitter_init": {
+        "js": [
+          "js/assets/twitter-init.js"
+        ]
+      },
+      "recaptcha": {
+        "js": [
+          "https://www.google.com/recaptcha/api.js?render=" + Berserk.settings.recaptcha_api_key,
+          "js/assets/recaptcha.js"
+        ]
+      }
+    },
+    uniqueLazyUrls = {};
 
   // Attach lazyload
   function brk_lazyload() {
@@ -553,35 +570,40 @@ function isSafari() {
     });
   }
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     brk_lazyload();
   });
 
   function brs_add_libraries_lazy(data_library) {
     var required_libs = data_library.split(','), prefix = '';
 
-    for(var j in required_libs) {
-      if(lazyUrls[required_libs[j]]) {
+    for (var j in required_libs) {
+      if (lazyUrls[required_libs[j]]) {
 
 
-        if(typeof lazyUrls[required_libs[j]].js !== 'undefined') {
+        if (typeof lazyUrls[required_libs[j]].js !== 'undefined') {
 
-          for(var i in lazyUrls[required_libs[j]].js) {
-            if(!uniqueLazyUrls[lazyUrls[required_libs[j]].js[i]]) {
+          for (var i in lazyUrls[required_libs[j]].js) {
+            if (!uniqueLazyUrls[lazyUrls[required_libs[j]].js[i]]) {
               uniqueLazyUrls[lazyUrls[required_libs[j]].js[i]] = true;
 
               prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[j]].js[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
               console.log('JS added: ' + prefix + lazyUrls[required_libs[j]].js[i]);
-              $.cachedScript(prefix + lazyUrls[required_libs[j]].js[i]).done(function (script, textStatus) {
+              /*$.cachedScript(prefix + lazyUrls[required_libs[j]].js[i]).done(function (script, textStatus) {
                 Berserk.attachBehaviors($('body'), Berserk.settings);
+              });*/
+              $.cachedScript(prefix + lazyUrls[required_libs[j]].js[i], {
+                success: function (jqXHR, textStatus) {
+                  Berserk.attachBehaviors($('body'), Berserk.settings)
+                }
               });
             }
           }
         }
 
-        if(typeof lazyUrls[required_libs[j]].css !== 'undefined') {
-          for(i in lazyUrls[required_libs[j]].css) {
-            if(!uniqueLazyUrls[lazyUrls[required_libs[j]].css[i]]) {
+        if (typeof lazyUrls[required_libs[j]].css !== 'undefined') {
+          for (i in lazyUrls[required_libs[j]].css) {
+            if (!uniqueLazyUrls[lazyUrls[required_libs[j]].css[i]]) {
               uniqueLazyUrls[lazyUrls[required_libs[j]].css[i]] = true;
 
               prefix = Berserk.settings.project_prefix && lazyUrls[required_libs[j]].css[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
@@ -595,7 +617,7 @@ function isSafari() {
     }
   }
 
-  addEventListener('lazybeforeunveil', function(e){
+  addEventListener('lazybeforeunveil', function (e) {
     var library = e.target.getAttribute('data-brk-library');
     if (library) {
       brs_add_libraries_lazy(library)
@@ -614,7 +636,7 @@ function isSafari() {
   */
 
   function brs_add_libraries_enqueue(library) {
-    if (typeof libraries[library] == 'undefined') {
+    if (typeof libraries[library] === 'undefined') {
       return;
     }
     if (typeof libraries[library].dependency !== 'undefined') {
@@ -656,9 +678,9 @@ function isSafari() {
     });
 
     if (Object.keys(adds.css).length) {
-      var css   = '',
+      var css = '',
         addClass = '',
-        prefix = '';
+        prefix;
       if (brk_xmode) {
         addClass = 'class="brk-css-add" '
       }
@@ -668,7 +690,13 @@ function isSafari() {
         console.log('CSS added: ' + prefix + adds.css[i]);
         css += '<link ' + addClass + 'rel="stylesheet"  href="' + prefix + adds.css[i] + '">';
       }
-      $('head').append(css);
+
+      var customCss = $('[id*="brk-custom-css-"]');
+      if (customCss.length) {
+        customCss.before(css)
+      } else {
+        $('head').append(css);
+      }
     }
 
     if (Object.keys(adds.js).length) {
@@ -676,17 +704,19 @@ function isSafari() {
       for (i in adds.js) {
         prefix = Berserk.settings.project_prefix && adds.js[i].indexOf('//') === -1 ? Berserk.settings.project_prefix : '';
         console.log('JS added: ' + prefix + adds.js[i]);
-        $.cachedScript(prefix + adds.js[i]).done(function (script, textStatus) {
-          loaded_js = loaded_js + 1;
-          if (Object.keys(adds.js).length === loaded_js) {
-            Berserk.attachBehaviors($('body'), Berserk.settings);
-            // Clear all global elements - prepear for next calls
-            adds = {
-              'css': {},
-              'js': {}
-            };
+        $.cachedScript(prefix + adds.js[i], {
+          success: function (jqXHR, textStatus) {
+            loaded_js = loaded_js + 1;
+            if (Object.keys(adds.js).length === loaded_js) {
+              Berserk.attachBehaviors($('body'), Berserk.settings);
+              // Clear all global elements - prepear for next calls
+              adds = {
+                'css': {},
+                'js': {}
+              };
+            }
           }
-        });
+        })
 
       }
     }
@@ -1567,15 +1597,15 @@ function isSafari() {
       ]
     },
     "component__map": {
-      "css" : [
+      "css": [
         'css/components/google-maps.css'
       ]
     }
   };
 
   // Brk-preloader
-  if(!window.xMode) {
-    window.addEventListener('load', function () {
+  if (!window.xMode) {
+    /*window.addEventListener('load', function () {
       $('html').addClass('brk-preloader-remove');
       setTimeout(function () {
         $('html').removeClass('brk-preloader brk-preloader-remove');
@@ -1589,7 +1619,18 @@ function isSafari() {
         $('html').removeClass('brk-preloader brk-preloader-remove');
         $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
       }, 1500)
-    }, 5000);
+    }, 5000);*/
+
+    $(window).on('load', function () {
+      setTimeout(function () {
+        $('.brk-loader').addClass('brk-loader-remove');
+      }, 500);
+
+      setTimeout(function () {
+        $('.brk-loader').remove();
+        $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
+      }, 3300)
+    });
   } else {
     $('html').removeClass('brk-preloader');
     $('.brk-header:not(.brk-header_vertical)').css('display', '').addClass('d-flex');
@@ -1601,13 +1642,13 @@ function isSafari() {
 
     window.addEventListener('load', function () {
       var idAdd = $('.brk-css-add'),
-          dataHtmlSkin = $('html').data('brk-skin').replace(/\b.css\b/g, '');
+        dataHtmlSkin = $('html').data('brk-skin').replace(/\b.css\b/g, '');
 
       idAdd.each(function () {
         var $this = $(this),
           idAddHref = $this.attr('href');
 
-        if((!idAddHref.indexOf('css/' + dataHtmlSkin + '/') + 1) && (idAddHref.indexOf('css/') + 1)) {
+        if ((!idAddHref.indexOf('css/' + dataHtmlSkin + '/') + 1) && (idAddHref.indexOf('css/') + 1)) {
           var idAddHrefN = idAddHref.replace(/^\bcss\/\b/g, 'css/' + dataHtmlSkin + '/');
           $this.attr('href', idAddHrefN);
 
@@ -1617,14 +1658,16 @@ function isSafari() {
     })
   }
 
-  if(window.xMode) {
+  if (window.xMode) {
     $('head').append('<link rel="stylesheet" href="css/assets/novi.css">');
 
     $('.flip-box').on('dblclick', function () {
       $(this).toggleClass('flip-box-xmode-active');
     });
 
-    $('.btn').on('click', function (e) {e.preventDefault()});
+    $('.btn').on('click', function (e) {
+      e.preventDefault()
+    });
     $('.btn').on('dblclick', function () {
       $(this).toggleClass('btn-xmode-active');
     });

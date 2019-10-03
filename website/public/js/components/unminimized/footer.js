@@ -24,7 +24,9 @@
           };
 
           if (viewportHeight >= wrapper.outerHeight(true)) {
-            setFooterStyles();
+            $(window).on('load', function () {
+              setFooterStyles();
+            })
           }
 
           $(this).on("DOMSubtreeModified", function () {

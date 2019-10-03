@@ -5,6 +5,7 @@ namespace Modules\Members\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Members\Entities\Member;
 
 class MembersController extends Controller
 {
@@ -43,7 +44,7 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        return view('members::show');
+        return Member::findOrFail($id);
     }
 
     /**
@@ -64,7 +65,7 @@ class MembersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json(['data' => $request->input()]);
     }
 
     /**

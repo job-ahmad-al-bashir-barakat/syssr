@@ -18,8 +18,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2; }
     .social__icon-circle .brk-icon > .before {
       position: absolute;
@@ -30,7 +29,6 @@
       border-radius: 50%;
       background: linear-gradient(45deg, var(--brk-base-2) 20%, var(--brk-base-5) 70%);
       opacity: 0;
-      -webkit-transition: all .4s ease;
       transition: all .4s ease;
       z-index: 1; }
     .social__icon-circle .brk-icon > .after {
@@ -46,11 +44,9 @@
     opacity: 1; }
   .social__icon-circle-dark .after {
     border-radius: 0 !important;
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(var(--brand-primary-rgb), 0.86)), to(rgba(var(--secondary-rgb), 0.86))) !important;
     background: linear-gradient(to top, rgba(var(--brand-primary-rgb), 0.86) 0%, rgba(var(--secondary-rgb), 0.86) 100%) !important; }
   .social__icon-circle-dark .before {
     border-radius: 0 !important;
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(var(--brand-primary-rgb), 0.86)), to(rgba(var(--brand-primary-rgb), 0.86))) !important;
     background: linear-gradient(to top, rgba(var(--brand-primary-rgb), 0.86) 0%, rgba(var(--brand-primary-rgb), 0.86) 100%) !important; }
 
 .social__icon-round {
@@ -70,8 +66,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 65px;
     height: 65px;
     border-radius: 50%;
@@ -80,15 +75,13 @@
     background: var(--brand-primary);
     border: 2px solid transparent;
     box-shadow: 0 5px 16px 0 rgba(var(--brand-primary-rgb), 0.5);
-    -webkit-transition: all .4s ease;
     transition: all .4s ease;
     z-index: 1; }
     .social__icon-round .brk-icon:before {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2; }
   .social__icon-round:hover .icon-wrap {
     background: var(--brand-primary); }
@@ -119,7 +112,6 @@
     font-size: 28px;
     margin-bottom: 23px;
     border: 2px solid rgba(var(--brand-primary-rgb), 0.15);
-    -webkit-transition: all .4s ease;
     transition: all .4s ease; }
     .social__icon-square .brk-icon:hover {
       color: #fff; }
@@ -127,11 +119,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2; }
     .social__icon-square .brk-icon .slide-bg {
-      background: -webkit-gradient(linear, left top, right top, color-stop(20%, var(--brand-primary)), color-stop(70%, var(--secondary)));
       background: linear-gradient(to right, var(--brand-primary) 20%, var(--secondary) 70%); }
   .social__icon-square_dark .brk-icon {
     color: #1a1b1b;
@@ -141,14 +131,10 @@
 
 @media (min-width: 575px) {
   [class^="col-"]:nth-child(2n) .social__icon-honeycomb .hexagon {
-    -webkit-box-ordinal-group: 2;
-    -webkit-order: 1;
-            order: 1; } }
+    order: 1; } }
 
 [class^="col-"]:nth-child(2n) .social__icon-honeycomb .icon-title {
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-          justify-content: flex-end; }
+  justify-content: flex-end; }
 
 .hexagon {
   display: block;
@@ -156,7 +142,6 @@
   width: 50%;
   margin: 0 auto;
   background-color: #fff;
-  -webkit-transition: .3s background-color;
   transition: .3s background-color;
   -webkit-clip-path: polygon(125% 0, 150% 50%, 125% 100%, 0% 100%, -50% 50%, 0% 0);
           clip-path: polygon(125% 0, 150% 50%, 125% 100%, 0% 100%, -50% 50%, 0% 0); }
@@ -166,15 +151,12 @@
     height: 100%;
     left: 50%;
     top: 50%;
-    -webkit-transition: .3s background-color;
     transition: .3s background-color; }
   .hexagon__side-1 {
-    -webkit-transform: translate(-50%, -50%) rotate(60deg);
-            transform: translate(-50%, -50%) rotate(60deg);
+    transform: translate(-50%, -50%) rotate(60deg);
     background-color: inherit; }
   .hexagon__side-2 {
-    -webkit-transform: translate(-50%, -50%) rotate(-60deg);
-            transform: translate(-50%, -50%) rotate(-60deg);
+    transform: translate(-50%, -50%) rotate(-60deg);
     background-color: inherit; }
   .hexagon::after {
     content: '';
@@ -187,20 +169,16 @@
       top: -1px;
       opacity: 1;
       background: linear-gradient(25deg, var(--brk-base-6) 30%, var(--brk-base-2)) 60%;
-      -webkit-transition-property: width,height;
       transition-property: width,height;
-      -webkit-transition-duration: .4s;
-              transition-duration: .4s;
+      transition-duration: .4s;
       width: 0;
       height: 102%;
       left: 50%;
       right: auto;
-      -webkit-transform: scale(1) translateX(-50%);
-              transform: scale(1) translateX(-50%);
+      transform: scale(1) translateX(-50%);
       -webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
               clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); }
     .hexagon:hover > .after {
-      width: -webkit-calc(200%);
       width: calc(200%); } }
   @supports not ((-webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0)) or (clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0))) {
     .hexagon:hover {
@@ -213,30 +191,15 @@
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column; }
+  flex-direction: column; }
   .social__icon-honeycomb .hexagon {
-    width: -webkit-calc(50% + 15px);
     width: calc(50% + 15px); }
   .social__icon-honeycomb .icon-title {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     padding: 20px 0 0; }
     @media (min-width: 575px) {
       .social__icon-honeycomb .icon-title {
@@ -252,19 +215,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
     color: var(--brand-primary);
     font-size: 36px;
-    -webkit-transition: color .4s;
     transition: color .4s; }
     .social__icon-honeycomb .brk-icon:before {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2; }
   .social__icon-honeycomb:hover .brk-icon {
     color: #fff; }
@@ -324,27 +284,23 @@
         position: absolute;
         bottom: -44px;
         left: 50%;
-        -webkit-transform: translate(-50%, 0);
-                transform: translate(-50%, 0); } }
+        transform: translate(-50%, 0); } }
   .social__icon-gradient .brk-icon {
     width: 85px;
     height: 85px;
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
     color: var(--brand-primary);
     font-size: 36px;
-    -webkit-transition: all .4s ease;
     transition: all .4s ease; }
     .social__icon-gradient .brk-icon:before {
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       z-index: 2; }
   .social__icon-gradient:hover .brk-icon {
     color: #fff; }

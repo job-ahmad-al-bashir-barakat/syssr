@@ -56,7 +56,7 @@
       }
 
       function btn_inside_out() {
-        $(context).parent().find('.btn-inside-out:not(.rendered)').addClass('rendered').each(function(){
+        $(context).parent().find('.btn-inside-out').addClass('rendered').each(function(){
           var 
             textTag = $(this).find(".text"),
             text = textTag.text(),
@@ -75,6 +75,13 @@
         btn_dropdown_wrap();
         btn_inside_out();
       });
+
+      var brkHeaderMobile     = $('.brk-header-mobile'),
+          brkHeaderMobileOpen = brkHeaderMobile.find('.brk-header-mobile__open');
+      brkHeaderMobileOpen.on('click', function () {
+        btn_inside_out()
+      });
+
 
 
       // btn-pos

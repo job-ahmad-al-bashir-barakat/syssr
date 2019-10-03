@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('style')
-    <style xmlns="">.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
+    <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
+    <style>
+        .slim {
+            border-radius: 25px;
+        }
+    </style>
 @endsection
 
 @section('content')
-    <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-60 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
+    <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
         <div class="full__size-absolute brk-bg-black opacity-70"></div>
         <div class="container">
             <div class="breadcrumbs__wrapper">
@@ -22,9 +27,11 @@
         </div>
     </div>
     <h1 class="sr-only">Profile</h1>
-    <div class=" bg-cover bg-norepeat bg-position_bottom-center pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
+    <div class="pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
         <div class="container">
             <form id="form-profile" enctype="multipart/form-data" method="POST" data-parsley-validate>
+                @csrf
+                <input type="hidden" name="_method" value="PUT">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="brk-form brk-form-round" data-brk-library="component__form">
@@ -61,11 +68,19 @@
                     </div>
                     <div class="col-md-6">
                         <div class="brk-form p-5" style="width: 70%; margin: 0 auto;">
-                            <div class="slim" id="slim-cropper">
+                            <div id="slim-cropper"
+                                 class="slim"
+                                 data-button-edit-title="Edit"
+                                 data-button-cancel-title="Cancel"
+                                 data-button-confirm-title="Confirm"
+                                 data-label="Drop your avatar here"
+                                 data-min-size="60,60"
+                                 data-crop="0,0,1000,1000"
+                                 data-ratio="1:1">
                                 <input type="file" id="avatar" name="avatar">
-                                <img src="{{ asset('custom/img/user-image.png') }}" alt="">
+                                {{--<img src="{{ asset('custom/img/user-image.png') }}" alt="">--}}
                             </div>
-                            <div class="text-center mt-2">
+                            <div class="text-center mt-4">
                                 <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">Press on image to change file</label>
                             </div>
                         </div>
@@ -108,7 +123,7 @@
                     </div>
                 </div>
                 <div class="text-center pt-70">
-                    <button type="submit" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-25 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
+                    <button type="submit" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-25 font__family-open-sans font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
                         <span class="before">Save</span>
                         <span class="text">Click Me</span>
                         <span class="after">Save</span>
@@ -127,40 +142,19 @@
             var api_token = jQuery('meta[name="api-token"]').attr('content');
             var csrf_token = jQuery('meta[name="csrf-token"]').attr('content');
             var api_url = "{{ config('api.base_url') }}";
+            var user_id = "{{ \Auth::id() }}";
 
-            jQuery('#slim-cropper').slim({
-                ratio: '1:1',
-                minSize: {
-                    width: 60,
-                    height: 60,
-                },
-                crop: {
-                    x: 0,
-                    y: 0,
-                    width: 1000,
-                    height: 1000
-                },
-                service: api_url + 'upload/avatar',
-                download: false,
-                willSave: function(data, ready) {
-                    alert('saving!');
-                    ready(data);
-                },
-                label: 'Drop your personal image here.',
-                buttonConfirmLabel: 'Ok',
-                meta: {
-                    userId:'1234'
-                }
-            });
+            jQuery('#slim-cropper').slim();
+
             jQuery.ajaxSetup({
                 data: {
                     api_token: api_token
                 },
-                headers: {
+                // headers: {
                     // 'X-CSRF-TOKEN': csrf_token,
                     // 'Authorization': 'Bearer ' + api_token,
                     // 'Accept': 'application/json'
-                }
+                // }
             });
             // add FormData api_token
             jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
@@ -170,10 +164,10 @@
             });
             jQuery('#form-profile').parsley().on('form:submit', function() {
                 var form = jQuery('#form-profile')[0];
-                var formData = new FormData(form);
+                var formData = new FormData(form)
 
                 jQuery.ajax({
-                    url: api_url + 'member',
+                    url: api_url + 'member/' + user_id,
                     data: formData,
                     type: "POST",
                     contentType: false,

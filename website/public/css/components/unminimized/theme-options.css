@@ -4,11 +4,9 @@
   right: 0;
   width: 100%;
   max-width: 380px;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
   height: 100vh;
   z-index: 100;
-  -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   border-top: 3px solid var(--brand-primary);
   box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.12);
@@ -16,11 +14,9 @@
   [dir="rtl"] .brk-theme-options {
     right: auto;
     left: 0;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%); }
+    transform: translateX(-100%); }
   .brk-theme-options.active {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     z-index: 999; }
   .brk-theme-options__panel {
     position: absolute;
@@ -48,7 +44,6 @@
       color: #fff;
       font-size: 1.125rem;
       padding: 10px 0;
-      -webkit-transition: all .5s ease-in-out;
       transition: all .5s ease-in-out; }
       @media (max-width: 575px) {
         .brk-theme-options__panel-link {
@@ -110,17 +105,13 @@
       left: 50%;
       width: 14px;
       height: 2px;
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
+      transform-origin: center center;
       background-color: var(--brand-primary);
-      -webkit-transition: width .3s;
       transition: width .3s; }
     .brk-theme-options__close:before {
-      -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg); }
+      transform: translate(-50%, -50%) rotate(45deg); }
     .brk-theme-options__close:after {
-      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-              transform: translate(-50%, -50%) rotate(-45deg); }
+      transform: translate(-50%, -50%) rotate(-45deg); }
     [dir="rtl"] .brk-theme-options__close {
       right: auto;
       left: 0; }
@@ -141,19 +132,15 @@
       box-shadow: -5.985px -0.419px 30px 0px rgba(0, 0, 0, 0.12); }
     .brk-theme-options__check_120 {
       height: 120px;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
       .brk-theme-options__check_120:hover {
-        -webkit-transform: translateY(-7px) scale(1.03);
-                transform: translateY(-7px) scale(1.03);
+        transform: translateY(-7px) scale(1.03);
         box-shadow: 0 6px 15px 0 rgba(50, 50, 50, 0.3); }
     .brk-theme-options__check_60 {
       height: 60px;
-      -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out; }
       .brk-theme-options__check_60:hover {
-        -webkit-transform: translateY(-5px) scale(1.03);
-                transform: translateY(-5px) scale(1.03);
+        transform: translateY(-5px) scale(1.03);
         box-shadow: 0 6px 15px 0 rgba(50, 50, 50, 0.3); }
     .brk-theme-options__check_45 {
       height: 45px; }
@@ -162,17 +149,12 @@
       z-index: 3;
       top: 50%;
       left: 10px;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
+      transform: translateY(-50%);
       color: #ffffff;
       font-size: 0.875rem; }
   .brk-theme-options__more {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+    justify-content: center;
     width: 100%;
     color: var(--brand-primary);
     padding: 19px 0; }
@@ -202,23 +184,18 @@
       vertical-align: 0;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       color: #fff;
       font-size: 0.8125rem; }
       .brk-theme-options__check_title-on .brk-theme-options__before i {
         left: auto;
         right: 10px;
-        -webkit-transform: translateY(-50%);
-                transform: translateY(-50%); }
+        transform: translateY(-50%); }
   .brk-theme-options__color {
     padding: 10px 0; }
     .brk-theme-options__color-row {
-      display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-wrap: wrap;
-              flex-wrap: wrap;
+      flex-wrap: wrap;
       margin: 0 -5px; }
     .brk-theme-options__color-radio {
       position: relative;
@@ -246,7 +223,6 @@
         right: 3px;
         bottom: 3px;
         left: 3px;
-        -webkit-transition: all .3s ease-in-out;
         transition: all .3s ease-in-out;
         background-color: var(--oc); }
       .brk-theme-options__color-radio i {
@@ -254,8 +230,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         color: #fff;
         font-size: 0.875rem;
         vertical-align: 0; }
@@ -272,21 +247,17 @@
       .brk-theme-options__color-radio.checked i {
         display: block; }
   .brk-theme-options .accordion-slider-min .card-toggle-icon .before {
-    -webkit-transform: translate(-50%, -50%) rotate(0) !important;
-            transform: translate(-50%, -50%) rotate(0) !important; }
+    transform: translate(-50%, -50%) rotate(0) !important; }
   .brk-theme-options .accordion-slider-min .card-toggle-icon .after {
-    -webkit-transform: translate(-50%, -50%) rotate(0) !important;
-            transform: translate(-50%, -50%) rotate(0) !important; }
+    transform: translate(-50%, -50%) rotate(0) !important; }
   .brk-theme-options .accordion-slider-min .card-header {
     height: 60px; }
     .brk-theme-options .accordion-slider-min .card-header h5 {
       font-size: 1.0625rem !important;
       line-height: 17px !important; }
     .brk-theme-options .accordion-slider-min .card-header:not(.collapsed) .before {
-      -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
-              transform: translate(-50%, -50%) rotate(90deg) !important; }
+      transform: translate(-50%, -50%) rotate(90deg) !important; }
     .brk-theme-options .accordion-slider-min .card-header:not(.collapsed) .after {
-      -webkit-transform: translate(-50%, -50%) rotate(180deg) !important;
-              transform: translate(-50%, -50%) rotate(180deg) !important; }
+      transform: translate(-50%, -50%) rotate(180deg) !important; }
   .brk-theme-options .accordion .card-header {
     min-height: 60px; }

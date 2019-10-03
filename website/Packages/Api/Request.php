@@ -10,14 +10,17 @@ class Request
 
     public function __construct()
     {
-        $token = \Auth::user()->getAttribute('api_token');
         $this->client = new \GuzzleHttp\Client(['base_uri' => config('api.base_url')]);
-        $this->request_header = [
-            'headers' => [
-                'Authorization' => 'Bearer '.$token,
-                'Accept' => 'application/json',
-            ]
-        ];
+        $this->request_header = [];
+        if(\Auth::check()) {
+            $token = \Auth::user()->getAttribute('api_token');
+            $this->request_header = [
+                'headers' => [
+                    'Authorization' => 'Bearer '.$token,
+                    'Accept' => 'application/json',
+                ]
+            ];
+        }
     }
 
     public function get($url = '', $data = [])

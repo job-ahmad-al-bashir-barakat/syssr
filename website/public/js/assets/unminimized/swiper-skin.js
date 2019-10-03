@@ -65,34 +65,37 @@
 
             var $progressBar = $('<span class="swiper-progress__bar"></span>');
 
-          var updateProgress = function () {
-            filmstrip.pagination.bullets.each(function (i) {
-              if ($(this).hasClass('swiper-pagination-bullet-active')) {
-                $progressBar.css('transform', 'translate3d(' + ($(this).width() / 2 + $(this).offset().left - ($(window).width() / 2)) + 'px, 0px, 0px)');
-              }
-            });
-          };
+            filmstrip.init();
 
-          var updateBulletsSize = function (filmstrip) {
-            filmstrip.$el.find('.swiper-pagination > .swiper-pagination-bullet').each(function () {
-              $(this).width(100 / j + '%');
-            });
-          };
-
-            window.addEventListener('load', function () {
+            $(window).on('load', function () {
               setTimeout(function () {
-                filmstrip.init();
                 $progressBar.appendTo(filmstrip.pagination.$el);
                 updateBulletsSize(filmstrip);
-              }, 300);
+              }, 400);
               setTimeout(function () {
                 updateProgress();
-              }, 350);
+              }, 450);
             });
 
             $(window).on('resize', function () {
               updateBulletsSize(filmstrip);
             });
+
+            setTimeout(function () {$(window).trigger('resize')}, 500);
+
+            var updateProgress = function () {
+              filmstrip.pagination.bullets.each(function (i) {
+                if ($(this).hasClass('swiper-pagination-bullet-active')) {
+                  $progressBar.css('transform', 'translate3d(' + ($(this).width() / 2 + $(this).offset().left - ($(window).width() / 2)) + 'px, 0px, 0px)');
+                }
+              });
+            };
+
+            var updateBulletsSize = function (filmstrip) {
+              filmstrip.$el.find('.swiper-pagination > .swiper-pagination-bullet').each(function () {
+                $(this).width(100 / j + '%');
+              });
+            };
 
             break;
 
@@ -128,11 +131,15 @@
               }
             });
 
+            filmstripScroll.init();
+
             $(window).on('load', function () {
-              setTimeout(function () {
-                filmstripScroll.init()
-              }, 350)
+              filmstripScroll.update();
             });
+
+            setTimeout(function () {
+              filmstripScroll.update();
+            }, 300);
 
             break;
         }
@@ -187,10 +194,10 @@
           }
         });
 
-        window.addEventListener("load", function (event) {
+        $(window).on("load", function () {
           setTimeout(function () {
             staff.init()
-          }, 300)
+          }, 500)
         });
       });
 
@@ -549,8 +556,10 @@
           }
         });
 
-        window.addEventListener("load", function () {
-          layeredVertical.init();
+        $(window).on('load', function () {
+          setTimeout(function () {
+            layeredVertical.init();
+          }, 300);
 
           layeredVertical.on('touchStart', function () {
             if (!overlayHorizontal.hasClass('deactive')) {
@@ -768,10 +777,67 @@
 
         var galleryFor = new Swiper($slider_thumb_for, optionsFor);
 
-        window.addEventListener('load', function () {
-          galleryNav.init();
-          galleryFor.init();
-        })
+        galleryNav.init();
+        galleryFor.init();
+
+        $(window).on('load', function () {
+          galleryNav.update();
+          galleryFor.update();
+        });
+
+        setTimeout(function () {
+          galleryNav.update();
+          galleryFor.update();
+        }, 300);
+      });
+
+      // brk-services-simple
+      $(context).parent().find('.brk-services-simple:not(.rendered)').addClass('rendered').each(function () {
+        var $this           = $(this),
+            swiperContainer = $this.find('.swiper-container'),
+            prev            = $this.find('.services-simple-button-prev'),
+            next            = $this.find('.services-simple-button-next'),
+            pagination      = $this.find('.services-simple-pagination'),
+            liviconEvo      = $this.find('.livicon-evo');
+
+        var servicesSlider = new Swiper(swiperContainer, {
+          init: false,
+          speed: 800,
+          spaceBetween: 30,
+          slidesPerView: 'auto',
+          loop: true,
+          centeredSlides: true,
+          loopedSlides: 5, //looped slides should be the same
+          navigation: {
+            nextEl: next,
+            prevEl: prev
+          },
+          pagination: {
+            el: pagination,
+            clickable: true,
+            bulletClass: 'services-simple-pagination-bullet',
+            bulletActiveClass: 'services-simple-pagination-bullet-active'
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 1,
+              centeredSlides: false,
+              loopedSlides: 2,
+              spaceBetween: 10,
+            }
+          }
+        });
+
+        setTimeout(function () {
+          if(liviconEvo.length > 0) {
+            servicesSlider.on('init slideChangeTransitionEnd', function () {
+              $this.find('.livicon-evo').updateLiviconEvo();
+            })
+          }
+
+          servicesSlider.init();
+        }, 300);
+
       })
     }
   }
