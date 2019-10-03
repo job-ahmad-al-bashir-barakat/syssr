@@ -34,22 +34,18 @@
 Open in each folder [cms, website] the cmd or terminal and execute the following commands:
  1. Execute in [cms] folder by (cmd or terminal) the commands: 
    - `php artisan module:migrate-refresh`
-   - `Composer update`
+   - `composer update`
    - `composer dump-autoload`
  2. Execute in [website] folder by (cmd or terminal) the commands:
    - `php artisan migrate:refresh`
-   - `Composer update with Composer dump-autoload`
-   - `php artisan run dev`
+   - `composer update`
+   - `composer dump-autoload`
    
 ## CMS login info
  - Username: **admin**
  - Password: **admin**
 
 ## Website login info
- - Username: **admin@syssr.org**
+ - Email: **admin@syssr.org**
  - Password: **admin**
-
-## For Dev: this step is required for assets to work on localhost
- - Execute in [cms] folder by (cmd or terminal) the command  `php artisan serve`
- - Execute in [website] folder by (cmd or terminal) the command  `php artisan serve`
 
