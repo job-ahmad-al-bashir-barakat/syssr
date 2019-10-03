@@ -90,7 +90,7 @@
                                     <img src="{{ asset('custom/img/user-image.png') }}" alt="image">
                                     <div class="user-info-wrapper">
                                         <div class="user-name">
-                                            <span>@Ahmad Al Bashir</span>
+                                            <span>{{Auth::user()->first_name}}</span>
                                         </div>
                                         <div class="user-links">
                                             <a href="{{ RouteUrls::profile() }}">Profile</a>
