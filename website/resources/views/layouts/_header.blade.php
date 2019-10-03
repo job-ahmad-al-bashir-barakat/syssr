@@ -58,11 +58,13 @@
                         <a href="tel:88001234567" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
                     </div>
                     <div class="brk-lang brk-header__item">
-                        <span class="brk-lang__selected">EN <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                        <span class="brk-lang__open"><i class="fa fa-language"></i> {{ trans('app.language') }} <span class="brk-lang__active-lang text-white brk-bg-primary">EN</span></span>
+                        <span class="brk-lang__selected">{{ strtoupper(LaravelLocalization::getCurrentLocale()) }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                        <span class="brk-lang__open"><i class="fa fa-language"></i> {{ trans('app.language') }} <span class="brk-lang__active-lang text-white brk-bg-primary">{{ strtoupper(LaravelLocalization::getCurrentLocale()) }}</span></span>
                         <ul class="brk-lang__option">
-                            <li><a href="#">EN</a></li>
-                            <li><a href="#">AR</a></li>
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li><a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">{{ strtoupper($localeCode) }}</a></li>
+                            @endforeach
+
                         </ul>
                     </div>
                     <div class="brk-search brk-header__item">
