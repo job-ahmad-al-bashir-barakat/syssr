@@ -39,7 +39,8 @@ class CreateMembersTable extends Migration
                 'last_name'         =>  null,
                 'username'          =>  'admin',
                 'email'             =>  'admin@syssr.org',
-                'password'          =>  Hash::make('admin')
+                'password'          =>  Hash::make('admin'),
+                'api_token'         =>  \Str::random(60),
             ]
         ];
         foreach ($members as $member) {
