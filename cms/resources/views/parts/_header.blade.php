@@ -75,19 +75,23 @@
                 <div class="kt-header__topbar-user">
                     <span class="kt-header__topbar-welcome kt-hidden-mobile">{{trans('cms.hi')}},</span>
                     <span class="kt-header__topbar-username kt-hidden-mobile">{{ Auth::user()->first_name }}</span>
-                    <img class="kt-hidden" alt="Pic" src="assets/media/users/300_25.jpg" />
-                    <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                    <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{ Auth::user()->first_name[0] }}</span>
+                    @if(Auth::user()->profile_photo)
+                        <img class="" alt="Profile Photo" src="{{asset('users/photos/'.Auth::user()->profile_photo)}}" />
+                    @else
+                        <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{ Auth::user()->first_name[0] }}</span>
+                    @endif
                 </div>
             </div>
             <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
 
                 <!--begin: Head -->
-                <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(assets/media/misc/bg-1.jpg)">
+                <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url({{asset('theme/media/misc/bg-1.jpg')}})">
                     <div class="kt-user-card__avatar">
-                        <img class="kt-hidden" alt="Pic" src="assets/media/users/300_25.jpg" />
-                        <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                        <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">{{ Auth::user()->first_name[0] }}</span>
+                        @if(Auth::user()->profile_photo)
+                            <img class="" alt="Profile Photo" src="{{asset('users/photos/'.Auth::user()->profile_photo)}}" />
+                        @else
+                            <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">{{ Auth::user()->first_name[0] }}</span>
+                        @endif
                     </div>
                     <div class="kt-user-card__name">{{ Auth::user()->first_name.' '.Auth::user()->last_name }}</div>
                 </div>

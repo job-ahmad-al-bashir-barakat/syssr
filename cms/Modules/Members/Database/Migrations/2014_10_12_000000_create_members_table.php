@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Modules\Members\Entities\Member;
 
 class CreateMembersTable extends Migration
 {
@@ -29,6 +32,22 @@ class CreateMembersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        $members = [
+            [
+                'first_name'        =>  'Admin',
+                'last_name'         =>  null,
+                'username'          =>  'admin',
+                'email'             =>  'admin@syssr.org',
+                'password'          =>  Hash::make('admin'),
+                'api_token'         =>  \Str::random(60),
+            ]
+        ];
+        foreach ($members as $member) {
+            $createdMember = Member::create($member);
+            $createdMember->email_verified_at = Carbon::now()->toDateTimeString();
+            $createdMember->save();
+        }
     }
 
     /**

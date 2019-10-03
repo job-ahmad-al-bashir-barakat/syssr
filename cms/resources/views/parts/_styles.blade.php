@@ -17,16 +17,17 @@
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 <!-- end::the logo of the cms -->
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+<link rel="stylesheet" href="{{asset('fonts/J-flat-font/font.css')}}">
 
 @if($lang=='ar')
-    <link rel="stylesheet" href="{{asset('fonts/J-flat-font/font.css')}}">
-    <style>
-        *{
-            font-family: "JF Flat Regular";
-        }
-    </style>
     <link href="{{ asset('theme/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 @else
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
     <link href="{{ asset('theme/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 @endif
+
+<style>
+body {
+    font-family: "Poppins", "JF Flat Regular", sans-serif;
+}
+</style>

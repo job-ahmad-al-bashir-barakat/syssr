@@ -6,18 +6,28 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Members\Entities\Member;
+use Yajra\Datatables\Datatables;
+use LaravelLocalization;
+
 
 class MembersController extends Controller
 {
+//----------------------------------------------------------------------//
+    public function __construct(){
+        $this->middleware(['auth','verified']);
+    }
+//----------------------------------------------------------------------//
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
-    {
-        return view('members::index');
+//----------------------------------------------------------------------//
+    public function index(){
+        $members = Member::all()->toArray();
+        $total_members = count($members);
+        return view('members::index', compact('total_members'));
     }
-
+//----------------------------------------------------------------------//
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -26,7 +36,7 @@ class MembersController extends Controller
     {
         return view('members::create');
     }
-
+//----------------------------------------------------------------------//
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -36,7 +46,7 @@ class MembersController extends Controller
     {
         //
     }
-
+//----------------------------------------------------------------------//
     /**
      * Show the specified resource.
      * @param int $id
@@ -46,7 +56,7 @@ class MembersController extends Controller
     {
         return Member::findOrFail($id);
     }
-
+//----------------------------------------------------------------------//
     /**
      * Show the form for editing the specified resource.
      * @param int $id
@@ -56,7 +66,7 @@ class MembersController extends Controller
     {
         return view('members::edit');
     }
-
+//----------------------------------------------------------------------//
     /**
      * Update the specified resource in storage.
      * @param Request $request
@@ -67,7 +77,7 @@ class MembersController extends Controller
     {
         return response()->json(['data' => $request->input()]);
     }
-
+//----------------------------------------------------------------------//
     /**
      * Remove the specified resource from storage.
      * @param int $id
@@ -77,4 +87,15 @@ class MembersController extends Controller
     {
         //
     }
+//----------------------------------------------------------------------//
+    public function getDatatableMembers(){
+        $members = Member::orderBy('created_at','desc')->get();
+        return Datatables::of($members)
+        ->addColumn('full_name',function ($col){
+            return $col->first_name.' '.$col->last_name;
+        })->addColumn('verified',function ($col){
+            return $col->email_verified_at ? 'Y':'N';
+        })->make(true);
+    }
+//----------------------------------------------------------------------//
 }

@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- begin:: Content Head -->
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-subheader kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
                 <h3 class="kt-subheader__title">{{trans('users::main.users')}}</h3>
@@ -185,61 +185,6 @@
 
 		});
     });
-//-----------------------------------------------------------------------------//
-function usersDatatable(){
-    if ($.fn.DataTable.isDataTable("#usersDatatable")) {
-        $('#usersDatatable').DataTable().clear().destroy();
-    }
-    $usersDatatable = $("#usersDatatable").DataTable({
-        serverSide: true,
-        processing: true,
-        ajax: '{!! route('getDatatableUsers.data') !!}',
-        columnDefs: [ {
-            "searchable": false,
-            "orderable": false,
-            "targets": 0
-        } ],
-        order: [[ 1, 'asc' ]],
-        columns: [
-            {data: 'id', title:'#' ,name: 'id' , className:'center'},
-            {data: 'full_name', title: '{{trans('cms.name')}}' ,name:'full_name' },
-            {data: 'username', title: '{{trans('cms.username')}}' ,name:'username'},
-            {data: 'email', title: '{{trans('cms.email')}}' ,name:'email'},
-            {   data: 'verified', className: 'center',
-                searchable: false, orderable: false,
-                render: function ( data, type, row, meta ) {
-                    if(data){
-                        return '<i class="far fa-dot-circle text-success" data-toggle="tooltip" title="{{trans('cms.yes')}}"></i>';
-                    }else{
-                        return '<i class="far fa-dot-circle text-danger" data-toggle="tooltip" title="{{trans('cms.no')}}"></i>';
-                    }
-                }
-            },
-            {   data: 'id', className: 'center',
-                searchable: false, orderable: false,
-                render: function ( data, type, row, meta ) {
-                    return '<div class="btn-group">'+
-                                '<a href="{{ url('dashboard/users')}}/'+data+'/edit" class="btn btn-sm btn-light" data-toggle="tooltip" title="{{trans('cms.edit')}}">'+
-                                '    <i class="fa fa-fw fa-pencil-alt"></i>'+
-                                '</a>'+
-                                '<button type="button" class="btn btn-sm btn-light" data-id="'+data+'" onclick="deleteUser('+data+',\''+row['full_name']+'\');" data-toggle="tooltip" title="{{trans('cms.delete')}}">'+
-                                '    <i class="fa fa-fw fa-times"></i>'+
-                                '</button>'+
-                            '</div>';
-                }
-            }
-        ],
-        "initComplete": function(settings, json) {
-            _initWhenComplete();
-        }
-    });
-    $usersDatatable.on('order.dt search.dt', function () {
-        $usersDatatable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-            cell.innerHTML = i+1;
-        } );
-    } ).draw();
-}
-
 //-----------------------------------------------------------------------------//
 </script>
 @endsection

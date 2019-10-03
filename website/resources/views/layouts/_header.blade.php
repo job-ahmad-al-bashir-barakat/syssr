@@ -1,13 +1,5 @@
-<div class="brk-header-mobile">
-    <div class="brk-header-mobile__open">
-        <span></span>
-    </div>
-    <div class="brk-header-mobile__logo">
-        <a href="{{ RouteUrls::home() }}"><img src="{{ asset('custom/logo_icon/logo.png') }}" style="width: 110px;" alt=""></a>
-    </div>
-</div>
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 @if($name_route == 'home')  brk-header_color-dark @else brk-header_color-white @endif" style="display: none;" data-logo-src="{{ asset('custom/logo_icon/logo.png') }}" data-bg-mobile="{{ asset('img/brk-bg-mobile-menu.jpg') }}" data-sticky-hide="0" data-brk-library="component__header">
-    <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 @if($name_route == 'home') bg-white @endif order-1" style="height: 72px;">
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+    <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1 bg-white" style="height: 72px;">
         <div class="container-fluid">
             <div class="row no-gutters align-items-center">
                 <div class="col-lg align-self-lg-stretch">
@@ -101,7 +93,7 @@
                                         <img src="{{ asset('custom/img/user-image.png') }}" alt="image">
                                         <div class="user-info-wrapper">
                                             <div class="user-name">
-                                                <span>@Ahmad Al Bashir</span>
+                                                <span>{{Auth::user()->first_name}}</span>
                                             </div>
                                             <div class="user-links">
                                                 <a href="{{ RouteUrls::profile() }}">{{ trans('app.profile') }}</a>
