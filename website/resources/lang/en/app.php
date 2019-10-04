@@ -3,6 +3,11 @@
 return [
     'title_main'  => 'SySSR Home',
     'title_org'   => ' - Syrian Society for Scientific Research',
+    'title_login' => 'SySSR Login',
+    'title_register' => 'SySSR Register',
+    'title_about_us' => 'SySSR About Us',
+    'title_profile' => 'SySSR Profile',
+    'copyright' => '<span class="font__weight-bold">SySSR</span> All rights reserved',
 
     // header
     'home' => 'Home',
@@ -26,15 +31,23 @@ return [
     'user_menu' => 'User Menu',
     'menu_extra' => 'Menu Extra',
     'search_website' => 'Search website',
-    'enter_search_text' => 'Enter search text',
+    'enter_search_text' => 'Search ...',
     'language' => 'Language',
     'close' => 'Close',
     'search' => 'Search',
 
-    // membership
-    'title_login' => 'SySSR Login',
-    'title_register' => 'SySSR Register',
+    // profile
+    'gender' => 'Gender',
+    'birth_date' => 'Birth date',
+    'save' => 'Save',
+    'click_me' => 'Click Me',
+    'choose_here' => 'Choose here',
+    'male' => 'Male',
+    'female' => 'Female',
+    'drop_avatar' => 'Drop your avatar here',
+    'change_file' => 'Press on image to change file',
 
+    // membership
     'back_to_the_homepage' => 'Back to the Homepage',
     'login' => 'LOGIN',
     'register' => 'REGISTER',

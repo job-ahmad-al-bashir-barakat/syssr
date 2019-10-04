@@ -55,25 +55,13 @@
             <div class="brk-base-bg-6">
                 <div class="container">
                     <div class="d-flex justify-content-sm-between justify-content-center align-items-center flex-lg-row flex-column flex-wrap pt-20 pb-15">
-                        <p class="brk-white-font-color font__family-open-sans font__size-14">© 2018 <span class="font__weight-bold">Berserk</span> All rights reserved</p>
+                        <p class="brk-white-font-color font__size-14">© {{ date('Y') }} {!! trans('app.copyright') !!}</p>
                         <div class="brk-social-links brk-white-font-color font__size-12" data-brk-library="component__social_links">
                             <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-linkedin"></i>
                             </a>
                             <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-google-plus-g"></i>
-                            </a>
-                            <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-vimeo"></i>
-                            </a>
-                            <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-vk"></i>
+                                <i class="fab fa-facebook"></i>
                             </a>
                         </div>
                     </div>

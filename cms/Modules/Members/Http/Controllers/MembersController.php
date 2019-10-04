@@ -75,6 +75,15 @@ class MembersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->get('password',''))
+            $data = $request->input();
+        else
+            $data = $request->except('password');
+
+        // return response()->json(['data' => json_decode($request->input('avatar'))]);
+
+        $member = Member::findOrFail($id);
+        $member->update($data);
         return response()->json(['data' => $request->input()]);
     }
 //----------------------------------------------------------------------//

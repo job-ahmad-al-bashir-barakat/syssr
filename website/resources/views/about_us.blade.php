@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title',trans('app.title_about_us'))
+
 @section('style')
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
 @endsection
@@ -8,18 +10,17 @@
     <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
         <div class="full__size-absolute brk-bg-black opacity-70"></div>
         <div class="container">
-            <div class="breadcrumbs__wrapper">
+            <div class="breadcrumbs__wrapper align-items-center">
                 <div class="text-left" data-brk-library="component__title">
                     <h2 class="brk-white-font-color font__size-36 line__height-50 font__family-montserrat-alt font__weight-bold">
-                        About Us
+                        {{ trans('app.about_us') }}
                     </h2>
-                    <h5 class="font__size-14 font__family-montserrat highlight-trend">Page sub title goes here</h5>
                 </div>
                 <ol class="breadcrumb font__size-14 font__weight-bold font__family-montserrat">
                     <li>
-                        <a href="#">Bread <i class="fas fa-arrow-right"></i></a>
+                        <a href="#">{{ trans('app.about_us') }} <i class="fas fa-arrow-right"></i></a>
                     </li>
-                    <li class="active">Crumbs</li>
+                    <li class="active">{{ trans('app.home') }}</li>
                 </ol>
             </div>
         </div>
@@ -170,50 +171,6 @@
                         <h4 class="font__family-montserrat font__size-24 font__weight-light line__height-30 text-uppercase">We Build
                             Amazing <br><span class="font__weight-bold">Projects</span></h4>
                         <a href="#" class="font__family-open-sans font__size-16 font__weight-bold text-uppercase link">Read More <i class="icon fa fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pt-60 pb-60 pb-lg-0 text-center position-relative" data-brk-library="component__social_block,component__button">
-        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_1.jpg" alt="alt" class="brk-abs-img lazyload">
-        <span class="brk-abs-overlay brk-black-76-overlay"></span>
-        <div class="container all-light">
-            <div class="row no-gutters mt-0 mt-lg-70">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-facebook-f"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">Facebook</h4>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-twitter"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">Twitter</h4>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-instagram"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">Instagram</h4>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">YouTube</h4>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-google"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">Google +</h4>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="social__icon-square social__icon-square_dark">
-                        <a href="#"><i class="brk-icon slide-bg-wrap fab fa-vimeo-v"><span class="slide-bg"></span></i></a>
-                        <h4 class="font__family-montserrat font__size-16 text">Vimeo</h4>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,13 @@
 <?php
 
 return [
-    'title_main'  => 'SySSR الرئيسية',
-    'title_org'   => 'الجمعية السورية للبحث العلمي - ',
+    'title_org'   => ' الجمعية السورية للبحث العلمي',
+    'title_main'  => 'الرئيسية -',
+    'title_login' => 'تسجيل الدخول -',
+    'title_register' => 'إنشاء حساب -',
+    'title_about_us' => 'من نحن -',
+    'title_profile' => 'الملف الشخصي -',
+    'copyright' => 'جميع الحقوق محفوظة لـ <span class="font__weight-bold">الجمعية السورية للبحث العلمي</span> ',
 
     // header
     'home' => 'الرئيسية',
@@ -26,15 +31,23 @@ return [
     'user_menu' => 'ثائمة المستخدم',
     'menu_extra' => 'قائمة اضافية',
     'search_website' => 'البحث في الموقع',
-    'enter_search_text' => 'أدخل نص البحث',
+    'enter_search_text' => 'أبحث ...',
     'Language' => 'اللغة',
     'close' => 'إعلاق',
     'search' => 'البحث',
 
-    // membership
-    'title_login' => 'SySSR تسجيل الدخول',
-    'title_register' => 'SySSR إنشاء حساب',
+    // profile
+    'gender' => 'جنس',
+    'birth_date' => 'تاريخ الميلاد',
+    'save' => 'حفظ',
+    'click_me' => 'اضغط هنا',
+    'choose_here' => 'أختر قيمة',
+    'male' => 'ذكر',
+    'female' => 'أنثى',
+    'drop_avatar' => 'سحب وأفلات الصورة الشخصية',
+    'change_file' => 'أضغط على المربع لرفع صورة شخصية',
 
+    // membership
     'back_to_the_homepage' => 'العودة الى الصفحة الرئيسية',
     'login' => 'تسجيل الدخول',
     'register' => 'تسجيل الحساب',
