@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', trans('users::main.new_user'))
+@section('title', trans('users::main.edit_user'))
 
 @section('css')
     <link href="{{ asset('theme/css/pages/wizard/wizard-4.css') }}" rel="stylesheet" type="text/css" />
@@ -14,11 +14,8 @@
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
-                    <h3 class="kt-subheader__title">{{trans('users::main.new_user')}}</h3>
+                    <h3 class="kt-subheader__title">{{trans('users::main.edit_user')}}</h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
-                    <div class="kt-subheader__group" id="kt_subheader_search">
-                        <span class="kt-subheader__desc" id="kt_subheader_total">{{trans('users::main.enter_user_details')}}</span>
-                    </div>
                 </div>
                 <div class="kt-subheader__toolbar">
                     <a href="{{url('users')}}" class="btn btn-default btn-bold">{{trans('cms.back')}}</a>
@@ -29,15 +26,9 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <ul class="kt-nav">
                                 <li class="kt-nav__item">
-                                    <a href="JavaScript:Void(0);" class="kt-nav__link save_add_new">
-                                        <i class="kt-nav__link-icon fa fa-plus"></i>
-                                        <span class="kt-nav__link-text">{{trans('cms.save_add_new')}}</span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__item">
-                                    <a href="JavaScript:Void(0);" class="kt-nav__link save_exit">
-                                        <i class="kt-nav__link-icon fa fa-save"></i>
-                                        <span class="kt-nav__link-text">{{trans('cms.save_exit')}}</span>
+                                    <a href="JavaScript:Void(0);" class="kt-nav__link update">
+                                        <i class="kt-nav__link-icon fa fa-edit"></i>
+                                        <span class="kt-nav__link-text">{{trans('cms.update')}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -57,7 +48,9 @@
                             <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v4__wrapper">
 
                                 <!--begin: Form Wizard Form-->
-                                <form id="userForm" method="post" action="{{ route('users.store') }}" class="kt-form"  style="width:80%">
+                                <form id="userForm" method="post" action="{{ route('users.update', $user->id) }}" class="kt-form"  style="width:80%">
+                                    
+                                    @method('PATCH') 
                                     @csrf
 
                                     <!--begin: Form Wizard Step 1-->
@@ -85,7 +78,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.first_name')}} *</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="first_name" value="{{old('first_name')}}" class="form-control req @error('first_name') is-invalid @enderror">
+                                                                    <input type="text" name="first_name" value="@error('first_name') {!!old('first_name')!!} @else {!! $user->first_name !!} @enderror" class="form-control req @error('first_name') is-invalid @enderror">
                                                                     @error('first_name')
                                                                         <div id="first_name-error" class="error invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -94,13 +87,13 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.last_name')}}</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control">
+                                                                    <input type="text" name="last_name" value="@error('last_name') {!!old('last_name')!!} @else {!! $user->last_name !!} @enderror" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.username')}} *</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="username" value="{{old('username')}}" class="form-control req @error('username') is-invalid @enderror">
+                                                                    <input type="text" name="username" value="@error('username') {!!old('username')!!} @else {!! $user->username !!} @enderror" class="form-control req @error('username') is-invalid @enderror">
                                                                     @error('username')
                                                                         <div id="username-error" class="error invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -109,25 +102,10 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.email')}} *</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input type="email" name="email" value="{{old('email')}}" class="form-control req email @error('email') is-invalid @enderror">
+                                                                    <input type="email" name="email" value="@error('email') {!!old('email')!!} @else {!! $user->email !!} @enderror" class="form-control req email @error('email') is-invalid @enderror">
                                                                     @error('email')
                                                                         <div id="email-error" class="error invalid-feedback">{{ $message }}</div>
                                                                     @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.password')}} *</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="password" name="password" class="form-control req password @error('password') is-invalid @enderror">
-                                                                    @error('password')
-                                                                        <div id="password-error" class="error invalid-feedback">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.confirm_password')}} *</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="password" name="password_confirmation" class="form-control req password_confirmation">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -140,9 +118,7 @@
 
                                     <!--begin: Form Actions -->
                                     <div class="kt-form__actions">
-                                        <input type="hidden" id="submit_type" name="submit_type" value="exit">
-                                        <button type="button" class="save_add_new btn btn-primary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-plus"></i> {{trans('cms.save_add_new')}}</button>
-                                        <button type="button" class="save_exit btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save_exit')}}</button>
+                                        <button type="button" class="update btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-edit"></i> {{trans('cms.update')}}</button>
                                     </div>
                                     <!--end: Form Actions -->
 
@@ -154,10 +130,10 @@
                 </div>
             </div>
         </div>
-
+        
     </div>
 
-@endsection
+@stop
 
 @section('js')
 <script>
@@ -165,19 +141,14 @@
     $(function(){
         var avatar = new KTAvatar('kt_user_add_avatar');
         //=================================================//
-        $('.save_exit').click(function(){
-            submit_form('exit');
-        });
-        //=================================================//
-        $('.save_add_new').click(function(){
-            submit_form('add_new');
+        $('.update').click(function(){
+            submit_form();
         });
         //=================================================//
     });
     //----------------------------------------------------------------------------------------//
-    function submit_form(type){
+    function submit_form(){
         $( "#userForm" ).validate();
-        $('#submit_type').val(type);
         $( "#userForm" ).submit();
     }
     //----------------------------------------------------------------------------------------//

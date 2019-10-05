@@ -62,7 +62,7 @@
 
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid__item--center kt-grid kt-grid--ver kt-login__content" style="background-image: url('{{asset('theme/media//bg/bg-5.jpg')}}');">
                     <div class="kt-login__section">
-                        <div class="kt-login__block">
+                        <div class="kt-login__block" style="padding: 25px;">
                             <h3 class="kt-login__title">{{trans('cms.quote_day')}}</h3>
                             <div class="kt-login__desc" id="login-quote">
                             </div>

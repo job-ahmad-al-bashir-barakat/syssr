@@ -14,11 +14,21 @@ return [
     'actions'                   =>      'Actions',
     'yes'                       =>      'Yes',
     'no'                        =>      'No',
+    'ok'                        =>      'OK',
+    'cancel'                    =>      'Cancel',
     'save'                      =>      'Save',
     'update'                    =>      'Update',
+    'edit'                      =>      'Edit',
+    'delete'                    =>      'Delete',
+    'view'                      =>      'View',
     'back'                      =>      'Back',
     'save_add_new'              =>      'Save & add new',
     'save_exit'                 =>      'Save & exit',
+    'are_you_sure'              =>      'Are you sure?',
+    'warning'                   =>      'Warning',
+    'saved_successfully'        =>      'Saved Successfully',
+    'updated_successfully'      =>      'Updated Successfully',
+    'deleted_successfully'      =>      'Deleted Successfully',
 //-----------------------------------------------------------------------//
 //---------------------Login page-----------------------//
 //-----------------------------------------------------------------------//
@@ -51,6 +61,7 @@ return [
     'hi'                        =>      'Hi',
     'profile'                   =>      'Profile',
     'logout'                    =>      'Logout',
+    'change_password'           =>      'Change Password',
     'search'                    =>      'Search',
 //-----------------------------------------------------------------------//
 //---------------------content header-----------------------//

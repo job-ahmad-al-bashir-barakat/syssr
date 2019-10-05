@@ -18,6 +18,14 @@
             }
         }
     };
+    var cms_lang = {
+        'yes'                   :   '{{trans('cms.yes')}}',
+        'no'                    :   '{{trans('cms.no')}}',
+        'ok'                    :   '{{trans('cms.ok')}}',
+        'cancel'                :   '{{trans('cms.cancel')}}',
+        'are_you_sure'          :   '{{trans('cms.are_you_sure')}}',
+        'warning'               :   '{{trans('cms.warning')}}',
+    }
 </script>
 
 <!-- end::Global Config -->
@@ -25,6 +33,10 @@
 <!--begin::Global Theme Bundle(used by all pages) -->
 <script src="{{ asset('theme/vendors/global/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('theme/js/scripts.bundle.js') }}" type="text/javascript"></script>
+
+@if($lang=='ar')
+    <script src="{{ asset('js/jquery_validate/localization/messages_ar.js') }}" type="text/javascript"></script>
+@endif
 
 <!--end::Global Theme Bundle -->
 
