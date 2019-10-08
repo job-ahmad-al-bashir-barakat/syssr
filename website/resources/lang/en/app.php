@@ -7,7 +7,10 @@ return [
     'title_register' => 'SySSR Register',
     'title_about_us' => 'SySSR About Us',
     'title_profile' => 'SySSR Profile',
+    'title_verify_email' => 'SySSR Verify Account',
     'copyright' => '<span class="font__weight-bold">SySSR</span> All rights reserved',
+    'well_done' => 'Well done!',
+    'success_message' => 'Data is saved successfully',
 
     // header
     'home' => 'Home',
@@ -46,6 +49,7 @@ return [
     'female' => 'Female',
     'drop_avatar' => 'Drop your avatar here',
     'change_file' => 'Press on image to change file',
+    'save_as_pass_message' => 'This value should be the same as password.',
 
     // membership
     'back_to_the_homepage' => 'Back to the Homepage',
@@ -62,4 +66,9 @@ return [
     'send_password_reset_link' => 'Send Password Reset Link',
     'reset_password' => 'Reset Password',
     'login_now' => 'Login Now',
+    'verify_email' => 'Verify Email',
+    'send_verify_email_message' => 'A fresh verification link has been sent to your email address.',
+    'before_proceeding_verify_email_message' => 'Before proceeding, please check your email for a verification link.',
+    'not_receive_verify_email_message' => 'If you did not receive the email',
+    'request_another' => 'click here to request another',
 ];

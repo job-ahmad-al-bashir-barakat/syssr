@@ -1,6 +1,6 @@
 <?php
 
-namespace Packages\Upload;
+namespace Packages\Upload\Slim;
 
 class Slim {
 

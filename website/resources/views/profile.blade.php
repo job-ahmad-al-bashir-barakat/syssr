@@ -5,11 +5,6 @@
 @section('style')
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
-    <style>
-        .slim {
-            border-radius: 25px;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -30,7 +25,7 @@
     <h1 class="sr-only">Profile</h1>
     <div class="pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
         <div class="container">
-            <form id="form-profile" enctype="multipart/form-data" method="POST" data-parsley-validate>
+            <form id="form-profile" class="form-ajax" enctype="multipart/form-data" method="POST" action="{{ $api_url . 'member/' . Auth::id() }}" data-parsley-validate>
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
@@ -53,14 +48,14 @@
                                 <div class="col-md-6">
                                     <div class="mb-50">
                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }}</label>
-                                        <input id="brk-firstname-form" name="firstname" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
+                                        <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
                                         <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-50">
                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }}</label>
-                                        <input id="brk-lastname-form" name="lastname" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
+                                        <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
                                         <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
                                     </div>
                                 </div>
@@ -79,7 +74,7 @@
                                  data-crop="0,0,1000,1000"
                                  data-ratio="1:1">
                                 <input type="file" id="avatar" name="avatar">
-                                {{--<img src="{{ asset('custom/img/user-image.png') }}" alt="">--}}
+                                <img src="{{ asset($user->avatar_url ?? 'custom/img/user-image.png') }}" alt="" crossorigin="anonymous">
                             </div>
                             <div class="text-center mt-4">
                                 <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">{{ trans('app.change_file') }}</label>
@@ -111,15 +106,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-50">
                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                            <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                            <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
                         </div>
                         <div class="col-md-6 mb-50">
                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
                             <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
                         </div>
                     </div>
                 </div>
+                @include('partials._alert',['hide' => true])
                 <div class="text-center pt-70">
                     {{--font__family-open-sans--}}
                     <button type="submit" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-25 font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
@@ -137,46 +133,5 @@
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
-    <script>
-        jQuery(function () {
-            var api_token = jQuery('meta[name="api-token"]').attr('content');
-            var csrf_token = jQuery('meta[name="csrf-token"]').attr('content');
-            var api_url = "{{ config('api.base_url') }}";
-            var user_id = "{{ \Auth::id() }}";
-
-            jQuery('#slim-cropper').slim();
-
-            jQuery.ajaxSetup({
-                data: {
-                    api_token: api_token
-                },
-                // headers: {
-                    // 'X-CSRF-TOKEN': csrf_token,
-                    // 'Authorization': 'Bearer ' + api_token,
-                    // 'Accept': 'application/json'
-                // }
-            });
-            // add FormData api_token
-            jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-                if (originalOptions.data instanceof FormData) {
-                    originalOptions.data.append('api_token', api_token);
-                }
-            });
-            jQuery('#form-profile').parsley().on('form:submit', function() {
-                var form = jQuery('#form-profile')[0];
-                var formData = new FormData(form)
-
-                jQuery.ajax({
-                    url: api_url + 'member/' + user_id,
-                    data: formData,
-                    type: "POST",
-                    contentType: false,
-                    processData: false,
-                    success: function() { alert("Success"); },
-                    error: function() { alert('Failed!'); },
-                });
-                return false;
-            });
-        });
-    </script>
+    <script src="{{ asset('custom/js/form.js') }}"></script>
 @endsection

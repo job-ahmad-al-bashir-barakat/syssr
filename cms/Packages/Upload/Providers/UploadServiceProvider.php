@@ -43,6 +43,17 @@ class UploadServiceProvider extends ServiceProvider
         });
 
         $this->registerController();
+
+        $this->registerHelper();
+    }
+
+    /**
+     * register our helper
+     */
+    protected function registerHelper()
+    {
+        // add helper method to my project
+        require_once(__DIR__.'/../Helper/helpers.php');
     }
 
     /**

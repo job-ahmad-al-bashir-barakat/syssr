@@ -7,7 +7,10 @@ return [
     'title_register' => 'إنشاء حساب -',
     'title_about_us' => 'من نحن -',
     'title_profile' => 'الملف الشخصي -',
+    'title_verify_email' => 'تأكيد الحساب -',
     'copyright' => 'جميع الحقوق محفوظة لـ <span class="font__weight-bold">الجمعية السورية للبحث العلمي</span> ',
+    'well_done' => 'جيد جداً !',
+    'success_message' => 'تم حفظ البيانات بنجاح.',
 
     // header
     'home' => 'الرئيسية',
@@ -46,6 +49,7 @@ return [
     'female' => 'أنثى',
     'drop_avatar' => 'سحب وأفلات الصورة الشخصية',
     'change_file' => 'أضغط على المربع لرفع صورة شخصية',
+    'save_as_pass_message' => 'فشل مطابقة كلمة المرور',
 
     // membership
     'back_to_the_homepage' => 'العودة الى الصفحة الرئيسية',
@@ -54,7 +58,7 @@ return [
     'username' => 'اسم المستخدم',
     'email' => 'البريد الالكتروني',
     'password' => 'كلمة المرور',
-    'confirm_password' => 'تأكيد الحساب',
+    'confirm_password' => 'تأكيد كلمة المرور',
     'first_name' => 'الأسم الأول',
     'last_name' => 'الأسم الأخير',
     'remember_me' => 'تذكرني',
@@ -62,4 +66,9 @@ return [
     'send_password_reset_link' => 'تأكيد إستعادة كلمة المرور',
     'reset_password' => 'إستعادة كلمة المرور',
     'login_now' => 'تسجيل الدخول',
+    'verify_email' => 'تأكيد الحساب',
+    'send_verify_email_message' => 'تم ارسال رابط تأكيد جديد إلى بريدك الالكتروني.',
+    'before_proceeding_verify_email_message' => 'قبل البدء, منفضلك تفقد البريد الالكتروني لتأكيد الحساب.',
+    'not_receive_verify_email_message' => 'إذا لم تستقبل بريد الكتروني',
+    'request_another' => 'اضغط هنا لارسال الرابط مرة أخرى',
 ];

@@ -25,61 +25,73 @@
                                 <div class="row">
                                     <div class="col-12 col-md-10 m-auto">
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45  text-center text-lg-left">{{ trans('app.register') }}</h1>
-                                        <form method="POST" action="{{ route('register') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form">
+                                        <form method="POST" action="{{ route('register') }}" class="form-ajax brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" data-parsley-validate>
                                             @csrf
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="{{ trans('app.username') }}" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="{{ trans('app.username') }}" value="{{ old('name') }}" required autocomplete="name" autofocus data-parsley-errors-container="#username-error">
                                                     @error('name')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
+                                                    @else
+                                                        <div id="username-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{ trans('app.email') }}" value="{{ old('email') }}" required autocomplete="email">
+                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{ trans('app.email') }}" value="{{ old('email') }}" required autocomplete="email" data-parsley-errors-container="#email-error">
                                                     @error('email')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
+                                                    @else
+                                                        <div id="email-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <input id="fname" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="{{ trans('app.first_name') }}" value="{{ old('first_name') }}" required autocomplete="first_name">
+                                                    <input id="fname" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="{{ trans('app.first_name') }}" value="{{ old('first_name') }}" required autocomplete="first_name" data-parsley-errors-container="#first-name-error">
                                                     @error('first_name')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
+                                                    @else
+                                                        <div id="first-name-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
+
                                                 </div>
                                                 <div class="col-6">
-                                                    <input id="lname" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="{{ trans('app.last_name') }}" value="{{ old('last_name') }}" required autocomplete="last_name">
+                                                    <input id="lname" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="{{ trans('app.last_name') }}" value="{{ old('last_name') }}" required autocomplete="last_name"  data-parsley-errors-container="#last-name-error">
                                                     @error('last_name')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
+                                                    @else
+                                                        <div id="last-name-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ trans('app.password') }}" required autocomplete="new-password">
+                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ trans('app.password') }}" required autocomplete="new-password"  data-parsley-equalto="#password-confirm" data-parsley-errors-container="#pass-error">
                                                     @error('password')
-                                                    <span class="invalid-feedback d-block" role="alert">
+                                                        <span class="invalid-feedback d-block" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
+                                                    @else
+                                                        <div id="pass-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                                 <div class="col-6">
-                                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ trans('app.confirm_password') }}" required autocomplete="new-password">
+                                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ trans('app.confirm_password') }}" required autocomplete="new-password"  data-parsley-errors-container="#password-confirm-error" >
+                                                    <div id="password-confirm-error" class="d-inline-block invalid-feedback"></div>
                                                 </div>
                                             </div>
 
@@ -110,4 +122,10 @@
             </section>
         </main>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
+    <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
+    <script src="{{ asset('custom/js/form.js') }}"></script>
 @endsection

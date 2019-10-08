@@ -29,37 +29,40 @@
                                     <div class="col-12 col-md-10 m-auto">
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">
                                             {{ trans('app.login') }}</h1>
-                                        <form method="POST" action="{{ route('login') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
-                                              data-brk-library="component__form">
+                                        <form method="POST" action="{{ route('login') }}" class="form-ajax brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
+                                              data-brk-library="component__form" data-parsley-validate>
                                             @csrf
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ trans('app.email') }}" required autocomplete="email" autofocus>
-
+                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ trans('app.email') }}" required autocomplete="email" data-parsley-errors-container="#email-error" autofocus>
                                                     @error('email')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
+                                                    @else
+                                                        <div id="email-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ trans('app.password') }}" required autocomplete="current-password">
+                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ trans('app.password') }}" required autocomplete="current-password"  data-parsley-errors-container="#pass-error">
 
                                                     @error('password')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
+                                                    @else
+                                                        <div id="pass-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <div class="no-margin pl-10 pr-10 mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
+                                                    <div class="no-margin mb-30 mt-40 d-flex flex-wrap justify-content-between align-items-center">
                                                         <div>
                                                             <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                             <label class="brk-form-checkbox-label" for="remember">{{ trans('app.remember_me') }}</label>
@@ -104,4 +107,10 @@
             </section>
         </main>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
+    <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
+    <script src="{{ asset('custom/js/form.js') }}"></script>
 @endsection

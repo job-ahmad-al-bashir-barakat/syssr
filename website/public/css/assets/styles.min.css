@@ -18490,3 +18490,14 @@ div.wpcf7 input[type="file"]:disabled {
     color: #7a7a7a;
 }
 /*end custom brk-user*/
+
+/*form controls*/
+.brk-form-round .jq-selectbox__dropdown ul li {
+    color: rgba(var(--brk-dark-base-rgb), 0.6);
+}
+.brk-form-round .jq-selectbox__dropdown ul li[class=disabled] {
+    color: rgba(var(--brk-dark-base-rgb), 0.4);
+}
+.brk-form-round .jq-selectbox__select {
+    color: rgba(var(--brk-dark-base-rgb), 0.6);
+}

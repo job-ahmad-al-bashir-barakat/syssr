@@ -5,7 +5,10 @@ namespace Modules\Members\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Validation\Rule;
 use Modules\Members\Entities\Member;
+use Modules\Members\Http\Requests\MemberRequest;
+use Modules\Members\Http\Requests\MembersRequest;
 use Yajra\Datatables\Datatables;
 use LaravelLocalization;
 
@@ -14,7 +17,7 @@ class MembersController extends Controller
 {
 //----------------------------------------------------------------------//
     public function __construct(){
-        $this->middleware(['auth','verified']);
+        // $this->middleware(['auth','verified']);
     }
 //----------------------------------------------------------------------//
     /**
@@ -67,12 +70,6 @@ class MembersController extends Controller
         return view('members::edit');
     }
 //----------------------------------------------------------------------//
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
     public function update(Request $request, $id)
     {
         if($request->get('password',''))
@@ -80,11 +77,15 @@ class MembersController extends Controller
         else
             $data = $request->except('password');
 
-        // return response()->json(['data' => json_decode($request->input('avatar'))]);
+        $filename = \Upload::avatar();
 
         $member = Member::findOrFail($id);
+
+        $data['avatar'] = $filename;
+
         $member->update($data);
-        return response()->json(['data' => $request->input()]);
+
+        return response()->json(['success' => true]);
     }
 //----------------------------------------------------------------------//
     /**

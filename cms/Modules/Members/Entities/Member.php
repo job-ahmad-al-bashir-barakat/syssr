@@ -35,7 +35,16 @@ class Member extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'birth_date'        => 'date',
+        'birth_date'        => 'date_format:yyyy-MM-dd',
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'avatar_url',
+    ];
+
+    function getAvatarUrlAttribute() {
+        if($this->avatar)
+            return url("storage/avatar/$this->id/$this->avatar");
+    }
 }

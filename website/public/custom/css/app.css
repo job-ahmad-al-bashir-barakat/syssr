@@ -10,3 +10,8 @@ body a,
 .font__family-montserrat-alt {
     font-family: 'Montserrat Alternates',  "JF Flat Regular", sans-serif;
 }
+
+/*form*/
+.slim {
+    border-radius: 25px;
+}
