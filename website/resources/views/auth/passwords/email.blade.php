@@ -30,26 +30,26 @@
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">{{ trans('app.reset_password') }}</h1>
 
                                         @if (session('status'))
-                                            <div class="alert alert-success" role="alert">
-                                                {{ session('status') }}
-                                            </div>
+                                            @include('partials._alert',['message' => session('status')])
                                         @endif
 
-                                        <form method="POST" action="{{ route('password.email') }}" class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
-                                              data-brk-library="component__form">
+                                        <form method="POST" action="{{ route('password.email') }}" class="brk-form brk-form-strict mx-auto mx-lg-0"
+                                              data-brk-library="component__form"  data-parsley-validate>
                                             @csrf
 
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ trans('app.email') }}" required autocomplete="email" autofocus>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="{{ trans('app.email') }}" required autocomplete="email" data-parsley-errors-container="#email-error" autofocus>
 
                                             @error('email')
                                             <span class="invalid-feedback d-block" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
+                                            @else
+                                                <div id="email-error" class="d-inline-block invalid-feedback"></div>
                                             @enderror
 
                                             <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
                                                 <button class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10" data-brk-library="component__button">
-                                                    <span class="text">{{ trans('app.send_password_reset_link') }}</span>
+                                                    <span class="text pl-2">{{ trans('app.send_password_reset_link') }}</span>
                                                     <span class="before">
                                                         <i class="far fa-hand-point-right"></i>
                                                     </span>
@@ -67,8 +67,13 @@
                             </div>
                         </div>
                     </div>
-        </div>
+                </div>
             </section>
         </main>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
+    <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
 @endsection

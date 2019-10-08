@@ -32,8 +32,8 @@
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">
                                             {{ trans('app.reset_password') }}</h1>
                                         <form method="POST" action="{{ route('password.update') }}"
-                                              class="brk-form brk-form-strict maxw-570 mx-auto mx-lg-0"
-                                              data-brk-library="component__form">
+                                              class="brk-form brk-form-strict mx-auto mx-lg-0"
+                                              data-brk-library="component__form" data-parsley-validate>
                                             @csrf
 
                                             <input type="hidden" name="token" value="{{ $token }}">
@@ -44,11 +44,13 @@
                                                            class="form-control @error('email') is-invalid @enderror"
                                                            name="email" value="{{ old('email') }}"
                                                            placeholder="{{ trans('app.email') }}" required
-                                                           autocomplete="email" autofocus>
+                                                           autocomplete="email" autofocus data-parsley-errors-container="#email-error">
                                                     @error('email')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
+                                                    @else
+                                                        <div id="email-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -58,18 +60,21 @@
                                                     <input id="password" type="password"
                                                            class="form-control @error('password') is-invalid @enderror"
                                                            name="password" placeholder="{{ trans('app.password') }}"
-                                                           required autocomplete="new-password">
+                                                           required autocomplete="new-password" data-parsley-errors-container="#pass-error">
                                                     @error('password')
                                                     <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
+                                                    @else
+                                                        <div id="pass-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
                                                 <div class="col-6">
                                                     <input id="password-confirm" type="password" class="form-control"
                                                            name="password_confirmation"
                                                            placeholder="{{ trans('app.confirm_password') }}" required
-                                                           autocomplete="new-password">
+                                                           autocomplete="new-password" data-parsley-errors-container="#password-confirm-error">
+                                                    <div id="password-confirm-error" class="d-inline-block invalid-feedback"></div>
                                                 </div>
                                             </div>
 
@@ -94,3 +99,10 @@
         </main>
     </div>
 @endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
+    <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
+    <script src="{{ asset('custom/js/form.js') }}"></script>
+@endsection
+

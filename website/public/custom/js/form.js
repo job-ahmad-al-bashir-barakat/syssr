@@ -34,6 +34,7 @@ function form_call() {
                 success: function(res) {
                     alert_message()
 
+                    console.log(res.intended);
                     if(res.intended)
                         window.location.href = res.intended;
                 },

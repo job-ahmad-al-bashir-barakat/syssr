@@ -25,11 +25,11 @@
                                 <div class="row">
                                     <div class="col-12 col-md-10 m-auto">
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45  text-center text-lg-left">{{ trans('app.register') }}</h1>
-                                        <form method="POST" action="{{ route('register') }}" class="form-ajax brk-form brk-form-strict maxw-570 mx-auto mx-lg-0" data-brk-library="component__form" data-parsley-validate>
+                                        <form method="POST" action="{{ route('register') }}" class="form-ajax brk-form brk-form-strict mx-auto mx-lg-0" data-brk-library="component__form" data-parsley-validate>
                                             @csrf
 
                                             <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="{{ trans('app.username') }}" value="{{ old('name') }}" required autocomplete="name" autofocus data-parsley-errors-container="#username-error">
                                                     @error('name')
                                                     <span class="invalid-feedback d-block" role="alert">
@@ -39,10 +39,7 @@
                                                         <div id="username-error" class="d-inline-block invalid-feedback"></div>
                                                     @enderror
                                                 </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{ trans('app.email') }}" value="{{ old('email') }}" required autocomplete="email" data-parsley-errors-container="#email-error">
                                                     @error('email')
                                                     <span class="invalid-feedback d-block" role="alert">
