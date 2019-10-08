@@ -41,9 +41,38 @@
 @section('js')
 <script>
 //----------------------------------------------------------------------------//
+    function deleteUser(){
+        var currentUser = {{Auth::user()->id}};
+        var userId = $(this).attr('data-id');
+        if(currentUser==userId){
+            var msg = '{{trans('users::main.cant_delete_current_user')}}';
+            _alert(msg, 'error');
+        }else if(userId==1){
+            var msg = '{{trans('users::main.cant_delete_admin_user')}}';
+            _alert(msg, 'error');
+        }else{
+            var userName = $(this).attr('data-full-name');
+            var msg = '{{trans('users::main.delete_user')}} ('+ userName + ')';
+            _confirm('', msg, 'warning', function(){
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'DELETE',
+                    url: 'users/' + userId,
+                }).done(function(res) {
+                    _alert('{{trans('cms.deleted_successfully')}}','success');
+                    usersDatatable.reload();
+                });
+            });
+        }
+    }
+//----------------------------------------------------------------------------//
+    var usersDatatable;
+//----------------------------------------------------------------------------//
     $(function(){
-
-        var usersDatatable = $('#usersDatatable').KTDatatable({
+        
+        usersDatatable = $('#usersDatatable').KTDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',
@@ -121,7 +150,7 @@
                     },
                 }, {
                     field: "Actions",width: 80,title: "{{trans('cms.actions')}}",sortable: false,autoHide: false,overflow: 'visible',
-                    template: function() {
+                    template: function(data) {
                         return '\
                                 <div class="dropdown">\
                                     <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">\
@@ -130,27 +159,27 @@
                                     <div class="dropdown-menu dropdown-menu-right">\
                                         <ul class="kt-nav">\
                                             <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-expand"></i>\
-                                                    <span class="kt-nav__link-text">View</span>\
+                                                <a href="{{ url('users') }}/'+data.id+'" class="kt-nav__link">\
+                                                    <i class="kt-nav__link-icon fa fa-eye"></i>\
+                                                    <span class="kt-nav__link-text">{{trans('cms.view')}}</span>\
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-contract"></i>\
-                                                    <span class="kt-nav__link-text">Edit</span>\
+                                                <a href="{{ url('users') }}/'+data.id+'/edit" class="kt-nav__link">\
+                                                    <i class="kt-nav__link-icon fa fa-edit"></i>\
+                                                    <span class="kt-nav__link-text">{{trans('cms.edit')}}</span>\
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-trash"></i>\
-                                                    <span class="kt-nav__link-text">Delete</span>\
+                                                <a href="{{ url('users') }}/'+data.id+'/change-password" class="kt-nav__link">\
+                                                    <i class="kt-nav__link-icon fa fa-exchange-alt"></i>\
+                                                    <span class="kt-nav__link-text">{{trans('cms.change_password')}}</span>\
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-mail-1"></i>\
-                                                    <span class="kt-nav__link-text">Export</span>\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_user" data-id="'+data.id+'" data-full-name="'+data.full_name+'">\
+                                                    <i class="kt-nav__link-icon fa fa-trash"></i>\
+                                                    <span class="kt-nav__link-text">{{trans('cms.delete')}}</span>\
                                                 </a>\
                                             </li>\
                                         </ul>\
@@ -183,7 +212,18 @@
                 }
             }
 
-		});
+        });
+        
+        $(usersDatatable).on('kt-datatable--on-init', function() {
+            $(usersDatatable).find('.delete_user').click(deleteUser);
+            console.log('init');
+        });
+
+        $(usersDatatable).on('kt-datatable--on-reloaded', function() {
+            $(usersDatatable).find('.delete_user').click(deleteUser);
+            console.log('reloaded');
+        });
+
     });
 //-----------------------------------------------------------------------------//
 </script>

@@ -100,17 +100,14 @@
                 <!--begin: Navigation -->
                 <div class="kt-notification">
                     <div class="kt-notification__custom kt-space-between">
-                        <!-- <a href="custom/user/login-v2.html" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">{{trans('cms.logout')}}</a> -->
-
                         <a class="btn btn-label btn-label-brand btn-sm btn-bold" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">{{trans('cms.logout')}}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-
-
-                        <a href="#" target="_blank" class="btn btn-clean btn-sm btn-bold">{{trans('cms.profile')}}</a>
+                        <a href="{{url('users/'.Auth::user()->id.'/change-password')}}" class="btn btn-clean btn-sm btn-bold">{{trans('cms.change_password')}}</a>
+                        <a href="{{url('users/'.Auth::user()->id.'/edit')}}" class="btn btn-clean btn-sm btn-bold">{{trans('cms.profile')}}</a>
                     </div>
                 </div>
                 <!--end: Navigation -->

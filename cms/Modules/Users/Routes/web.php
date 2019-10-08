@@ -19,11 +19,18 @@ Route::group([
    
     Route::prefix('users')->group(function() {
         
-        Route::resource('/', 'UsersController');
         Route::get('/getDatatableUsers', [
             'as' => 'getDatatableUsers.data', 'uses' => 'UsersController@getDatatableUsers',
         ]);
 
+        Route::get('/{id}/change-password','UsersController@changePassword');
+        Route::post('change-password','UsersController@changePasswordUpdate')->name('users.change_password');
+        // Route::post('change-password',[
+            // 'as' => 'users.change_password', 'uses' => 'UsersController@changePasswordUpdate', 
+        // ]);
+
     });
+    
+    Route::resource('users', 'UsersController');
 
 });
