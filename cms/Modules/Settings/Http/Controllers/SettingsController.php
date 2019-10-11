@@ -37,12 +37,4 @@ class SettingsController extends Controller{
         return view('settings::lang_vars',compact('filesArr'));
     }
 //----------------------------------------------------------------------//
-    public function skills(){
-        return view('settings::skills');
-    }
-//----------------------------------------------------------------------//
-    public function researchInterests(){
-        return view('settings::research_interests');
-    }
-//----------------------------------------------------------------------//
 }

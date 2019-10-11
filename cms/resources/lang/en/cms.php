@@ -32,6 +32,8 @@ return [
     'deleted_successfully'      =>      'Deleted Successfully',
     'page_not_found'            =>      'Page not found',
     'go_to_dashboard'           =>      'Got to dashboard',
+    'name'                      =>      'Name',
+    'code'                      =>      'Code',
 //-----------------------------------------------------------------------//
 //---------------------Login page-----------------------//
 //-----------------------------------------------------------------------//

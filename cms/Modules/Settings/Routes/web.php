@@ -19,8 +19,16 @@ Route::group([
     Route::prefix('settings')->group(function() {
         
         Route::get('/lang-vars', 'SettingsController@lang_vars');
-        Route::get('/research-interests', 'SettingsController@researchInterests');
-        Route::get('/skills', 'SettingsController@skills');
+
+        Route::resource('skills', 'SkillsController');
+        Route::get('/getDatatableSkills', [
+            'as' => 'getDatatableSkills.data', 'uses' => 'SkillsController@getDatatableSkills',
+        ]);
+
+        Route::resource('research-interests', 'ResearchInterestsController');
+        Route::get('/getDatatableResearchInterests', [
+            'as' => 'getDatatableResearchInterests.data', 'uses' => 'ResearchInterestsController@getDatatableResearchInterests',
+        ]);
 
     });
 
