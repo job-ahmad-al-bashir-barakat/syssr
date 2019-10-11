@@ -17,6 +17,7 @@ return [
     'ok'                        =>      'OK',
     'cancel'                    =>      'Cancel',
     'save'                      =>      'Save',
+    'add'                       =>      'Add',
     'update'                    =>      'Update',
     'edit'                      =>      'Edit',
     'delete'                    =>      'Delete',
@@ -57,6 +58,8 @@ return [
     'settings'                  =>      'Settings',
     'lang_vars'                 =>      'Language Vars',
     'logos'                     =>      'Logos',
+    'skills'                    =>      'Skills',
+    'research_interests'        =>      'Research Interests',
 //-----------------------------------------------------------------------//
 //---------------------header-----------------------//
 //-----------------------------------------------------------------------//

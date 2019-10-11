@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', trans('settings::main.lang_vars'))
+@section('title', trans('cms.lang_vars'))
 
 @section('content')
 
@@ -8,7 +8,7 @@
     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('settings::main.lang_vars')}}</h3>
+                <h3 class="kt-subheader__title">{{trans('cms.lang_vars')}}</h3>
             </div>
         </div>
     </div>

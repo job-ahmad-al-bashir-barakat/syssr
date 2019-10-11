@@ -19,6 +19,8 @@ Route::group([
     Route::prefix('settings')->group(function() {
         
         Route::get('/lang-vars', 'SettingsController@lang_vars');
+        Route::get('/research-interests', 'SettingsController@researchInterests');
+        Route::get('/skills', 'SettingsController@skills');
 
     });
 

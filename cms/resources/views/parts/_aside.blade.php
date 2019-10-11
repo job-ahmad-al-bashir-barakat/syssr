@@ -133,6 +133,18 @@
                     <h4 class="kt-menu__section-text"><i class="fa fa-cogs"></i>&nbsp;{{trans('cms.settings')}}</h4>
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
+                <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@researchInterests') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                    <a href="{{url('settings/research-interests')}}" class="kt-menu__link ">
+                        <span class="kt-menu__link-icon"><i class="fab fa-searchengin"></i></span>
+                        <span class="kt-menu__link-text">{{trans('cms.research_interests')}}</span>
+                    </a>
+                </li>
+                <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@skills') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                    <a href="{{url('settings/skills')}}" class="kt-menu__link ">
+                        <span class="kt-menu__link-icon"><i class="fa fa-screwdriver"></i></span>
+                        <span class="kt-menu__link-text">{{trans('cms.skills')}}</span>
+                    </a>
+                </li>
                 <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@lang_vars') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
                     <a href="{{url('settings/lang-vars')}}" class="kt-menu__link ">
                         <span class="kt-menu__link-icon"><i class="fa fa-language"></i></span>
