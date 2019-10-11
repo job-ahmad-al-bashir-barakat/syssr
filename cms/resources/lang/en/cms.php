@@ -29,6 +29,8 @@ return [
     'saved_successfully'        =>      'Saved Successfully',
     'updated_successfully'      =>      'Updated Successfully',
     'deleted_successfully'      =>      'Deleted Successfully',
+    'page_not_found'            =>      'Page not found',
+    'go_to_dashboard'           =>      'Got to dashboard',
 //-----------------------------------------------------------------------//
 //---------------------Login page-----------------------//
 //-----------------------------------------------------------------------//

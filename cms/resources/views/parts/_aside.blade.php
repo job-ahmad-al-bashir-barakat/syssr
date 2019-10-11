@@ -101,11 +101,11 @@
                                     <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.all_members')}}</span>
                                 </a>
                             </li>
-                            <!-- <li class="kt-menu__item <?= ( strpos($current_params, 'MembersController@create') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
-                                <a href="{{url('members/create')}}" class="kt-menu__link ">
-                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.new_member')}}</span>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'MembersController@settings') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('members/settings')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.settings')}}</span>
                                 </a>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
                 </li>
