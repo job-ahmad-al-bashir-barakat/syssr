@@ -15,14 +15,13 @@
  	- `DB_DATABASE=syssr_db`
 	- `DB_USERNAME=root`
 	- `DB_PASSWORD=`
-
- 4-2 - open `.env` on [cms] file and edit the following (this only for dev): 
-    - `API_ALLOW_CORS to your domain [website] url http://localhost:8000 this will allow you to make post,put,delete on localhost`
- 4-2 - open `.env` on [website] file and edit the following: 
-    - `API_URL to your domain api url http://domain.com/api`
+   - open `.env` on [cms] file and edit the following (this only for dev): 
+      `API_ALLOW_CORS` to your domain [website] url `http://localhost:8000` this will allow you to make post,put,delete on localhost
+   - open `.env` on [website] file and edit the following: 
+      `API_URL` to your domain api url `http://domain.com/api`
 
  5. Execute in [cms] folder by (cmd or terminal) the command  `php artisan module:migrate`
- 5. Execute in [website] folder by (cmd or terminal) the command  `php artisan migrate`
+ 6. Execute in [website] folder by (cmd or terminal) the command  `php artisan migrate`
 
 ## Run the project
  - Run (xampp, wampp or any program for [Apache & MySQL])
