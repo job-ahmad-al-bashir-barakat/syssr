@@ -31,8 +31,8 @@ class Upload
                 $name = $image['output']['name'];
                 $data = $image['output']['data'];
 
-                $img = Image::make('public/foo.jpg');
-                $img->resize(60, 60);
+                // $img = Image::make('public/foo.jpg');
+                // $img->resize(60, 60);
 
                 $output = Slim::saveFile($data,$name,$path);
 
