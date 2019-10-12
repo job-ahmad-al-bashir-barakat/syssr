@@ -44,6 +44,8 @@
         </div>
     </div>
 
+    @include('parts._modal')
+    
     @include('parts._scripts_body')
 
     @yield('js')

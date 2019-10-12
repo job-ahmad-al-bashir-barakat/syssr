@@ -18,12 +18,32 @@ class ResearchInterestsController extends Controller
     }
 //----------------------------------------------------------------------//
     public function store(Request $request){
-        $researchInterest = new ResearchInterest();
-        $researchInterest->setTranslation('name', 'en', $request['name_en']);
-        $researchInterest->setTranslation('name', 'ar', $request['name_ar']);
-        $slugify = new Slugify();
-        $researchInterest->code = $slugify->slugify($request['name_en']);
-        $researchInterest->save();
+        $success = true;
+        $message = '';
+        // if($request['name_ar']!='') {
+        //     $researchInterest = ResearchInterest::all()->where('name_ar', $request['name_ar']);
+        //     if ($researchInterest->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        // if($request['name_en']!='') {
+        //     $researchInterest = ResearchInterest::all()->where('name_en', $request['name_en']);
+        //     if ($researchInterest->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        if($success){
+            $message = trans('cms.saved_successfully');
+            $researchInterest = new ResearchInterest();
+            $researchInterest->setTranslation('name', 'en', $request['name_en']);
+            $researchInterest->setTranslation('name', 'ar', $request['name_ar']);
+            $slugify = new Slugify();
+            $researchInterest->code = $slugify->slugify($request['name_en']);
+            $researchInterest->save();
+        }
+        return response()->json(['success' => $success , 'message' => $message]);
     }
 //----------------------------------------------------------------------//
     public function getDatatableResearchInterests(){
@@ -36,35 +56,47 @@ class ResearchInterestsController extends Controller
         })->make(true);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('settings::edit');
+    public function edit($id){
+        $researchInterest = ResearchInterest::findOrFail($id);
+        return response()->json([
+            'name_en'       =>  $researchInterest->getTranslation('name','en'),
+            'name_ar'       =>  $researchInterest->getTranslation('name','ar'),
+        ]);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $success = true;
+        $message = '';
+        // if($request['name_ar']!='') {
+        //     $researchInterest = ResearchInterest::all()->where('name_ar', $request['name_ar']);
+        //     if ($researchInterest->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        // if($request['name_en']!='') {
+        //     $researchInterest = ResearchInterest::all()->where('name_en', $request['name_en']);
+        //     if ($researchInterest->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        if($success){
+            $message = trans('cms.updated_successfully');
+            $researchInterest = ResearchInterest::findOrFail($id);
+            $researchInterest->setTranslation('name', 'en', $request['name_en']);
+            $researchInterest->setTranslation('name', 'ar', $request['name_ar']);
+            $slugify = new Slugify();
+            $researchInterest->code = $slugify->slugify($request['name_en']);
+            $researchInterest->save();
+        }
+        return response()->json(['success' => $success , 'message' => $message]);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy(ResearchInterest $researchInterest){
+        //TODO check if used by any thing first
+        $researchInterest->delete();
+        return response()->json(['success' => true , 'message' => trans('cms.deleted_successfully')]);
     }
 //----------------------------------------------------------------------//
 }

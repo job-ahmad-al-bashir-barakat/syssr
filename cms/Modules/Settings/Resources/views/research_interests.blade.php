@@ -4,6 +4,22 @@
 
 @section('content')
 
+    <!-- begin:: hidden form -->
+    <div class="d-none hidden-forms">
+        <form id="interest-form">
+            <input type="hidden" id="id">
+            <div class="form-group">
+                <label>{{trans('cms.name').' '.trans('cms.en')}} *</label>
+                <input type="text" name="name_en" id="name_en" dir="ltr" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>{{trans('cms.name').' '.trans('cms.ar')}} *</label>
+                <input type="text" name="name_ar" id="name_ar" dir="rtl" class="form-control">
+            </div>
+        </form>
+    </div>
+    <!-- end:: hidden form -->
+
     <!-- begin:: Subheader -->
     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
@@ -11,7 +27,7 @@
                 <h3 class="kt-subheader__title">{{trans('cms.research_interests')}}</h3>
             </div>
             <div class="kt-subheader__toolbar">
-                <a href="Javascript::void(0);" class="btn btn-label-brand btn-bold">{{trans('cms.add')}}</a>
+                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold add-interest">{{trans('cms.add')}}</a>
             </div>
         </div>
     </div>
@@ -36,38 +52,102 @@
 @section('js')
 
 <script>
- //----------------------------------------------------------------------------//
- function deleteResearchInterest(){
-        var currentUser = {{Auth::user()->id}};
-        var userId = $(this).attr('data-id');
-        if(currentUser==userId){
-            var msg = '{{trans('users::main.cant_delete_current_user')}}';
-            _alert(msg, 'error');
-        }else if(userId==1){
-            var msg = '{{trans('users::main.cant_delete_admin_user')}}';
-            _alert(msg, 'error');
-        }else{
-            var userName = $(this).attr('data-full-name');
-            var msg = '{{trans('users::main.delete_user')}} ('+ userName + ')';
-            _confirm('', msg, 'warning', function(){
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'DELETE',
-                    url: 'users/' + userId,
-                }).done(function(res) {
-                    _alert('{{trans('cms.deleted_successfully')}}','success');
-                    usersDatatable.reload();
-                });
-            });
-        }
-    }
+ //---------------------------------------------------------------------------//
+ function add_interest(){
+    var $content = $('#interest-form').clone();
+    var title = '{{trans('settings::main.add_research_interest')}}';
+    var $dialog = _dialog(title, $content, {add:true});
+
+    $dialog.find('#add_btn').unbind('click').click(function(){
+        var $form = $dialog.find('#interest-form');
+        // var is_validate = $form.validate();
+        // console.log(is_validate);
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'POST',
+            url: 'research-interests',
+            data: $form.serialize()
+        }).done(function (res) {
+            if (res.success) {
+                _alert('{{trans('cms.deleted_successfully')}}','success');
+                researchInterestsDatatable.reload();
+                _dialog('close');
+            } else {
+                _alert(res.message,'error');
+                _dialog('close');
+            }
+        });
+    });
+ }
+ //---------------------------------------------------------------------------//
+ function update_interest(){
+    var $this = $(this);
+    var id = $this.attr('data-id');
+    var name = $this.attr('data-name');
+    var $content = $('#interest-form').clone();
+    var title = '{{trans('settings::main.update_research_interest')}} ('+name+')';
+    $.get('research-interests/'+id+'/edit',function(res){
+        $content.find('#id').val(id);
+        $content.find('#name_ar').val(res.name_ar);
+        $content.find('#name_en').val(res.name_en);
+    });
+    var $dialog = _dialog(title, $content, {update:true});
+    $dialog.find('#update_btn').unbind('click').click(function(){
+        var $form = $dialog.find('#interest-form');
+        // var is_validate = $form.validate();
+        // console.log(is_validate);
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'PATCH',
+            url: 'research-interests/' + id,
+            data: $form.serialize()
+        }).done(function (res) {
+            if (res.success) {
+                _alert(res.message,'success');
+                researchInterestsDatatable.reload();
+                _dialog('close');
+            } else {
+                _alert(res.message,'error');
+                _dialog('close');
+            }
+        });
+    });
+ }
+ //---------------------------------------------------------------------------//
+function delete_interest(){
+    var id = $(this).attr('data-id');
+    var name = $(this).attr('data-name');
+    var msg = '{{trans('settings::main.delete_research_interest')}} ('+ name + ')';
+    _confirm('', msg, 'warning', function(){
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'DELETE',
+            url: 'research-interests/' + id,
+        }).done(function(res) {
+            if (res.success) {
+                _alert(res.message,'success');
+                researchInterestsDatatable.reload();
+                _dialog('close');
+            } else {
+                _alert(res.message,'error');
+                _dialog('close');
+            }
+        });
+    });
+}
 //----------------------------------------------------------------------------//
     var researchInterestsDatatable;
 //----------------------------------------------------------------------------//
     $(function(){
         
+        $('.add-interest').click(add_interest);
+
         researchInterestsDatatable = $('#researchInterestsDatatable').KTDatatable({
 			// datasource definition
 			data: {
@@ -128,13 +208,13 @@
                                     <div class="dropdown-menu dropdown-menu-right">\
                                         <ul class="kt-nav">\
                                             <li class="kt-nav__item">\
-                                                <a href="{{ url('users') }}/'+data.id+'/edit" class="kt-nav__link">\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link update_interest" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
                                                     <i class="kt-nav__link-icon fa fa-edit"></i>\
                                                     <span class="kt-nav__link-text">{{trans('cms.edit')}}</span>\
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_user" data-id="'+data.id+'" data-full-name="'+data.full_name+'">\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_interest" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
                                                     <i class="kt-nav__link-icon fa fa-trash"></i>\
                                                     <span class="kt-nav__link-text">{{trans('cms.delete')}}</span>\
                                                 </a>\
@@ -172,12 +252,14 @@
         });
         
         $(researchInterestsDatatable).on('kt-datatable--on-init', function() {
-            $(researchInterestsDatatable).find('.delete_user').click(deleteResearchInterest);
+            $(researchInterestsDatatable).find('.delete_interest').click(delete_interest);
+            $(researchInterestsDatatable).find('.update_interest').click(update_interest);
             console.log('init');
         });
 
         $(researchInterestsDatatable).on('kt-datatable--on-reloaded', function() {
-            $(researchInterestsDatatable).find('.delete_user').click(deleteResearchInterest);
+            $(researchInterestsDatatable).find('.delete_interest').click(delete_interest);
+            $(researchInterestsDatatable).find('.update_interest').click(update_interest);
             console.log('reloaded');
         });
 

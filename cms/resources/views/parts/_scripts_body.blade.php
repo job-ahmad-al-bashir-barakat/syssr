@@ -18,10 +18,16 @@
             }
         }
     };
+    var lang = '{{$lang}}';
+    var dir = '{{$dir}}';
     var cms_lang = {
         'yes'                   :   '{{trans('cms.yes')}}',
         'no'                    :   '{{trans('cms.no')}}',
         'ok'                    :   '{{trans('cms.ok')}}',
+        'add'                   :   '{{trans('cms.add')}}',
+        'save'                  :   '{{trans('cms.save')}}',
+        'update'                :   '{{trans('cms.update')}}',
+        'close'                 :   '{{trans('cms.close')}}',
         'cancel'                :   '{{trans('cms.cancel')}}',
         'are_you_sure'          :   '{{trans('cms.are_you_sure')}}',
         'warning'               :   '{{trans('cms.warning')}}',
