@@ -18,12 +18,32 @@ class SkillsController extends Controller
     }
 //----------------------------------------------------------------------//
     public function store(Request $request){
-        $skill = new Skill();
-        $skill->setTranslation('name', 'en', $request['name_en']);
-        $skill->setTranslation('name', 'ar', $request['name_ar']);
-        $slugify = new Slugify();
-        $skill->code = $slugify->slugify($request['name_en']);
-        $skill->save();
+        $success = true;
+        $message = '';
+        // if($request['name_ar']!='') {
+        //     $skill = Skill::all()->where('name_ar', $request['name_ar']);
+        //     if ($skill->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        // if($request['name_en']!='') {
+        //     $skill = Skill::all()->where('name_en', $request['name_en']);
+        //     if ($skill->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        if($success){
+            $message = trans('cms.saved_successfully');
+            $skill = new Skill();
+            $skill->setTranslation('name', 'en', $request['name_en']);
+            $skill->setTranslation('name', 'ar', $request['name_ar']);
+            $slugify = new Slugify();
+            $skill->code = $slugify->slugify($request['name_en']);
+            $skill->save();
+        }
+        return response()->json(['success' => $success , 'message' => $message]);
     }
 //----------------------------------------------------------------------//
     public function getDatatableSkills(){
@@ -36,35 +56,47 @@ class SkillsController extends Controller
         })->make(true);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('settings::edit');
+    public function edit($id){
+        $skill = Skill::findOrFail($id);
+        return response()->json([
+            'name_en'       =>  $skill->getTranslation('name','en'),
+            'name_ar'       =>  $skill->getTranslation('name','ar'),
+        ]);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $success = true;
+        $message = '';
+        // if($request['name_ar']!='') {
+        //     $skill = Skill::all()->where('name_ar', $request['name_ar']);
+        //     if ($skill->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        // if($request['name_en']!='') {
+        //     $skill = Skill::all()->where('name_en', $request['name_en']);
+        //     if ($skill->isNotEmpty()) {
+        //         $success = false;
+        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
+        //     }
+        // }
+        if($success){
+            $message = trans('cms.updated_successfully');
+            $skill = Skill::findOrFail($id);
+            $skill->setTranslation('name', 'en', $request['name_en']);
+            $skill->setTranslation('name', 'ar', $request['name_ar']);
+            $slugify = new Slugify();
+            $skill->code = $slugify->slugify($request['name_en']);
+            $skill->save();
+        }
+        return response()->json(['success' => $success , 'message' => $message]);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Skill $skill){
+        //TODO check if used by any thing first
+        $skill->delete();
+        return response()->json(['success' => true , 'message' => trans('cms.deleted_successfully')]);
     }
 //----------------------------------------------------------------------//
 }
