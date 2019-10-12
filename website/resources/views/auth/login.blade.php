@@ -29,7 +29,7 @@
                                     <div class="col-12 col-md-10 m-auto">
                                         <h1 class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45 text-center text-lg-left">
                                             {{ trans('app.login') }}</h1>
-                                        <form method="POST" action="{{ route('login') }}" class="form-ajax brk-form brk-form-strict mx-auto mx-lg-0"
+                                        <form method="POST" action="{{ route('login') }}" class="brk-form brk-form-strict mx-auto mx-lg-0"
                                               data-brk-library="component__form" data-parsley-validate>
                                             @csrf
 

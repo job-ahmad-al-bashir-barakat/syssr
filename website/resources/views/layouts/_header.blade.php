@@ -1,4 +1,17 @@
 <header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+    @if (session('status'))
+        <div class="alert-message">
+            <div data-brk-library="component__alert" class="alert alert-clean fade alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light show mb-0" role="alert" style="background: rgba(81,81,195,1); padding: 15px 31px;">
+                <button type="button" class="close font__size-18" data-dismiss="alert">
+                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                    <span class="sr-only">{{ trans('app.close') }}</span>
+                </button>
+                {{--<i class="start-icon far fa-check-circle"></i>--}}
+                <strong class="font__weight-semibold">😃</strong> {{ session('status') }}.
+            </div>
+        </div>
+     @endif
+
     <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1 bg-white" style="height: 72px;">
         <div class="container-fluid">
             <div class="row no-gutters align-items-center">

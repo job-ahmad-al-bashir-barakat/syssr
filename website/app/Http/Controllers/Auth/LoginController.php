@@ -52,25 +52,4 @@ class LoginController extends Controller
         else
             return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
-
-    /**
-     * Send the response after the user was authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    protected function sendLoginResponse(Request $request)
-    {
-        $request->session()->regenerate();
-
-        $this->clearLoginAttempts($request);
-
-        return $this->authenticated($request, $this->guard()->user())
-            ?:
-            request()->ajax()
-                ? response()->json([
-                    'intended' => \RouteUrls::home()
-                ])
-                : redirect()->intended($this->redirectPath());
-    }
 }
