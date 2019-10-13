@@ -25,7 +25,7 @@
     <h1 class="sr-only">Profile</h1>
     <div class="pt-80 pb-80 lazyload" data-bg="img/demo_magazine/1920x908_1.png">
         <div class="container">
-            <form id="form-profile" class="form-ajax" enctype="multipart/form-data" method="POST" action="{{ $api_url . 'member/' . Auth::id() }}" data-parsley-validate>
+            <form id="form-profile" class="form-ajax" enctype="multipart/form-data" method="POST" action="{{ $cms_api_url . 'member/' . Auth::id() }}" data-parsley-validate>
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
@@ -74,7 +74,7 @@
                                  data-crop="0,0,1000,1000"
                                  data-ratio="1:1">
                                 <input type="file" id="avatar" name="avatar">
-                                <img src="{{ asset($user->avatar_url ?? 'custom/img/user-image.png') }}" alt="" crossorigin="anonymous">
+                                <img src="{{ $user->avatar_url ?? asset('custom/img/user-image.png') }}" alt="">
                             </div>
                             <div class="text-center mt-4">
                                 <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">{{ trans('app.change_file') }}</label>

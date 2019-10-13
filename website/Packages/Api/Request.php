@@ -10,7 +10,7 @@ class Request
 
     public function __construct()
     {
-        $this->client = new \GuzzleHttp\Client(['base_uri' => config('api.base_url')]);
+        $this->client = new \GuzzleHttp\Client(['base_uri' => config('api.cms_api_url')]);
         $this->request_header = [];
         if(\Auth::check()) {
             $token = \Auth::user()->getAttribute('api_token');

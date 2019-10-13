@@ -13,9 +13,9 @@ class GlobalComposer{
       $left = ($dir=='ltr')? 'left':'right';
       $right = ($dir=='ltr')? 'right':'left';
       $name_route = \Route::currentRouteName();
-      $api_url = config('api.base_url');
+      $cms_api_url = config('api.cms_api_url');
 
-      $view->with(compact('lang', 'dir', 'left','right', 'name_route','api_url'));
+      $view->with(compact('lang', 'dir', 'left','right', 'name_route','cms_api_url'));
 	}
 }
 

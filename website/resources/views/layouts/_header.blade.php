@@ -105,13 +105,9 @@
                             <div class="brk-user__block">
                                 <div class="brk-user__content">
                                     <div class="user-info">
-                                        @if(Auth::user()->avatar)
-                                            <img src="{{ env('CMS_URL').'/storage/avatar/'.Auth::user()->id.'/'.Auth::user()->avatar }}" alt="image">
-                                        @else
-                                            <img src="{{ asset('custom/img/user-image.png') }}" alt="image">
-                                        @endif
+                                        <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" alt="image">
                                         <div class="user-info-wrapper">
-                                            <div class="user-name">
+                                            <div class="user-name font__family-montserrat">
                                                 <span>{{Auth::user()->first_name}}</span>
                                             </div>
                                             <div class="user-links">

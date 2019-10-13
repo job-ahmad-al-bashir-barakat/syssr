@@ -1,14 +1,13 @@
 /*body*/
 body,
-body a,
-.font__family-montserrat{
-    font-family: "Open Sans", "Montserrat", "JF Flat Regular", sans-serif;
+body a {
+    font-family: "Open Sans", "Montserrat", "JF Flat Regular", sans-serif !important;
 }
 .font__family-montserrat {
-    font-family: "Montserrat", "JF Flat Regular", sans-serif;
+    font-family: "Montserrat", "JF Flat Regular", sans-serif !important;
 }
 .font__family-montserrat-alt {
-    font-family: 'Montserrat Alternates',  "JF Flat Regular", sans-serif;
+    font-family: 'Montserrat Alternates',  "JF Flat Regular", sans-serif !important;
 }
 
 /*form*/

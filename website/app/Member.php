@@ -36,4 +36,16 @@ class Member extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'avatar_url'
+    ];
+
+    function getAvatarUrlAttribute() {
+        if($this->avatar) {
+            $cms_url =  config('api.cms_url');
+            return "$cms_url/storage/avatar/{$this->id}/{$this->avatar}";
+        }
+
+    }
 }

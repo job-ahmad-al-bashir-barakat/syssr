@@ -13,7 +13,7 @@ return [
     */
 
     'supportsCredentials' => false,
-    'allowedOrigins' => explode(',',env('API_ALLOW_CORS','*')),
+    'allowedOrigins' => explode(',',env('ALLOW_CORS_URLS','*')),
     'allowedOriginsPatterns' => [],
     'allowedHeaders' => ['*'],
     'allowedMethods' => ['*'],

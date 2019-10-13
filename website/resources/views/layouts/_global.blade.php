@@ -1,7 +1,7 @@
 <script>
     var api_token = jQuery('meta[name="api-token"]').attr('content');
     var csrf_token = jQuery('meta[name="csrf-token"]').attr('content');
-    var api_url = "{{ config('api.base_url') }}";
+    var cms_api_url = "{{ config('api.cms_api_url') }}";
     var user_id = "{{ \Auth::id() }}";
 
     jQuery.ajaxSetup({
