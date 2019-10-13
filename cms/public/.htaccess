@@ -5,11 +5,13 @@
 
     RewriteEngine On
 
+    # should test
     <IfModule mod_headers.c>
         <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css|js|gif|png|jpe?g|svg|svgz|ico|webp)$">
             Header set Access-Control-Allow-Origin "*"
         </FilesMatch>
     </IfModule>
+    # end should test
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

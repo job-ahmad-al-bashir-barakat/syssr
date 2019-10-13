@@ -79,9 +79,12 @@ class MembersController extends Controller
 
         $filename = \Upload::avatar();
 
-        $member = Member::findOrFail($id);
+        if($data['avatar'])
+            $data['avatar'] = $filename;
+        else
+            unset($data['avatar']);
 
-        $data['avatar'] = $filename;
+        $member = Member::findOrFail($id);
 
         $member->update($data);
 
