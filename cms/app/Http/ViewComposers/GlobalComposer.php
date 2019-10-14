@@ -6,7 +6,7 @@ use LaravelLocalization;
 use Illuminate\View\View;
 
 class GlobalComposer{
-  
+
     public function compose(View $view){
       $dir = LaravelLocalization::getCurrentLocaleDirection();
       $lang = LaravelLocalization::getCurrentLocale();

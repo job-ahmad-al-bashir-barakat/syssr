@@ -3,9 +3,9 @@
 @section('shared')
 <div class="main-page">
     @include('layouts._header')
-    <div class="wrapper" style="margin-top:72px;">
-        @yield('content')
-    </div>
+    @yield('content')
+
+    @section('footer')
     <footer class="brk-footer position-relative" data-brk-library="component__footer">
         <div class="brk-footer__wrapper  @if(Route::currentRouteName() == 'home') pt-sm-70 pt-40 @endif">
             @if(Route::currentRouteName() == 'home')
@@ -69,5 +69,6 @@
             </div>
         </div>
     </footer>
+    @show
 </div>
 @endsection

@@ -10,6 +10,17 @@ body a {
     font-family: 'Montserrat Alternates',  "JF Flat Regular", sans-serif !important;
 }
 
+/*header*/
+.custom-header.brk-header-mobile:not(.brk-header-mobile_scroll) img.logo,
+.custom-header.brk-header:not(.brk-header_scroll) img.logo {
+    filter: brightness(0) invert(1) !important;
+}
+
+.custom-header.brk-header-mobile.brk-header-mobile_scroll img.logo,
+.custom-header.brk-header.brk-header_scroll img.logo {
+    filter: none !important;
+}
+
 /*form*/
 .slim {
     border-radius: 25px;

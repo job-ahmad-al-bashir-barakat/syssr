@@ -1,4 +1,12 @@
-<header class="brk-header d-lg-flex flex-column brk-header_style-1 brk-header_color-dark" style="display: none;" data-logo-src="img/logo-dark-2.png" data-bg-mobile="img/brk-bg-mobile-menu.jpg" data-sticky-hide="0" data-brk-library="component__header">
+<div class="brk-header-mobile @if(Route::currentRouteName() != 'home') custom-header @endif">
+    <div class="brk-header-mobile__open @if(Route::currentRouteName() != 'home') brk-header-mobile__open_white @endif">
+        <span></span>
+    </div>
+    <div class="brk-header-mobile__logo">
+        <a href="#"><img class="logo" src="{{ asset('custom/logo_icon/logo.png') }}" alt="" style="width: 110px;"></a>
+    </div>
+</div>
+<header class="brk-header d-lg-flex flex-column brk-header_style-1 @if(Route::currentRouteName() == 'home') brk-header_color-dark @else brk-header_color-white custom-header @endif " style="display: none;" data-logo-src="custom/logo_icon/logo.png" data-bg-mobile="custom/logo_icon/logo.png" data-sticky-hide="0" data-brk-library="component__header">
     @if (session('status'))
         <div class="alert-message">
             <div data-brk-library="component__alert" class="alert alert-clean fade alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light show mb-0" role="alert" style="background: rgba(81,81,195,1); padding: 15px 31px;">
@@ -10,9 +18,9 @@
                 <strong class="font__weight-semibold">😃</strong> {{ session('status') }}.
             </div>
         </div>
-     @endif
+    @endif
 
-    <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1 bg-white" style="height: 72px;">
+    <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1 @if(Route::currentRouteName() == 'home') bg-white @endif" style="height: 72px;">
         <div class="container-fluid">
             <div class="row no-gutters align-items-center">
                 <div class="col-lg align-self-lg-stretch">
@@ -59,8 +67,8 @@
                 <div class="col-lg-2 align-self-lg-center d-none d-lg-block">
                     <div class="text-center">
                         <a href="{{ RouteUrls::home() }}" class="brk-header__logo brk-header__item @@modifier" style="width: 110px;">
-                            <img class="brk-header__logo-1 lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
-                            <img class="brk-header__logo-2 lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
+                            <img class="brk-header__logo-1 logo lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
+                            <img class="brk-header__logo-2 logo lazyload" src="{{ asset('custom/logo_icon/logo.png') }}" data-src="{{ asset('custom/logo_icon/logo.png') }}" alt="alt">
                         </a>
                     </div>
                 </div>
@@ -77,7 +85,6 @@
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <li><a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">{{ strtoupper($localeCode) }}</a></li>
                             @endforeach
-
                         </ul>
                     </div>
                     <div class="brk-search brk-header__item">
