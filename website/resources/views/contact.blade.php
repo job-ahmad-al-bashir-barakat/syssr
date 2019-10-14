@@ -281,28 +281,16 @@
                     <div class="brk-dashed-logo mb-20">
                         <span class="brk-dashed-logo__line"></span>
                         <a class="brk-dashed-logo__link ml-25 mr-25">
-                            <img src="img/logo.svg" height="31" width="170" alt="logo">
+                            <img src="{{ asset('custom/logo_icon/logo.png') }}" height="31" width="170" alt="logo" style="filter: brightness(0) invert(1)">
                         </a>
                         <span class="brk-dashed-logo__line"></span>
                     </div>
                     <div class="brk-social-links brk-white-font-color brk-social-links_opacity d-flex justify-content-center mb-40 font__size-12" data-brk-library="component__social_links">
                         <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-facebook"></i>
                         </a>
                         <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-google-plus-g"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-vimeo"></i>
-                        </a>
-                        <a href="#" class="brk-social-links__item">
-                            <i class="fab fa-vk"></i>
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                     <div class="brk-footer__rights pt-15 pb-20 text-center">
