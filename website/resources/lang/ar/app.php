@@ -35,11 +35,12 @@ return [
     'menu_extra' => 'قائمة اضافية',
     'search_website' => 'البحث في الموقع',
     'enter_search_text' => 'أبحث ...',
-    'Language' => 'اللغة',
+    'language' => 'اللغة',
     'close' => 'إعلاق',
     'search' => 'البحث',
 
     // profile
+    'general' => 'عام',
     'gender' => 'جنس',
     'birth_date' => 'تاريخ الميلاد',
     'save' => 'حفظ',
@@ -47,9 +48,22 @@ return [
     'choose_here' => 'أختر قيمة',
     'male' => 'ذكر',
     'female' => 'أنثى',
+    'mobile' => 'الهاتف المحمول',
     'drop_avatar' => 'سحب وأفلات الصورة الشخصية',
     'change_file' => 'أضغط على المربع لرفع صورة شخصية',
     'save_as_pass_message' => 'فشل مطابقة كلمة المرور',
+
+    // contact
+    'your_name' => 'الاسم',
+    'your_mail' => 'البريد الالكتروني',
+    'your_question' => 'نص الرسالة',
+    'send_message' => 'ارسال الرسالة',
+    'contact_headline' => 'لديك سوال? يمكنك ارساله بالأسفل',
+    'need_help' => 'تحتاج مساعدة ؟',
+    'directions' => 'تحديد الموقع',
+    'our_info' => 'معلومات الاتصال',
+    'our_info_message' => 'اتصل بنا أو أرسل نموذج لسؤالك',
+    'short_faq' => 'أسئلة قصيرة',
 
     // membership
     'back_to_the_homepage' => 'العودة الى الصفحة الرئيسية',

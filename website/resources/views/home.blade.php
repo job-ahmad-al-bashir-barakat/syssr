@@ -68,7 +68,7 @@
                 <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
             </div>
         </div>
-        <h1 class="sr-only">Magazine - Home</h1>
+        <h1 class="sr-only">{{ trans('app.title_main') }}{{ trans('app.title_org') }}</h1>
         <section class="row no-gutters">
             <div class="col-xl-4">
                 <div class="blog-grid-card lazyload blog-grid-card_small blog-grid-card_white" data-bg="img/demo_magazine/640x420_1.jpg" data-brk-library="component__blog_grid">
@@ -208,255 +208,6 @@
                 </div>
             </div>
         </section>
-        <section class="brk-bg-light-dark-2 bg-cover bg-norepeat bg-position_bottom-center pt-90 pb-lg-110 pb-70" style="background-image:url(img/demo_magazine/1920x908_1.png);">
-            <div class="container">
-                <div class="font__size-46 line__height-60 text-center mb-90">
-                    <span class="font__family-playfair font__style-italic">Check Our</span>
-                    <span class="font__family-montserrat font__weight-bold">Photos</span>
-                </div>
-                <div class="row">
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_1.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_1.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_2.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_2.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_3.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_3.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_4.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_4.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_5.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_5.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_6.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_6.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_7.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_7.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_8.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_8.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_9.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_9.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_10.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_10.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_11.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_11.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <div class="brk-gallery-card brk-gallery-card_shadow" data-brk-library="component__gallery">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/270x270_12.jpg" alt="alt" class="brk-gallery-card__img lazyload">
-                            <a href="img/demo_magazine/270x270_12.jpg" data-fancybox="gallery" class="fancybox brk-gallery-card__overlay-full brk-bg-gradient-40deg-85-28 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-plus font__size-36 brk-white-font-color"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="position-relative brk-bg-primary pt-30 pb-30">
-            <div class="brk-layer position-absolute bg-cover bg-norepeat bg-position_bottom-center opacity-20 lazyload" data-bg="img/demo_magazine/1280x120_1.png"></div>
-            <div class="container position-relative brk-z-index-10 text-center">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-auto">
-                        <span class="font__weight-bold font__family-montserrat font__size-32 line__height-52 text-white text-uppercase">View our shop</span>
-                        <span class="font__weight-light font__family-montserrat font__size-32 line__height-52 text-white text-uppercase">& buy our best products</span>
-                    </div>
-                    <div class="col-md-auto">
-                        <a href="#" class="btn btn-inside-out btn-lg btn-icon border-radius-30 btn-inside-out_dark font__family-open-sans font__weight-bold m-0" data-brk-library="component__button">
-                            <i class="fas fa-shopping-basket icon-inside"></i>
-                            <span class="before">shop now</span><span class="text">shop now</span><span class="after">shop now</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="brk-base-bg-6 pt-lg-110 pt-40 pb-90">
-            <div class="container">
-                <div class="row align-items-end brk-gutters-5">
-                    <div class="col-lg-auto text-center text-lg-left">
-                        <span class="brk-text-clip bg-cover font__weight-bold magazine-big-font">136</span>
-                    </div>
-                    <div class="col-lg-auto text-center text-lg-left">
-                        <div class="font__family-montserrat font__weight-bold font__size-24 line__height-28 mb-20 text-uppercase">
-                            <span class="brk-base-font-color">Partners</span><br>
-                            <span class="text-white">with us</span>
-                        </div>
-                    </div>
-                    <div class="col-md-auto text-center text-lg-left brk-align-right">
-                        <a href="#" class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-bold m-0 mb-20" data-brk-library="component__button">
-                            <i class="fas fa-user icon-inside"></i>
-                            <span class="before">Become our Partner</span><span class="text">Become our Partner</span><span class="after">Become our Partner</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="row pt-70">
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
-                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
-                        </a></div>
-                </div>
-            </div>
-        </section>
-        <section class="container-fluid">
-            <div class="row pt-15 pb-15 align-items-center">
-                <div class="col-xl offset-xl-1">
-                    <div class="text-center text-xl-left mt-40 mb-40 mt-xl-0 mb-xl-0">
-                        <div class="font__family-montserrat font__weight-bold text-uppercase font__size-36 line__height-42 mb-30">Our Team</div>
-                        <div class="font__family-montserrat font__family-playfair font__size-18 line__height-24 brk-dark-font-color mb-35">Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc. Vestibulum fringilla pede sit amet augue.
-                        </div>
-                        <a href="#" class="btn btn-inside-out btn-lg btn-icon border-radius-30 font__family-open-sans font__weight-bold m-0 mb-20" data-brk-library="component__button">
-                            <i class="fab fa-linkedin-in icon-inside"></i>
-                            <span class="before">Our Linkedin</span><span class="text">Open Linkedin</span><span class="after">Our Linkedin</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_1.jpg" data-brk-library="component__team">
-                        <a href="#">
-                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
-                                Leana K.A
-                            </h3>
-                        </a>
-                        <div class="brk-team-strict__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_2.jpg" data-brk-library="component__team">
-                        <a href="#">
-                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
-                                Samanta J.D
-                            </h3>
-                        </a>
-                        <div class="brk-team-strict__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_3.jpg" data-brk-library="component__team">
-                        <a href="#">
-                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
-                                Marry W.S
-                            </h3>
-                        </a>
-                        <div class="brk-team-strict__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_4.jpg" data-brk-library="component__team">
-                        <a href="#">
-                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
-                                Gerar Q.W
-                            </h3>
-                        </a>
-                        <div class="brk-team-strict__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="brk-base-bg-6 pt-lg-100 pt-50 pb-lg-80">
             <div class="font__size-46 line__height-60 text-center mb-lg-90 pb-50 text-white">
                 <span class="font__family-playfair font__style-italic">Our</span>
@@ -566,373 +317,146 @@
                 </div>
             </div>
         </section>
-        <section class="mt-70 mb-70 mt-xl-0 mb-xl-0">
-            <div class="row no-gutters">
-                <div class="col-xl text-center">
-                    <div class="flip-box text-center mb-0" data-brk-library="component__flip_box,component__elements,fancybox">
-                        <div class="flip flip_horizontal flip-box__split">
-                            <div class="flip__front">
-                                <div class="flip-box__split-img lazyload" data-bg="img/demo_magazine/303x443_1.png"></div>
-                                <div class="pt-30 pb-30 flip-box__split-info">
-                                    <div class="font__family-montserrat font__weight-bold pl-20 pr-20 font__size-18">
-                                        Boxed & Wide Layouts
-                                    </div>
-                                    <div class="brk-base-font-color font__family-montserrat font__size-17 font__weight-medium">
-                                            <span class="old-price font__size-16">
-                                                $15.00
-                                            </span>
-                                        <span class="font__weight-semibold font__size-18">
-                                                $12.30
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip__back lazyload" data-bg="img/demo_magazine/303x443_1.png">
-                                <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
-                                <div class="flip-box__split-content">
-                                    <div class="pt-lg-30 pb-lg-30 pt-sm-20 pb-sm-20 pt-xs-40 pb-xs-40 pt-20 pb-20 position-relative z-index-5">
-                                        <a href="#">
-                                            <h4 class="font__family-montserrat font__weight-bold font__size-18 line__height-24">
-                                                Boxed & Wide Layouts
-                                            </h4>
-                                        </a>
-                                        <div class="flip-box__split-price font__family-montserrat font__size-15">
-                                                <span>
-                                                    $15.00
-                                                </span>
-                                            <span class="font__weight-bold"></span>
-                                            $12.30
-                                        </div>
-                                    </div>
-                                    <div class="flip-box__split-list">
-                                        <ul class="font__family-open-sans font__size-15 line__height-20 font__weight-light text-left letter-spacing-40 pt-15 pb-15">
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                            <li><i class="far fa-check"></i>Fellentesque habitant morbi</li>
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flip-box__split-actions">
-                                        <a href="#" class="add-cart d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                        <a href="img/demo_magazine/303x443_1.png" class="add-search d-flex align-items-center justify-content-center fancybox">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a href="#" class="add-wishlist d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-star"></i>
-                                        </a>
-                                        <a href="#" class="add-compare d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+        <section class="position-relative brk-bg-primary pt-30 pb-30">
+            <div class="brk-layer position-absolute bg-cover bg-norepeat bg-position_bottom-center opacity-20 lazyload" data-bg="img/demo_magazine/1280x120_1.png"></div>
+            <div class="container position-relative brk-z-index-10 text-center">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-auto">
+                        <span class="font__weight-bold font__family-montserrat font__size-32 line__height-52 text-white text-uppercase">View our shop</span>
+                        <span class="font__weight-light font__family-montserrat font__size-32 line__height-52 text-white text-uppercase">& buy our best products</span>
+                    </div>
+                    <div class="col-md-auto">
+                        <a href="#" class="btn btn-inside-out btn-lg btn-icon border-radius-30 btn-inside-out_dark font__family-open-sans font__weight-bold m-0" data-brk-library="component__button">
+                            <i class="fas fa-shopping-basket icon-inside"></i>
+                            <span class="before">shop now</span><span class="text">shop now</span><span class="after">shop now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-fluid">
+            <div class="row pt-15 pb-15 align-items-center">
+                <div class="col-xl offset-xl-1">
+                    <div class="text-center text-xl-left mt-40 mb-40 mt-xl-0 mb-xl-0">
+                        <div class="font__family-montserrat font__weight-bold text-uppercase font__size-36 line__height-42 mb-30">Our Team</div>
+                        <div class="font__family-montserrat font__family-playfair font__size-18 line__height-24 brk-dark-font-color mb-35">Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc. Vestibulum fringilla pede sit amet augue.
+                        </div>
+                        <a href="#" class="btn btn-inside-out btn-lg btn-icon border-radius-30 font__family-open-sans font__weight-bold m-0 mb-20" data-brk-library="component__button">
+                            <i class="fab fa-linkedin-in icon-inside"></i>
+                            <span class="before">Our Linkedin</span><span class="text">Open Linkedin</span><span class="after">Our Linkedin</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_1.jpg" data-brk-library="component__team">
+                        <a href="#">
+                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
+                                Leana K.A
+                            </h3>
+                        </a>
+                        <div class="brk-team-strict__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl text-center">
-                    <div class="flip-box text-center mb-0" data-brk-library="component__flip_box,component__elements,fancybox">
-                        <div class="flip flip_horizontal flip-box__split">
-                            <div class="flip__front">
-                                <div class="flip-box__split-img lazyload" data-bg="img/demo_magazine/303x443_2.png"></div>
-                                <div class="pt-30 pb-30 flip-box__split-info">
-                                    <div class="font__family-montserrat font__weight-bold pl-20 pr-20 font__size-18">
-                                        Extensive Documentation
-                                    </div>
-                                    <div class="brk-base-font-color font__family-montserrat font__size-17 font__weight-medium">
-                                            <span class="old-price font__size-16">
-                                                $51.00
-                                            </span>
-                                        <span class="font__weight-semibold font__size-18">
-                                                $46.00
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip__back lazyload" data-bg="img/demo_magazine/303x443_2.png">
-                                <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
-                                <div class="flip-box__split-content">
-                                    <div class="pt-lg-30 pb-lg-30 pt-sm-20 pb-sm-20 pt-xs-40 pb-xs-40 pt-20 pb-20 position-relative z-index-5">
-                                        <a href="#">
-                                            <h4 class="font__family-montserrat font__weight-bold font__size-18 line__height-24">
-                                                Extensive Documentation
-                                            </h4>
-                                        </a>
-                                        <div class="flip-box__split-price font__family-montserrat font__size-15">
-                                                <span>
-                                                    $51.00
-                                                </span>
-                                            <span class="font__weight-bold"></span>
-                                            $46.00
-                                        </div>
-                                    </div>
-                                    <div class="flip-box__split-list">
-                                        <ul class="font__family-open-sans font__size-15 line__height-20 font__weight-light text-left letter-spacing-40 pt-15 pb-15">
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                            <li><i class="far fa-check"></i>Fellentesque habitant morbi</li>
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flip-box__split-actions">
-                                        <a href="#" class="add-cart d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                        <a href="img/demo_magazine/303x443_2.png" class="add-search d-flex align-items-center justify-content-center fancybox">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a href="#" class="add-wishlist d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-star"></i>
-                                        </a>
-                                        <a href="#" class="add-compare d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-xl-2">
+                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_2.jpg" data-brk-library="component__team">
+                        <a href="#">
+                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
+                                Samanta J.D
+                            </h3>
+                        </a>
+                        <div class="brk-team-strict__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl text-center">
-                    <div class="flip-box text-center mb-0" data-brk-library="component__flip_box,component__elements,fancybox">
-                        <div class="flip flip_vertical flip-box__split">
-                            <div class="flip__front">
-                                <div class="flip-box__split-img lazyload" data-bg="img/demo_magazine/303x443_1.png"></div>
-                                <div class="pt-30 pb-30 flip-box__split-info">
-                                    <div class="font__family-montserrat font__weight-bold pl-20 pr-20 font__size-18">
-                                        Parallax Support
-                                    </div>
-                                    <div class="brk-base-font-color font__family-montserrat font__size-17 font__weight-medium">
-                                            <span class="old-price font__size-16">
-                                                $42.50
-                                            </span>
-                                        <span class="font__weight-semibold font__size-18">
-                                                $39.99
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip__back lazyload" data-bg="img/demo_magazine/303x443_1.png">
-                                <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
-                                <div class="flip-box__split-content">
-                                    <div class="pt-lg-30 pb-lg-30 pt-sm-20 pb-sm-20 pt-xs-40 pb-xs-40 pt-20 pb-20 position-relative z-index-5">
-                                        <a href="#">
-                                            <h4 class="font__family-montserrat font__weight-bold font__size-18 line__height-24">
-                                                Parallax Support
-                                            </h4>
-                                        </a>
-                                        <div class="flip-box__split-price font__family-montserrat font__size-15">
-                                                <span>
-                                                    $42.50
-                                                </span>
-                                            <span class="font__weight-bold"></span>
-                                            $39.99
-                                        </div>
-                                    </div>
-                                    <div class="flip-box__split-list">
-                                        <ul class="font__family-open-sans font__size-15 line__height-20 font__weight-light text-left letter-spacing-40 pt-15 pb-15">
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                            <li><i class="far fa-check"></i>Fellentesque habitant morbi</li>
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flip-box__split-actions">
-                                        <a href="#" class="add-cart d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                        <a href="img/demo_magazine/303x443_1.png" class="add-search d-flex align-items-center justify-content-center fancybox">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a href="#" class="add-wishlist d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-star"></i>
-                                        </a>
-                                        <a href="#" class="add-compare d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-xl-2">
+                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_3.jpg" data-brk-library="component__team">
+                        <a href="#">
+                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
+                                Marry W.S
+                            </h3>
+                        </a>
+                        <div class="brk-team-strict__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl text-center">
-                    <div class="flip-box text-center mb-0" data-brk-library="component__flip_box,component__elements,fancybox">
-                        <div class="flip flip_horizontal flip-box__split">
-                            <div class="flip__front">
-                                <div class="flip-box__split-img lazyload" data-bg="img/demo_magazine/303x443_2.png"></div>
-                                <div class="pt-30 pb-30 flip-box__split-info">
-                                    <div class="font__family-montserrat font__weight-bold pl-20 pr-20 font__size-18">
-                                        Tons Color Schemes
-                                    </div>
-                                    <div class="brk-base-font-color font__family-montserrat font__size-17 font__weight-medium">
-                                            <span class="old-price font__size-16">
-                                                $41.00
-                                            </span>
-                                        <span class="font__weight-semibold font__size-18">
-                                                $21.30
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip__back lazyload" data-bg="img/demo_magazine/303x443_2.png">
-                                <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
-                                <div class="flip-box__split-content">
-                                    <div class="pt-lg-30 pb-lg-30 pt-sm-20 pb-sm-20 pt-xs-40 pb-xs-40 pt-20 pb-20 position-relative z-index-5">
-                                        <a href="#">
-                                            <h4 class="font__family-montserrat font__weight-bold font__size-18 line__height-24">
-                                                Tons Color Schemes
-                                            </h4>
-                                        </a>
-                                        <div class="flip-box__split-price font__family-montserrat font__size-15">
-                                                <span>
-                                                    $41.00
-                                                </span>
-                                            <span class="font__weight-bold"></span>
-                                            $21.30
-                                        </div>
-                                    </div>
-                                    <div class="flip-box__split-list">
-                                        <ul class="font__family-open-sans font__size-15 line__height-20 font__weight-light text-left letter-spacing-40 pt-15 pb-15">
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                            <li><i class="far fa-check"></i>Fellentesque habitant morbi</li>
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flip-box__split-actions">
-                                        <a href="#" class="add-cart d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                        <a href="img/demo_magazine/303x443_2.png" class="add-search d-flex align-items-center justify-content-center fancybox">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a href="#" class="add-wishlist d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-star"></i>
-                                        </a>
-                                        <a href="#" class="add-compare d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl text-center">
-                    <div class="flip-box text-center mb-0" data-brk-library="component__flip_box,component__elements,fancybox">
-                        <div class="flip flip_horizontal flip-box__split">
-                            <div class="flip__front">
-                                <div class="flip-box__split-img lazyload" data-bg="img/demo_magazine/303x443_1.png"></div>
-                                <div class="pt-30 pb-30 flip-box__split-info">
-                                    <div class="font__family-montserrat font__weight-bold pl-20 pr-20 font__size-18">
-                                        Endless Possibilities
-                                    </div>
-                                    <div class="brk-base-font-color font__family-montserrat font__size-17 font__weight-medium">
-                                            <span class="old-price font__size-16">
-                                                $29.00
-                                            </span>
-                                        <span class="font__weight-semibold font__size-18">
-                                                $24.90
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip__back lazyload" data-bg="img/demo_magazine/303x443_1.png">
-                                <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
-                                <div class="flip-box__split-content">
-                                    <div class="pt-lg-30 pb-lg-30 pt-sm-20 pb-sm-20 pt-xs-40 pb-xs-40 pt-20 pb-20 position-relative z-index-5">
-                                        <a href="#">
-                                            <h4 class="font__family-montserrat font__weight-bold font__size-18 line__height-24">
-                                                Endless Possibilities
-                                            </h4>
-                                        </a>
-                                        <div class="flip-box__split-price font__family-montserrat font__size-15">
-                                                <span>
-                                                    $29.00
-                                                </span>
-                                            <span class="font__weight-bold"></span>
-                                            $24.90
-                                        </div>
-                                    </div>
-                                    <div class="flip-box__split-list">
-                                        <ul class="font__family-open-sans font__size-15 line__height-20 font__weight-light text-left letter-spacing-40 pt-15 pb-15">
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                            <li><i class="far fa-check"></i>Fellentesque habitant morbi</li>
-                                            <li><i class="far fa-check"></i>Maecenas vestibulum mollis</li>
-                                            <li><i class="far fa-check"></i>Pellentesque ut neque</li>
-                                        </ul>
-                                    </div>
-                                    <div class="flip-box__split-actions">
-                                        <a href="#" class="add-cart d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                        <a href="img/demo_magazine/303x443_1.png" class="add-search d-flex align-items-center justify-content-center fancybox">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                        <a href="#" class="add-wishlist d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-star"></i>
-                                        </a>
-                                        <a href="#" class="add-compare d-flex align-items-center justify-content-center">
-                                            <i class="fas fa-exchange-alt"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-xl-2">
+                    <div class="brk-team-strict lazyload" data-bg="img/demo_magazine/270x414_4.jpg" data-brk-library="component__team">
+                        <a href="#">
+                            <h3 class="brk-team-strict__name font__family-montserrat font__weight-semibold font__size-21">
+                                Gerar Q.W
+                            </h3>
+                        </a>
+                        <div class="brk-team-strict__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="pt-60 pb-60 pb-lg-0 text-center position-relative" data-brk-library="component__social_block,component__button">
-                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_1.jpg" alt="alt" class="brk-abs-img lazyload">
-                <span class="brk-abs-overlay brk-black-76-overlay"></span>
-                <div class="container all-light">
-                    <div class="row no-gutters mt-0 mt-lg-70">
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-facebook-f"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">Facebook</h4>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-twitter"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">Twitter</h4>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-instagram"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">Instagram</h4>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">YouTube</h4>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-google"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">Google +</h4>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2">
-                            <div class="social__icon-square social__icon-square_dark">
-                                <a href="#"><i class="brk-icon slide-bg-wrap fab fa-vimeo-v"><span class="slide-bg"></span></i></a>
-                                <h4 class="font__family-montserrat font__size-16 text">Vimeo</h4>
-                            </div>
+        <section class="brk-base-bg-6 pt-lg-110 pt-40 pb-90">
+            <div class="container">
+                <div class="row align-items-end brk-gutters-5">
+                    <div class="col-lg-auto text-center text-lg-left">
+                        <span class="brk-text-clip bg-cover font__weight-bold magazine-big-font">136</span>
+                    </div>
+                    <div class="col-lg-auto text-center text-lg-left">
+                        <div class="font__family-montserrat font__weight-bold font__size-24 line__height-28 mb-20 text-uppercase">
+                            <span class="brk-base-font-color">Partners</span><br>
+                            <span class="text-white">with us</span>
                         </div>
                     </div>
+                    <div class="col-md-auto text-center text-lg-left brk-align-right">
+                        <a href="#" class="btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-bold m-0 mb-20" data-brk-library="component__button">
+                            <i class="fas fa-user icon-inside"></i>
+                            <span class="before">Become our Partner</span><span class="text">Become our Partner</span><span class="after">Become our Partner</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row pt-70">
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
+                    <div class="col-lg-3 col-sm-6 pt-15 pb-15"><a href="#" class="logo-set-dark" data-brk-library="component__widgets">
+                            <img class="logo-set-dark__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo-logo-set.png" alt="alt">
+                        </a></div>
                 </div>
             </div>
         </section>

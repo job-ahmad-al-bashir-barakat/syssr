@@ -11,21 +11,21 @@
                             <div class="col-12 col-lg-6">
                                 <div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
                                     <h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-                                        Contact Us
+                                        {{ trans('app.contact') }}
                                     </h2>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
                                     <h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
-                                        Have a question? Make a request below
+                                        {{ trans('app.contact_headline') }}
                                     </h3>
                                     <ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
                                         <li>
-                                            <a href="#">Bread</a>
+                                            <a href="#">{{ trans('app.home') }}</a>
                                             <i class="fal fa-chevron-right icon"></i>
                                         </li>
-                                        <li class="active">Crumbs</li>
+                                        <li class="active">{{ trans('app.contact') }}</li>
                                     </ol>
                                 </div>
                             </div>
@@ -37,22 +37,22 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form action="#" class="brk-subscribe-mail brk-subscribe-mail_dark brk-form-strict pt-15 wow fadeInLeft" data-brk-library="component__form,recaptcha">
+                            <form action="#" class="brk-subscribe-mail brk-subscribe-mail_dark brk-form-strict pt-15 wow fadeInLeft" data-brk-library="component__form">
                                 <div class="row">
                                     <div class="col-12 col-md-6">
-                                        <input type="text" name="FNAME" placeholder="Your Name">
+                                        <input type="text" name="full_name" placeholder="{{ trans('app.your_name') }}">
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <input type="text" name="EMAIL" placeholder="Your Mail">
+                                        <input type="text" name="email" placeholder="{{ trans('app.your_mail') }}">
                                     </div>
                                     <div class="col-12">
-                                        <textarea name="MESSAGE" class="bordered-bottom" placeholder="Your Question" style="min-height: 110px;"></textarea>
+                                        <textarea name="message" class="bordered-bottom" placeholder="{{ trans('app.your_question') }}" style="min-height: 110px;"></textarea>
                                     </div>
                                 </div>
                                 <div class="text-center">
                                     <button class="btn btn-inside-out btn-lg btn-icon border-radius-30 mt-25 btn-shadow" data-brk-library="component__button">
-                                        <i class="fas fa-shopping-basket icon-inside"></i>
-                                        <span class="before">send a message</span><span class="text">send a message</span><span class="after">send a message</span>
+                                        <i class="fas fa-envelope icon-inside"></i>
+                                        <span class="before">{{ trans('app.send_message') }}</span><span class="text">{{ trans('app.send_message') }}</span><span class="after">{{ trans('app.send_message') }}</span>
                                     </button>
                                 </div>
                             </form>
@@ -61,10 +61,9 @@
                         <div class="col-lg-5">
                             <div class="wow fadeInRight">
                                 <h1 class="font__family-montserrat font__size-56 line__height-60 font__weight-thin mb-30">
-                                    Need Help? <br>
-                                    <span class="font__weight-bold">Contact Us</span>
+                                    {{ trans('app.need_help') }} <br>
+                                    <span class="font__weight-bold">{{ trans('app.contact') }}</span>
                                 </h1>
-                                <p class="brk-dark-font-color font__size-14 line__height-26 mb-35">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. </p>
                                 <p class="font__family-open-sans font__weight-bold font__size-14 mb-15">
                                     <i class="brk-footer-icon text-middle fa fa-envelope line__height-24 brk-base-font-color"></i>
                                     <a href="mailto:info@domain.com" class="show-inline-block">info@domain.com</a>
@@ -97,13 +96,12 @@
                     </span>
                 <div class="brk-abs-overlay brk-base-bg-gradient--30deg"></div>
                 <div class="container">
-                    <h2 class="font__family-montserrat font__weight-bold font__size-56 line__height-60 brk-white-font-color mb-20 text-center wow fadeInUp">Short FAQ</h2>
-                    <p class="font__size-16 line__height-26 text-white opacity-80 maxw-770 mb-60 text-center wow fadeInUp">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
+                    <h2 class="font__family-montserrat font__weight-bold font__size-56 line__height-60 brk-white-font-color mb-80 text-center wow fadeInUp">{{ trans('app.short_faq') }}</h2>
                     <div class="row">
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12">
                             <div class="wow fadeInLeft">
                                 <div class="pl-20 pr-20">
-                                    <div class="mb-90" data-brk-library="component__accordions">
+                                    <div class="mb-60" data-brk-library="component__accordions">
                                         <div class="accordion accordion-simple accordion-simple-scale" role="tablist" aria-multiselectable="true">
                                             <div class="card expanded">
                                                 <div class="card-header card-header-sm text-center" role="tab" id="headingOne6">
@@ -216,23 +214,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="font__family-montserrat font__size-40 line__height-48 text-uppercase font__weight-bold text-white pl-lg-100 mb-30"><span class="font__weight-light">QUality <br></span>Technology <br> & People</h3>
-                                <p class="font__size-16 line__height-26 pl-lg-100 mb-90 text-white opacity-80 pr-lg-25">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <div class="wow fadeInRight">
-                                <h3 class="font__family-montserrat font__size-40 line__height-48 text-uppercase font__weight-bold text-white mb-30 pl-lg-30 pt-35">
-                                    <span class="font__weight-light">QUality <br></span>Technology <br> & People</h3>
-                                <p class="font__size-16 line__height-26 mb-90 text-white opacity-80 pl-lg-30 pr-lg-100">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
-                                <div class="frame-image img-double-bigger" data-brk-library="component__image_frames">
-                                    <div class="img">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/370x540_1.jpg" alt="alt" class="lazyload">
-                                    </div>
-                                    <div class="img">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/540x370_1.jpg" alt="alt" class="lazyload">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -244,10 +225,7 @@
                         <div class="brk-map__canvas" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="img/gm-1.png" data-offset-lat="0.0047" data-style="silver" data-lat="40.6898297" data-lng="-73.94250620000003">
                         </div>
                     </div>
-                    <div class="brk-map__infoicon brk-map__infoicon_layout-one text-center">
-                            <span class="marker">
-                                <img src="img/gm-1.png" alt="alt">
-                            </span>
+                    <div class="brk-map__infoicon brk-map__infoicon_layout-one text-center pt-80">
                         <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22">Chicago, USA</h4>
                         <div class="brk-map__infoicon--text">
                             <ul class="font__size-15 line__height-21">
@@ -262,9 +240,9 @@
                             </ul>
                         </div>
                         <a href="#" class="btn border-radius-25 font__family-open-sans font__weight-bold btn-inside-out" data-brk-library="component__button">
-                            <span class="before">Get directions</span>
-                            <span class="text">Get directions</span>
-                            <span class="after">Get directions</span>
+                            <span class="before">{{ trans('app.directions') }}</span>
+                            <span class="text">{{ trans('app.directions') }}</span>
+                            <span class="after">{{ trans('app.directions') }}</span>
                         </a>
                     </div>
                 </div>
@@ -294,7 +272,7 @@
                         </a>
                     </div>
                     <div class="brk-footer__rights pt-15 pb-20 text-center">
-                        <p class="font__family-open-sans font__size-14 font__weight-normal line__height-14">© 2018 Berserk All rights reserved</p>
+                        <p class="font__family-open-sans font__size-14 font__weight-normal line__height-14">© {{ date('Y') }} {!! trans('app.copyright') !!}</p>
                     </div>
                 </div>
             </div>

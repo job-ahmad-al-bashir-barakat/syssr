@@ -7,8 +7,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-lg-4 order-sm-1 order-2">
-                            <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 mb-50 text-center text-sm-left">Our Info</h6>
-                            <p class="font__family-open-sans font__size-14 line__height-16 mb-15 brk-white-font-color opacity-50 text-center text-sm-left">Call Us or use Contact Form</p>
+                            <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 mb-50 text-center text-sm-left">{{ trans('app.our_info') }}</h6>
+                            <p class="font__family-open-sans font__size-14 line__height-16 mb-15 brk-white-font-color opacity-50 text-center text-sm-left">{{ trans('app.our_info_message') }}</p>
                             <p class="font__size-36 text-center text-sm-left">
                                 <a href="#" class="brk-white-font-color font__family-open-sans font__weight-light line__height-36">8 800 12 34 567</a>
                             </p>
@@ -23,21 +23,21 @@
                             </p>
                         </div>
                         <div class="col-12 col-sm-6 col-lg-8 order-sm-2 order-1">
-                            <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 text-center text-sm-left pt-xs-20">Contact Us</h6>
-                            <form action="#" class="brk-subscribe-mail brk-form-strict brk-form-strict_footer-3 mb-90" data-brk-library="component__form,recaptcha">
+                            <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 text-center text-sm-left pt-xs-20">{{ trans('app.contact') }}</h6>
+                            <form action="#" class="brk-subscribe-mail brk-form-strict brk-form-strict_footer-3 mb-90" data-brk-library="component__form">
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
-                                        <input type="text" placeholder="Name" name="FNAME">
+                                        <input type="text" placeholder="{{ trans('app.your_name') }}" name="full_name">
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <input type="email" placeholder="Email" name="EMAIL">
+                                        <input type="email" placeholder="{{ trans('app.your_mail') }}" name="email">
                                     </div>
                                     <div class="col-12">
-                                        <textarea id="footer3" name="MESSAGE" cols="30" rows="5" placeholder="Your message" class="bordered-bottom"></textarea>
+                                        <textarea id="footer3" name="message" cols="30" rows="5" placeholder="{{ trans('app.your_question') }}" class="bordered-bottom"></textarea>
                                     </div>
                                     <button type="submit" class="d-flex align-items-center justify-content-center font__size-12 brk-white-font-color brk-base-bg-6">
                                         <i class="fal fa-envelope mr-15 font__size-14"></i>
-                                        <span class="font__family-montserrat font__size-14 text-uppercase letter-spacing-60">submit</span>
+                                        <span class="font__family-montserrat font__size-14 text-uppercase letter-spacing-60">{{ trans('app.send_message') }}</span>
                                     </button>
                                 </div>
                             </form>

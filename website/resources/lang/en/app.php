@@ -20,7 +20,7 @@ return [
     'project' => 'Project',
     'more' => 'More',
     'workshop' => 'Workshop',
-    'contact' => 'Contact',
+    'contact' => 'Contact Us',
     'about_us' => 'About Us',
     'view_society' => 'View Society',
     'members_society' => 'Members Society',
@@ -40,6 +40,7 @@ return [
     'search' => 'Search',
 
     // profile
+    'general' => 'General',
     'gender' => 'Gender',
     'birth_date' => 'Birth date',
     'save' => 'Save',
@@ -47,9 +48,22 @@ return [
     'choose_here' => 'Choose here',
     'male' => 'Male',
     'female' => 'Female',
+    'mobile' => 'Mobile',
     'drop_avatar' => 'Drop your avatar here',
     'change_file' => 'Press on image to change file',
     'save_as_pass_message' => 'This value should be the same as password.',
+
+    // contact
+    'your_name' => 'Your Name',
+    'your_mail' => 'Your Email',
+    'your_question' => 'Your Question',
+    'send_message' => 'Send Message',
+    'contact_headline' => 'Have a question? Make a request below',
+    'need_help' => 'Need Help?',
+    'directions' => 'Get directions',
+    'our_info' => 'Our Info',
+    'our_info_message' => 'Call Us or use Contact Form',
+    'short_faq' => 'Short FAQ',
 
     // membership
     'back_to_the_homepage' => 'Back to the Homepage',

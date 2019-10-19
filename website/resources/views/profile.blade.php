@@ -28,101 +28,149 @@
             <form id="form-profile" class="form-ajax" enctype="multipart/form-data" method="POST" action="{{ $cms_api_url . 'member/' . Auth::id() }}" data-parsley-validate>
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="brk-form brk-form-round" data-brk-library="component__form">
-
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }}</label>
-                                <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
-                                <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
-                            </div>
-
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }}</label>
-                                <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error">
-                                <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
-                            </div>
-
+                <div class="brk-tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
+                    <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
+                        <li class="brk-tab"><i class="far fa-gem" aria-hidden="true"></i><span>{{ trans('app.general') }}</span></li>
+                        <li class="brk-tab"><i class="fab fa-delicious" aria-hidden="true"></i><span>Other</span></li>
+                        <li class="brk-tab"><i class="fab fa-gg" aria-hidden="true"></i><span>G & G</span></li>
+                    </ul>
+                    <div class="brk-tabs-content">
+                        <div class="brk-tab-item text-center text-lg-left">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-50">
-                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }}</label>
-                                        <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
-                                        <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="brk-form brk-form-round" data-brk-library="component__form">
+
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }}</label>
+                                                    <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
+                                                    <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                </div>
+
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }}</label>
+                                                    <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error">
+                                                    <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }}</label>
+                                                            <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
+                                                            <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }}</label>
+                                                            <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
+                                                            <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="brk-form p-5" style="width: 70%; margin: 0 auto;">
+                                                <div id="slim-cropper"
+                                                     class="slim"
+                                                     data-button-edit-title="Edit"
+                                                     data-button-cancel-title="Cancel"
+                                                     data-button-confirm-title="Confirm"
+                                                     data-label="{{ trans('app.drop_avatar') }}"
+                                                     data-min-size="60,60"
+                                                     data-crop="0,0,1000,1000"
+                                                     data-ratio="1:1">
+                                                    <input type="file" id="avatar" name="avatar">
+                                                    <img src="{{ $user->avatar_url ?? asset('custom/img/user-image.png') }}" alt="">
+                                                </div>
+                                                <div class="text-center mt-4">
+                                                    <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">{{ trans('app.change_file') }}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="gender">{{ trans('app.gender') }}</label>
+                                                    <select id="gender" name="gender">
+                                                        <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
+                                                        <option value="M" @if($user->gender == 'M') selected @endif>{{ trans('app.male') }}</option>
+                                                        <option value="F" @if($user->gender == 'F') selected @endif>{{ trans('app.female') }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">{{ trans('app.birth_date') }}</label>
+                                                    <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="mobile-id-round">{{ trans('app.mobile') }}</label>
+                                                    <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-50">
+                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
+                                                <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                            </div>
+                                            <div class="col-md-6 mb-50">
+                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
+                                                <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @include('partials._alert',['hide' => true])
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brk-tab-item text-center text-lg-left">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-50">
+                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="bio-id-round">{{ trans('app.bio') }}</label>
+                                                    <textarea id="bio-id-round" class="brk-form-bio" name="bio" value="{{ $user->bio ?? '' }}"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-50">
-                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }}</label>
-                                        <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
-                                        <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="brk-tab-item text-center text-lg-left">
+                            <div class="row">
+                                <div class="col-lg-12">
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="brk-form p-5" style="width: 70%; margin: 0 auto;">
-                            <div id="slim-cropper"
-                                 class="slim"
-                                 data-button-edit-title="Edit"
-                                 data-button-cancel-title="Cancel"
-                                 data-button-confirm-title="Confirm"
-                                 data-label="{{ trans('app.drop_avatar') }}"
-                                 data-min-size="60,60"
-                                 data-crop="0,0,1000,1000"
-                                 data-ratio="1:1">
-                                <input type="file" id="avatar" name="avatar">
-                                <img src="{{ $user->avatar_url ?? asset('custom/img/user-image.png') }}" alt="">
-                            </div>
-                            <div class="text-center mt-4">
-                                <label for="avatar" style="font-weight: 600;font-size: 0.8rem;">{{ trans('app.change_file') }}</label>
-                            </div>
-                        </div>
+                    <div class="text-center pt-70">
+                        {{--font__family-open-sans--}}
+                        <button type="submit" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-25 font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
+                            <span class="before">{{ trans('app.save') }}</span>
+                            <span class="text">{{ trans('app.click_me') }}</span>
+                            <span class="after">{{ trans('app.save') }}</span>
+                        </button>
                     </div>
-                </div>
-                <div class="brk-form brk-form-round" data-brk-library="component__form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="gender">{{ trans('app.gender') }}</label>
-                                <select id="gender" name="gender">
-                                    <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
-                                    <option value="M" @if($user->gender == 'M') selected @endif>{{ trans('app.male') }}</option>
-                                    <option value="F" @if($user->gender == 'F') selected @endif>{{ trans('app.female') }}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-50">
-                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">{{ trans('app.birth_date') }}</label>
-                                <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="brk-form brk-form-round" data-brk-library="component__form">
-                    <div class="row">
-                        <div class="col-md-6 mb-50">
-                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                            <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                        </div>
-                        <div class="col-md-6 mb-50">
-                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
-                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
-                        </div>
-                    </div>
-                </div>
-                @include('partials._alert',['hide' => true])
-                <div class="text-center pt-70">
-                    {{--font__family-open-sans--}}
-                    <button type="submit" class="btn btn-inside-out btn-lg btn-icon-abs border-radius-25 font__weight-bold btn-min-width-200 brk-library-rendered rendered" data-brk-library="component__button">
-                        <span class="before">{{ trans('app.save') }}</span>
-                        <span class="text">{{ trans('app.click_me') }}</span>
-                        <span class="after">{{ trans('app.save') }}</span>
-                    </button>
                 </div>
             </form>
         </div>
