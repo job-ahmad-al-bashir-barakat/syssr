@@ -52,6 +52,9 @@ return [
     'drop_avatar' => 'سحب وأفلات الصورة الشخصية',
     'change_file' => 'أضغط على المربع لرفع صورة شخصية',
     'save_as_pass_message' => 'فشل مطابقة كلمة المرور',
+    'bio' => 'سيرة ذاتية',
+    'social_links' => 'التواصل الاجتماعي',
+    'other' => 'أخرى',
 
     // contact
     'your_name' => 'الاسم',

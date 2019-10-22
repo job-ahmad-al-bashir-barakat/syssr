@@ -5,6 +5,26 @@
 @section('style')
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
+    <style>
+        .iti { width: 100%; }
+        .iti__selected-flag {
+            outline: none;
+            padding: 0 25px 0 25px;
+            border-radius: 50px 0 0 50px;
+        }
+        .iti__country-list {
+            z-index: 999;
+        }
+
+        .iti.iti--container {
+            width: 90%;
+        }
+        .iti-mobile .iti--container {
+            left: 5%;
+            right: 5%;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -30,9 +50,9 @@
                 <input type="hidden" name="_method" value="PUT">
                 <div class="brk-tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                     <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
-                        <li class="brk-tab"><i class="far fa-gem" aria-hidden="true"></i><span>{{ trans('app.general') }}</span></li>
-                        <li class="brk-tab"><i class="fab fa-delicious" aria-hidden="true"></i><span>Other</span></li>
-                        <li class="brk-tab"><i class="fab fa-gg" aria-hidden="true"></i><span>G & G</span></li>
+                        <li class="brk-tab"><span>{{ trans('app.general') }}</span></li>
+                        <li class="brk-tab"><span>{{ trans('app.other') }}</span></li>
+                        <li class="brk-tab"><span>{{ trans('app.social_links') }}</span></li>
                     </ul>
                     <div class="brk-tabs-content">
                         <div class="brk-tab-item text-center text-lg-left">
@@ -117,7 +137,7 @@
                                             <div class="col-md-6">
                                                 <div class="mb-50">
                                                     <label class="brk-form-label font__family-montserrat font__weight-bold" for="mobile-id-round">{{ trans('app.mobile') }}</label>
-                                                    <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}">
+                                                    <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -158,7 +178,13 @@
                         <div class="brk-tab-item text-center text-lg-left">
                             <div class="row">
                                 <div class="col-lg-12">
-
+                                    <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                        <div class="mb-50">
+                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }}</label>
+                                            <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
+                                            <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,5 +207,43 @@
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
+    <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
+    <script src="{{ asset('custom/plugin/jQuery-Mask/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('custom/js/form.js') }}"></script>
+    <script>
+        // https://github.com/nosir/cleave.js
+        // https://catamphetamine.github.io/libphonenumber-js/
+        jQuery(function () {
+            var intlTelInputFixPadding = function () {
+                var iti = jQuery('.iti');
+                var width = iti.find('.iti__flag-container').width();
+                iti.find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
+            };
+            var input = window.intlTelInput( document.querySelector(".brk-form-mobile"),{
+                allowExtensions: true,
+                autoFormat: false,
+                allowDropdown: true,
+                separateDialCode: true,
+                initialCountry: "auto",
+                hiddenInput: 'mobile_full',
+                utilsScript: "custom/plugin/intl-tel-input/js/utils.js",
+                geoIpLookup: function(success, failure) {
+                    jQuery.get("http://www.geoplugin.net/json.gp", function(res) {
+                        var countryCode = (res && res.geoplugin_countryCode) ? res.geoplugin_countryCode : "";
+                        success(countryCode);
+                    }).fail(function () {
+                        success('US')
+                    });
+                },
+                customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                    jQuery('.brk-form-mobile').mask(selectedCountryPlaceholder.replace(/\d/g,'0'));
+                    intlTelInputFixPadding();
+                    return selectedCountryPlaceholder;
+                }
+            }).promise.then(function () {
+                intlTelInputFixPadding();
+            });
+        });
+    </script>
+    <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
 @endsection
