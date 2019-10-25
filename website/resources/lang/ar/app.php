@@ -55,6 +55,7 @@ return [
     'bio' => 'سيرة ذاتية',
     'social_links' => 'التواصل الاجتماعي',
     'other' => 'أخرى',
+    'website' => 'الموقع الالكتروني',
 
     // contact
     'your_name' => 'الاسم',

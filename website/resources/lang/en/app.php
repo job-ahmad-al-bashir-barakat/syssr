@@ -67,6 +67,7 @@ return [
     'our_info' => 'Our Info',
     'our_info_message' => 'Call Us or use Contact Form',
     'short_faq' => 'Short FAQ',
+    'website' => 'Website',
 
     // membership
     'back_to_the_homepage' => 'Back to the Homepage',
