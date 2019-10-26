@@ -26,6 +26,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function about_society()
+    {
+        return view('about_society');
+    }
+
     public function about_us()
     {
         return view('about_us');
@@ -46,6 +51,11 @@ class HomeController extends Controller
         return view('join_us');
     }
 
+    public function news_society()
+    {
+        return view('news_society');
+    }
+
     public function ads()
     {
         return view('ads');
@@ -59,6 +69,11 @@ class HomeController extends Controller
     public function news_members()
     {
         return view('news_members');
+    }
+
+    public function projects()
+    {
+        return view('projects');
     }
 
     public function workshop()

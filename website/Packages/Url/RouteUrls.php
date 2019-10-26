@@ -25,6 +25,10 @@ class RouteUrls
     {
         return $this->localizeUrl('profile');
     }
+    public function aboutSociety()
+    {
+        return $this->localizeUrl('about-society');
+    }
     public function aboutUs()
     {
         return $this->localizeUrl('about-society/about-us');
@@ -41,6 +45,10 @@ class RouteUrls
     {
         return $this->localizeUrl('about-society/join-us');
     }
+    public function newsSociety()
+    {
+        return $this->localizeUrl('news-society');
+    }
     public function ads()
     {
         return $this->localizeUrl('news-society/ads');
@@ -52,6 +60,10 @@ class RouteUrls
     public function newsMembers()
     {
         return $this->localizeUrl('news-society/news-members');
+    }
+    public function projects()
+    {
+        return $this->localizeUrl('projects');
     }
     public function workshop()
     {

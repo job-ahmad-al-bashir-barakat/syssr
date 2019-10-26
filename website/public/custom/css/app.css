@@ -25,3 +25,21 @@ body a {
 .slim {
     border-radius: 25px;
 }
+
+/*datatable*/
+.brk-tables table.dataTable {
+    box-shadow: 0 6px 30px rgba(0,0,0,.12);
+}
+.brk-tables table.dataTable tbody tr {
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.brk-tables table.dataTable tbody tr:nth-child(2n+1) {
+    background-color: #f8fafe;
+    border: none !important;
+}
+
+.brk-form-strict [type="text"]:not([disabled]), .brk-form-strict [type="search"]:not([disabled]), .brk-form-strict [type="password"]:not([disabled]), .brk-form-strict [type="email"]:not([disabled]), .brk-form-strict [type="tel"]:not([disabled]), .brk-form-strict textarea:not([disabled]) {
+    font-size: 1rem;
+}

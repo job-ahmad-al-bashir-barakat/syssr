@@ -30,7 +30,7 @@
                                 <a href="{{ RouteUrls::home() }}"><span>{{ trans('app.home') }}</span></a>
                             </li>
                             <li class="brk-nav__children brk-nav__drop-down-effect">
-                                <a href="#"><span>{{ trans('app.about_society') }}</span></a>
+                                <a href="{{ RouteUrls::aboutSociety() }}"><span>{{ trans('app.about_society') }}</span></a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
                                     <li class="dd-effect"><a href="{{ RouteUrls::aboutUs() }}">{{ trans('app.about_us') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::viewSociety() }}">{{ trans('app.view_society') }}</a></li>
@@ -39,7 +39,7 @@
                                 </ul>
                             </li>
                             <li class="brk-nav__children brk-nav__drop-down-effect">
-                                <a href="#"><span>{{ trans('app.news_society') }}</span></a>
+                                <a href="{{ RouteUrls::newsSociety() }}"><span>{{ trans('app.news_society') }}</span></a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
                                     <li class="dd-effect"><a href="{{ RouteUrls::ads() }}">{{ trans('app.ads') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::opportunityJob() }}">{{ trans('app.opportunity_job') }}</a></li>
@@ -47,7 +47,7 @@
                                 </ul>
                             </li>
                             <li class="brk-nav__children brk-nav__drop-down-effect">
-                                <a href="#"><span>{{ trans('app.projects') }}</span></a>
+                                <a href="{{ RouteUrls::projects() }}"><span>{{ trans('app.projects') }}</span></a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
                                     <li class="dd-effect"><a href="#">{{ trans('app.project') }} 1</a></li>
                                     <li class="dd-effect"><a href="#">{{ trans('app.project') }} 2</a></li>
