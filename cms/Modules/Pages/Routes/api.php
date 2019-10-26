@@ -13,6 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/pages', function (Request $request) {
-    return $request->user();
-});
+Route::get('contact-us', "ContactUsController@getContactUs");
