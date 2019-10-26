@@ -6,15 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-class PagesController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
-    public function index()
-    {
-        return view('pages::index');
+class AboutUsController extends Controller{
+
+    public function index(){
+        return view('pages::about_us');
     }
 
     /**

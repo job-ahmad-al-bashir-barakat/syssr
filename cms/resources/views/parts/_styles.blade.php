@@ -30,4 +30,37 @@
 body {
     font-family: "Poppins", "JF Flat Regular", sans-serif;
 }
+.form-group.req label:not(.radio-inline):after,
+span.req:after {
+    font-family: monospace;
+    position: absolute;
+    content: "*";
+    color: #F44336 !important;
+    padding-left: 6px;
+    font-size: 18px;
+}
+.facebook-color{
+    color: #3B5998 !important;
+}
+.linkedin-color{
+    color: #007bb5 !important;
+}
+.twitter-color{
+    color: #1DA1F2 !important;
+}
+.skype-color{
+    color: #00aff0 !important;
+}
+.whatsapp-color{
+    color: #25d366 !important;
+}
+.youtube-color{
+    color: #DD493D !important;
+}
+.medium-color{
+    color: #12100e !important;
+}
+.google-plus-color{
+    color: #d64836 !important;
+}
 </style>

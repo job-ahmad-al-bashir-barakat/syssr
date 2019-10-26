@@ -141,8 +141,8 @@
                                     <!--begin: Form Actions -->
                                     <div class="kt-form__actions">
                                         <input type="hidden" id="submit_type" name="submit_type" value="exit">
-                                        <button type="button" class="save_add_new btn btn-primary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-plus"></i> {{trans('cms.save_add_new')}}</button>
-                                        <button type="button" class="save_exit btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save_exit')}}</button>
+                                        <button type="button" class="save_add_new btn btn-primary btn-md btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-plus"></i> {{trans('cms.save_add_new')}}</button>
+                                        <button type="button" class="save_exit btn btn-success btn-md btn-wide kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save_exit')}}</button>
                                     </div>
                                     <!--end: Form Actions -->
 
@@ -166,19 +166,19 @@
         var avatar = new KTAvatar('kt_user_add_avatar');
         //=================================================//
         $('.save_exit').click(function(){
-            submit_form('exit');
+            submit_form('userForm','exit');
         });
         //=================================================//
         $('.save_add_new').click(function(){
-            submit_form('add_new');
+            submit_form('userForm','add_new');
         });
         //=================================================//
     });
     //----------------------------------------------------------------------------------------//
-    function submit_form(type){
-        $( "#userForm" ).validate();
+    function submit_form(form_id, type){
+        $("#"+form_id).validate();
         $('#submit_type').val(type);
-        $( "#userForm" ).submit();
+        $("#"+form_id).submit();
     }
     //----------------------------------------------------------------------------------------//
 </script>

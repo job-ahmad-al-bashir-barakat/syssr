@@ -11,6 +11,18 @@
 |
 */
 
-Route::prefix('pages')->group(function() {
-    Route::get('/', 'PagesController@index');
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
+], function() {
+   
+    Route::prefix('pages')->group(function() {
+        
+        Route::resource('contact-us', 'ContactUsController');
+
+        Route::resource('about-us', 'AboutUsController');
+
+    });
+
 });
