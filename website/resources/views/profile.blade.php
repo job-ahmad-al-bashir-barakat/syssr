@@ -6,6 +6,8 @@
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/select2/css/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/select2-bootstrap-theme/custom-select2.css') }}">
     <style>
         .iti { width: 100%; }
         .iti__selected-flag {
@@ -52,9 +54,9 @@
                         <input type="hidden" name="_method" value="PUT">
                         <div class="brk-tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                             <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
-                                <li class="brk-tab"><span>{{ trans('app.general') }}</span></li>
-                                <li class="brk-tab"><span>{{ trans('app.other') }}</span></li>
+                                <li class="brk-tab active"><span>{{ trans('app.general') }}</span></li>
                                 <li class="brk-tab"><span>{{ trans('app.social_links') }}</span></li>
+                                <li class="brk-tab"><span>{{ trans('app.other') }}</span></li>
                             </ul>
                             <div class="brk-tabs-content">
                                 <div class="brk-tab-item text-center text-lg-left">
@@ -63,18 +65,15 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="brk-form brk-form-round" data-brk-library="component__form">
-
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }}</label>
                                                             <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
                                                             <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
-
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="bio-id-round">{{ trans('app.bio') }}</label>
                                                             <textarea id="bio-id-round" class="brk-form-bio" name="bio" rows="6" value="{{ $user->bio ?? '' }}"></textarea>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -158,6 +157,14 @@
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-50">
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-date-of-join-form">{{ trans('app.date_of_join') }}</label>
+                                                        <input id="brk-date-of-join-form" type="text" value="{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="brk-form brk-form-round" data-brk-library="component__form">
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-50">
                                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
                                                         <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
                                                     </div>
@@ -165,19 +172,6 @@
                                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
                                                         <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
                                                         <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="brk-tab-item text-center text-lg-left">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="brk-form brk-form-round" data-brk-library="component__form">
-                                                <div class="row">
-                                                    <div class="col-12">
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,6 +195,28 @@
                                                 <div class="mb-50">
                                                     <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub</label>
                                                     <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/" value="{{ $user->github ?? 'https://github.com/' }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="brk-tab-item text-center text-lg-left">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }}</label>
+                                                            <select id="country" name="country"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }}</label>
+                                                            <select id="city" name="city" class="form-control"></select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,6 +249,8 @@
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
+    <script src="{{ asset('custom/plugin/select2/js/select2.js') }}"></script>
+    <script src="{{ asset("custom/plugin/select2/js/i18n/$lang.js") }}"></script>
     <script src="{{ asset('custom/js/form.js') }}"></script>
     <script>
         // https://github.com/nosir/cleave.js

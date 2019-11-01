@@ -15,9 +15,9 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
 ], function() {
-   
+
     Route::prefix('settings')->group(function() {
-        
+
         Route::get('/lang-vars', 'SettingsController@lang_vars');
 
         Route::resource('skills', 'SkillsController');

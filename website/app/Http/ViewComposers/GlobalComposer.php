@@ -8,6 +8,7 @@ use Illuminate\View\View;
 class GlobalComposer{
 
     public function getClientInfoByIp() {
+        // https://usercountry.com/ (third)
         // https://restcountries.eu (second)
         $ip = file_get_contents('https://api.ipify.org');
         return json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));

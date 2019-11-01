@@ -58,7 +58,9 @@ return [
     'save_as_pass_message' => 'This value should be the same as password.',
     'bio' => 'Bio',
     'social_links' => 'Social Links',
+    'date_of_join' => 'Date Of Join',
     'other' => 'Other',
+    'website' => 'Website',
 
     // contact
     'your_name' => 'Your Name',
@@ -71,7 +73,6 @@ return [
     'our_info' => 'Our Info',
     'our_info_message' => 'Call Us or use Contact Form',
     'short_faq' => 'Short FAQ',
-    'website' => 'Website',
 
     // membership
     'back_to_the_homepage' => 'Back to the Homepage',
