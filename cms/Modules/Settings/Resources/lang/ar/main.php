@@ -17,4 +17,7 @@ return [
     'add_association'           =>      'إضافة جمعية',
     'update_association'        =>      'تعديل جمعية',
     'delete_association'        =>      'حذف جمعية',
+    'add_occupation'            =>      'إضافة مهنة',
+    'update_occupation'         =>      'تعديل مهنة',
+    'delete_occupation'         =>      'حذف مهنة',
 ];

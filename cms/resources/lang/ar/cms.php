@@ -67,6 +67,7 @@ return [
     'research_interests'        =>      'اهتمامات الباحثين',
     'degrees'                   =>      'الدرجات العلمية',
     'associations'              =>      'الجمعيات',
+    'occupations'               =>      'المهن',
     'pages'                     =>      'الصفحات',
     'contact_us'                =>      'تواصل معنا',
     'about_us'                  =>      'عن الجمعية',

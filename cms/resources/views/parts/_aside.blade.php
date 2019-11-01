@@ -154,7 +154,7 @@
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ResearchInterestsController') || strpos($current_params, 'SkillsController') || strpos($current_params, 'DegreesController')|| strpos($current_params, 'AssociationsController')) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ResearchInterestsController') || strpos($current_params, 'SkillsController') || strpos($current_params, 'DegreesController')|| strpos($current_params, 'AssociationsController')|| strpos($current_params, 'OccupationsController') ) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                     <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                         <span class="kt-menu__link-icon"><i class="fa fa-table"></i></span>
                         <span class="kt-menu__link-text">{{trans('cms.data_settings')}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -183,6 +183,12 @@
                                 <a href="{{url('settings/associations')}}" class="kt-menu__link ">
                                     <span class="kt-menu__link-icon"><i class="fas fa-link"></i></span>
                                     <span class="kt-menu__link-text">{{trans('cms.associations')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'OccupationsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('settings/occupations')}}" class="kt-menu__link ">
+                                    <span class="kt-menu__link-icon"><i class="fa fa-user-tie"></i></span>
+                                    <span class="kt-menu__link-text">{{trans('cms.occupations')}}</span>
                                 </a>
                             </li>
                         </ul>

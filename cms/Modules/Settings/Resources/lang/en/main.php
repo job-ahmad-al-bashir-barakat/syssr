@@ -17,4 +17,7 @@ return [
     'add_association'           =>      'Add Association',
     'update_association'        =>      'Update Association',
     'delete_association'        =>      'Delete Association',
+    'add_occupation'            =>      'Add Occupation',
+    'update_occupation'         =>      'Update Occupation',
+    'delete_occupation'         =>      'Delete Occupation',
 ];

@@ -67,6 +67,7 @@ return [
     'research_interests'        =>      'Research Interests',
     'degrees'                   =>      'Degrees',
     'associations'              =>      'Associations',
+    'occupations'               =>      'Occupations',
     'pages'                     =>      'Pages',
     'contact_us'                =>      'Contact Us',
     'about_us'                  =>      'About US',

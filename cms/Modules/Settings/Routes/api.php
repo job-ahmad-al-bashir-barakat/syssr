@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/settings', function (Request $request) {
-    return $request->user();
-});
+
+Route::post('settings/get-data-settings', 'ApiController@get_data_settings');
+Route::post('settings/set-data-settings', 'ApiController@set_data_settings');

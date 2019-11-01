@@ -40,6 +40,11 @@ Route::group([
             'as' => 'getDatatableAssociations.data', 'uses' => 'AssociationsController@getDatatableAssociations',
         ]);
 
+        Route::resource('occupations', 'OccupationsController');
+        Route::get('/getDatatableOccupations', [
+            'as' => 'getDatatableOccupations.data', 'uses' => 'OccupationsController@getDatatableOccupations',
+        ]);
+
     });
 
 });
