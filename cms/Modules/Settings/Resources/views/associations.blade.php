@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', trans('cms.skills'))
+@section('title', trans('cms.associations'))
 
 @section('content')
 
     <!-- begin:: hidden form -->
     <div class="d-none hidden-forms">
-        <form id="skill-form">
+        <form id="association-form">
             <input type="hidden" id="id">
             <div class="form-group">
                 <label>{{trans('cms.name').' '.trans('cms.en')}} <span class="req"></span></label>
@@ -24,10 +24,10 @@
     <div class="kt-subheader kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('cms.skills')}}</h3>
+                <h3 class="kt-subheader__title">{{trans('cms.associations')}}</h3>
             </div>
             <div class="kt-subheader__toolbar">
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold add-skill">{{trans('cms.add')}}</a>
+                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold add-association">{{trans('cms.add')}}</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <!--begin::Portlet-->
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__body kt-portlet__body--fit">
-                <div class="kt-datatable" id="skillsDatatable"></div>
+                <div class="kt-datatable" id="associationsDatatable"></div>
             </div>
         </div>
         <!--end::Portlet-->
@@ -53,13 +53,13 @@
 
 <script>
  //---------------------------------------------------------------------------//
- function add_skill(){
-    var $content = $('#skill-form').clone();
-    var title = '{{trans('settings::main.add_skill')}}';
+ function add_association(){
+    var $content = $('#association-form').clone();
+    var title = '{{trans('settings::main.add_association')}}';
     var $dialog = _dialog(title, $content, {add:true});
 
     $dialog.find('#add_btn').unbind('click').click(function(){
-        var $form = $dialog.find('#skill-form');
+        var $form = $dialog.find('#association-form');
         // var is_validate = $form.validate();
         // console.log(is_validate);
         $.ajax({
@@ -67,12 +67,12 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             method: 'POST',
-            url: 'skills',
+            url: 'associations',
             data: $form.serialize()
         }).done(function (res) {
             if (res.success) {
                 _alert(res.message,'success');
-                skillsDatatable.reload();
+                associationsDatatable.reload();
                 _dialog('close');
             } else {
                 _alert(res.message,'error');
@@ -82,20 +82,20 @@
     });
  }
  //---------------------------------------------------------------------------//
- function update_skill(){
+ function update_association(){
     var $this = $(this);
     var id = $this.attr('data-id');
     var name = $this.attr('data-name');
-    var $content = $('#skill-form').clone();
-    var title = '{{trans('settings::main.update_skill')}} ('+name+')';
-    $.get('skills/'+id+'/edit',function(res){
+    var $content = $('#association-form').clone();
+    var title = '{{trans('settings::main.update_association')}} ('+name+')';
+    $.get('associations/'+id+'/edit',function(res){
         $content.find('#id').val(id);
         $content.find('#name_ar').val(res.name_ar);
         $content.find('#name_en').val(res.name_en);
     });
     var $dialog = _dialog(title, $content, {update:true});
     $dialog.find('#update_btn').unbind('click').click(function(){
-        var $form = $dialog.find('#skill-form');
+        var $form = $dialog.find('#association-form');
         // var is_validate = $form.validate();
         // console.log(is_validate);
         $.ajax({
@@ -103,12 +103,12 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             method: 'PATCH',
-            url: 'skills/' + id,
+            url: 'associations/' + id,
             data: $form.serialize()
         }).done(function (res) {
             if (res.success) {
                 _alert(res.message,'success');
-                skillsDatatable.reload();
+                associationsDatatable.reload();
                 _dialog('close');
             } else {
                 _alert(res.message,'error');
@@ -118,21 +118,21 @@
     });
  }
  //---------------------------------------------------------------------------//
- function delete_skill(){
+ function delete_association(){
         var id = $(this).attr('data-id');
         var name = $(this).attr('data-name');
-        var msg = '{{trans('settings::main.delete_skill')}} ('+ name + ')';
+        var msg = '{{trans('settings::main.delete_association')}} ('+ name + ')';
         _confirm('', msg, 'warning', function(){
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 method: 'DELETE',
-                url: 'skills/' + id,
+                url: 'associations/' + id,
             }).done(function(res) {
                 if (res.success) {
                     _alert(res.message,'success');
-                    skillsDatatable.reload();
+                    associationsDatatable.reload();
                     _dialog('close');
                 } else {
                     _alert(res.message,'error');
@@ -142,19 +142,19 @@
         });
     }
 //----------------------------------------------------------------------------//
-    var skillsDatatable;
+    var associationsDatatable;
 //----------------------------------------------------------------------------//
     $(function(){
 
-        $('.add-skill').click(add_skill);
+        $('.add-association').click(add_association);
 
-        skillsDatatable = $('#skillsDatatable').KTDatatable({
+        associationsDatatable = $('#associationsDatatable').KTDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',
 				source: {
 					read: {
-                        url: '{!! route('getDatatableSkills.data') !!}',
+                        url: '{!! route('getDatatableAssociations.data') !!}',
                         method: 'GET',
                     },
                 },
@@ -208,13 +208,13 @@
                                     <div class="dropdown-menu dropdown-menu-right">\
                                         <ul class="kt-nav">\
                                             <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link update_skill" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link update_association" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
                                                     <i class="kt-nav__link-icon fa fa-edit"></i>\
                                                     <span class="kt-nav__link-text">{{trans('cms.edit')}}</span>\
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_skill" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_association" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
                                                     <i class="kt-nav__link-icon fa fa-trash"></i>\
                                                     <span class="kt-nav__link-text">{{trans('cms.delete')}}</span>\
                                                 </a>\
@@ -251,15 +251,15 @@
 
         });
         
-        $(skillsDatatable).on('kt-datatable--on-init', function() {
-            $(skillsDatatable).find('.delete_skill').click(delete_skill);
-            $(skillsDatatable).find('.update_skill').click(update_skill);
+        $(associationsDatatable).on('kt-datatable--on-init', function() {
+            $(associationsDatatable).find('.delete_association').click(delete_association);
+            $(associationsDatatable).find('.update_association').click(update_association);
             console.log('init');
         });
 
-        $(skillsDatatable).on('kt-datatable--on-reloaded', function() {
-            $(skillsDatatable).find('.delete_skill').click(delete_skill);
-            $(skillsDatatable).find('.update_skill').click(update_skill);
+        $(associationsDatatable).on('kt-datatable--on-reloaded', function() {
+            $(associationsDatatable).find('.delete_association').click(delete_association);
+            $(associationsDatatable).find('.update_association').click(update_association);
             console.log('reloaded');
         });
 

@@ -5,11 +5,11 @@ namespace Modules\Settings\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class ResearchInterest extends Model
+class Degree extends Model
 {
     use HasTranslations;
     
     public $translatable = ['name'];
-    
-    protected $fillable = ['name','code'];
+
+    protected $fillable = ['name','code','order'];
 }

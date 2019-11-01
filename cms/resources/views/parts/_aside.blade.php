@@ -153,17 +153,40 @@
                     <h4 class="kt-menu__section-text"><i class="fa fa-cogs"></i>&nbsp;{{trans('cms.settings')}}</h4>
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
-                <li class="kt-menu__item <?= ( strpos($current_params, 'ResearchInterestsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
-                    <a href="{{url('settings/research-interests')}}" class="kt-menu__link ">
-                        <span class="kt-menu__link-icon"><i class="fab fa-searchengin"></i></span>
-                        <span class="kt-menu__link-text">{{trans('cms.research_interests')}}</span>
+
+                <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ResearchInterestsController') || strpos($current_params, 'SkillsController') || strpos($current_params, 'DegreesController')|| strpos($current_params, 'AssociationsController')) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                    <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                        <span class="kt-menu__link-icon"><i class="fa fa-table"></i></span>
+                        <span class="kt-menu__link-text">{{trans('cms.data_settings')}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
                     </a>
-                </li>
-                <li class="kt-menu__item <?= ( strpos($current_params, 'SkillsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
-                    <a href="{{url('settings/skills')}}" class="kt-menu__link ">
-                        <span class="kt-menu__link-icon"><i class="fa fa-screwdriver"></i></span>
-                        <span class="kt-menu__link-text">{{trans('cms.skills')}}</span>
-                    </a>
+                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+                        <ul class="kt-menu__subnav">
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'ResearchInterestsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('settings/research-interests')}}" class="kt-menu__link ">
+                                    <span class="kt-menu__link-icon"><i class="fab fa-searchengin"></i></span>
+                                    <span class="kt-menu__link-text">{{trans('cms.research_interests')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'SkillsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('settings/skills')}}" class="kt-menu__link ">
+                                    <span class="kt-menu__link-icon"><i class="fa fa-screwdriver"></i></span>
+                                    <span class="kt-menu__link-text">{{trans('cms.skills')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'DegreesController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('settings/degrees')}}" class="kt-menu__link ">
+                                    <span class="kt-menu__link-icon"><i class="fas fa-graduation-cap"></i></span>
+                                    <span class="kt-menu__link-text">{{trans('cms.degrees')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'AssociationsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('settings/associations')}}" class="kt-menu__link ">
+                                    <span class="kt-menu__link-icon"><i class="fas fa-link"></i></span>
+                                    <span class="kt-menu__link-text">{{trans('cms.associations')}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@lang_vars') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
                     <a href="{{url('settings/lang-vars')}}" class="kt-menu__link ">

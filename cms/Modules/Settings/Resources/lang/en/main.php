@@ -11,4 +11,10 @@ return [
     'add_research_interest'     =>      'Add Research Interest',
     'update_research_interest'  =>      'Update Research Interest',
     'delete_research_interest'  =>      'Delete Research Interest',
+    'add_degree'                =>      'Add Degree',
+    'update_degree'             =>      'Update Degree',
+    'delete_degree'             =>      'Delete Degree',
+    'add_association'           =>      'Add Association',
+    'update_association'        =>      'Update Association',
+    'delete_association'        =>      'Delete Association',
 ];

@@ -11,5 +11,5 @@ class Skill extends Model
     
     public $translatable = ['name'];
     
-    protected $fillable = [];
+    protected $fillable = ['name','code'];
 }

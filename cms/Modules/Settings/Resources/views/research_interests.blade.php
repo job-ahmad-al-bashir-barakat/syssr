@@ -9,11 +9,11 @@
         <form id="interest-form">
             <input type="hidden" id="id">
             <div class="form-group">
-                <label>{{trans('cms.name').' '.trans('cms.en')}} *</label>
+                <label>{{trans('cms.name').' '.trans('cms.en')}} <span class="req"></span></label>
                 <input type="text" name="name_en" id="name_en" dir="ltr" class="form-control">
             </div>
             <div class="form-group">
-                <label>{{trans('cms.name').' '.trans('cms.ar')}} *</label>
+                <label>{{trans('cms.name').' '.trans('cms.ar')}} <span class="req"></span></label>
                 <input type="text" name="name_ar" id="name_ar" dir="rtl" class="form-control">
             </div>
         </form>

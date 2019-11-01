@@ -30,6 +30,16 @@ Route::group([
             'as' => 'getDatatableResearchInterests.data', 'uses' => 'ResearchInterestsController@getDatatableResearchInterests',
         ]);
 
+        Route::resource('degrees', 'DegreesController');
+        Route::get('/getDatatableDegrees', [
+            'as' => 'getDatatableDegrees.data', 'uses' => 'DegreesController@getDatatableDegrees',
+        ]);
+
+        Route::resource('associations', 'AssociationsController');
+        Route::get('/getDatatableAssociations', [
+            'as' => 'getDatatableAssociations.data', 'uses' => 'AssociationsController@getDatatableAssociations',
+        ]);
+
     });
 
 });

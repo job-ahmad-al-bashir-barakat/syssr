@@ -35,6 +35,7 @@ return [
     'go_to_dashboard'           =>      'Got to dashboard',
     'name'                      =>      'Name',
     'code'                      =>      'Code',
+    'order'                     =>      'Order',
 //-----------------------------------------------------------------------//
 //---------------------Login page-----------------------//
 //-----------------------------------------------------------------------//
@@ -59,10 +60,13 @@ return [
     'permissions'               =>      'Permissions',
     'roles'                     =>      'Roles',
     'settings'                  =>      'Settings',
+    'data_settings'             =>      'Data Settings',
     'lang_vars'                 =>      'Language Vars',
     'logos'                     =>      'Logos',
     'skills'                    =>      'Skills',
     'research_interests'        =>      'Research Interests',
+    'degrees'                   =>      'Degrees',
+    'associations'              =>      'Associations',
     'pages'                     =>      'Pages',
     'contact_us'                =>      'Contact Us',
     'about_us'                  =>      'About US',
