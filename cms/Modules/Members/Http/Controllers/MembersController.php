@@ -26,6 +26,14 @@ class MembersController extends Controller
         return view('members::index', compact('total_members'));
     }
 //----------------------------------------------------------------------//
+    public function create(){
+        return view('members::create');
+    }
+//----------------------------------------------------------------------//
+    public function show($id){
+        return Member::findOrFail($id);
+    }
+//----------------------------------------------------------------------//
     public function settings(){
         // $table->string('field_name');
             // $table->string('field_code');
