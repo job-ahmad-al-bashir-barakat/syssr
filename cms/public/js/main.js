@@ -1,6 +1,7 @@
 //----------------------------------------------------------------//
 $(function(){
     initAdditionalValidationClass();
+    _summernote();
 });
 //----------------------------------------------------------------//
 function initAdditionalValidationClass () {
@@ -100,5 +101,11 @@ function _dialog(title, content, options={}){
 
         return $modal;
     }
+}
+//----------------------------------------------------------------//
+function _summernote(){
+    $('.summernote').summernote({
+        height: 250
+    });
 }
 //----------------------------------------------------------------//

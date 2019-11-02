@@ -24,6 +24,8 @@ Route::group([
             'as' => 'getDatatableMembers.data', 'uses' => 'MembersController@getDatatableMembers',
         ]);
 
+        Route::get('/settings', 'MembersController@settings');
+
     });
 
 });

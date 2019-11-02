@@ -20,54 +20,17 @@ class MembersController extends Controller
         // $this->middleware(['auth','verified']);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
-//----------------------------------------------------------------------//
     public function index(){
         $members = Member::all()->toArray();
         $total_members = count($members);
         return view('members::index', compact('total_members'));
     }
 //----------------------------------------------------------------------//
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('members::create');
-    }
-//----------------------------------------------------------------------//
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-//----------------------------------------------------------------------//
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return Member::findOrFail($id);
-    }
-//----------------------------------------------------------------------//
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('members::edit');
+    public function settings(){
+        // $table->string('field_name');
+            // $table->string('field_code');
+            // $table->string('field_visibility');
+        return view('members::settings');
     }
 //----------------------------------------------------------------------//
     public function update(Request $request, $id)
