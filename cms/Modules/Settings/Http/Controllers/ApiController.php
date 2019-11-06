@@ -17,26 +17,35 @@ class ApiController extends Controller
 //----------------------------------------------------------------------//
     public function get_data_settings(Request $request){
         $type = $request['type'];
+        if(isset($request['lang']))
+            $lang = $request['lang'];
+        else
+            $lang = 'en';
+
         switch($type){
             case 'skills':
-                return Skill::all();
+                $data = Skill::all()->toArray();
             break;
             case 'associations':
-                return Association::all();
+                $data = Association::all()->toArray();
             break;
             case 'degrees':
-                return Degree::all();
+                $data = Degree::all()->toArray();
             break;
             case 'researchInterests':
-                return ResearchInterest::all();
+                $data = ResearchInterest::all()->toArray();
             break;
             case 'occupations':
-                return Occupation::all();
+                $data = Occupation::all()->toArray();
             break;
             default:
-                return null;
+                $data = null;
             break;
         }
+        for ($i=0; $i <count($data) ; $i++) { 
+            $data[$i]['name_lang'] = $data[$i]['name'][$lang];
+        }
+        return $data;
     }
 //----------------------------------------------------------------------//
     public function set_data_settings(Request $request){
