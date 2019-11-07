@@ -9,5 +9,11 @@ return [
     'verified'                  =>      'Verified',
     'members_settings'          =>      'Members Settings',
     'member_fields'             =>      'Member Fields',
+    'field_name'                =>      'Field Name',
+    'field_visibility'          =>      'Field Visibility',
+    'over_ride'                 =>      'Over Ride',
+    'public'                    =>      'Public',
+    'internal'                  =>      'Internal',
+    'private'                   =>      'Private',
     
 ];
