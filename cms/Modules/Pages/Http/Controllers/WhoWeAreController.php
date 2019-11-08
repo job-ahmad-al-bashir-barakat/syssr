@@ -21,7 +21,10 @@ public function index(){
 }
 //------------------------------------------------------------------------//
 public function store(Request $request){
-    $whoWeAre = new WhoWeAre();
+    $whoWeAre = WhoWeAre::find(1);
+    if(empty($whoWeAre))
+        $whoWeAre = new WhoWeAre();
+        
     $whoWeAre->setTranslation('description', 'en', $request['description_en']);
     $whoWeAre->setTranslation('description', 'ar', $request['description_ar']);
     $whoWeAre->save();

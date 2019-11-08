@@ -21,7 +21,10 @@ class OurGoalsController extends Controller{
     }
 //------------------------------------------------------------------------//
     public function store(Request $request){
-        $ourGoals = new OurGoals();
+        $ourGoals = OurGoals::find(1);
+        if(empty($ourGoals))
+            $ourGoals = new OurGoals();
+            
         $ourGoals->setTranslation('description', 'en', $request['description_en']);
         $ourGoals->setTranslation('description', 'ar', $request['description_ar']);
         $ourGoals->save();

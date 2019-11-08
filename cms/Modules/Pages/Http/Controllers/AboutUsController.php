@@ -21,7 +21,10 @@ class AboutUsController extends Controller{
     }
 //------------------------------------------------------------------------//
     public function store(Request $request){
-        $aboutUs = new AboutUs();
+        $aboutUs = AboutUs::find(1);
+        if(empty($aboutUs))
+            $aboutUs = new AboutUs();
+        
         $aboutUs->setTranslation('description', 'en', $request['description_en']);
         $aboutUs->setTranslation('description', 'ar', $request['description_ar']);
         $aboutUs->save();

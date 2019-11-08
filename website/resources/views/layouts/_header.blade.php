@@ -87,6 +87,24 @@
                             @endforeach
                         </ul>
                     </div>
+                    <div class="brk-social-links brk-header__item">
+                        <div class="brk-social-links__open">
+                            <i class="fa fa-share-alt"></i>
+                            <div class="brk-social-links__title">{{ trans('app.share_our_website') }}</div>
+                        </div>
+                        <div class="brk-social-links__block">
+                            <div class="brk-social-links__header">
+                                <span class="font__family-montserrat font__weight-bold font__size-18">{{ trans('app.share_our_website') }}</span>
+                            </div>
+                            <div class="brk-social-links__content">
+                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-vimeo-square" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="brk-search brk-header__item">
                         <div class="brk-search__open">
                             <i class="fa fa-search" aria-hidden="true"></i>

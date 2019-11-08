@@ -37,6 +37,7 @@ return [
     'profile' => 'Profile',
     'user_menu' => 'User Menu',
     'menu_extra' => 'Menu Extra',
+    'share_our_website' =>  'Share Our Website',
     'search_website' => 'Search website',
     'enter_search_text' => 'Search ...',
     'language' => 'Language',

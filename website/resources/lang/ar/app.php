@@ -37,6 +37,7 @@ return [
     'profile' => 'الملف الشخصي',
     'user_menu' => 'ثائمة المستخدم',
     'menu_extra' => 'قائمة اضافية',
+    'share_our_website' =>  'شارك موقعنا',
     'search_website' => 'البحث في الموقع',
     'enter_search_text' => 'أبحث ...',
     'language' => 'اللغة',
