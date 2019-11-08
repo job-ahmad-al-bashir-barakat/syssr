@@ -5,70 +5,43 @@ namespace Modules\Pages\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Pages\Entities\AboutUs;
 
 class AboutUsController extends Controller{
-
+//------------------------------------------------------------------------//
     public function index(){
-        return view('pages::about_us');
+        $aboutUs = AboutUs::findOrFail(1);
+        $description_en = $aboutUs->getTranslation('description', 'en');
+        $description_ar = $aboutUs->getTranslation('description', 'ar');
+        return view('pages::about_us',compact('description_en', 'description_ar'));
     }
+//------------------------------------------------------------------------//
+    public function store(Request $request){
+        $aboutUs = new AboutUs();
+        $aboutUs->setTranslation('description', 'en', $request['description_en']);
+        $aboutUs->setTranslation('description', 'ar', $request['description_ar']);
+        $aboutUs->save();
+        
+        $message = trans('cms.saved_successfully');
+        return redirect(url('pages/about-us'))->with('message', $message);
+    }
+//------------------------------------------------------------------------//
+    public function getAboutUs(Request $request){
+        if(isset($request['lang']))
+            $lang = $request['lang'];
+        else 
+            $lang = 'en';
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('pages::create');
-    }
+        $aboutUs = AboutUs::findOrFail(1);
+        $description_en = $aboutUs->getTranslation('description', 'en');
+        $description_ar = $aboutUs->getTranslation('description', 'ar');
+        $description = $aboutUs->getTranslation('description', $lang);
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return [
+            'description_en'        =>  $description_en,
+            'description_ar'        =>  $description_ar,
+            'description'           =>  $description,
+        ];
     }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('pages::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('pages::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+//------------------------------------------------------------------------//
 }

@@ -23,6 +23,8 @@ Route::group([
 
         Route::resource('about-us', 'AboutUsController');
 
+        Route::resource('our-goals', 'OurGoalsController');
+
     });
 
 });

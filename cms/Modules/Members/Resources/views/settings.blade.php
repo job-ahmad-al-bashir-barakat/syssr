@@ -96,6 +96,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="kt-portlet__foot">
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <button type="button" class="save-settings btn btn-success btn-md btn-block kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save')}}</button>
+                        </div>
+                    </div>                    
+                </div>
             </div>
             <!--end::Portlet-->
         </form>

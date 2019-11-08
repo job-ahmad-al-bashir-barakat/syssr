@@ -39,9 +39,11 @@
 <!--begin::Global Theme Bundle(used by all pages) -->
 <script src="{{ asset('theme/vendors/global/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('theme/js/scripts.bundle.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/summernote/summernote-ext-rtl.js') }}" type="text/javascript"></script>
 
 @if($lang=='ar')
     <script src="{{ asset('js/jquery_validate/localization/messages_ar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/summernote/summernote-ar-AR.js') }}" type="text/javascript"></script>
 @endif
 
 <!--end::Global Theme Bundle -->
