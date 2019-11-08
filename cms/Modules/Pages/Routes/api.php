@@ -15,4 +15,5 @@ use Illuminate\Http\Request;
 
 Route::post('pages/contact-us', "ContactUsController@getContactUs");
 Route::post('pages/about-us', "AboutUsController@getAboutUs");
+Route::post('pages/who-we-are', "AboutUsController@getWhoWeAre");
 Route::post('pages/our-goals', "OurGoalsController@getOurGoals");

@@ -71,6 +71,7 @@ return [
     'pages'                     =>      'Pages',
     'contact_us'                =>      'Contact Us',
     'about_us'                  =>      'About US',
+    'who_we_are'                =>      'Who We Are',
     'our_goals'                 =>      'Our Goals',
 //-----------------------------------------------------------------------//
 //---------------------header-----------------------//

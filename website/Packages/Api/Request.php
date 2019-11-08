@@ -34,7 +34,7 @@ class Request
     {
         $request = $this->client->post($url,  array_merge($this->request_header, $data));
         $response = $request->send();
-        return  json_decode($response);
+        return json_decode($response);
     }
 
     public function put($url = '', $data = [])

@@ -10,9 +10,13 @@ use Modules\Pages\Entities\OurGoals;
 class OurGoalsController extends Controller{
 //------------------------------------------------------------------------//
     public function index(){
-        $ourGoals = OurGoals::findOrFail(1);
-        $description_en = $ourGoals->getTranslation('description', 'en');
-        $description_ar = $ourGoals->getTranslation('description', 'ar');
+        $ourGoals = OurGoals::find(1);
+        if(empty($ourGoals))
+            $description_en = $description_ar = '';
+        else{
+            $description_en = $ourGoals->getTranslation('description', 'en');
+            $description_ar = $ourGoals->getTranslation('description', 'ar');
+        }
         return view('pages::our_goals',compact('description_en', 'description_ar'));
     }
 //------------------------------------------------------------------------//
@@ -32,11 +36,14 @@ class OurGoalsController extends Controller{
         else 
             $lang = 'en';
 
-        $ourGoals = OurGoals::findOrFail(1);
-        $description_en = $ourGoals->getTranslation('description', 'en');
-        $description_ar = $ourGoals->getTranslation('description', 'ar');
-        $description = $ourGoals->getTranslation('description', $lang);
-
+        $ourGoals = OurGoals::find(1);
+        if(empty($ourGoals))
+            $description_en = $description_ar = $description = '';
+        else{
+            $description_en = $ourGoals->getTranslation('description', 'en');
+            $description_ar = $ourGoals->getTranslation('description', 'ar');
+            $description = $ourGoals->getTranslation('description', $lang);
+        }
         return [
             'description_en'        =>  $description_en,
             'description_ar'        =>  $description_ar,

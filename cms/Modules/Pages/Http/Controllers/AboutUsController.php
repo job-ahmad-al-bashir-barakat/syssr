@@ -10,9 +10,13 @@ use Modules\Pages\Entities\AboutUs;
 class AboutUsController extends Controller{
 //------------------------------------------------------------------------//
     public function index(){
-        $aboutUs = AboutUs::findOrFail(1);
-        $description_en = $aboutUs->getTranslation('description', 'en');
-        $description_ar = $aboutUs->getTranslation('description', 'ar');
+        $aboutUs = AboutUs::find(1);
+        if(empty($aboutUs))
+            $description_en = $description_ar = '';
+        else{
+            $description_en = $aboutUs->getTranslation('description', 'en');
+            $description_ar = $aboutUs->getTranslation('description', 'ar');
+        }
         return view('pages::about_us',compact('description_en', 'description_ar'));
     }
 //------------------------------------------------------------------------//
@@ -32,11 +36,14 @@ class AboutUsController extends Controller{
         else 
             $lang = 'en';
 
-        $aboutUs = AboutUs::findOrFail(1);
-        $description_en = $aboutUs->getTranslation('description', 'en');
-        $description_ar = $aboutUs->getTranslation('description', 'ar');
-        $description = $aboutUs->getTranslation('description', $lang);
-
+        $aboutUs = AboutUs::find(1);
+        if(empty($aboutUs))
+            $description_en = $description_ar = $description = '';
+        else{
+            $description_en = $aboutUs->getTranslation('description', 'en');
+            $description_ar = $aboutUs->getTranslation('description', 'ar');
+            $description = $aboutUs->getTranslation('description', $lang);
+        }
         return [
             'description_en'        =>  $description_en,
             'description_ar'        =>  $description_ar,

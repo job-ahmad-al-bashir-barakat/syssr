@@ -26,6 +26,8 @@ class HomeController extends Controller
     }
 //--------------------------------------------------------------------------//
     public function society_goals(){
+        // $our_goals = \Api::getOurGoals();
+        // dd($our_goals);
         $our_goals = '';
         return view('society_goals', compact('our_goals'));
     }
