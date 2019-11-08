@@ -19,8 +19,8 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('about-society','HomeController@about_society')->name('about-society');
-    Route::get('about-society/about-us', 'HomeController@about_us')->name('about-us');
-    Route::get('about-society/view-society', 'HomeController@view_society')->name('view-society');
+    Route::get('about-society/who-we-are', 'HomeController@who_we_are')->name('who-we-are');
+    Route::get('about-society/society-goals', 'HomeController@society_goals')->name('society-goals');
     Route::get('about-society/members-society', 'HomeController@members_society')->name('members-society');
     Route::get('about-society/join-us', 'HomeController@join_us')->name('join-us');
 

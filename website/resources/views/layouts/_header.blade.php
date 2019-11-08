@@ -32,8 +32,8 @@
                             <li class="brk-nav__children brk-nav__drop-down-effect">
                                 <a href="{{ RouteUrls::aboutSociety() }}"><span>{{ trans('app.about_society') }}</span></a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
-                                    <li class="dd-effect"><a href="{{ RouteUrls::aboutUs() }}">{{ trans('app.about_us') }}</a></li>
-                                    <li class="dd-effect"><a href="{{ RouteUrls::viewSociety() }}">{{ trans('app.view_society') }}</a></li>
+                                    <li class="dd-effect"><a href="{{ RouteUrls::whoWeAre() }}">{{ trans('app.who_we_are') }}</a></li>
+                                    <li class="dd-effect"><a href="{{ RouteUrls::societyGoals() }}">{{ trans('app.society_goals') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::membersSociety() }}">{{ trans('app.members_society') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::joinUs() }}">{{ trans('app.join_us') }}</a></li>
                                 </ul>
