@@ -20,17 +20,17 @@ class Api
     }
 //--------------------------------------------------------------------------//
     public function getAboutUs(){
-        $response = $this->request->get("pages/about-us?lang=".$this->lang);
+        $response = $this->request->get("pages/about-us" ,['lang' => $this->lang]);
         return $response->description;
     }
 //--------------------------------------------------------------------------//
     public function getWhoWeAre(){
-        $response = $this->request->get("pages/who-we-are?lang=".$this->lang);
+        $response = $this->request->get("pages/who-we-are" ,['lang' => $this->lang]);
         return $response->description;
     }
 //--------------------------------------------------------------------------//
     public function getOurGoals(){
-        $response = $this->request->get("pages/our-goals?lang=".$this->lang);
+        $response = $this->request->get("pages/our-goals" ,['lang' => $this->lang]);
         return $response->description;
     }
 //--------------------------------------------------------------------------//
