@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('pages/contact-us', "ContactUsController@getContactUs");
-Route::post('pages/about-us', "AboutUsController@getAboutUs");
-Route::post('pages/who-we-are', "AboutUsController@getWhoWeAre");
-Route::post('pages/our-goals', "OurGoalsController@getOurGoals");
+Route::get('pages/contact-us', "ContactUsController@getContactUs");
+Route::get('pages/about-us', "AboutUsController@getAboutUs");
+Route::get('pages/who-we-are', "AboutUsController@getWhoWeAre");
+Route::get('pages/our-goals', "OurGoalsController@getOurGoals");
