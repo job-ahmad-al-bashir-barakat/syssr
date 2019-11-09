@@ -44,6 +44,10 @@ return [
     'close' => 'إعلاق',
     'search' => 'البحث',
 
+    //home
+    'latest_projects'   =>  'آخر المشاريع',
+    'latest_news'   =>  'آخر الأخبار',
+
     // profile
     'general' => 'عام',
     'gender' => 'جنس',
