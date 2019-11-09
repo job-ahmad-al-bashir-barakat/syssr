@@ -16,19 +16,17 @@ class HomeController extends Controller
     }
 //--------------------------------------------------------------------------//
     public function about_society(){
-        $about_society = '';
+        $about_society = \Api::getAboutUs();
         return view('about_society', compact('about_society'));
     }
 //--------------------------------------------------------------------------//
     public function who_we_are(){
-        $who_we_are = '';
+        $who_we_are = \Api::getWhoWeAre();
         return view('who_we_are', compact('who_we_are'));
     }
 //--------------------------------------------------------------------------//
     public function society_goals(){
-         $our_goals = \Api::getOurGoals();
-         dd($our_goals);
-        $our_goals = '';
+        $our_goals = \Api::getOurGoals();
         return view('society_goals', compact('our_goals'));
     }
 //--------------------------------------------------------------------------//
