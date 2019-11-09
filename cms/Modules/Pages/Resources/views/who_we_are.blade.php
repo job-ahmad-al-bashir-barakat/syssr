@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', trans('cms.about_us'))
+@section('title', trans('cms.who_we_are'))
 
 @section('content')
 
@@ -8,10 +8,10 @@
     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('cms.about_us')}}</h3>
+                <h3 class="kt-subheader__title">{{trans('cms.who_we_are')}}</h3>
             </div>
             <div class="kt-subheader__toolbar">
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold save-about">{{trans('cms.save')}}</a>
+                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold save-who-we-are">{{trans('cms.save')}}</a>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-        <form id="about-form" method="post" action="about-us">
+        <form id="who-we-are-form" method="post" action="who-we-are">
             <input name="_token" type="hidden" value="{!! csrf_token() !!}">
             <!--begin::Portlet-->
             <div class="kt-portlet" data-ktportlet="true">
@@ -47,7 +47,7 @@
                 <div class="kt-portlet__foot">
                     <div class="row">
                         <div class="col-4 offset-4">
-                            <button type="button" class="save-about btn btn-success btn-md btn-block kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save')}}</button>
+                            <button type="button" class="save-who-we-are btn btn-success btn-md btn-block kt-font-bold kt-font-transform-u"><i class="fa fa-save"></i> {{trans('cms.save')}}</button>
                         </div>
                     </div>                    
                 </div>
@@ -63,8 +63,8 @@
 //----------------------------------------------------------------------------------------//
     $(function(){
     //=================================================//
-    $('.save-about').click(function(){
-        submit_form('about-form');
+    $('.save-who-we-are').click(function(){
+        submit_form('who-we-are-form');
     });
     //=================================================//
 });

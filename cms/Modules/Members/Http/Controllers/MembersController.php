@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
 use Modules\Members\Entities\Member;
+use Modules\Members\Entities\MemberField;
 use Modules\Members\Http\Requests\MemberRequest;
 use Modules\Members\Http\Requests\MembersRequest;
 use Yajra\Datatables\Datatables;
@@ -35,14 +36,33 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function settings(){
-        // $table->string('field_name');
-            // $table->string('field_code');
-            // $table->string('field_visibility');
-        return view('members::settings');
+        $memberFields = MemberField::all();
+        return view('members::settings',compact('memberFields'));
     }
 //----------------------------------------------------------------------//
-    public function update(Request $request, $id)
-    {
+    public function getMemberFields(Request $request){
+        $memberFields = MemberField::all();
+        return $memberFields;
+    }
+//----------------------------------------------------------------------//
+    public function saveSettings(Request $request){
+        $memberFields = ['first_name', 'last_name', 'personal_email', 'society_email', 'personal_website', 'mobile_phone', 'social_links', 'location', 'research_interests',
+                        'skills', 'degrees', 'associations', 'current_occupation', 'member_bio', 'publications', 'resume'];
+        for ($i=0; $i < count($memberFields); $i++) { 
+            $memberField = MemberField::where('field_code', '=', $memberFields[$i])->firstOrFail();
+            $memberField->field_visibility = $request[$memberFields[$i]];
+            if(isset($request['over_ride_'.$memberFields[$i]]))
+                $memberField->over_ride = 'T';
+            else
+                $memberField->over_ride = 'F';
+
+            $memberField->save();
+        }
+        $message = trans('cms.saved_successfully');
+        return redirect(url('members/settings'))->with('message', $message);
+    }
+//----------------------------------------------------------------------//
+    public function update(Request $request, $id){
         if($request->get('password',''))
             $data = $request->input();
         else

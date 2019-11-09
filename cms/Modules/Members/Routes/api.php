@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/member/{id}', "MembersController@show");
 Route::middleware('auth:api')->put('/member/{id}' ,"MembersController@update");
 
+Route::post('/member/fields' ,"MembersController@getMemberFields");
+
 // for test
 // https://jamesmills.co.uk/2019/06/05/how-to-return-json-from-laravel-form-request-validation-errors/
 //Route::post('hi' ,function () {

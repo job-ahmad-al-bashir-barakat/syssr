@@ -29,13 +29,13 @@ class RouteUrls
     {
         return $this->localizeUrl('about-society');
     }
-    public function aboutUs()
+    public function whoWeAre()
     {
-        return $this->localizeUrl('about-society/about-us');
+        return $this->localizeUrl('about-society/who-we-are');
     }
-    public function viewSociety()
+    public function societyGoals()
     {
-        return $this->localizeUrl('about-society/view-society');
+        return $this->localizeUrl('about-society/society-goals');
     }
     public function membersSociety()
     {

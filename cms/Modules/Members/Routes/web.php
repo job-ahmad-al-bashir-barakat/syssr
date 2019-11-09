@@ -25,6 +25,7 @@ Route::group([
         ]);
 
         Route::get('/settings', 'MembersController@settings');
+        Route::post('/save-settings', 'MembersController@saveSettings');
 
     });
 

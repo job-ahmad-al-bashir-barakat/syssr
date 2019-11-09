@@ -9,5 +9,11 @@ return [
     'verified'                  =>      'مفعّل',
     'members_settings'          =>      'إعدادات الأعضاء',
     'member_fields'             =>      'حقول العضو',
+    'field_name'                =>      'اسم الحقل',
+    'field_visibility'          =>      'رؤية الحقل',
+    'over_ride'                 =>      'قابل للتعديل',
+    'public'                    =>      'عام',
+    'internal'                  =>      'داخلي',
+    'private'                   =>      'خاص',
 
 ];

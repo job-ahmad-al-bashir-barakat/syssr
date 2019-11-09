@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials._breadcrumbs',['title' => trans('app.contact')])
+    @include('partials._breadcrumbs',['title' => trans('app.contact'), 'banner' => asset('img/syssr/contact-us-banner.jpg')])
     <div class="main-wrapper">
         <main class="main-container">
             <section class="pt-80 pb-80">

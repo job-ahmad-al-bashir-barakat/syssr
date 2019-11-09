@@ -32,8 +32,8 @@
                             <li class="brk-nav__children brk-nav__drop-down-effect">
                                 <a href="{{ RouteUrls::aboutSociety() }}"><span>{{ trans('app.about_society') }}</span></a>
                                 <ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
-                                    <li class="dd-effect"><a href="{{ RouteUrls::aboutUs() }}">{{ trans('app.about_us') }}</a></li>
-                                    <li class="dd-effect"><a href="{{ RouteUrls::viewSociety() }}">{{ trans('app.view_society') }}</a></li>
+                                    <li class="dd-effect"><a href="{{ RouteUrls::whoWeAre() }}">{{ trans('app.who_we_are') }}</a></li>
+                                    <li class="dd-effect"><a href="{{ RouteUrls::societyGoals() }}">{{ trans('app.society_goals') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::membersSociety() }}">{{ trans('app.members_society') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::joinUs() }}">{{ trans('app.join_us') }}</a></li>
                                 </ul>
@@ -86,6 +86,24 @@
                                 <li><a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">{{ strtoupper($localeCode) }}</a></li>
                             @endforeach
                         </ul>
+                    </div>
+                    <div class="brk-social-links brk-header__item">
+                        <div class="brk-social-links__open">
+                            <i class="fa fa-share-alt"></i>
+                            <div class="brk-social-links__title">{{ trans('app.share_our_website') }}</div>
+                        </div>
+                        <div class="brk-social-links__block">
+                            <div class="brk-social-links__header">
+                                <span class="font__family-montserrat font__weight-bold font__size-18">{{ trans('app.share_our_website') }}</span>
+                            </div>
+                            <div class="brk-social-links__content">
+                                <a href="#"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="brk-search brk-header__item">
                         <div class="brk-search__open">

@@ -129,7 +129,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ContactUsController') || strpos($current_params, 'AboutUsController') ) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ContactUsController') || strpos($current_params, 'AboutUsController') || strpos($current_params, 'OurGoalsController') || strpos($current_params, 'WhoWeAreController')) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                     <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                         <span class="kt-menu__link-icon"><i class="fa fa-copy"></i></span>
                         <span class="kt-menu__link-text">{{trans('cms.pages')}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -144,6 +144,16 @@
                             <li class="kt-menu__item <?= ( strpos($current_params, 'AboutUsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
                                 <a href="{{url('pages/about-us')}}" class="kt-menu__link ">
                                     <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.about_us')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'WhoWeAreController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('pages/who-we-are')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.who_we_are')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-menu__item <?= ( strpos($current_params, 'OurGoalsController@index') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{url('pages/our-goals')}}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.our_goals')}}</span>
                                 </a>
                             </li>
                         </ul>

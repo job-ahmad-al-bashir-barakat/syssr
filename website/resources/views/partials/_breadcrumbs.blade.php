@@ -1,4 +1,4 @@
-<div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
+<div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="{{$banner ?? 'img/demo_magazine/1920x195_1.jpg'}}" data-brk-library="component__breadcrumbs_css">
     <div class="full__size-absolute brk-bg-black opacity-70"></div>
     <div class="container">
         <div class="breadcrumbs__wrapper align-items-center">

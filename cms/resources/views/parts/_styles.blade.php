@@ -30,6 +30,9 @@
 body {
     font-family: "Poppins", "JF Flat Regular", sans-serif;
 }
+.invalid-feedback{
+    font-size:100% !important;
+}
 .form-group.req label:not(.radio-inline):after,
 span.req:after {
     font-family: monospace;
