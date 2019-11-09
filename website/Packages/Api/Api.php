@@ -15,4 +15,9 @@ class Api
 
         return $this->request->get("member/{$id}");
     }
+
+    function country()
+    {
+        return $this->request->get("settings/get-location?type=country");
+    }
 }

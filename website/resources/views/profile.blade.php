@@ -6,8 +6,8 @@
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/select2/css/select2.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/select2-bootstrap-theme/custom-select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
     <style>
         .iti { width: 100%; }
         .iti__selected-flag {
@@ -26,6 +26,31 @@
             left: 5%;
             right: 5%;
         }
+
+/*
+        .label-info {
+            background-color: #5bc0de;
+        }
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+        }
+        .bootstrap-tagsinput .tag [data-role="remove"] {
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        .bootstrap-tagsinput .tag [data-role="remove"]:after {
+            content: "x";
+            padding: 0px 2px;
+        }*/
     </style>
 @endsection
 
@@ -86,6 +111,7 @@
                                                              data-label="{{ trans('app.drop_avatar') }}"
                                                              data-min-size="60,60"
                                                              data-crop="0,0,1000,1000"
+                                                             data-max-file-size="2"
                                                              data-ratio="1:1">
                                                             <input type="file" id="avatar" name="avatar">
                                                             <img src="{{ $user->avatar_url ?? asset('custom/img/user-image.png') }}" alt="">
@@ -160,6 +186,10 @@
                                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-date-of-join-form">{{ trans('app.date_of_join') }}</label>
                                                         <input id="brk-date-of-join-form" type="text" value="{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}" disabled>
                                                     </div>
+                                                    <div class="col-md-6 mb-50">
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-society-email-address-form">{{ trans('app.society_email_address') }}</label>
+                                                        <input id="brk-society-email-address-form" type="text" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
@@ -203,18 +233,73 @@
                                 <div class="brk-tab-item text-center text-lg-left">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="">
+                                            <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }}</label>
-                                                            <select id="country" name="country"></select>
+                                                            <select id="country" name="country" data-search="true" data-search-not-found="Not Found" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                                @foreach($country as $item)
+                                                                    <option value="{{ $item->code }}" data-code="{{ $item->code }}">{{ $item->name }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }}</label>
-                                                            <select id="city" name="city" class="form-control"></select>
+                                                            <select id="city" name="city"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">{{ trans('app.research_interests') }}</label>
+                                                            <input id="research-interests" name="research_interests" type="text" data-role="tagsinput"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">{{ trans('app.skills') }}</label>
+                                                            <input id="skills" name="skills" type="text" data-role="tagsinput"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">{{ trans('app.degrees') }}</label>
+                                                            <input id="degrees" name="degrees" type="text" data-role="tagsinput"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">{{ trans('app.association') }}</label>
+                                                            <input id="association" name="association" type="text" data-role="tagsinput"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.current_occupation') }}</label>
+                                                            <select id="current-occupation" name="current_occupation" data-search="true" data-search-not-found="Not Found" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.current_occupation') }}</label>
+                                                            <input type="file" id="resume" name="resume">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.publications') }}</label>
+                                                            <textarea id="summernote" name="publications" cols="30" rows="10"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -249,10 +334,10 @@
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
-    <script src="{{ asset('custom/plugin/select2/js/select2.js') }}"></script>
-    <script src="{{ asset("custom/plugin/select2/js/i18n/$lang.js") }}"></script>
+    <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
+    <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('custom/js/form.js') }}"></script>
-    <script>
+    <script>z
         // https://github.com/nosir/cleave.js
         // https://catamphetamine.github.io/libphonenumber-js/
         jQuery(function () {
