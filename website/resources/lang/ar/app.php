@@ -65,6 +65,7 @@ return [
     'date_of_join' => 'تاريخ الانضمام',
     'other' => 'أخرى',
     'website' => 'الموقع الالكتروني',
+    'publications' => 'المنشورات العلمية',
 
     // contact
     'your_name' => 'الاسم',

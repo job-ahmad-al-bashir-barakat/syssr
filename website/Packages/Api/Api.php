@@ -8,7 +8,7 @@ class Api
     public function __construct()
     {
         $this->request = new Request();
-        $this->lang = LaravelLocalization::getCurrentLocale();
+        $this->lang = \LaravelLocalization::getCurrentLocale();
     }
 //--------------------------------------------------------------------------//
     public function member()

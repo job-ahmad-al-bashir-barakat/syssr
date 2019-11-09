@@ -18,7 +18,6 @@
         .iti__country-list {
             z-index: 999;
         }
-
         .iti.iti--container {
             width: 90%;
         }
@@ -51,6 +50,13 @@
             content: "x";
             padding: 0px 2px;
         }*/
+
+        .note-editor .btn-sm {
+            padding: 0;
+        }
+        .note-editor .note-toolbar {
+
+        }
     </style>
 @endsection
 
@@ -299,7 +305,7 @@
                                                     <div class="col-md-12">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.publications') }}</label>
-                                                            <textarea id="summernote" name="publications" cols="30" rows="10"></textarea>
+                                                            <textarea id="summernote" class="summernote" name="publications" cols="30" rows="10"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -337,10 +343,12 @@
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('custom/js/form.js') }}"></script>
-    <script>z
+    <script>
         // https://github.com/nosir/cleave.js
         // https://catamphetamine.github.io/libphonenumber-js/
         jQuery(function () {
+            jQuery('.summernote').summernote();
+
             var intlTelInputFixPadding = function () {
                 var iti = jQuery('.iti');
                 var width = iti.find('.iti__flag-container').width();

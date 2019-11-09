@@ -65,6 +65,7 @@ return [
     'date_of_join' => 'Date Of Join',
     'other' => 'Other',
     'website' => 'Website',
+    'publications' => 'Publications',
 
     // contact
     'your_name' => 'Your Name',
