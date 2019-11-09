@@ -8,14 +8,14 @@
 @section('content')
     <div class="wrapper" style="margin-top:72px;">
 
-        <div class="owl-carousel shadow-lg">
-            <div>
+        <div class="owl-carousel owl-theme shadow-lg">
+            <div class="item">
                 <img src="{{asset('img/syssr/home_banner_1.jpg')}}" alt="home_banner_1">
             </div>
-            <div>
+            <div class="item">
                 <img src="{{asset('img/syssr/home_banner_2.jpg')}}" alt="home_banner_2">
             </div>
-            <div>
+            <div class="item">
                 <img src="{{asset('img/syssr/home_banner_3.jpg')}}" alt="home_banner_3">
             </div>
         </div>
@@ -339,10 +339,16 @@
     <script defer="defer" src="{{ asset('vendor/OwlCarousel2-2.3.4/owl.carousel.min.js') }}"></script>
     <script>
         jQuery(document).ready(function(){
+            owl_rtl = false;
+            if('{!! $lang !!}'=='ar')
+                owl_rtl = true;
             jQuery(".owl-carousel").owlCarousel({
                 center: true,
                 items:1,
                 loop:true,
+                rtl:owl_rtl,
+                smartSpeed:2000,
+                margin: 10,
                 autoplay:true,
                 autoplayTimeout:10000,
                 autoplayHoverPause:true
