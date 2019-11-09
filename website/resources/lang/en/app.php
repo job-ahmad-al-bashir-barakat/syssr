@@ -70,6 +70,10 @@ return [
     'other' => 'Other',
     'website' => 'Website',
     'publications' => 'Publications',
+    'resume' => 'Resume (CV)',
+    'search_here' => 'Search here',
+    'not_found' => 'Data Not Found',
+    'street_address' => 'Street Address',
 
     // contact
     'your_name' => 'Your Name',
