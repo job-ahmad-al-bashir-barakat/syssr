@@ -24,8 +24,8 @@ class Api
     }
 //--------------------------------------------------------------------------//
     public function getOurGoals(){
-        $response = $this->request->post("pages/our-goals",['lang' => $this->lang]);
-        return $response['description'];
+        $response = $this->request->data("pages/our-goals" ,['lang' => $this->lang]);
+        return $response->description;
     }
 //--------------------------------------------------------------------------//
 

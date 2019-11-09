@@ -30,6 +30,13 @@ class Request
         return json_decode($response);
     }
 
+    public function data($url = '', $data = [])
+    {
+        $request = $this->client->post($url,  array_merge($this->request_header, $data));
+        $response = $request->getBody()->getContents();
+        return json_decode($response);
+    }
+
     public function post($url = '', $data = [])
     {
         $request = $this->client->post($url,  array_merge($this->request_header, $data));
