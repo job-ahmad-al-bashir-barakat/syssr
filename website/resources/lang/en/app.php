@@ -44,6 +44,10 @@ return [
     'close' => 'Close',
     'search' => 'Search',
 
+    //home
+    'latest_projects'   =>  'Latest Projects',
+    'latest_news'   =>  'Latest News',
+
     // profile
     'general' => 'General',
     'gender' => 'Gender',
