@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Cocur\Slugify\Slugify;
+use Modules\Settings\Entities\City;
+use Modules\Settings\Entities\Country;
 use Modules\Settings\Entities\Skill;
 use Modules\Settings\Entities\Association;
 use Modules\Settings\Entities\Degree;
@@ -134,4 +136,19 @@ class ApiController extends Controller
         }
     }
 //----------------------------------------------------------------------//
+    public function get_location(Request $request) {
+        $type = $request->input('type');
+        $code = $request->input('code','sy');
+        switch($type){
+            case 'country':
+                return Country::all();
+                break;
+            case 'city':
+                return City::where('country_code',$code)->get();
+                break;
+            default:
+                return null;
+                break;
+        }
+    }
 }

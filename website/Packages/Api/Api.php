@@ -2,20 +2,25 @@
 
 namespace Packages\Api;
 
-use LaravelLocalization;
-
-class Api{
-    public $lang;
+class Api
+{
 //--------------------------------------------------------------------------//
-    public function __construct(){
+    public function __construct()
+    {
         $this->request = new Request();
         $this->lang = LaravelLocalization::getCurrentLocale();
     }
 //--------------------------------------------------------------------------//
-    function member(){
+    public function member()
+    {
         $id = \Auth::id();
 
         return $this->request->get("member/{$id}");
+    }
+//--------------------------------------------------------------------------//
+    public function country()
+    {
+        return $this->request->get("settings/get-location?type=country");
     }
 //--------------------------------------------------------------------------//
     public function getOurGoals(){
@@ -23,4 +28,5 @@ class Api{
         return $response['description'];
     }
 //--------------------------------------------------------------------------//
+
 }
