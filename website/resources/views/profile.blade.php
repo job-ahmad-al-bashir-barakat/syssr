@@ -26,36 +26,41 @@
             right: 5%;
         }
 
-/*
-        .label-info {
-            background-color: #5bc0de;
-        }
-        .label {
-            display: inline;
-            padding: .2em .6em .3em;
-            font-size: 75%;
-            font-weight: 700;
-            line-height: 1;
-            color: #fff;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: .25em;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"] {
-            margin-left: 8px;
-            cursor: pointer;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"]:after {
-            content: "x";
-            padding: 0px 2px;
-        }*/
+        /*
+                .label-info {
+                    background-color: #5bc0de;
+                }
+                .label {
+                    display: inline;
+                    padding: .2em .6em .3em;
+                    font-size: 75%;
+                    font-weight: 700;
+                    line-height: 1;
+                    color: #fff;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    border-radius: .25em;
+                }
+                .bootstrap-tagsinput .tag [data-role="remove"] {
+                    margin-left: 8px;
+                    cursor: pointer;
+                }
+                .bootstrap-tagsinput .tag [data-role="remove"]:after {
+                    content: "x";
+                    padding: 0px 2px;
+                }*/
 
+        .note-editor {
+            border-color: #e8e8e8;
+        }
         .note-editor .btn-sm {
-            padding: 0;
+            padding: 4px 10px;
+            box-shadow: #00000029 1px 1px 1px;
         }
         .note-editor .note-toolbar {
-
+            background: #fff;
+            border: 0;
         }
     </style>
 @endsection
@@ -244,9 +249,9 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }}</label>
-                                                            <select id="country" name="country" data-search="true" data-search-not-found="Not Found" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                            <select id="country" name="country" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}">
                                                                 @foreach($country as $item)
-                                                                    <option value="{{ $item->code }}" data-code="{{ $item->code }}">{{ $item->name }}</option>
+                                                                    <option value="{{ $item->id }}" data-code="{{ $item->code }}">{{ $item->name }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -254,7 +259,15 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }}</label>
-                                                            <select id="city" name="city"></select>
+                                                            <select id="city" name="city"  data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="street-address">{{ trans('app.street_address') }}</label>
+                                                            <input id="street-address" name="street_address" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -296,7 +309,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.current_occupation') }}</label>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="resume">{{ trans('app.resume') }}</label>
                                                             <input type="file" id="resume" name="resume">
                                                         </div>
                                                     </div>
@@ -347,6 +360,17 @@
         // https://github.com/nosir/cleave.js
         // https://catamphetamine.github.io/libphonenumber-js/
         jQuery(function () {
+            jQuery('#country').change(function () {
+                jQuery.get(cms_api_url + 'settings/get-location',{ 'type': 'city', 'code' : jQuery(this).data('code') }, function (cities) {
+                    var city = jQuery('#city');
+                    city.styler('destroy');
+                    city.html('');
+                    jQuery.each(cities,function (key,item) {
+                        city.append(`<option value="${item.id}">${item.name}</option>`);
+                    })
+                    city.styler();
+                })
+            });
             jQuery('.summernote').summernote();
 
             var intlTelInputFixPadding = function () {

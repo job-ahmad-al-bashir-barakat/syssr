@@ -70,6 +70,10 @@ return [
     'other' => 'أخرى',
     'website' => 'الموقع الالكتروني',
     'publications' => 'المنشورات العلمية',
+    'resume' => 'السيرة الذاتية',
+    'search_here' => 'أبحث هنا',
+    'not_found' => 'لا يوجد بيانات',
+    'street_address' => 'عنوان الشارع',
 
     // contact
     'your_name' => 'الاسم',
