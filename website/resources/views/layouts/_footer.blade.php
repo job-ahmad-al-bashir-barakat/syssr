@@ -1,7 +1,7 @@
 @section('footer')
     <footer class="brk-footer position-relative" data-brk-library="component__footer">
         <div class="brk-footer__wrapper pt-sm-70 pt-40">
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_2.jpg" alt="alt" class="brk-abs-img lazyload">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/syssr/footer-banner.jpg')}}" alt="alt" class="brk-abs-img lazyload">
             <span class="brk-abs-overlay brk-base-gradient-34"></span>
             <div class="container">
                 <div class="row">
@@ -49,10 +49,22 @@
                         <p class="brk-white-font-color font__size-14">© {{ date('Y') }} {!! trans('app.copyright') !!}</p>
                         <div class="brk-social-links brk-white-font-color font__size-12" data-brk-library="component__social_links">
                             <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-facebook-square fa-2x"></i>
                             </a>
                             <a href="#" class="brk-social-links__item">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="#" class="brk-social-links__item">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="#" class="brk-social-links__item">
+                                <i class="fab fa-google-plus-g fa-2x"></i>
+                            </a>
+                            <a href="#" class="brk-social-links__item">
+                                <i class="fab fa-youtube fa-2x"></i>
+                            </a>
+                            <a href="#" class="brk-social-links__item">
+                                <i class="fab fa-whatsapp fa-2x"></i>
                             </a>
                         </div>
                     </div>

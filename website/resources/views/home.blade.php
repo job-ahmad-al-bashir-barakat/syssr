@@ -70,7 +70,7 @@
 
         <section>
             <div class="container">
-                <div class="mb-40">
+                <div class="mb-40 mt-40">
                     <div class="text-left">
                         <h3 class="font__family-montserrat font__size-28 font__weight-bold">
                             Latest Projects
@@ -231,7 +231,7 @@
 
         <section>
             <div class="mt-40 mt-md-170">
-				<div class="brk-paraxify overflow-hid mt-70 mt-md-140" style="background-image: url(img/bg-1920_1.jpg)" data-brk-library="component__parallax">
+				<div class="brk-paraxify overflow-hid mt-70 mt-md-140" style="background-image: url({{asset('img/syssr/home_bg_1.jpg')}})" data-brk-library="component__parallax">
 					<div class="container">
 						<div class="row scroll-show circle__wrap content__side-left">
 							<span class="parallax__bg-shape-lg brk-parallax__bg-color"></span>
@@ -254,7 +254,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="brk-paraxify overflow-hid mt-30" style="background-image: url(img/bg-1920_3.jpg)" data-brk-library="component__parallax">
+				<div class="brk-paraxify overflow-hid mt-30" style="background-image: url({{asset('img/syssr/home_bg_1.jpg')}})" data-brk-library="component__parallax">
 					<div class="container">
 						<div class="row scroll-show circle__wrap content__side-right">
 							<span class="parallax__bg-shape-lg brk-parallax__bg-gradient"></span>
@@ -288,7 +288,7 @@
 				<div class="container">
 					<h3 class="font__family-montserrat font__size-28 font__weight-bold text-left"></h3>
 				</div>
-				<div class="brk-paraxify overflow-hid mt-30" style="background-image: url(img/bg-1920_3.jpg)" data-brk-library="component__parallax">
+				<div class="brk-paraxify overflow-hid mt-30" style="background-image: url({{asset('img/syssr/home_bg_2.jpg')}})" data-brk-library="component__parallax">
 					<div class="container">
 						<div class="row wing__wrap scroll-show content__side-right">
 							<span class="parallax__bg-shape-lg brk-parallax__bg-gradient-md">
@@ -335,14 +335,20 @@
                 <h3 class="font__family-montserrat font__size-28 font__weight-bold text-left"></h3>
             </div>
 			<div class="pt-60 pb-60 pb-lg-0 text-center position-relative" data-brk-library="component__social_block,component__button">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/demo_magazine/1920x430_1.jpg" alt="alt" class="brk-abs-img lazyload">
+				<img src="{{asset('img/syssr/social-banner.jpg')}}" alt="alt" class="brk-abs-img">
 				<span class="brk-abs-overlay brk-black-76-overlay"></span>
 				<div class="container all-light">
 					<div class="row no-gutters mt-0 mt-lg-70">
 						<div class="col-6 col-md-4 col-lg-2">
 							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-facebook-f"><span class="slide-bg"></span></i></a>
+								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-facebook-square"><span class="slide-bg"></span></i></a>
 								<h4 class="font__family-montserrat font__size-16 text">Facebook</h4>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-square social__icon-square_dark">
+								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-linkedin"><span class="slide-bg"></span></i></a>
+								<h4 class="font__family-montserrat font__size-16 text">LinkedIn</h4>
 							</div>
 						</div>
 						<div class="col-6 col-md-4 col-lg-2">
@@ -353,26 +359,20 @@
 						</div>
 						<div class="col-6 col-md-4 col-lg-2">
 							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-instagram"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Instagram</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">YouTube</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-google"><span class="slide-bg"></span></i></a>
+								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-google-plus-g"><span class="slide-bg"></span></i></a>
 								<h4 class="font__family-montserrat font__size-16 text">Google +</h4>
 							</div>
 						</div>
 						<div class="col-6 col-md-4 col-lg-2">
 							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-vimeo-v"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Vimeo</h4>
+								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
+								<h4 class="font__family-montserrat font__size-16 text">Youtube</h4>
+							</div>
+						</div>
+						<div class="col-6 col-md-4 col-lg-2">
+							<div class="social__icon-square social__icon-square_dark">
+								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-whatsapp"><span class="slide-bg"></span></i></a>
+								<h4 class="font__family-montserrat font__size-16 text">WhatsApp</h4>
 							</div>
 						</div>
 					</div>

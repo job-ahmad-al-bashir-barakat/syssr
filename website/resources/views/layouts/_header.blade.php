@@ -97,11 +97,11 @@
                                 <span class="font__family-montserrat font__weight-bold font__size-18">{{ trans('app.share_our_website') }}</span>
                             </div>
                             <div class="brk-social-links__content">
+                                <a href="#"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-vimeo-square" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
