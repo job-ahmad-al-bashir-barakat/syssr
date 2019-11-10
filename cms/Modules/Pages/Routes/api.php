@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 Route::get('pages/contact-us', "ContactUsController@getContactUs");
 Route::get('pages/about-us', "AboutUsController@getAboutUs");
-Route::get('pages/who-we-are', "AboutUsController@getWhoWeAre");
+Route::get('pages/who-we-are', "WhoWeAreController@getWhoWeAre");
 Route::get('pages/our-goals', "OurGoalsController@getOurGoals");
