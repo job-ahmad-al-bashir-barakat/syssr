@@ -44,7 +44,7 @@ class ApiController extends Controller
                 $data = null;
             break;
         }
-        for ($i=0; $i <count($data) ; $i++) { 
+        for ($i=0; $i <count($data) ; $i++) {
             $data[$i]['name_lang'] = $data[$i]['name'][$lang];
         }
         return $data;

@@ -25,7 +25,8 @@ class ProfileController extends Controller
     {
         $user = \Api::member();
         $country = \Api::country();
+        $occupation = \Api::occupation();
 
-        return view('profile',compact('user','country'));
+        return view('profile', compact('user','country', 'occupation'));
     }
 }

@@ -74,6 +74,11 @@ return [
     'search_here' => 'أبحث هنا',
     'not_found' => 'لا يوجد بيانات',
     'street_address' => 'عنوان الشارع',
+    'research_interests' => 'الاهتمامات البحثية',
+    'skills' => 'المهارات',
+    'degrees' => 'الدرجات الجامعية',
+    'association' => 'الجمعيات',
+    'current_occupation' => 'المهنة الحالية',
 
     // contact
     'your_name' => 'الاسم',

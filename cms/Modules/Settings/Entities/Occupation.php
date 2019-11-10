@@ -8,7 +8,7 @@ use Spatie\Translatable\HasTranslations;
 class Occupation extends Model
 {
     use HasTranslations;
-    
+
     public $translatable = ['name'];
 
     protected $fillable = ['name','code'];

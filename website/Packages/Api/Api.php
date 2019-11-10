@@ -19,6 +19,10 @@ class Api
         return $this->request->get("settings/get-location?type=country");
     }
 //--------------------------------------------------------------------------//
+    public function occupation(){
+        return $this->request->data("settings/get-data-settings?type=occupations");
+    }
+//--------------------------------------------------------------------------//
     public function getAboutUs(){
         $response = $this->request->get("pages/about-us?lang=".$this->lang);
         return $response->description;

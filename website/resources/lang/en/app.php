@@ -74,6 +74,11 @@ return [
     'search_here' => 'Search here',
     'not_found' => 'Data Not Found',
     'street_address' => 'Street Address',
+    'research_interests' => 'Research Interests',
+    'skills' => 'Skills',
+    'degrees' => 'Degrees',
+    'association' => 'Association',
+    'current_occupation' => 'Current Occupation',
 
     // contact
     'your_name' => 'Your Name',

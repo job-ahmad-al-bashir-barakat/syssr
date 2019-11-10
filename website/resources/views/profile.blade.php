@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
     <style>
+        .jq-selectbox.disabled .jq-selectbox__select {
+            background: #e2e2e21a;
+        }
+
+        .bootstrap-tagsinput input {
+            width: auto !important;
+            height: 30px !important;
+        }
+        .bootstrap-tagsinput .tag {
+            margin-right: 2px;
+            color: white;
+        }
+        .bootstrap-tagsinput .tag [data-role="remove"] {
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        .bootstrap-tagsinput .tag [data-role="remove"]:after {
+            content: "x";
+            padding: 0px 2px;
+        }
+
         .iti { width: 100%; }
         .iti__selected-flag {
             outline: none;
@@ -26,33 +47,9 @@
             right: 5%;
         }
 
-        /*
-                .label-info {
-                    background-color: #5bc0de;
-                }
-                .label {
-                    display: inline;
-                    padding: .2em .6em .3em;
-                    font-size: 75%;
-                    font-weight: 700;
-                    line-height: 1;
-                    color: #fff;
-                    text-align: center;
-                    white-space: nowrap;
-                    vertical-align: baseline;
-                    border-radius: .25em;
-                }
-                .bootstrap-tagsinput .tag [data-role="remove"] {
-                    margin-left: 8px;
-                    cursor: pointer;
-                }
-                .bootstrap-tagsinput .tag [data-role="remove"]:after {
-                    content: "x";
-                    padding: 0px 2px;
-                }*/
-
         .note-editor {
             border-color: #e8e8e8;
+            z-index: 0;
         }
         .note-editor .btn-sm {
             padding: 4px 10px;
@@ -250,6 +247,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }}</label>
                                                             <select id="country" name="country" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                                <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
                                                                 @foreach($country as $item)
                                                                     <option value="{{ $item->id }}" data-code="{{ $item->code }}">{{ $item->name }}</option>
                                                                 @endforeach
@@ -259,7 +257,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }}</label>
-                                                            <select id="city" name="city"  data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}"></select>
+                                                            <select id="city" name="city" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" disabled></select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -268,6 +266,8 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="street-address">{{ trans('app.street_address') }}</label>
                                                             <input id="street-address" name="street_address" type="text"/>
+                                                            <input id="location-address" name="location_address" type="hidden"/>
+                                                            <input id="location-country-city" name="location_country_city" type="hidden"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -303,7 +303,11 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">{{ trans('app.current_occupation') }}</label>
-                                                            <select id="current-occupation" name="current_occupation" data-search="true" data-search-not-found="Not Found" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                            <select id="current-occupation" name="current_occupation"  data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                                <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
+                                                                @foreach($occupation as $item)
+                                                                    <option value="{{ $item->id }}">{{ $item->name_lang }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -355,22 +359,55 @@
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
+    <script src="{{ asset('custom/plugin/google-address-autocomplete/google-address-autocomplete.min.js') }}"></script>
     <script src="{{ asset('custom/js/form.js') }}"></script>
     <script>
         // https://github.com/nosir/cleave.js
         // https://catamphetamine.github.io/libphonenumber-js/
+        function getLatLngGoogle(address) {
+            var geocoder = new google.maps.Geocoder();
+            return jQuery.Deferred(function(dfrd) {
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if(status === google.maps.GeocoderStatus.OK) {
+                        dfrd.resolve(results[0].geometry.location);
+                    } else {
+                        dfrd.reject(new Error(status));
+                    }
+                });
+            }).promise();
+        }
         jQuery(function () {
+            jQuery('.bootstrap-tagsinput input').attr('size',1);
+
+            // Now you can use the library as you normally would
+            new AddressAutocomplete('#street-address', function (result) {
+                jQuery('#location-address').val(`${result.coordinates.lat},${result.coordinates.lng}`);
+            });
+
+            jQuery('#city').change(function () {
+                var country = jQuery('#country').find('option:selected').text();
+                var city = jQuery(this).find('option:selected').text();
+                getLatLngGoogle(`${country} ${city}`).done(function (result) {
+                    jQuery('#location-country-city').val(`${result.lat()},${result.lng()}`);
+                });
+            });
+
             jQuery('#country').change(function () {
-                jQuery.get(cms_api_url + 'settings/get-location',{ 'type': 'city', 'code' : jQuery(this).data('code') }, function (cities) {
+                jQuery('#city').attr('disabled',true).trigger('refresh');
+                jQuery.get(cms_api_url + 'settings/get-location',{ 'type': 'city', 'code': jQuery(this).find('option:selected').data('code') }, function (cities) {
                     var city = jQuery('#city');
                     city.styler('destroy');
                     city.html('');
-                    jQuery.each(cities,function (key,item) {
+                    city.append(`<option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>`);
+                    jQuery.each(cities, function (key,item) {
                         city.append(`<option value="${item.id}">${item.name}</option>`);
-                    })
+                    });
                     city.styler();
-                })
+                    jQuery('#city').attr('disabled',false).trigger('refresh');
+                });
             });
+
             jQuery('.summernote').summernote();
 
             var intlTelInputFixPadding = function () {
