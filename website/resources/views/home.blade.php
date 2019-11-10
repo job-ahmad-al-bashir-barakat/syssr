@@ -291,42 +291,54 @@
 				<span class="brk-abs-overlay brk-black-76-overlay"></span>
 				<div class="container all-light">
 					<div class="row no-gutters mt-0 mt-lg-70">
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-facebook-square"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Facebook</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-linkedin"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">LinkedIn</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-twitter"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Twitter</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-google-plus-g"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Google +</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">Youtube</h4>
-							</div>
-						</div>
-						<div class="col-6 col-md-4 col-lg-2">
-							<div class="social__icon-square social__icon-square_dark">
-								<a href="#"><i class="brk-icon slide-bg-wrap fab fa-whatsapp"><span class="slide-bg"></span></i></a>
-								<h4 class="font__family-montserrat font__size-16 text">WhatsApp</h4>
-							</div>
-						</div>
+                        @if($default_contact->facebook)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="{{$default_contact->facebook}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-facebook-square"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">Facebook</h4>
+                                </div>
+                            </div>
+                        @endif
+                        @if($default_contact->linkedin)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="{{$default_contact->linkedin}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-linkedin"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">LinkedIn</h4>
+                                </div>
+                            </div>
+                        @endif
+                        @if($default_contact->twitter)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="{{$default_contact->twitter}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-twitter"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">Twitter</h4>
+                                </div>
+                            </div>
+                        @endif
+                        @if($default_contact->google_plus)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="{{$default_contact->google_plus}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-google-plus-g"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">Google +</h4>
+                                </div>
+                            </div>
+                        @endif
+                        @if($default_contact->youtube)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="{{$default_contact->youtube}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">Youtube</h4>
+                                </div>
+                            </div>
+                        @endif
+                        @if($default_contact->whatsapp)
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <div class="social__icon-square social__icon-square_dark">
+                                    <a href="https://api.whatsapp.com/send?phone={{$default_contact->whatsapp}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-whatsapp"><span class="slide-bg"></span></i></a>
+                                    <h4 class="font__family-montserrat font__size-16 text">WhatsApp</h4>
+                                </div>
+                            </div>
+                        @endif
 					</div>
 				</div>
 			</div>
