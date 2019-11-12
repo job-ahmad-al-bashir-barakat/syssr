@@ -6,14 +6,14 @@
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
     <style>
         .jq-selectbox.disabled .jq-selectbox__select {
             background: #e2e2e21a;
         }
 
-        .bootstrap-tagsinput input {
+        /*.bootstrap-tagsinput input {
             width: auto !important;
             height: 30px !important;
         }
@@ -28,7 +28,7 @@
         .bootstrap-tagsinput .tag [data-role="remove"]:after {
             content: "x";
             padding: 0px 2px;
-        }
+        }*/
 
         .iti { width: 100%; }
         .iti__selected-flag {
@@ -275,13 +275,13 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">{{ trans('app.research_interests') }}</label>
-                                                            <input id="research-interests" name="research_interests" type="text" data-role="tagsinput"/>
+                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">{{ trans('app.skills') }}</label>
-                                                            <input id="skills" name="skills" type="text" data-role="tagsinput"/>
+                                                            <input id="skills" name="skills" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -289,13 +289,13 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">{{ trans('app.degrees') }}</label>
-                                                            <input id="degrees" name="degrees" type="text" data-role="tagsinput"/>
+                                                            <input id="degrees" name="degrees" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">{{ trans('app.association') }}</label>
-                                                            <input id="association" name="association" type="text" data-role="tagsinput"/>
+                                                            <input id="association" name="association" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -348,6 +348,8 @@
             </div>
         </main>
     </div>
+    <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
+
 @endsection
 
 @section('script')
@@ -357,6 +359,7 @@
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
+    <script src="{{ asset('custom/plugin/bootstrap-tagsinput/typeahead.bundle.js') }}"></script>
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
@@ -378,7 +381,6 @@
             }).promise();
         }
         jQuery(function () {
-            jQuery('.bootstrap-tagsinput input').attr('size',1);
 
             // Now you can use the library as you normally would
             new AddressAutocomplete('#street-address', function (result) {
@@ -408,7 +410,9 @@
                 });
             });
 
-            jQuery('.summernote').summernote();
+            jQuery('.summernote').summernote({
+                height: 250,
+            });
 
             var intlTelInputFixPadding = function () {
                 var iti = jQuery('.iti');
@@ -441,6 +445,52 @@
             }).promise.then(function () {
                 intlTelInputFixPadding();
             });
+
+            jQuery('.bootstrap-tagsinput input').attr('size',1);
+
+
+            var research_interests = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: cms_api_url + 'settings/get-data-settings?type=researchInterests',
+                    replace: function(url, query) {
+                        return url + "#" + query;
+                    },
+                    ajax : {
+                        beforeSend: function(jqXhr, settings){
+                            settings.data = $.param({tags: true})
+                        },
+                        type: "POST"
+                    }
+                }
+            });
+
+            jQuery('.tagsinput').typeahead(null, {
+                name: 'tags',
+                source: research_interests
+            });
+
+            /*jQuery('.tagsinput').tagsinput({
+                itemValue: 'value',
+                itemText: 'text',
+                freeInput: false,
+                typeaheadjs: {
+                    // name: 'research_interests',
+                    displayKey: 'text',
+                    source: function(query, process) {
+                        // do your Ajax call here
+                        return jQuery.post({
+                            url: cms_api_url + 'settings/get-data-settings?type=researchInterests',
+                            data: { tags: true, query: query }
+                        }).done(function(msg) {
+                            return  process(msg);
+                        }).fail(function(jqXhr, textStatus) {
+                            alert("Request failed: " + textStatus);
+                        });
+                    }
+                }
+            });*/
         });
     </script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>

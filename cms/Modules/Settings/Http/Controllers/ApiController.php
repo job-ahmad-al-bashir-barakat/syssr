@@ -16,9 +16,13 @@ use Modules\Settings\Entities\Occupation;
 
 class ApiController extends Controller
 {
+    public function __construct(){
+        $this->lang = \LaravelLocalization::getCurrentLocale();
+    }
 //----------------------------------------------------------------------//
     public function get_data_settings(Request $request){
         $type = $request['type'];
+        $tags = $request['tags'] ?? false;
         if(isset($request['lang']))
             $lang = $request['lang'];
         else
@@ -47,6 +51,14 @@ class ApiController extends Controller
         for ($i=0; $i <count($data) ; $i++) {
             $data[$i]['name_lang'] = $data[$i]['name'][$lang];
         }
+
+        if($tags) {
+            foreach ($data as $index => $item) {
+                $data[$index] = ['value' => $item['id'], 'text' => $item['name'][$this->lang]];
+            }
+            return \response()->json(['tags' => $data]);
+        }
+
         return $data;
     }
 //----------------------------------------------------------------------//
