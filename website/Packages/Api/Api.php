@@ -24,7 +24,7 @@ class Api
     }
 //--------------------------------------------------------------------------//
     public function occupation(){
-        return $this->request->data("settings/get-data-settings?type=occupations");
+        return $this->request->get("settings/get-data-settings?type=occupations");
     }
 //--------------------------------------------------------------------------//
     public function getAboutUs(){

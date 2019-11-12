@@ -6,6 +6,7 @@
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap4-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
     <style>
@@ -13,21 +14,20 @@
             background: #e2e2e21a;
         }
 
-        .bootstrap-tagsinput input {
+        .bootstrap-tagsinput {
+            min-height: 54px;
+            border: 2px solid rgba(205, 205, 205, 0.2);
+            border-radius: 27px;
+        }
+        .bootstrap-tagsinput .badge {
+            margin: 10px;
+        }
+        .twitter-typeahead {
+            margin: 6px;
+        }
+        .twitter-typeahead .tt-input {
             width: auto !important;
             height: 30px !important;
-        }
-        .bootstrap-tagsinput .tag {
-            margin-right: 2px;
-            color: white;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"] {
-            margin-left: 8px;
-            cursor: pointer;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"]:after {
-            content: "x";
-            padding: 0px 2px;
         }
 
         .iti { width: 100%; }
@@ -50,6 +50,9 @@
         .note-editor {
             border-color: #e8e8e8;
             z-index: 0;
+        }
+        .note-editor.note-frame {
+            border: 1px solid #e4e4e4;
         }
         .note-editor .btn-sm {
             padding: 4px 10px;
@@ -274,14 +277,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">{{ trans('app.research_interests') }}</label>
-                                                            <input id="research-interests" name="research_interests" type="text" data-role="tagsinput"/>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
+                                                                {{ trans('app.research_interests') }}
+                                                                <button class="btn btn-inside-out btn-sm btn-icon border-radius-25 font__family-open-sans font__weight-bold brk-library-rendered rendered" data-brk-library="component__button">
+                                                                    <span class="before">Add New</span>
+                                                                    <span class="text">Click here</span>
+                                                                    <span class="after">Add New</span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">{{ trans('app.skills') }}</label>
-                                                            <input id="skills" name="skills" type="text" data-role="tagsinput"/>
+                                                            <input id="skills" name="skills" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -289,13 +299,13 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">{{ trans('app.degrees') }}</label>
-                                                            <input id="degrees" name="degrees" type="text" data-role="tagsinput"/>
+                                                            <input id="degrees" name="degrees" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">{{ trans('app.association') }}</label>
-                                                            <input id="association" name="association" type="text" data-role="tagsinput"/>
+                                                            <input id="association" name="association" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -357,6 +367,7 @@
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
+    <script src="{{ asset('custom/plugin/typeahead/typeahead.bundle.js') }}"></script>
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
@@ -378,7 +389,6 @@
             }).promise();
         }
         jQuery(function () {
-            jQuery('.bootstrap-tagsinput input').attr('size',1);
 
             // Now you can use the library as you normally would
             new AddressAutocomplete('#street-address', function (result) {
@@ -408,7 +418,9 @@
                 });
             });
 
-            jQuery('.summernote').summernote();
+            jQuery('.summernote').summernote({
+                height: 250,
+            });
 
             var intlTelInputFixPadding = function () {
                 var iti = jQuery('.iti');
@@ -441,6 +453,39 @@
             }).promise.then(function () {
                 intlTelInputFixPadding();
             });
+
+
+            var research_interests = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true',
+                remote: {
+                    url: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true&q=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+            research_interests.initialize();
+            jQuery('.tagsinput').tagsinput({
+                tagClass: function(item) {
+                    return 'badge badge-info';
+                },
+                itemValue: 'value',
+                itemText: 'text',
+                typeaheadjs: {
+                    name: 'research_interests',
+                    displayKey:  'text',
+                    limit: 10,
+                    source: research_interests.ttAdapter()
+                },
+                confirmKeys: [13, 188]
+            });
+            jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
+                if (e.keyCode == 13){
+                    e.keyCode = 188;
+                    e.preventDefault();
+                };
+            });
+            jQuery('.twitter-typeahead .tt-input').attr('size',1);
         });
     </script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
