@@ -19,6 +19,10 @@ class Api
         return $this->request->get("settings/get-location?type=country");
     }
 //--------------------------------------------------------------------------//
+    public function getDefaultContactUs(){
+        return $this->request->get("pages/contact-us");
+    }
+//--------------------------------------------------------------------------//
     public function occupation(){
         return $this->request->data("settings/get-data-settings?type=occupations");
     }

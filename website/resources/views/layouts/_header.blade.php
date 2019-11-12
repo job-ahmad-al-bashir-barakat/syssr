@@ -75,8 +75,8 @@
                 <div class="col-lg-5 align-self-lg-stretch text-lg-right">
                     <div class="brk-header__title font__family-montserrat font__weight-bold">{{ trans('app.menu_extra') }}</div>
                     <div class="brk-call-us brk-header__item">
-                        <a href="tel:88001234567" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i> 8 800 12 34 567</a>
-                        <a href="tel:88001234567" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        <a href="tel:{{$default_contact->mobile_1}}" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i>{{$default_contact->mobile_1}}</a>
+                        <a href="tel:{{$default_contact->mobile_1}}" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
                     </div>
                     <div class="brk-lang brk-header__item">
                         <span class="brk-lang__selected">{{ strtoupper(LaravelLocalization::getCurrentLocale()) }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
