@@ -2,6 +2,27 @@
 
 @section('title', trans('pages::main.add_contact_us'))
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('plugins/intl-tel-input/css/intlTelInput.min.css') }}">
+    <style>
+        .iti { width: 100%; }
+        .iti__selected-flag {
+            outline: none;
+            padding: 0 25px 0 25px;
+        }
+        .iti__country-list {
+            z-index: 999;
+        }
+        .iti.iti--container {
+            width: 90%;
+        }
+        .iti-mobile .iti--container {
+            left: 5%;
+            right: 5%;
+        }
+    </style>
+@endsection
+
 @section('content')
 
     <!-- begin:: Subheader -->
@@ -11,29 +32,29 @@
                 <h3 class="kt-subheader__title">{{trans('pages::main.add_contact_us')}}</h3>
             </div>
             <div class="kt-subheader__toolbar">
-                    <a href="{{url('pages/contact-us')}}" class="btn btn-default btn-bold">{{trans('cms.back')}}</a>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-brand btn-bold">{{trans('cms.actions')}}</button>
-                        <button type="button" class="btn btn-brand btn-bold dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <ul class="kt-nav">
-                                <li class="kt-nav__item">
-                                    <a href="JavaScript:Void(0);" class="kt-nav__link save_add_new">
-                                        <i class="kt-nav__link-icon fa fa-plus"></i>
-                                        <span class="kt-nav__link-text">{{trans('cms.save_add_new')}}</span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__item">
-                                    <a href="JavaScript:Void(0);" class="kt-nav__link save_exit">
-                                        <i class="kt-nav__link-icon fa fa-save"></i>
-                                        <span class="kt-nav__link-text">{{trans('cms.save_exit')}}</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <a href="{{url('pages/contact-us')}}" class="btn btn-default btn-bold">{{trans('cms.back')}}</a>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-brand btn-bold">{{trans('cms.actions')}}</button>
+                    <button type="button" class="btn btn-brand btn-bold dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="kt-nav">
+                            <li class="kt-nav__item">
+                                <a href="JavaScript:Void(0);" class="kt-nav__link save_add_new">
+                                    <i class="kt-nav__link-icon fa fa-plus"></i>
+                                    <span class="kt-nav__link-text">{{trans('cms.save_add_new')}}</span>
+                                </a>
+                            </li>
+                            <li class="kt-nav__item">
+                                <a href="JavaScript:Void(0);" class="kt-nav__link save_exit">
+                                    <i class="kt-nav__link-icon fa fa-save"></i>
+                                    <span class="kt-nav__link-text">{{trans('cms.save_exit')}}</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
     <!-- end:: Subheader -->
@@ -108,32 +129,47 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group ">
-                                    <label>{{trans('pages::main.phone')}} <span class="req"></span></label>
-                                    <input type="text" class="form-control req @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{old('phone')}}">
-                                    <span class="form-text text-muted"><code>(999) 999-9999</code></span>
-                                    @error('phone')
-                                        <div id="phone-error" class="error invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                <div class="row">
+                                    <div class="col">
+                                        <label>{{trans('pages::main.phone')}} <span class="req"></span></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <input type="text" class="form-control req @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{old('phone')}}">
+                                        @error('phone')
+                                            <div id="phone-error" class="error invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>{{trans('pages::main.mobile').' (1)'}} <span class="req"></span></label>
-                                    <input type="text" class="form-control req mobile_mask @error('mobile_1') is-invalid @enderror" name="mobile_1" id="mobile_1" value="{{old('mobile_1')}}">
-                                    <span class="form-text text-muted"><code>(999) 999-999-9999</code></span>
-                                    @error('mobile_1')
-                                        <div id="mobile_1-error" class="error invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                <div class="row">
+                                    <div class="col">
+                                        <label>{{trans('pages::main.mobile').' (1)'}} <span class="req"></span></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <input type="text" class="form-control req @error('mobile_1') is-invalid @enderror" name="mobile_1" id="mobile_1" value="{{old('mobile_1')}}">
+                                        @error('mobile_1')
+                                            <div id="mobile_1-error" class="error invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group ">
-                                    <label>{{trans('pages::main.mobile').' (2)'}}</label>
-                                    <input type="text" class="form-control mobile_mask" name="mobile_2" id="mobile_2">
-                                    <span class="form-text text-muted"><code>(999) 999-999-9999</code></span>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>{{trans('pages::main.mobile').' (2)'}}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <input type="text" class="form-control" name="mobile_2" id="mobile_2">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -295,18 +331,51 @@
 @stop
 
 @section('js')
+<script src="{{ asset('plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
 <script src="{{ asset('theme/js/pages/crud/forms/widgets/bootstrap-switch.js') }}" type="text/javascript"></script>
 <script>
     //----------------------------------------------------------------------------------------//
+    function intlTelInputFixPadding() {
+        var iti = jQuery('.iti');
+        var width = iti.find('.iti__flag-container').width();
+        iti.find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
+    }
+    //----------------------------------------------------------------------------------------//
+    function _intlTelInput(ele_id){
+        var input = window.intlTelInput( document.querySelector('#'+ele_id),{
+            allowExtensions: true,
+            autoFormat: false,
+            allowDropdown: true,
+            separateDialCode: true,
+            initialCountry: "auto",
+            hiddenInput: ele_id+'_full',
+            utilsScript: "{{asset('plugins/intl-tel-input/js/utils.js')}}",
+            geoIpLookup: function(success, failure) {
+                $.get("http://www.geoplugin.net/json.gp", function(res) {
+                    var countryCode = (res && res.geoplugin_countryCode) ? res.geoplugin_countryCode : "";
+                    success(countryCode);
+                }).fail(function () {
+                    success('US')
+                });
+            },
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                $('#'+ele_id).inputmask(selectedCountryPlaceholder.replace(/\d/g,'9').replace(/-/g,' '), {
+                    "placeholder": ' ',
+                });
+                intlTelInputFixPadding();
+                return selectedCountryPlaceholder;
+            }
+        }).promise.then(function () {
+            intlTelInputFixPadding();
+        });
+    }
+    //----------------------------------------------------------------------------------------//
     $(function(){
         //=================================================//
-        $("#phone").inputmask("mask", {
-            "mask": "(999) 999-9999"
-        });
-        $(".mobile_mask").inputmask("mask", {
-            "mask": "(999) 999-999-9999"
-        });
-         //=================================================//
+        _intlTelInput('phone');
+        _intlTelInput('mobile_1');
+        _intlTelInput('mobile_2');
+        //=================================================//
          $('.save_exit').click(function(){
             submit_form('contact-form','exit');
         });
