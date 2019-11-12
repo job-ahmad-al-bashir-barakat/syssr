@@ -16,10 +16,16 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('default',1);
             $table->string('contact_email');
+            $table->string('info_email');
             $table->string('phone');
             $table->string('mobile_1');
             $table->string('mobile_2')->nullable();
+            $table->string('address');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
@@ -29,23 +35,7 @@ class CreateContactUsTable extends Migration
             $table->string('skype')->nullable();
             $table->string('medium')->nullable();
             $table->timestamps();
-        });
-        
-        ContactUs::create([
-            'contact_email'     =>  'contact@syssr.org',
-            'phone'             =>  '',
-            'mobile_1'          =>  '',
-            'mobile_2'          =>  '',
-            'facebook'          =>  'https://www.facebook.com/SyrianSocietyforScientificResearch',
-            'linkedin'          =>  'https://www.linkedin.com/in/syrian-society-for-scientific-research-a33577108',
-            'twitter'           =>  'https://twitter.com/SSSR_org',
-            'google_plus'       =>  'https://plus.google.com/+SyssrOrg',
-            'youtube'           =>  'http://www.youtube.com/user/SyssrOrg',
-            'whatsapp'          =>  '',
-            'skype'             =>  '',
-            'medium'            =>  '',
-        ]);
-        
+        });     
     }
 
     /**

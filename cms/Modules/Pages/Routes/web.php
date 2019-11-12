@@ -20,6 +20,9 @@ Route::group([
     Route::prefix('pages')->group(function() {
         
         Route::resource('contact-us', 'ContactUsController');
+        Route::get('/getDatatableContactUs', [
+            'as' => 'getDatatableContactUs.data', 'uses' => 'ContactUsController@getDatatableContactUs',
+        ]);
 
         Route::resource('about-us', 'AboutUsController');
 
