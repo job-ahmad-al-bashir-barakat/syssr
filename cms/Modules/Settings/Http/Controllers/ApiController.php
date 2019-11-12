@@ -23,6 +23,7 @@ class ApiController extends Controller
     public function get_data_settings(Request $request){
         $type = $request['type'];
         $tags = $request['tags'] ?? false;
+        $q = $request['q'] ?? '';
         if(isset($request['lang']))
             $lang = $request['lang'];
         else
@@ -39,7 +40,7 @@ class ApiController extends Controller
                 $data = Degree::all()->toArray();
             break;
             case 'researchInterests':
-                $data = ResearchInterest::all()->toArray();
+                $data = ResearchInterest::where("name->$lang", 'like',"%$q%")->get()->toArray();
             break;
             case 'occupations':
                 $data = Occupation::all()->toArray();
@@ -56,9 +57,8 @@ class ApiController extends Controller
             foreach ($data as $index => $item) {
                 $data[$index] = ['value' => $item['id'], 'text' => $item['name'][$this->lang]];
             }
-            return \response()->json(['tags' => $data]);
+            return \response()->json($data);
         }
-
         return $data;
     }
 //----------------------------------------------------------------------//

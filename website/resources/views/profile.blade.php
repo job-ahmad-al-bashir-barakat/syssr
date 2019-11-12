@@ -6,29 +6,29 @@
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap4-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
     <style>
         .jq-selectbox.disabled .jq-selectbox__select {
             background: #e2e2e21a;
         }
 
-        /*.bootstrap-tagsinput input {
+        .bootstrap-tagsinput {
+            min-height: 54px;
+            border: 2px solid rgba(205, 205, 205, 0.2);
+            border-radius: 27px;
+        }
+        .bootstrap-tagsinput .badge {
+            margin: 10px;
+        }
+        .twitter-typeahead {
+            margin: 6px;
+        }
+        .twitter-typeahead .tt-input {
             width: auto !important;
             height: 30px !important;
         }
-        .bootstrap-tagsinput .tag {
-            margin-right: 2px;
-            color: white;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"] {
-            margin-left: 8px;
-            cursor: pointer;
-        }
-        .bootstrap-tagsinput .tag [data-role="remove"]:after {
-            content: "x";
-            padding: 0px 2px;
-        }*/
 
         .iti { width: 100%; }
         .iti__selected-flag {
@@ -50,6 +50,9 @@
         .note-editor {
             border-color: #e8e8e8;
             z-index: 0;
+        }
+        .note-editor.note-frame {
+            border: 1px solid #e4e4e4;
         }
         .note-editor .btn-sm {
             padding: 4px 10px;
@@ -274,7 +277,14 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">{{ trans('app.research_interests') }}</label>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
+                                                                {{ trans('app.research_interests') }}
+                                                                <button class="btn btn-inside-out btn-sm btn-icon border-radius-25 font__family-open-sans font__weight-bold brk-library-rendered rendered" data-brk-library="component__button">
+                                                                    <span class="before">Add New</span>
+                                                                    <span class="text">Click here</span>
+                                                                    <span class="after">Add New</span>
+                                                                </button>
+                                                            </label>
                                                             <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
                                                         </div>
                                                     </div>
@@ -348,8 +358,6 @@
             </div>
         </main>
     </div>
-    <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
-
 @endsection
 
 @section('script')
@@ -359,7 +367,7 @@
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
-    <script src="{{ asset('custom/plugin/bootstrap-tagsinput/typeahead.bundle.js') }}"></script>
+    <script src="{{ asset('custom/plugin/typeahead/typeahead.bundle.js') }}"></script>
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
@@ -446,51 +454,38 @@
                 intlTelInputFixPadding();
             });
 
-            jQuery('.bootstrap-tagsinput input').attr('size',1);
-
 
             var research_interests = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true',
                 remote: {
-                    url: cms_api_url + 'settings/get-data-settings?type=researchInterests',
-                    replace: function(url, query) {
-                        return url + "#" + query;
-                    },
-                    ajax : {
-                        beforeSend: function(jqXhr, settings){
-                            settings.data = $.param({tags: true})
-                        },
-                        type: "POST"
-                    }
+                    url: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true&q=%QUERY',
+                    wildcard: '%QUERY'
                 }
             });
-
-            jQuery('.tagsinput').typeahead(null, {
-                name: 'tags',
-                source: research_interests
-            });
-
-            /*jQuery('.tagsinput').tagsinput({
+            research_interests.initialize();
+            jQuery('.tagsinput').tagsinput({
+                tagClass: function(item) {
+                    return 'badge badge-info';
+                },
                 itemValue: 'value',
                 itemText: 'text',
-                freeInput: false,
                 typeaheadjs: {
-                    // name: 'research_interests',
-                    displayKey: 'text',
-                    source: function(query, process) {
-                        // do your Ajax call here
-                        return jQuery.post({
-                            url: cms_api_url + 'settings/get-data-settings?type=researchInterests',
-                            data: { tags: true, query: query }
-                        }).done(function(msg) {
-                            return  process(msg);
-                        }).fail(function(jqXhr, textStatus) {
-                            alert("Request failed: " + textStatus);
-                        });
-                    }
-                }
-            });*/
+                    name: 'research_interests',
+                    displayKey:  'text',
+                    limit: 10,
+                    source: research_interests.ttAdapter()
+                },
+                confirmKeys: [13, 188]
+            });
+            jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
+                if (e.keyCode == 13){
+                    e.keyCode = 188;
+                    e.preventDefault();
+                };
+            });
+            jQuery('.twitter-typeahead .tt-input').attr('size',1);
         });
     </script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>

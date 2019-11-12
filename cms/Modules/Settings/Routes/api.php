@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 
-Route::post('settings/get-data-settings', 'ApiController@get_data_settings');
+Route::get('settings/get-data-settings', 'ApiController@get_data_settings');
 Route::post('settings/set-data-settings', 'ApiController@set_data_settings');
 
 Route::get('settings/get-location','ApiController@get_location');
