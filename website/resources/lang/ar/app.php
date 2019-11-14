@@ -49,6 +49,7 @@ return [
     'latest_news'   =>  'آخر الأخبار',
 
     // profile
+    'name' => 'الاسم',
     'general' => 'عام',
     'gender' => 'جنس',
     'birth_date' => 'تاريخ الميلاد',

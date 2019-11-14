@@ -49,6 +49,7 @@ return [
     'latest_news'   =>  'Latest News',
 
     // profile
+    'name' => 'Name',
     'general' => 'General',
     'gender' => 'Gender',
     'birth_date' => 'Birth date',

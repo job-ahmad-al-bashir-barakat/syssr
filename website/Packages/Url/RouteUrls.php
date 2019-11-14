@@ -4,6 +4,12 @@ namespace Packages\Url;
 
 class RouteUrls
 {
+    function __construct()
+    {
+        $this->cms_api = config('api.cms_api_url');
+        $this->lang = \LaravelLocalization::getCurrentLocale();
+    }
+
     public function localizeUrl($url = '', $modular = '')
     {
         $locale = app()->getLocale();
@@ -13,6 +19,9 @@ class RouteUrls
         return url("{$locale}/{$modular}{$url}");
     }
 
+    /*
+     *  Web Route
+     */
     public function home()
     {
         return $this->localizeUrl('/');
@@ -72,5 +81,16 @@ class RouteUrls
     public function contact()
     {
         return $this->localizeUrl('contact');
+    }
+
+    /*
+     *  Api Route
+     */
+    public function setDataSettings($type = '') {
+        return $this->cms_api . "settings/set-data-settings?type=$type";
+    }
+
+    public function getDataSettings($type = '') {
+        return $this->cms_api . "settings/get-data-settings?type=$type&lang={$this->lang}&tags=true";
     }
 }

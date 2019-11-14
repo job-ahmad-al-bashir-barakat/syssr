@@ -16,9 +16,6 @@ use Modules\Settings\Entities\Occupation;
 
 class ApiController extends Controller
 {
-    public function __construct(){
-        $this->lang = \LaravelLocalization::getCurrentLocale();
-    }
 //----------------------------------------------------------------------//
     public function get_data_settings(Request $request){
         $type = $request['type'];
@@ -55,7 +52,7 @@ class ApiController extends Controller
 
         if($tags) {
             foreach ($data as $index => $item) {
-                $data[$index] = ['value' => $item['id'], 'text' => $item['name'][$this->lang]];
+                $data[$index] = ['value' => $item['id'], 'text' => $item['name'][$lang]];
             }
             return \response()->json($data);
         }
@@ -75,8 +72,8 @@ class ApiController extends Controller
                     $skill->setTranslation('name', 'en', $data['name_en']);
                     $skill->setTranslation('name', 'ar', $data['name_ar']);
                     $slugify = new Slugify();
-                    $degree->code = $slugify->slugify($data['name_en']);
-                    $degree->save();
+                    $skill->code = $slugify->slugify($data['name_en']);
+                    $skill->save();
                 }
                 return response()->json(['success' => $success , 'message' => $message]);
             break;
@@ -86,12 +83,12 @@ class ApiController extends Controller
                 $message = '';
                 if($success){
                     $message = trans('cms.saved_successfully');
-                    $degree = new Degree();
-                    $degree->setTranslation('name', 'en', $data['name_en']);
-                    $degree->setTranslation('name', 'ar', $data['name_ar']);
+                    $associations = new Association();
+                    $associations->setTranslation('name', 'en', $data['name_en']);
+                    $associations->setTranslation('name', 'ar', $data['name_ar']);
                     $slugify = new Slugify();
-                    $degree->code = $slugify->slugify($data['name_en']);
-                    $degree->save();
+                    $associations->code = $slugify->slugify($data['name_en']);
+                    $associations->save();
                 }
                 return response()->json(['success' => $success , 'message' => $message]);
             break;
@@ -118,12 +115,12 @@ class ApiController extends Controller
                 $message = '';
                 if($success){
                     $message = trans('cms.saved_successfully');
-                    $degree = new Degree();
-                    $degree->setTranslation('name', 'en', $data['name_en']);
-                    $degree->setTranslation('name', 'ar', $data['name_ar']);
+                    $researchInterests = new ResearchInterest();
+                    $researchInterests->setTranslation('name', 'en', $data['name_en']);
+                    $researchInterests->setTranslation('name', 'ar', $data['name_ar']);
                     $slugify = new Slugify();
-                    $degree->code = $slugify->slugify($data['name_en']);
-                    $degree->save();
+                    $researchInterests->code = $slugify->slugify($data['name_en']);
+                    $researchInterests->save();
                 }
                 return response()->json(['success' => $success , 'message' => $message]);
             break;

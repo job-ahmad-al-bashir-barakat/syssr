@@ -18,10 +18,10 @@ function slim_call() {
         slimCropper.slim();
 }
 
-function form_call() {
-    var formAjax = jQuery('.form-ajax');
+function form_call(form = '.form-ajax', callback) {
+    var formAjax = jQuery(form);
     if(formAjax.length)
-        formAjax.parsley().on('form:submit', function() {
+        formAjax.parsley().off('form:submit').on('form:submit', function() {
 
             var form = this.$element;
             var formData = new FormData(form[0])
@@ -34,7 +34,9 @@ function form_call() {
                 success: function(res) {
                     alert_message()
 
-                    console.log(res.intended);
+                    if(callback)
+                        callback();
+
                     if(res.intended)
                         window.location.href = res.intended;
                 },

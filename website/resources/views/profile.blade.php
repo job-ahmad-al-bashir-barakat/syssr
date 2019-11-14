@@ -62,6 +62,12 @@
             background: #fff;
             border: 0;
         }
+
+        .icon__btn-xs {
+            margin: 0 10px;
+            width: 25px;
+            height: 25px;
+        }
     </style>
 @endsection
 
@@ -279,33 +285,54 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
                                                                 {{ trans('app.research_interests') }}
-                                                                <button class="btn btn-inside-out btn-sm btn-icon border-radius-25 font__family-open-sans font__weight-bold brk-library-rendered rendered" data-brk-library="component__button">
-                                                                    <span class="before">Add New</span>
-                                                                    <span class="text">Click here</span>
-                                                                    <span class="after">Add New</span>
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button" data-title="{{ trans('app.research_interests') }}" data-action="{{ RouteUrls::setDataSettings('researchInterests') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
                                                                 </button>
                                                             </label>
-                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput"/>
+                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('researchInterests') }}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">{{ trans('app.skills') }}</label>
-                                                            <input id="skills" name="skills" type="text" class="tagsinput"/>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">
+                                                                {{ trans('app.skills') }}
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}"/>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">{{ trans('app.degrees') }}</label>
-                                                            <input id="degrees" name="degrees" type="text" class="tagsinput"/>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">
+                                                                {{ trans('app.degrees') }}
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button"  data-title="{{ trans('app.degrees') }}" data-action="{{ RouteUrls::setDataSettings('degrees') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="degrees" name="degrees" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('degrees') }}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">{{ trans('app.association') }}</label>
-                                                            <input id="association" name="association" type="text" class="tagsinput"/>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">
+                                                                {{ trans('app.association') }}
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="association" name="association" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('associations') }}"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -361,6 +388,24 @@
 @endsection
 
 @section('script')
+
+    @component('partials._modal',['form' => true])
+        <div class="brk-form brk-form-round" data-brk-library="component__form">
+            @foreach(LaravelLocalization::getSupportedLocales() as $lang => $item)
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-name-{{ $lang }}-form">{{ trans("app.name") }} ( {{ $item['native'] }} )</label>
+                        <input id="brk-name-{{ $lang }}-form" name="data[name_{{ $lang }}]" type="text" placeholder="{{ trans("app.name") }} ( {{ $item['native'] }} )" @if(LaravelLocalization::getDefaultLocale() == $lang) required data-parsley-errors-container="#name-{{$lang}}-error" @endif>
+                        @if(LaravelLocalization::getDefaultLocale() == $lang)
+                        <div id="name-{{ $lang }}-error" class="d-inline-block invalid-feedback pl-4"></div>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endcomponent
+
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
@@ -388,6 +433,7 @@
                 });
             }).promise();
         }
+
         jQuery(function () {
 
             // Now you can use the library as you normally would
@@ -454,30 +500,35 @@
                 intlTelInputFixPadding();
             });
 
-
-            var research_interests = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true',
-                remote: {
-                    url: cms_api_url + 'settings/get-data-settings?type=researchInterests&tags=true&q=%QUERY',
-                    wildcard: '%QUERY'
-                }
-            });
-            research_interests.initialize();
-            jQuery('.tagsinput').tagsinput({
-                tagClass: function(item) {
-                    return 'badge badge-info';
-                },
-                itemValue: 'value',
-                itemText: 'text',
-                typeaheadjs: {
-                    name: 'research_interests',
-                    displayKey:  'text',
-                    limit: 10,
-                    source: research_interests.ttAdapter()
-                },
-                confirmKeys: [13, 188]
+            var tags = function (url) {
+                var tags = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    prefetch: url,
+                    remote: {
+                        url: url + '&q=%QUERY',
+                        wildcard: '%QUERY'
+                    }
+                });
+                tags.initialize();
+                return tags;
+            };
+            jQuery('.tagsinput').each(function () {
+                var $this = jQuery(this);
+                jQuery(this).tagsinput({
+                    tagClass: function(item) {
+                        return 'badge badge-info';
+                    },
+                    itemValue: 'value',
+                    itemText: 'text',
+                    typeaheadjs: {
+                        name: $this.attr('id'),
+                        displayKey:  'text',
+                        limit: 10,
+                        source: tags($this.data('remote')).ttAdapter()
+                    },
+                    confirmKeys: [13, 188]
+                });
             });
             jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
                 if (e.keyCode == 13){
@@ -486,6 +537,25 @@
                 };
             });
             jQuery('.twitter-typeahead .tt-input').attr('size',1);
+            jQuery('.add-new').click(function(e) {
+                e.preventDefault();
+
+                var button = jQuery(this);
+
+                var title = button.data('title');
+                var action = button.data('action');
+                var modal = jQuery(button.data('target'));
+
+                modal.find('.modal-title').text(title);
+                modal.find('form').attr('action',action ? action : '');
+
+                jQuery('#site-modal').modal('show');
+
+                form_call('.form-ajax-modal',function () {
+                    jQuery('#site-modal').modal('hide');
+                    modal.find('form input').val('');
+                });
+            });
         });
     </script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
