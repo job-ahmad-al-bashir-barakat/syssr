@@ -16,7 +16,12 @@ class SettingsDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(CountryTableSeeder::class);
-        $this->call(CityTableSeeder::class);
+        // country/city from api
+        // $this->call(CountryTableSeeder::class);
+        // $this->call(CityTableSeeder::class);
+
+        // country/city from db
+        $this->call(CountriesTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
     }
 }
