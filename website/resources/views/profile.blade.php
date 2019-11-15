@@ -285,7 +285,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
                                                                 {{ trans('app.research_interests') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button" data-title="{{ trans('app.research_interests') }}" data-action="{{ RouteUrls::setDataSettings('researchInterests') }}" data-target=".modal">
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" data-brk-library="component__button" data-title="{{ trans('app.research_interests') }}" data-action="{{ RouteUrls::setDataSettings('researchInterests') }}" data-target=".modal">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>
@@ -298,7 +298,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">
                                                                 {{ trans('app.skills') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>
@@ -313,7 +313,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">
                                                                 {{ trans('app.degrees') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button"  data-title="{{ trans('app.degrees') }}" data-action="{{ RouteUrls::setDataSettings('degrees') }}" data-target=".modal">
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" data-brk-library="component__button"  data-title="{{ trans('app.degrees') }}" data-action="{{ RouteUrls::setDataSettings('degrees') }}" data-target=".modal">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>
@@ -326,7 +326,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="association">
                                                                 {{ trans('app.association') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new" data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal">
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>
@@ -408,155 +408,22 @@
 
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
+
     <script src="{{ asset('custom/plugin/slim-cropper/slim/slim.jquery.js') }}"></script>
+
     <script src="{{ asset('custom/plugin/intl-tel-input/js/intlTelInput.min.js') }}"></script>
+
     <script src="{{ asset('custom/plugin/Inputmask/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('custom/plugin/Inputmask/bindings/inputmask.binding.js') }}"></script>
+
     <script src="{{ asset('custom/plugin/typeahead/typeahead.bundle.js') }}"></script>
     <script src="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
+
     <script src="{{ asset('custom/plugin/summernote/summernote-bs4.js') }}"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
     <script src="{{ asset('custom/plugin/google-address-autocomplete/google-address-autocomplete.min.js') }}"></script>
+
     <script src="{{ asset('custom/js/form.js') }}"></script>
-    <script>
-        // https://github.com/nosir/cleave.js
-        // https://catamphetamine.github.io/libphonenumber-js/
-        function getLatLngGoogle(address) {
-            var geocoder = new google.maps.Geocoder();
-            return jQuery.Deferred(function(dfrd) {
-                geocoder.geocode({'address': address}, function(results, status) {
-                    if(status === google.maps.GeocoderStatus.OK) {
-                        dfrd.resolve(results[0].geometry.location);
-                    } else {
-                        dfrd.reject(new Error(status));
-                    }
-                });
-            }).promise();
-        }
-
-        jQuery(function () {
-
-            // Now you can use the library as you normally would
-            new AddressAutocomplete('#street-address', function (result) {
-                jQuery('#location-address').val(`${result.coordinates.lat},${result.coordinates.lng}`);
-            });
-
-            jQuery('#city').change(function () {
-                var country = jQuery('#country').find('option:selected').text();
-                var city = jQuery(this).find('option:selected').text();
-                getLatLngGoogle(`${country} ${city}`).done(function (result) {
-                    jQuery('#location-country-city').val(`${result.lat()},${result.lng()}`);
-                });
-            });
-
-            jQuery('#country').change(function () {
-                jQuery('#city').attr('disabled',true).trigger('refresh');
-                jQuery.get(cms_api_url + 'settings/get-location',{ 'type': 'city', 'code': jQuery(this).find('option:selected').data('code') }, function (cities) {
-                    var city = jQuery('#city');
-                    city.styler('destroy');
-                    city.html('');
-                    city.append(`<option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>`);
-                    jQuery.each(cities, function (key,item) {
-                        city.append(`<option value="${item.id}">${item.name}</option>`);
-                    });
-                    city.styler();
-                    jQuery('#city').attr('disabled',false).trigger('refresh');
-                });
-            });
-
-            jQuery('.summernote').summernote({
-                height: 250,
-            });
-
-            var intlTelInputFixPadding = function () {
-                var iti = jQuery('.iti');
-                var width = iti.find('.iti__flag-container').width();
-                iti.find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
-            };
-            var input = window.intlTelInput( document.querySelector(".brk-form-mobile"),{
-                allowExtensions: true,
-                autoFormat: false,
-                allowDropdown: true,
-                separateDialCode: true,
-                initialCountry: "auto",
-                hiddenInput: 'mobile_full',
-                utilsScript: "custom/plugin/intl-tel-input/js/utils.js",
-                geoIpLookup: function(success, failure) {
-                    jQuery.get("http://www.geoplugin.net/json.gp", function(res) {
-                        var countryCode = (res && res.geoplugin_countryCode) ? res.geoplugin_countryCode : "";
-                        success(countryCode);
-                    }).fail(function () {
-                        success('US')
-                    });
-                },
-                customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                    jQuery('.brk-form-mobile').inputmask(selectedCountryPlaceholder.replace(/\d/g,'9').replace(/-/g,' '), {
-                        "placeholder": ' ',
-                    });
-                    intlTelInputFixPadding();
-                    return selectedCountryPlaceholder;
-                }
-            }).promise.then(function () {
-                intlTelInputFixPadding();
-            });
-
-            var tags = function (url) {
-                var tags = new Bloodhound({
-                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
-                    queryTokenizer: Bloodhound.tokenizers.whitespace,
-                    prefetch: url,
-                    remote: {
-                        url: url + '&q=%QUERY',
-                        wildcard: '%QUERY'
-                    }
-                });
-                tags.initialize();
-                return tags;
-            };
-            jQuery('.tagsinput').each(function () {
-                var $this = jQuery(this);
-                jQuery(this).tagsinput({
-                    tagClass: function(item) {
-                        return 'badge badge-info';
-                    },
-                    itemValue: 'value',
-                    itemText: 'text',
-                    typeaheadjs: {
-                        name: $this.attr('id'),
-                        displayKey:  'text',
-                        limit: 10,
-                        source: tags($this.data('remote')).ttAdapter()
-                    },
-                    confirmKeys: [13, 188]
-                });
-            });
-            jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
-                if (e.keyCode == 13){
-                    e.keyCode = 188;
-                    e.preventDefault();
-                };
-            });
-            jQuery('.twitter-typeahead .tt-input').attr('size',1);
-            jQuery('.add-new').click(function(e) {
-                e.preventDefault();
-
-                var button = jQuery(this);
-
-                var title = button.data('title');
-                var action = button.data('action');
-                var modal = jQuery(button.data('target'));
-
-                modal.find('.modal-title').text(title);
-                modal.find('form').attr('action',action ? action : '');
-
-                jQuery('#site-modal').modal('show');
-
-                form_call('.form-ajax-modal',function () {
-                    jQuery('#site-modal').modal('hide');
-                    modal.find('form input').val('');
-                });
-            });
-        });
-    </script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
 @endsection
