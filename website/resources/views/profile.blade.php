@@ -9,66 +9,6 @@
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap4-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
-    <style>
-        .jq-selectbox.disabled .jq-selectbox__select {
-            background: #e2e2e21a;
-        }
-
-        .bootstrap-tagsinput {
-            min-height: 54px;
-            border: 2px solid rgba(205, 205, 205, 0.2);
-            border-radius: 27px;
-        }
-        .bootstrap-tagsinput .badge {
-            margin: 10px;
-        }
-        .twitter-typeahead {
-            margin: 6px;
-        }
-        .twitter-typeahead .tt-input {
-            width: auto !important;
-            height: 30px !important;
-        }
-
-        .iti { width: 100%; }
-        .iti__selected-flag {
-            outline: none;
-            padding: 0 25px 0 25px;
-            border-radius: 50px 0 0 50px;
-        }
-        .iti__country-list {
-            z-index: 999;
-        }
-        .iti.iti--container {
-            width: 90%;
-        }
-        .iti-mobile .iti--container {
-            left: 5%;
-            right: 5%;
-        }
-
-        .note-editor {
-            border-color: #e8e8e8;
-            z-index: 0;
-        }
-        .note-editor.note-frame {
-            border: 1px solid #e4e4e4;
-        }
-        .note-editor .btn-sm {
-            padding: 4px 10px;
-            box-shadow: #00000029 1px 1px 1px;
-        }
-        .note-editor .note-toolbar {
-            background: #fff;
-            border: 0;
-        }
-
-        .icon__btn-xs {
-            margin: 0 10px;
-            width: 25px;
-            height: 25px;
-        }
-    </style>
 @endsection
 
 @section('content')
