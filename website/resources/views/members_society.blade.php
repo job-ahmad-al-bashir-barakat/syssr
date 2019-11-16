@@ -5,7 +5,7 @@
 @include('partials._about_society_style')
 
 @section('content')
-    @include('partials._breadcrumbs',['title' => trans('app.members_society')])
+    @include('partials._breadcrumbs',['title' => trans('app.members_society'), 'banner' => asset('img/syssr/members-banner.jpg')])
     <div class="main-wrapper">
         <main class="main-container pb-50 pt-70">
             <section>

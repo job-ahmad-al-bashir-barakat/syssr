@@ -12,20 +12,7 @@
 @endsection
 
 @section('content')
-    <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
-        <div class="full__size-absolute brk-bg-black opacity-70"></div>
-        <div class="container">
-            <div class="breadcrumbs__wrapper align-items-center">
-                <div class="pull-left text-left" data-brk-library="component__title">
-                    <h2 class="brk-white-font-color font__size-36 line__height-50 font__family-montserrat-alt font__weight-bold">{{ trans('app.profile') }}</h2>
-                </div>
-                <ol class="breadcrumb pull-right font__size-14 font__weight-bold font__family-montserrat">
-                    <li><a href="{{ RouteUrls::home() }}">{{ trans('app.home') }} <i class="fas fa-arrow-right"></i></a></li>
-                    <li class="active">{{ trans('app.profile') }}</li>
-                </ol>
-            </div>
-        </div>
-    </div>
+    @include('partials._breadcrumbs',['title' => trans('app.profile'), 'banner' => asset('img/syssr/profile-banner.jpg')])
     <div class="main-wrapper">
         <main class="main-container">
             <h1 class="sr-only">Profile</h1>
