@@ -21,4 +21,6 @@
             originalOptions.data.append('api_token', api_token);
         }
     });
+
+    var choose_here = "{{ trans('app.choose_here') }}";
 </script>
