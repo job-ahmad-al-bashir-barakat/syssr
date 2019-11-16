@@ -8,18 +8,24 @@
                     <div class="col-12 col-sm-6 col-lg-4 order-sm-1 order-2">
                         <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 mb-50 text-center text-sm-left">{{ trans('app.our_info') }}</h6>
                         <p class="font__family-open-sans font__size-14 line__height-16 mb-15 brk-white-font-color opacity-50 text-center text-sm-left">{{ trans('app.our_info_message') }}</p>
+                        @if(!empty($default_contact->mobile_1))
                         <p class="font__size-36 text-center text-sm-left">
                             <a href="tel:{{$default_contact->mobile_1}}" class="brk-white-font-color font__family-open-sans font__weight-light line__height-36">{{$default_contact->mobile_1}}</a>
                         </p>
                         <hr class="horiz-line mt-35 mb-40">
+                        @endif
+                        @if(!empty($default_contact->contact_email))
                         <p class="font__family-open-sans font__weight-bold font__size-14 mb-10 brk-white-font-color text-center text-sm-left">
                             <i class="brk-footer-icon text-middle fa fa-envelope line__height-24"></i>
                             <a href="mailto:{{$default_contact->contact_email}}" class="show-inline-block">{{$default_contact->contact_email}}</a>
                         </p>
+                        @endif
+                        @if(!empty($default_contact->address))
                         <p class="font__family-open-sans font__weight-bold font__size-14 mb-40 mb-sm-10 brk-white-font-color text-center text-sm-left">
                             <i class="brk-footer-icon text-middle fa fa-map-marker line__height-24"></i>
-                            <span>Chicago, USA</span>
+                            <span>{{$default_contact->address->$lang}}</span>
                         </p>
+                        @endif
                     </div>
                     <div class="col-12 col-sm-6 col-lg-8 order-sm-2 order-1">
                         <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-36 text-center text-sm-left pt-xs-20">{{ trans('app.contact') }}</h6>
@@ -48,32 +54,32 @@
                     <div class="d-flex justify-content-sm-between justify-content-center align-items-center flex-lg-row flex-column flex-wrap pt-20 pb-15">
                         <p class="brk-white-font-color font__size-14">© {{ date('Y') }} {!! trans('app.copyright') !!}</p>
                         <div class="brk-social-links brk-white-font-color font__size-12" data-brk-library="component__social_links">
-                            @if($default_contact->facebook)
+                            @if(!empty($default_contact->facebook))
                                 <a href="{{$default_contact->facebook}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-facebook-square fa-2x"></i>
                                 </a>
                             @endif
-                            @if($default_contact->linkedin)
+                            @if(!empty($default_contact->linkedin))
                                 <a href="{{$default_contact->linkedin}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-linkedin fa-2x"></i>
                                 </a>
                             @endif
-                            @if($default_contact->twitter)
+                            @if(!empty($default_contact->twitter))
                                 <a href="{{$default_contact->twitter}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-twitter fa-2x"></i>
                                 </a>
                             @endif
-                            @if($default_contact->google_plus)
+                            @if(!empty($default_contact->google_plus))
                                 <a href="{{$default_contact->google_plus}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-google-plus-g fa-2x"></i>
                                 </a>
                             @endif
-                            @if($default_contact->youtube)
+                            @if(!empty($default_contact->youtube))
                                 <a href="{{$default_contact->youtube}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-youtube fa-2x"></i>
                                 </a>
                             @endif
-                            @if($default_contact->whatsapp)
+                            @if(!empty($default_contact->whatsapp))
                                 <a href="https://api.whatsapp.com/send?phone={{$default_contact->whatsapp}}" target="_blank" class="brk-social-links__item">
                                     <i class="fab fa-whatsapp fa-2x"></i>
                                 </a>

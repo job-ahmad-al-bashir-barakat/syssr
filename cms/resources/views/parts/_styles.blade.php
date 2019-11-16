@@ -42,6 +42,9 @@ span.req:after {
     padding-left: 6px;
     font-size: 18px;
 }
+.invalid-feedback{
+    display: block;
+}
 .facebook-color{
     color: #3B5998 !important;
 }
