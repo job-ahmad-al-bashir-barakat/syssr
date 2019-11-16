@@ -36,6 +36,6 @@ Route::group([
 
     Route::get('profile', 'ProfileController@index')->name('profile');
 
-    Auth::routes(['verify' => true]);
+    Auth::routes(['verify' => true, 'register' => false]);
 });
 

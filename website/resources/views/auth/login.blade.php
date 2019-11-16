@@ -86,14 +86,6 @@
                                                             <span class="before"><i
                                                                     class="far fa-hand-point-right"></i></span>
                                                         </button>
-                                                        <a href="{{ route('register') }}"
-                                                           class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
-                                                           data-brk-library="component__button">
-                                                            <span class="text">{{ trans('app.register') }}</span>
-                                                            <span class="before">
-                                                                <i class="fas fa-user"></i>
-                                                            </span>
-                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
