@@ -99,11 +99,11 @@
                                 <span class="font__family-montserrat font__weight-bold font__size-18">{{ trans('app.share_our_website') }}</span>
                             </div>
                             <div class="brk-social-links__content">
-                                <a href="#"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}&title=&summary=&source=" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/home?status={{url()->current()}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://plus.google.com/share?url={{url()->current()}}" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+                                <a href="https://web.whatsapp.com/send?text={{url()->current()}}"" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
