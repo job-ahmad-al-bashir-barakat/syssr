@@ -10,6 +10,7 @@
 @yield('shared')
 <a href="#top" id="toTop"></a>
 <script src="{{ asset('js/scripts.min.js') }}"></script>
+<script src="{{ asset('vendor/vertical-fixed-navigation/js/main.js') }}"></script>
 
 @include('layouts._global')
 @yield('script')
