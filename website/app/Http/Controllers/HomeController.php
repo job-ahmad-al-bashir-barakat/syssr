@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Member;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,7 +36,11 @@ class HomeController extends Controller
     }
 //--------------------------------------------------------------------------//
     public function join_us(){
-        return view('join_us');
+        $user = new Member();
+        $country = \Api::country();
+        $occupation = \Api::occupation();
+
+        return view('join_us', compact('user','country', 'occupation'));
     }
 //--------------------------------------------------------------------------//
     public function news_society(){

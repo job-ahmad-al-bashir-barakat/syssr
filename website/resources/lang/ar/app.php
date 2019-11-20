@@ -80,6 +80,9 @@ return [
     'degrees' => 'الدرجات الجامعية',
     'association' => 'الجمعيات',
     'current_occupation' => 'المهنة الحالية',
+    'occupation' => 'المهنة',
+    'add' => 'اضافة ',
+    'download_file' => 'حمل الملف',
 
     // contact
     'your_name' => 'الاسم',

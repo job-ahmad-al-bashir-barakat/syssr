@@ -35,7 +35,9 @@
                                     <li class="dd-effect"><a href="{{ RouteUrls::whoWeAre() }}">{{ trans('app.who_we_are') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::societyGoals() }}">{{ trans('app.society_goals') }}</a></li>
                                     <li class="dd-effect"><a href="{{ RouteUrls::membersSociety() }}">{{ trans('app.members_society') }}</a></li>
+                                    @guest
                                     <li class="dd-effect"><a href="{{ RouteUrls::joinUs() }}">{{ trans('app.join_us') }}</a></li>
+                                    @endguest
                                 </ul>
                             </li>
                             <li class="brk-nav__children brk-nav__drop-down-effect">

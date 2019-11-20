@@ -19,6 +19,10 @@ class Api
         return $this->request->get("settings/get-location?type=country");
     }
 //--------------------------------------------------------------------------//
+    public function city($code){
+        return $this->request->get("settings/get-location?type=city&code=$code");
+    }
+//--------------------------------------------------------------------------//
     public function getDefaultContactUs(){
         return $this->request->get("pages/contact-us");
     }

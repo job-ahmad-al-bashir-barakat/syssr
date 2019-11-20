@@ -80,6 +80,9 @@ return [
     'degrees' => 'Degrees',
     'association' => 'Association',
     'current_occupation' => 'Current Occupation',
+    'occupation' => 'Occupation',
+    'add' => 'Add ',
+    'download_file' => 'Download File',
 
     // contact
     'your_name' => 'Your Name',

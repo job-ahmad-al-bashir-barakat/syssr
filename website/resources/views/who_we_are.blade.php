@@ -2,7 +2,7 @@
 
 @section('title',trans('app.title_who_we_are'))
 
-@include('partials._about_society_style')
+@include('_about_society_style')
 
 @section('content')
     @include('partials._breadcrumbs',['title' => trans('app.who_we_are'), 'banner' => asset('img/syssr/who-we-are-banner.jpg')])

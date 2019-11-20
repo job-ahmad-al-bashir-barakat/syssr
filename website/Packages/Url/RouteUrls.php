@@ -86,6 +86,15 @@ class RouteUrls
     /*
      *  Api Route
      */
+
+    public function postDataMember() {
+        return $this->cms_api . 'member';
+    }
+
+    public function putDataMember() {
+        return $this->cms_api . 'member/' . \Auth::id();
+    }
+
     public function setDataSettings($type = '') {
         return $this->cms_api . "settings/set-data-settings?type=$type";
     }

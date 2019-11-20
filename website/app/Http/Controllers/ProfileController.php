@@ -13,7 +13,7 @@ class ProfileController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth']); // 'verified'
     }
 
     /**
@@ -25,8 +25,10 @@ class ProfileController extends Controller
     {
         $user = \Api::member();
         $country = \Api::country();
+        if($user->city_id)
+            $city = \Api::city($user->country->code);
         $occupation = \Api::occupation();
 
-        return view('profile', compact('user','country', 'occupation'));
+        return view('profile', compact('user','country', 'city', 'occupation'));
     }
 }

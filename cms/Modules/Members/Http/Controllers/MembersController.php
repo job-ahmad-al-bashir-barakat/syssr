@@ -48,7 +48,7 @@ class MembersController extends Controller
     public function saveSettings(Request $request){
         $memberFields = ['first_name', 'last_name', 'personal_email', 'society_email', 'personal_website', 'mobile_phone', 'social_links', 'location', 'research_interests',
                         'skills', 'degrees', 'associations', 'current_occupation', 'member_bio', 'publications', 'resume'];
-        for ($i=0; $i < count($memberFields); $i++) { 
+        for ($i=0; $i < count($memberFields); $i++) {
             $memberField = MemberField::where('field_code', '=', $memberFields[$i])->firstOrFail();
             $memberField->field_visibility = $request[$memberFields[$i]];
             if(isset($request['over_ride_'.$memberFields[$i]]))
@@ -63,13 +63,22 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function update(Request $request, $id){
+
         if($request->get('password',''))
             $data = $request->input();
         else
             $data = $request->except('password');
 
-        $filename = \Upload::avatar();
+        $data['mobile'] = $data['mobile_full'];
+        $data['country_id'] = $data['country'];
+        $data['city_id'] = $data['city'];
+        $data['occupation_id'] = $data['current_occupation'];
+        $data['location'] = $data['location_address'] ?? $data['location_country_city'];
+        $data['resume_file'] = \Upload::file('resume_file', 'resume-' . \Auth::id(), true);
+        if(empty($data['resume_file']))
+            unset($data['resume_file']);
 
+        $filename = \Upload::avatar();
         if($data['avatar'])
             $data['avatar'] = $filename;
         else
@@ -79,7 +88,7 @@ class MembersController extends Controller
 
         $member->update($data);
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true, 'resume_file' => $member->resume_file_url]);
     }
 //----------------------------------------------------------------------//
     /**

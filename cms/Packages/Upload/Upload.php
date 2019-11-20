@@ -44,4 +44,33 @@ class Upload
             }
         }
     }
+
+    function file($name, $custom_path = '',$forceDeleteFolder = false) {
+
+        $file = $_FILES[$name] ?? [];
+
+        if($file) {
+
+            $uploadDirectory = "app\\public\\files";
+            $targetDirectory = "public\\files";
+
+            if($custom_path) {
+                $uploadDirectory .= "\\$custom_path";
+                $targetDirectory .= "\\$custom_path";
+            }
+
+            $path = storage_path($uploadDirectory);
+            $filename = uniqid() . "-{$file['name']}";
+
+            // Create Folder inside storage
+            if($forceDeleteFolder)
+                Storage::deleteDirectory($targetDirectory);
+            Storage::makeDirectory($targetDirectory);
+
+            // Save the file
+            \File::move($file['tmp_name'], "$path/$filename");
+
+            return $filename;
+        }
+    }
 }

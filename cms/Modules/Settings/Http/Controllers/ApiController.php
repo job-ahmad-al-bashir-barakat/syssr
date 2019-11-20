@@ -137,7 +137,7 @@ class ApiController extends Controller
                     $occupation->code = $slugify->slugify($data['name_en']);
                     $occupation->save();
                 }
-                return response()->json(['success' => $success , 'message' => $message]);
+                return response()->json(['success' => $success , 'message' => $message, 'obj' => $occupation, 'type' => 'occupations']);
             break;
             default:
                 return null;

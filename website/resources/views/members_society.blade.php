@@ -2,7 +2,7 @@
 
 @section('title',trans('app.title_members_society'))
 
-@include('partials._about_society_style')
+@include('_about_society_style')
 
 @section('content')
     @include('partials._breadcrumbs',['title' => trans('app.members_society')])

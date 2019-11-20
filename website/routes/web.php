@@ -22,7 +22,7 @@ Route::group([
     Route::get('about-society/who-we-are', 'HomeController@who_we_are')->name('who-we-are');
     Route::get('about-society/society-goals', 'HomeController@society_goals')->name('society-goals');
     Route::get('about-society/members-society', 'HomeController@members_society')->name('members-society');
-    Route::get('about-society/join-us', 'HomeController@join_us')->name('join-us');
+    Route::get('about-society/join-us', 'HomeController@join_us')->name('join-us')->middleware(['guest']);
 
     Route::get('news-society', 'HomeController@news_society')->name('news-society');
     Route::get('news-society/ads', 'HomeController@ads')->name('ads');
@@ -36,6 +36,6 @@ Route::group([
 
     Route::get('profile', 'ProfileController@index')->name('profile');
 
-    Auth::routes(['verify' => true]);
+    Auth::routes(['verify' => false, 'register' => false]);
 });
 

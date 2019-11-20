@@ -18,7 +18,7 @@
     <link id="brk-css-min" rel="stylesheet" href="{{ asset('css/assets/styles.min.css') }}">
     <!--custom-->
     <link rel="stylesheet" href="{{asset('custom/fonts/J-flat-font/font.css')}}">
-    <link id="brk-css-min" rel="stylesheet" href="{{ asset('custom/css/app.css') }}">
     @yield('style')
+    <link id="brk-css-min" rel="stylesheet" href="{{ asset('custom/css/app.css') }}">
 </head>
 

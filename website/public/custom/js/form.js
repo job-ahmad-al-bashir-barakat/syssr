@@ -35,7 +35,7 @@ function form_call(form = '.form-ajax', callback) {
                     alert_message()
 
                     if(callback)
-                        callback();
+                        callback(res);
 
                     if(res.intended)
                         window.location.href = res.intended;
@@ -83,14 +83,23 @@ function intlTelInputInit() {
         },
         customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
             jQuery('.brk-form-mobile').inputmask(selectedCountryPlaceholder.replace(/\d/g,'9').replace(/-/g,' '), {
-                "placeholder": ' ',
+                "placeholder": ' '
             });
             intlTelInputFixPadding();
             return selectedCountryPlaceholder;
         }
-    }).promise.then(function () {
+    });
+    input.promise.then(function () {
         intlTelInputFixPadding();
     });
+    jQuery('.brk-form-mobile').on('keyup', function () {
+        var $this = jQuery(this);
+        $this.closest('.iti').find('[name=mobile_full]').val(input.getNumber());
+    });
+
+    // load
+    if(jQuery('.brk-form-mobile').val())
+        jQuery('[name=mobile_full]').val(input.getNumber());
 }
 
 function tagsInputAutocomplete() {
@@ -146,9 +155,18 @@ function tagsInputAutocomplete() {
 
         jQuery('#site-modal').modal('show');
 
-        form_call('.form-ajax-modal',function () {
+        form_call('.form-ajax-modal',function (res) {
             jQuery('#site-modal').modal('hide');
             modal.find('form input').val('');
+
+            if(res.obj) {
+                if(res.type == 'occupations') {
+                    var occupation = jQuery('#current-occupation');
+                    occupation.styler('destroy');
+                    occupation.append(`<option value="${res.obj.id}">${res.obj.name[site_lang]}</option>`);
+                    occupation.styler();
+                }
+            }
         });
     });
 }
@@ -196,7 +214,10 @@ function cityCountryChange() {
 
 jQuery(function () {
     slim_call();
-    form_call();
+    form_call('.form-ajax',function (res) {
+        if(res.resume_file)
+            jQuery('.resume_file_download').attr('href',res.resume_file);
+    });
     summernote();
     intlTelInputInit();
     cityCountryChange();

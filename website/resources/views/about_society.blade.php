@@ -2,7 +2,7 @@
 
 @section('title',trans('app.title_about_society'))
 
-@include('partials._about_society_style')
+@include('_about_society_style')
 
 @section('content')
     @include('partials._breadcrumbs',['title' => trans('app.about_society'), 'banner' => asset('img/syssr/about-us-banner.jpg')])
