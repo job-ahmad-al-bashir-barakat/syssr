@@ -45,7 +45,7 @@ class Upload
         }
     }
 
-    function file($name, $custom_path = '',$forceDeleteFolder = false) {
+    function file($name, $oldname, $custom_path = '') {
 
         $file = $_FILES[$name] ?? [];
 
@@ -63,9 +63,11 @@ class Upload
             $filename = uniqid() . "-{$file['name']}";
 
             // Create Folder inside storage
-            if($forceDeleteFolder)
-                Storage::deleteDirectory($targetDirectory);
             Storage::makeDirectory($targetDirectory);
+
+            // delete file
+            if($oldname)
+                \File::delete("$path/$oldname");
 
             // Save the file
             \File::move($file['tmp_name'], "$path/$filename");

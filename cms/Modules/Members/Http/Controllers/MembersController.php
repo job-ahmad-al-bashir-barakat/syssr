@@ -74,9 +74,6 @@ class MembersController extends Controller
         $data['city_id'] = $data['city'];
         $data['occupation_id'] = $data['current_occupation'];
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
-        $data['resume_file'] = \Upload::file('resume_file', 'resume-' . \Auth::id(), true);
-        if(empty($data['resume_file']))
-            unset($data['resume_file']);
 
         $filename = \Upload::avatar();
         if($data['avatar'])
@@ -85,6 +82,10 @@ class MembersController extends Controller
             unset($data['avatar']);
 
         $member = Member::findOrFail($id);
+
+        $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
+        if(empty($data['resume_file']))
+            unset($data['resume_file']);
 
         $member->update($data);
 

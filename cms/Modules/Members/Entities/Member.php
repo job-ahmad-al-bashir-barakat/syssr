@@ -6,7 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Settings\Entities\Association;
 use Modules\Settings\Entities\Country;
+use Modules\Settings\Entities\Degree;
+use Modules\Settings\Entities\ResearchInterest;
+use Modules\Settings\Entities\Skill;
 
 class Member extends Authenticatable
 {
@@ -81,5 +85,21 @@ class Member extends Authenticatable
 
     function country() {
         return $this->belongsTo(Country::class);
+    }
+
+    function research_interests() {
+        return $this->belongsToMany(ResearchInterest::class);
+    }
+
+    function skills() {
+        return $this->belongsToMany(Skill::class);
+    }
+
+    function degrees() {
+        return $this->belongsToMany(Degree::class);
+    }
+
+    function associations() {
+        return $this->belongsToMany(Association::class);
     }
 }

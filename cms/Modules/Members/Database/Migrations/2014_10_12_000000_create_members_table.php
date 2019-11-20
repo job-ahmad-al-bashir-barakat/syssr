@@ -43,12 +43,6 @@ class CreateMembersTable extends Migration
             $table->string('location'); // r
             $table->text('publications')->nullable();
             $table->string('resume_file')->nullable();
-
-//            research_interests // o
-//            skills // o
-//            degrees // o
-//            associations // o
-
             // U: user,M: member
             $table->char('type',1)->default('U'); // r
             // A: Active, I: inactive, C: closed
