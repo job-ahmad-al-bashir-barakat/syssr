@@ -6,21 +6,29 @@
 @endsection
 
 @section('content')
+
+    @include('layouts._vertical_nav',[
+            'sections_id'       =>  ['home-banners', 'last-projects', 'last-news', 'section-4', 'section-5', 'follow-us']
+    ])
+
     <div class="wrapper" style="margin-top:72px;">
 
-        <div class="owl-carousel owl-theme shadow-lg">
-            <div class="item">
-                <img src="{{asset('img/syssr/home_banner_1.jpg')}}" alt="home_banner_1">
+        <div id="home-banners" class="cd-section">
+            <div class="owl-carousel owl-theme shadow-lg">
+                <div class="item">
+                    <img src="{{asset('img/syssr/home_banner_1.jpg')}}" alt="home_banner_1">
+                </div>
+                <div class="item">
+                    <img src="{{asset('img/syssr/home_banner_2.jpg')}}" alt="home_banner_2">
+                </div>
+                <div class="item">
+                    <img src="{{asset('img/syssr/home_banner_3.jpg')}}" alt="home_banner_3">
+                </div>
             </div>
-            <div class="item">
-                <img src="{{asset('img/syssr/home_banner_2.jpg')}}" alt="home_banner_2">
-            </div>
-            <div class="item">
-                <img src="{{asset('img/syssr/home_banner_3.jpg')}}" alt="home_banner_3">
-            </div>
+            <a href="#last-projects" class="cd-scroll-down cd-img-replace">scroll down</a>
         </div>
 
-        <section>
+        <section id="last-projects" class="cd-section">
             <div class="container">
                 <div class="mb-40 mt-80">
                     <div class="text-left">
@@ -108,7 +116,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="last-news" class="cd-section">
             <div class="container mb-20">
                 <div class="text-left">
                     <h3 class="font__family-montserrat font__size-28 font__weight-bold">
@@ -181,7 +189,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="section-4" class="cd-section">
             <div class="mt-40 mt-md-170">
 				<div class="brk-paraxify overflow-hid mt-70 mt-md-140" style="background-image: url({{asset('img/syssr/home_bg_1.jpg')}})" data-brk-library="component__parallax">
 					<div class="container">
@@ -235,7 +243,7 @@
 			</div>
         </section>
 
-        <section>
+        <section id="section-5" class="cd-section">
             <div class="mt-40 mt-md-170">
 				<div class="container">
 					<h3 class="font__family-montserrat font__size-28 font__weight-bold text-left"></h3>
@@ -282,7 +290,7 @@
 			</div>
         </section>
 
-        <section>
+        <section id="follow-us" class="cd-section">
             <div class="container">
                 <h3 class="font__family-montserrat font__size-28 font__weight-bold text-left"></h3>
             </div>
@@ -291,7 +299,7 @@
 				<span class="brk-abs-overlay brk-black-76-overlay"></span>
 				<div class="container all-light">
 					<div class="row no-gutters mt-0 mt-lg-70">
-                        @if($default_contact->facebook)
+                        @if(!empty($default_contact->facebook))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="{{$default_contact->facebook}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-facebook-square"><span class="slide-bg"></span></i></a>
@@ -299,7 +307,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($default_contact->linkedin)
+                        @if(!empty($default_contact->linkedin))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="{{$default_contact->linkedin}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-linkedin"><span class="slide-bg"></span></i></a>
@@ -307,7 +315,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($default_contact->twitter)
+                        @if(!empty($default_contact->twitter))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="{{$default_contact->twitter}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-twitter"><span class="slide-bg"></span></i></a>
@@ -315,7 +323,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($default_contact->google_plus)
+                        @if(!empty($default_contact->google_plus))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="{{$default_contact->google_plus}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-google-plus-g"><span class="slide-bg"></span></i></a>
@@ -323,7 +331,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($default_contact->youtube)
+                        @if(!empty($default_contact->youtube))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="{{$default_contact->youtube}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-youtube"><span class="slide-bg"></span></i></a>
@@ -331,7 +339,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($default_contact->whatsapp)
+                        @if(!empty($default_contact->whatsapp))
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-square social__icon-square_dark">
                                     <a href="https://api.whatsapp.com/send?phone={{$default_contact->whatsapp}}" target="_blank"><i class="brk-icon slide-bg-wrap fab fa-whatsapp"><span class="slide-bg"></span></i></a>

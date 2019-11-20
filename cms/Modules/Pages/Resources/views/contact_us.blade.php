@@ -39,7 +39,7 @@
     //----------------------------------------------------------------------------------------//
     function deleteContactUs(){
         var contactId = $(this).attr('data-id');
-        var contactName = $(this).attr('data-full-name');
+        var contactName = $(this).attr('data-contact-name');
         var msg = '{{trans('pages::main.delete_contact_us')}} ('+ contactName + ')';
         _confirm('', msg, 'warning', function(){
             $.ajax({
@@ -47,9 +47,9 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 method: 'DELETE',
-                url: 'pages/contact-us/' + contactId,
+                url: '{{url('pages/contact-us')}}/' + contactId,
             }).done(function(res) {
-                _alert('{{trans('cms.deleted_successfully')}}','success');
+                _alert(res.message,'success');
                 contactUsDatatable.reload();
             });
         });
@@ -138,7 +138,7 @@
                                                 </a>\
                                             </li>\
                                             <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_contact_us" data-id="'+data.id+'" data-contact-name="'+data.name+'">\
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_contact_us" data-id="'+data.id+'" data-contact-name="'+data.name_lang+'">\
                                                     <i class="kt-nav__link-icon fa fa-trash"></i>\
                                                     <span class="kt-nav__link-text">{{trans('cms.delete')}}</span>\
                                                 </a>\

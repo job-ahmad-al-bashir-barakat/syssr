@@ -76,10 +76,12 @@
                 </div>
                 <div class="col-lg-5 align-self-lg-stretch text-lg-right">
                     <div class="brk-header__title font__family-montserrat font__weight-bold">{{ trans('app.menu_extra') }}</div>
+                    @if(!empty($default_contact->mobile_1))
                     <div class="brk-call-us brk-header__item">
                         <a href="tel:{{$default_contact->mobile_1}}" class="brk-call-us__number"><i class="fa fa-phone" aria-hidden="true"></i>{{$default_contact->mobile_1}}</a>
                         <a href="tel:{{$default_contact->mobile_1}}" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
                     </div>
+                    @endif
                     <div class="brk-lang brk-header__item">
                         <span class="brk-lang__selected">{{ strtoupper(LaravelLocalization::getCurrentLocale()) }} <i class="fa fa-caret-down" aria-hidden="true"></i></span>
                         <span class="brk-lang__open"><i class="fa fa-language"></i> {{ trans('app.language') }} <span class="brk-lang__active-lang text-white brk-bg-primary">{{ strtoupper(LaravelLocalization::getCurrentLocale()) }}</span></span>
@@ -99,11 +101,11 @@
                                 <span class="font__family-montserrat font__weight-bold font__size-18">{{ trans('app.share_our_website') }}</span>
                             </div>
                             <div class="brk-social-links__content">
-                                <a href="#"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}&title=&summary=&source=" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/home?status={{url()->current()}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://plus.google.com/share?url={{url()->current()}}" target="_blank"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+                                <a href="https://web.whatsapp.com/send?text={{url()->current()}}"" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

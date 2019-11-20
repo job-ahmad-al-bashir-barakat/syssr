@@ -26,21 +26,26 @@ class ContactUsController extends Controller{
             'name_ar'               =>  'required',
             'contact_email'         =>  'required|email',
             'info_email'            =>  'required|email',
-            'phone'                 =>  'required|num',
-            'mobile_1'              =>  'required|num',
+            'phone'                 =>  'required',
+            'mobile_1'              =>  'required',
         ]);
 
-        $contactUs = ContactUs::find(1);
+        $contactUs = new ContactUs();
         $contactUs->setTranslation('name', 'en', $request['name_en']);
         $contactUs->setTranslation('name', 'ar', $request['name_ar']);
-        $contactUs['default'] = $request['default'];
+        if(isset($request['default']))
+            $contactUs['default'] = 'Y';
+        else
+            $contactUs['default'] = 'N';
         $contactUs['contact_email'] = $request['contact_email'];
         $contactUs['info_email'] = $request['info_email'];
         $contactUs['phone'] = $request['phone'];
         $contactUs['mobile_1'] = $request['mobile_1'];
         $contactUs['mobile_2'] = $request['mobile_2'];
-        $contactUs->setTranslation('address', 'en', $request['address_en']);
-        $contactUs->setTranslation('address', 'ar', $request['address_ar']);
+        if($request['address_en'])
+            $contactUs->setTranslation('address', 'en', $request['address_en']);
+        if($request['address_ar'])
+            $contactUs->setTranslation('address', 'ar', $request['address_ar']);
         $contactUs['lat'] = $request['lat'];
         $contactUs['lng'] = $request['lng'];
         $contactUs['facebook'] = $request['facebook'];
@@ -54,7 +59,10 @@ class ContactUsController extends Controller{
         $contactUs->save();
 
         $message = trans('cms.saved_successfully');
-        return redirect(url('pages/contact-us'))->with('message', $message);
+        if($request['submit_type']=='add_new')
+            return redirect(url('pages/contact-us/create'))->with('message', $message);
+        else
+            return redirect(url('pages/contact-us'))->with('message', $message);
     }
 //----------------------------------------------------------------------//
     public function edit(ContactUs $contactUs){
@@ -67,9 +75,39 @@ class ContactUsController extends Controller{
             'name_ar'               =>  'required',
             'contact_email'         =>  'required|email',
             'info_email'            =>  'required|email',
-            'phone'                 =>  'required|num',
-            'mobile_1'              =>  'required|num',
+            'phone'                 =>  'required',
+            'mobile_1'              =>  'required',
         ]);
+
+        $contactUs->setTranslation('name', 'en', $request['name_en']);
+        $contactUs->setTranslation('name', 'ar', $request['name_ar']);
+        if(isset($request['default']))
+            $contactUs['default'] = 'Y';
+        else
+            $contactUs['default'] = 'N';
+        $contactUs['contact_email'] = $request['contact_email'];
+        $contactUs['info_email'] = $request['info_email'];
+        $contactUs['phone'] = $request['phone'];
+        $contactUs['mobile_1'] = $request['mobile_1'];
+        $contactUs['mobile_2'] = $request['mobile_2'];
+        if($request['address_en'])
+            $contactUs->setTranslation('address', 'en', $request['address_en']);
+        if($request['address_ar'])
+            $contactUs->setTranslation('address', 'ar', $request['address_ar']);
+        $contactUs['lat'] = $request['lat'];
+        $contactUs['lng'] = $request['lng'];
+        $contactUs['facebook'] = $request['facebook'];
+        $contactUs['linkedin'] = $request['linkedin'];
+        $contactUs['twitter'] = $request['twitter'];
+        $contactUs['google_plus'] = $request['google_plus'];
+        $contactUs['youtube'] = $request['youtube'];
+        $contactUs['whatsapp'] = $request['whatsapp'];
+        $contactUs['skype'] = $request['skype'];
+        $contactUs['medium'] = $request['medium'];
+        $contactUs->save();
+
+        $message = trans('cms.updated_successfully');
+        return redirect(url('pages/contact-us'))->with('message', $message);
     }
 //----------------------------------------------------------------------//
     public function getDatatableContactUs(){
@@ -80,13 +118,23 @@ class ContactUsController extends Controller{
             return $col->getTranslation('name', 'en');
         })->addColumn('name_ar',function ($col){
             return $col->getTranslation('name', 'ar');
-        })->addColumn('name',function ($col){
-            return $col->getTranslation('name', $lang);
+        })->addColumn('name_lang',function ($col){
+            return $col->getTranslation('name', '$lang');
         })->make(true);
     }
 //----------------------------------------------------------------------//
-    public function getContactUs(){
-        return ContactUs::findOrFail(1);
+    public function destroy(ContactUs $contactUs){
+        $contactUs->delete();
+        return response()->json(['success' => true , 'message' => trans('cms.deleted_successfully')]);
+    }
+//----------------------------------------------------------------------//
+    public function getContactUs(Request $request){
+        if(isset($request['default']))
+            $contactUs = ContactUs::where("default",'=',"Y")->get()->first();
+        else
+            $contactUs = ContactUs::all();
+
+        return $contactUs;
     }
 //----------------------------------------------------------------------//
 }

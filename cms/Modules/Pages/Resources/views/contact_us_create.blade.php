@@ -62,7 +62,7 @@
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-        <form id="contact-form" method="post" action="contact-us">
+        <form id="contact-form" method="post" action="{{route('contact-us.store')}}">
             @csrf
             <!--begin::Portlet-->
             <div class="kt-portlet" data-ktportlet="true">
@@ -82,7 +82,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>{{trans('cms.name').' '.trans('cms.en')}} <span class="req"></span></label>
-                                    <input type="text" class="form-control req email @error('name_en') is-invalid @enderror" dir="ltr" name="name_en" id="name_en" value="{{old('name_en')}}">
+                                    <input type="text" class="form-control req @error('name_en') is-invalid @enderror" dir="ltr" name="name_en" id="name_en" value="{{old('name_en')}}">
                                     @error('name_en')
                                         <div id="name_en-error" class="error invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -91,7 +91,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group ">
                                     <label>{{trans('cms.name').' '.trans('cms.ar')}} <span class="req"></span></label>
-                                    <input type="text" class="form-control req email @error('name_ar') is-invalid @enderror" dir="rtl" name="name_ar" id="name_ar" value="{{old('name_ar')}}">
+                                    <input type="text" class="form-control req @error('name_ar') is-invalid @enderror" dir="rtl" name="name_ar" id="name_ar" value="{{old('name_ar')}}">
                                     @error('name_ar')
                                         <div id="name_ar-error" class="error invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -120,15 +120,6 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>{{trans('cms.default')}}</label>
-                                    <div class="col">
-                                        <input data-switch="true" type="checkbox" checked="checked" data-on-text="{{trans('cms.yes')}}" data-handle-width="50" data-off-text="{{trans('cms.no')}}" data-on-color="success" data-off-color="danger">
-                                        <i class="fa fa-question-circle" title="To show contact info in header & footer. Must be one default contact us" data-skin="dark" data-toggle="kt-tooltip" data-placement="top"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col">
                                         <label>{{trans('pages::main.phone')}} <span class="req"></span></label>
@@ -136,10 +127,27 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col">
-                                        <input type="text" class="form-control req @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{old('phone')}}">
+                                        <input type="text" class="form-control req @error('phone') is-invalid @enderror" name="phone" id="phone" value="{!!old('phone')!!}">
                                         @error('phone')
                                             <div id="phone-error" class="error invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>{{trans('cms.default')}} <i class="fa fa-question-circle" title="To show contact info in header & footer. Must be one default contact us" data-skin="dark" data-toggle="kt-tooltip" data-placement="top"></i></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--success">
+                                            <label>
+                                                <input type="checkbox" name="default">
+                                                <span></span>
+                                            </label>
+                                        </span>                                        
                                     </div>
                                 </div>
                             </div>
@@ -177,13 +185,13 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>{{trans('pages::main.address').' '.trans('cms.en')}}</label>
-                                    <textarea name="address_en" id="address_en" class="form-control req email" rows="4" dir="ltr"></textarea>
+                                    <textarea name="address_en" id="address_en" class="form-control" rows="4" dir="ltr"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group ">
                                     <label>{{trans('pages::main.address').' '.trans('cms.ar')}}</label>
-                                    <textarea name="address_ar" id="address_ar" class="form-control req email" rows="4" dir="rtl"></textarea>
+                                    <textarea name="address_ar" id="address_ar" class="form-control" rows="4" dir="rtl"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -336,9 +344,8 @@
 <script>
     //----------------------------------------------------------------------------------------//
     function intlTelInputFixPadding() {
-        var iti = jQuery('.iti');
-        var width = iti.find('.iti__flag-container').width();
-        iti.find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
+        var width = $('.iti').find('.iti__flag-container').width();
+        $('.iti').find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
     }
     //----------------------------------------------------------------------------------------//
     function _intlTelInput(ele_id){
@@ -386,10 +393,14 @@
         //=================================================//
     });
     //----------------------------------------------------------------------------------------//
-    function submit_form(form_id){
+    function submit_form(form_id, submit_type){
         $("#"+form_id).validate();
+        $('#submit_type').val(submit_type);
         $("#"+form_id).submit();
     }
     //----------------------------------------------------------------------------------------//
 </script>
+
+<script src="{{ asset('plugins/intl-tel-input/js/utils.js') }}"></script>
+
 @stop

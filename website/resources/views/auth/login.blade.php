@@ -81,7 +81,7 @@
                                                     <div
                                                         class="mt-20 d-flex flex-wrap justify-content-between align-items-center flex-column flex-lg-row">
                                                         <button
-                                                            class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10 w-100"
+                                                            class="btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10"
                                                             data-brk-library="component__button"><span class="text">{{ trans('app.login_now') }}</span>
                                                             <span class="before"><i
                                                                     class="far fa-hand-point-right"></i></span>

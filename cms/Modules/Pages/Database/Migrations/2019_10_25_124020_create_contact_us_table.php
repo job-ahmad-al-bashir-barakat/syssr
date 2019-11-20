@@ -23,7 +23,7 @@ class CreateContactUsTable extends Migration
             $table->string('phone');
             $table->string('mobile_1');
             $table->string('mobile_2')->nullable();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->string('facebook')->nullable();

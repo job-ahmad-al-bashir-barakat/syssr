@@ -24,7 +24,7 @@ class Api
     }
 //--------------------------------------------------------------------------//
     public function getDefaultContactUs(){
-        return $this->request->get("pages/contact-us");
+        return $this->request->get("pages/contact-us?default='Y'");
     }
 //--------------------------------------------------------------------------//
     public function occupation(){
