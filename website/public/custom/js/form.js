@@ -43,7 +43,20 @@ function form_call(form = '.form-ajax', callback) {
                 error: function() {  },
             });
             return false;
-        });
+        })
+            .off('field:error').on('field:error', function() {
+            // This global callback will be called for any field that fails validation.
+            var $element = this.$element,
+                tabs = $element.closest('.tabs'),
+                tab = $element.closest('.tab');
+
+            if(tabs) {
+                tabs.find(`[data-tab=${ tab.attr('id') }]`).click();
+                jQuery('html, body').animate({
+                    scrollTop: this.$element.offset().top
+                }, 100);
+            }
+        });;
 }
 
 function addressAutocomplete() {
@@ -132,7 +145,13 @@ function tagsInputAutocomplete() {
                 source: tags($this.data('remote')).ttAdapter()
             },
             confirmKeys: [13, 188]
-        });
+        })
+
+        // load object
+        if($this.data('value'))
+            $this.data('value').forEach(function(item) {
+                $this.tagsinput('add', item)
+            })
     });
     jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
         if (e.keyCode == 13){

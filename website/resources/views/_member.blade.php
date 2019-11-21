@@ -32,14 +32,14 @@
                         @if($update)
                             <input type="hidden" name="_method" value="PUT">
                         @endif
-                        <div class="brk-tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
+                        <div class="brk-tabs tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                             <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
-                                <li class="brk-tab active"><span>{{ trans('app.general') }}</span></li>
-                                <li class="brk-tab"><span>{{ trans('app.social_links') }}</span></li>
-                                <li class="brk-tab"><span>{{ trans('app.other') }}</span></li>
+                                <li data-tab="tab-1" class="brk-tab active"><span>{{ trans('app.general') }}</span></li>
+                                <li data-tab="tab-2" class="brk-tab"><span>{{ trans('app.social_links') }}</span></li>
+                                <li data-tab="tab-3" class="brk-tab"><span>{{ trans('app.other') }}</span></li>
                             </ul>
                             <div class="brk-tabs-content">
-                                <div class="brk-tab-item text-center text-lg-left">
+                                <div id="tab-1" class="brk-tab-item tab text-center text-lg-left">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="row">
@@ -106,7 +106,7 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">{{ trans('app.birth_date') }}</label>
                                                             <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
-                                                            <div id="birth_date-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            <div class="d-inline-block"></div>
                                                         </div>
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="gender">{{ trans('app.gender') }}</label>
@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="brk-tab-item text-center text-lg-left">
+                                <div id="tab-2" class="brk-tab-item tab text-center text-lg-left">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
@@ -189,7 +189,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="brk-tab-item text-center text-lg-left">
+                                <div id="tab-3" class="brk-tab-item tab text-center text-lg-left">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
@@ -197,18 +197,19 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }}</label>
-                                                            <select id="country" name="country" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}">
+                                                            <select id="country" name="country" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" required  data-parsley-errors-container="#country-error">
                                                                 <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
                                                                 @foreach($country as $item)
                                                                     <option value="{{ $item->id }}" data-code="{{ $item->code }}" {{ $item->id == $user->country_id ? 'selected' : '' }} >{{ $item->name }}</option>
                                                                 @endforeach
                                                             </select>
+                                                            <div id="country-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }}</label>
-                                                            <select id="city" name="city" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" @if(!$user->city_id) disabled @endif>
+                                                            <select id="city" name="city" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" @if(!$user->city_id) disabled @endif  required  data-parsley-errors-container="#city-error">
                                                                 @if($user->city_id)
                                                                     <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
                                                                     @foreach($city as $item)
@@ -216,6 +217,7 @@
                                                                     @endforeach
                                                                 @endif
                                                             </select>
+                                                            <div id="city-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -240,7 +242,7 @@
                                                                     <span class="after"></span>
                                                                 </button>
                                                             </label>
-                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('researchInterests') }}"/>
+                                                            <input id="research-interests" name="research_interests" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('researchInterests') }}" value="" data-value="{{ Helpers::objectTags($user->research_interests) }}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -253,7 +255,7 @@
                                                                     <span class="after"></span>
                                                                 </button>
                                                             </label>
-                                                            <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}"/>
+                                                            <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}" data-value="{{ Helpers::objectTags($user->skills) }}"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -268,7 +270,7 @@
                                                                     <span class="after"></span>
                                                                 </button>
                                                             </label>
-                                                            <input id="degrees" name="degrees" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('degrees') }}"/>
+                                                            <input id="degrees" name="degrees" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('degrees') }}" data-value="{{ Helpers::objectTags($user->degrees) }}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -281,7 +283,7 @@
                                                                     <span class="after"></span>
                                                                 </button>
                                                             </label>
-                                                            <input id="associations" name="associations" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('associations') }}"/>
+                                                            <input id="associations" name="associations" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('associations') }}" data-value="{{ Helpers::objectTags($user->associations) }}"/>
                                                         </div>
                                                     </div>
                                                 </div>

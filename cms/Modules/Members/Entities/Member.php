@@ -80,7 +80,7 @@ class Member extends Authenticatable
 
     function getResumeFileUrlAttribute() {
         if($this->resume_file)
-            return url("storage/files/resume-$this->id/$this->resume_file");
+            return url("storage/files/resume/$this->resume_file");
     }
 
     function country() {
@@ -88,18 +88,18 @@ class Member extends Authenticatable
     }
 
     function research_interests() {
-        return $this->belongsToMany(ResearchInterest::class);
+        return $this->belongsToMany(ResearchInterest::class)->withTimestamps();
     }
 
     function skills() {
-        return $this->belongsToMany(Skill::class);
+        return $this->belongsToMany(Skill::class)->withTimestamps();
     }
 
     function degrees() {
-        return $this->belongsToMany(Degree::class);
+        return $this->belongsToMany(Degree::class)->withTimestamps();
     }
 
     function associations() {
-        return $this->belongsToMany(Association::class);
+        return $this->belongsToMany(Association::class)->withTimestamps();
     }
 }

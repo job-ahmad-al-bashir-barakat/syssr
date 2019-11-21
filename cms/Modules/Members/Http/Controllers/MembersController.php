@@ -32,7 +32,7 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function show($id){
-        return Member::findOrFail($id);
+        return Member::with(['research_interests', 'skills', 'degrees', 'associations'])->where('id',$id)->first();
     }
 //----------------------------------------------------------------------//
     public function settings(){
@@ -81,13 +81,23 @@ class MembersController extends Controller
         else
             unset($data['avatar']);
 
-        $member = Member::findOrFail($id);
+        $member = Member::with(['research_interests', 'skills', 'degrees', 'associations'])->where('id',$id)->first();
 
-        $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
         if(empty($data['resume_file']))
             unset($data['resume_file']);
+        else
+            $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
 
         $member->update($data);
+
+        if($data['research_interests'])
+            $member->research_interests()->sync(explode(',',$data['research_interests']));
+        if($data['skills'])
+            $member->skills()->sync(explode(',',$data['skills']));
+        if($data['degrees'])
+            $member->degrees()->sync(explode(',',$data['degrees']));
+        if($data['associations'])
+            $member->associations()->sync(explode(',',$data['associations']));
 
         return response()->json(['success' => true, 'resume_file' => $member->resume_file_url]);
     }

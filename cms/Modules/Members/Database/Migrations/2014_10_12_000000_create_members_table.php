@@ -39,8 +39,8 @@ class CreateMembersTable extends Migration
             $table->integer('country_id'); // r
             $table->integer('city_id'); // r
             $table->integer('occupation_id')->nullable();
-            $table->string('street_address'); // o
-            $table->string('location'); // r
+            $table->string('street_address')->nullable();
+            $table->string('location')->nullable();
             $table->text('publications')->nullable();
             $table->string('resume_file')->nullable();
             // U: user,M: member
@@ -55,9 +55,13 @@ class CreateMembersTable extends Migration
         $members = [
             [
                 'first_name'        =>  'Admin',
-                'last_name'         =>  null,
+                'last_name'         =>  'Admin',
                 'username'          =>  'admin',
                 'email'             =>  'admin@syssr.org',
+                'country_id'        => 0,
+                'city_id'           => 0,
+                'street_address'    => '',
+                'location'          => '',
                 'password'          =>  Hash::make('admin'),
                 'api_token'         =>  \Str::random(60),
             ]

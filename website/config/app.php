@@ -177,7 +177,8 @@ return [
         // Website Packages
         App\Providers\ComposerServiceProvider::class,
         Packages\Url\Providers\RouteUrlsServiceProvider::class,
-        Packages\Api\Providers\ApiServiceProvider::class
+        Packages\Api\Providers\ApiServiceProvider::class,
+        Packages\Helpers\Providers\HelpersServiceProvider::class,
     ],
 
     /*
@@ -233,7 +234,8 @@ return [
          *  Website Facades
          */
         'RouteUrls' => Packages\Url\Facades\RouteUrls::class,
-        'Api' => Packages\Api\Facades\Api::class
+        'Api' => Packages\Api\Facades\Api::class,
+        'Helpers' => \Packages\Helpers\Facades\Helpers::class,
     ],
 
 ];

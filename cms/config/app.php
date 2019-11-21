@@ -177,7 +177,8 @@ return [
         App\Providers\ComposerServiceProvider::class,
 
         // CMS Package
-        \Packages\Upload\Providers\UploadServiceProvider::class
+        \Packages\Upload\Providers\UploadServiceProvider::class,
+        \Packages\Helpers\Providers\HelpersServiceProvider::class
     ],
 
     /*
@@ -231,6 +232,7 @@ return [
 
         // CMS Package
         'Upload' => \Packages\Upload\Facades\Upload::class,
+        'Helpers' => \Packages\Helpers\Facades\Helpers::class,
     ],
 
 ];

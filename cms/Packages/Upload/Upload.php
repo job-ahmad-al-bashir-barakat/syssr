@@ -45,9 +45,9 @@ class Upload
         }
     }
 
-    function file($name, $oldname, $custom_path = '') {
+    function file($input_name, $old_value, $custom_path = '') {
 
-        $file = $_FILES[$name] ?? [];
+        $file = $_FILES[$input_name] ?? [];
 
         if($file) {
 
@@ -66,8 +66,8 @@ class Upload
             Storage::makeDirectory($targetDirectory);
 
             // delete file
-            if($oldname)
-                \File::delete("$path/$oldname");
+            if($old_value)
+                \File::delete("$path/$old_value");
 
             // Save the file
             \File::move($file['tmp_name'], "$path/$filename");
