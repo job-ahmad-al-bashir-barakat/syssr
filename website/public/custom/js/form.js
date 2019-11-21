@@ -153,7 +153,7 @@ function tagsInputAutocomplete() {
                 $this.tagsinput('add', item)
             })
     });
-    jQuery('.bootstrap-tagsinput input').on('keypress', function(e){
+    jQuery('input').on('keypress', function(e){
         if (e.keyCode == 13){
             e.keyCode = 188;
             e.preventDefault();
@@ -232,11 +232,11 @@ function cityCountryChange() {
 }
 
 jQuery(function () {
-    slim_call();
     form_call('.form-ajax',function (res) {
         if(res.resume_file)
             jQuery('.resume_file_download').attr('href',res.resume_file);
     });
+    slim_call();
     summernote();
     intlTelInputInit();
     cityCountryChange();
