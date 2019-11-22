@@ -51,6 +51,11 @@ class MembersController extends Controller
         for ($i=0; $i < count($memberFields); $i++) {
             $memberField = MemberField::where('field_code', '=', $memberFields[$i])->firstOrFail();
             $memberField->field_visibility = $request[$memberFields[$i]];
+            if(isset($request['required_'.$memberFields[$i]]))
+                $memberField->required = 'T';
+            else
+                $memberField->required = 'F';
+
             if(isset($request['over_ride_'.$memberFields[$i]]))
                 $memberField->over_ride = 'T';
             else
