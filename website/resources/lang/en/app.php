@@ -86,6 +86,7 @@ return [
 
     // contact
     'your_name' => 'Your Name',
+    'subject'   =>  'Subject',
     'your_mail' => 'Your Email',
     'your_question' => 'Your Question',
     'send_message' => 'Send Message',

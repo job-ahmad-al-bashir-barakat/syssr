@@ -86,10 +86,11 @@ return [
 
     // contact
     'your_name' => 'الاسم',
+    'subject'   =>  'الموضوع',
     'your_mail' => 'البريد الالكتروني',
     'your_question' => 'نص الرسالة',
     'send_message' => 'ارسال الرسالة',
-    'contact_headline' => 'لديك سوال? يمكنك ارساله بالأسفل',
+    'contact_headline' => 'لديك سؤال? يمكنك ارساله بالأسفل',
     'need_help' => 'تحتاج مساعدة ؟',
     'directions' => 'تحديد الموقع',
     'our_info' => 'معلومات الاتصال',

@@ -32,7 +32,7 @@ Route::group([
     Route::get('projects','HomeController@projects')->name('projects');
 
     Route::get('workshop', 'HomeController@workshop')->name('news-members');
-    Route::get('contact', 'HomeController@contact')->name('news-members');
+    Route::get('contact', 'ContactController@index')->name('contact');
 
     Route::get('profile', 'ProfileController@index')->name('profile');
 
