@@ -46,5 +46,9 @@ class Api
         return $response->description;
     }
 //--------------------------------------------------------------------------//
+    public function getMembersFieldsSettings(){
+        $response = $this->request->get("members/get-fields-settings");
+    }
+//--------------------------------------------------------------------------//
 
 }

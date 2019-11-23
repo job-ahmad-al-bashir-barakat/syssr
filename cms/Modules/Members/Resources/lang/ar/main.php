@@ -12,6 +12,7 @@ return [
     'field_name'                =>      'اسم الحقل',
     'field_visibility'          =>      'رؤية الحقل',
     'over_ride'                 =>      'قابل للتعديل',
+    'required'                  =>      'مطلوب',
     'public'                    =>      'عام',
     'internal'                  =>      'داخلي',
     'private'                   =>      'خاص',

@@ -12,6 +12,7 @@ return [
     'field_name'                =>      'Field Name',
     'field_visibility'          =>      'Field Visibility',
     'over_ride'                 =>      'Over Ride',
+    'required'                  =>      'Required ',
     'public'                    =>      'Public',
     'internal'                  =>      'Internal',
     'private'                   =>      'Private',

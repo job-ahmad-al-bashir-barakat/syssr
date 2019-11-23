@@ -39,27 +39,44 @@
 						    <table class="table table-bordered table-striped">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th width="25%">{{trans('members::main.field_name')}}</th>
-                                        <th width="50%">
-                                            {{trans('members::main.field_visibility')}}
-                                            <button type="button" id="all-public" class="btn btn-success btn-sm mx-4" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Public visibility: everyone can see">
-                                                {{trans('members::main.public')}}
-                                            </button>
-                                            <button type="button" id="all-internal" class="btn btn-primary btn-sm mx-4" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Internal visibility: only logged in members can see">
-                                                {{trans('members::main.internal')}}
-                                            </button>
-                                            <button type="button" id="all-private" class="btn btn-danger btn-sm mx-4" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Private visibility: only the member owner can see">
-                                                {{trans('members::main.private')}}
-                                            </button>
+                                        <th width="20%" class="text-center">
+                                            <div class="mb-4">{{trans('members::main.field_name')}}</div>
+                                        </th>
+                                        <th width="40%">
+                                            <div class="mb-2 text-center">{{trans('members::main.field_visibility')}}</div>
+                                            <div class="hidden-md-down text-center">
+                                                <button type="button" id="all-public" class="btn btn-success btn-sm mx-3" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Public visibility: everyone can see">
+                                                    {{trans('members::main.public')}}
+                                                </button>
+                                                <button type="button" id="all-internal" class="btn btn-primary btn-sm mx-3" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Internal visibility: only logged in members can see">
+                                                    {{trans('members::main.internal')}}
+                                                </button>
+                                                <button type="button" id="all-private" class="btn btn-danger btn-sm mx-3" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="Private visibility: only the member owner can see">
+                                                    {{trans('members::main.private')}}
+                                                </button>
+                                            </div>
                                         </th>
                                         <th width="15%">
-                                            {{trans('members::main.over_ride')}}
-                                            <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--dark">
-                                                <label>
-                                                    <input type="checkbox" id="toggle-over-ride">
-                                                    <span></span>
-                                                </label>
-                                            </span>
+                                            <div class="mb-2 text-center">{{trans('members::main.required')}}</div>
+                                            <div class="hidden-md-down text-center">
+                                                <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger">
+                                                    <label style="margin-bottom: 0">
+                                                        <input type="checkbox" id="toggle-required">
+                                                        <span style="margin: 0"></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </th>
+                                        <th width="15%">
+                                            <div class="mb-2 text-center">{{trans('members::main.over_ride')}}</div>
+                                            <div class="hidden-md-down text-center">
+                                                <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--dark">
+                                                    <label style="margin-bottom: 0">
+                                                        <input type="checkbox" id="toggle-over-ride">
+                                                        <span style="margin: 0"></span>
+                                                    </label>
+                                                </span>
+                                            </div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -68,20 +85,28 @@
                                         <tr>
                                             <td>{{$memberField->field_code}}</td>
                                             <td class="text-center">
-                                                <label class="kt-radio kt-radio--success mx-5">
+                                                <label class="kt-radio kt-radio--success mx-3">
                                                     <input type="radio" {{$memberField->field_visibility=='PUBLIC' ? 'checked' : ''}} value="PUBLIC" class="field-visibility" name="{{$memberField->field_code}}"> {{trans('members::main.public')}}
                                                     <span></span>
                                                 </label>
-                                                <label class="kt-radio kt-radio--primary mx-5">
+                                                <label class="kt-radio kt-radio--primary mx-3">
                                                     <input type="radio" {{$memberField->field_visibility=='INTERNAL' ? 'checked' : ''}} value="INTERNAL" class="field-visibility" name="{{$memberField->field_code}}"> {{trans('members::main.internal')}}
                                                     <span></span>
                                                 </label>
-                                                <label class="kt-radio kt-radio--danger mx-5">
+                                                <label class="kt-radio kt-radio--danger mx-3">
                                                     <input type="radio" {{$memberField->field_visibility=='PRIVATE' ? 'checked' : ''}} value="PRIVATE" class="field-visibility" name="{{$memberField->field_code}}"> {{trans('members::main.private')}}
                                                     <span></span>
                                                 </label>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
+                                                <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger">
+                                                    <label>
+                                                        <input type="checkbox" {{$memberField->required=='T' ? 'checked' : ''}} class="required" name="required_{{$memberField->field_code}}">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
                                                 <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--dark">
                                                     <label>
                                                         <input type="checkbox" {{$memberField->over_ride=='T' ? 'checked' : ''}} class="over-ride" name="over_ride_{{$memberField->field_code}}">
@@ -131,11 +156,22 @@
         change_all_visibility('PRIVATE');
     });
     //=================================================//
+    $('#toggle-required').click(function(){
+        toggle_required($(this));
+    });
+    //=================================================//
     $('#toggle-over-ride').click(function(){
         toggle_override($(this));
     });
     //=================================================//
 });
+//----------------------------------------------------------------------------------------//
+    function toggle_required($this){
+        if($this.prop('checked'))
+            $('.required').prop('checked',true);
+        else
+            $('.required').prop('checked',false);
+    }
 //----------------------------------------------------------------------------------------//
     function toggle_override($this){
         if($this.prop('checked'))
@@ -150,7 +186,6 @@
     }
 //----------------------------------------------------------------------------------------//
     function submit_form(form_id){
-        $("#"+form_id).validate();
         $("#"+form_id).submit();
     }
 //----------------------------------------------------------------------------------------//
