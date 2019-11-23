@@ -44,7 +44,7 @@ function form_call(form = '.form-ajax', callback) {
             });
             return false;
         })
-            .off('field:error').on('field:error', function() {
+        .off('field:error').on('field:error', function() {
             // This global callback will be called for any field that fails validation.
             var $element = this.$element,
                 tabs = $element.closest('.tabs'),

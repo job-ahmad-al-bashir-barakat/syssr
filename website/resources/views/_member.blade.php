@@ -153,15 +153,28 @@
                                             @endif
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-50">
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                                                        <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                                                    </div>
-                                                    <div class="col-md-6 mb-50">
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
-                                                        <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                                                        <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
-                                                    </div>
+                                                    @if($update)
+                                                        <div class="col-md-6 mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
+                                                            <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                        </div>
+                                                        <div class="col-md-6 mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
+                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        </div>
+                                                    @else
+                                                        <div class="col-md-6 mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
+                                                            <input id="brk-pass-form" name="password" type="password" required data-parsley-errors-container="#pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        </div>
+                                                        <div class="col-md-6 mb-50">
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
+                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" data-parsley-equalto="#brk-pass-form" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" data-parsley-errors-container="#confirm-pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                            <div id="confirm-pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
