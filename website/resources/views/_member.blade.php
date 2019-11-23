@@ -324,13 +324,13 @@
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="resume">
                                                                 {{ trans('app.resume') }}
-                                                                @isset($user->resume_file)
-                                                                    <a href="{{ $user->resume_file_url ?? '' }}" class="resume_file_download icon__btn icon__btn-xs icon__btn-anim brk-library-rendered" data-brk-library="component__button" download title="{{ trans('app.download_file') }}">
+                                                                @if($update)
+                                                                    <a href="{{ $user->resume_file_url ?? 'javascript:void(0)' }}" class="resume_file_download icon__btn icon__btn-xs icon__btn-anim brk-library-rendered" data-brk-library="component__button" download title="{{ trans('app.download_file') }}">
                                                                         <i class="fa fa-arrow-down icon-inside" aria-hidden="true"></i>
                                                                         <span class="before"></span>
                                                                         <span class="after"></span>
                                                                     </a>
-                                                                @endisset
+                                                                @endif
                                                             </label>
                                                             <input type="file" id="resume" name="resume_file" accept="application/pdf">
                                                         </div>

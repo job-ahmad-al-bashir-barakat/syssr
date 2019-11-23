@@ -7,7 +7,8 @@
 
     jQuery.ajaxSetup({
         data: {
-            api_token: api_token
+            api_token: api_token,
+            lang: site_lang
         },
         headers: {
             'X-CSRF-TOKEN': csrf_token,
@@ -19,6 +20,7 @@
     jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         if (originalOptions.data instanceof FormData) {
             originalOptions.data.append('api_token', api_token);
+            originalOptions.data.append('lang', site_lang);
         }
     });
 

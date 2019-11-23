@@ -67,6 +67,35 @@ class MembersController extends Controller
         return redirect(url('members/settings'))->with('message', $message);
     }
 //----------------------------------------------------------------------//
+    public function store(Request $request)
+    {
+        $data = $request->input();
+        $lang = request('lang');
+
+        $data['mobile'] = $data['mobile_full'];
+        $data['country_id'] = $data['country'];
+        $data['city_id'] = $data['city'];
+        $data['occupation_id'] = $data['current_occupation'];
+        $data['location'] = $data['location_address'] ?? $data['location_country_city'];
+        $data['avatar'] = \Upload::avatar();
+        $data['resume_file'] = \Upload::file('resume_file', null, 'resume');
+        $data['type'] = 'M';
+        $data['status'] = 'I';
+
+        $member = Member::create($data);
+
+        if($data['research_interests'])
+            $member->research_interests()->sync(explode(',',$data['research_interests']));
+        if($data['skills'])
+            $member->skills()->sync(explode(',',$data['skills']));
+        if($data['degrees'])
+            $member->degrees()->sync(explode(',',$data['degrees']));
+        if($data['associations'])
+            $member->associations()->sync(explode(',',$data['associations']));
+
+        return response()->json(['success' => true, 'intended' => "/$lang/about-society/join-us"]);
+    }
+//----------------------------------------------------------------------//
     public function update(Request $request, $id){
 
         if($request->get('password',''))
@@ -79,20 +108,10 @@ class MembersController extends Controller
         $data['city_id'] = $data['city'];
         $data['occupation_id'] = $data['current_occupation'];
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
+        $data['avatar'] = \Upload::avatar();
 
-        $filename = \Upload::avatar();
-        if($data['avatar'])
-            $data['avatar'] = $filename;
-        else
-            unset($data['avatar']);
-
-        $member = Member::with(['research_interests', 'skills', 'degrees', 'associations'])->where('id',$id)->first();
-
-        if(empty($data['resume_file']))
-            unset($data['resume_file']);
-        else
-            $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
-
+        $member = Member::findOrFail($id);
+        $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
         $member->update($data);
 
         if($data['research_interests'])

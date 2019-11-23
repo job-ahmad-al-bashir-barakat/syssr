@@ -24,7 +24,7 @@ function form_call(form = '.form-ajax', callback) {
         formAjax.parsley().off('form:submit').on('form:submit', function() {
 
             var form = this.$element;
-            var formData = new FormData(form[0])
+            var formData = new FormData(form[0]);
             jQuery.ajax({
                 url: form.attr('action'),
                 data: formData,
@@ -32,7 +32,7 @@ function form_call(form = '.form-ajax', callback) {
                 contentType: false,
                 processData: false,
                 success: function(res) {
-                    alert_message()
+                    alert_message();
 
                     if(callback)
                         callback(res);
@@ -44,19 +44,25 @@ function form_call(form = '.form-ajax', callback) {
             });
             return false;
         })
-        .off('field:error').on('field:error', function() {
+        .off('form:error').on('form:error', function() {
+
             // This global callback will be called for any field that fails validation.
-            var $element = this.$element,
+            var $element = jQuery('.parsley-errors-list.filled').first(),
                 tabs = $element.closest('.tabs'),
                 tab = $element.closest('.tab');
 
-            if(tabs) {
-                tabs.find(`[data-tab=${ tab.attr('id') }]`).click();
-                jQuery('html, body').animate({
-                    scrollTop: this.$element.offset().top
-                }, 100);
+            if($element.length) {
+                if(tabs) {
+                    var findTabInsideTabs = tabs.find(`[data-tab=${ tab.attr('id') }]`);
+                    if(!findTabInsideTabs.hasClass('active'))
+                        findTabInsideTabs.click();
+                    jQuery('html, body').animate({
+                        scrollTop: $element.offset().top - 200
+                    }, 100);
+                }
             }
-        });;
+
+        });
 }
 
 function addressAutocomplete() {

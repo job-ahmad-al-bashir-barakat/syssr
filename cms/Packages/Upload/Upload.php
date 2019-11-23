@@ -45,7 +45,10 @@ class Upload
         }
     }
 
-    function file($input_name, $old_value, $custom_path = '') {
+    function file($input_name, $old_value = null, $custom_path = '') {
+
+        if(empty(request($input_name)))
+            return '';
 
         $file = $_FILES[$input_name] ?? [];
 
@@ -59,20 +62,21 @@ class Upload
                 $targetDirectory .= "\\$custom_path";
             }
 
-            $path = storage_path($uploadDirectory);
-            $filename = uniqid() . "-{$file['name']}";
-
             // Create Folder inside storage
             Storage::makeDirectory($targetDirectory);
+
+            $path = storage_path($uploadDirectory);
+            $filename = uniqid() . "-{$file['name']}";
 
             // delete file
             if($old_value)
                 \File::delete("$path/$old_value");
 
             // Save the file
-            \File::move($file['tmp_name'], "$path/$filename");
+            if($filename)
+                \File::move($file['tmp_name'], "$path/$filename");
 
-            return $filename;
+            return $filename ? $filename : '';
         }
     }
 }
