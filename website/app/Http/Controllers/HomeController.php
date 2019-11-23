@@ -67,8 +67,4 @@ class HomeController extends Controller
         return view('workshop');
     }
 //--------------------------------------------------------------------------//
-    public function contact(){
-        return view('contact');
-    }
-//--------------------------------------------------------------------------//
 }
