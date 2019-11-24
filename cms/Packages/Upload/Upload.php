@@ -8,12 +8,11 @@ use Storage;
 
 class Upload
 {
-    function avatar()
+    function avatar($old_value = null)
     {
         $image = Slim::getImages('avatar');
-        $id = \Route::getCurrentRoute()->parameter('id');
-        $uploadDirectory = "app\\public\\avatar\\$id";
-        $targetDirectory = "public\\avatar\\$id";
+        $uploadDirectory = "app\\public\\avatar\\";
+        $targetDirectory = "public\\avatar\\";
 
         $path = storage_path($uploadDirectory);
 
@@ -24,8 +23,8 @@ class Upload
             // save output data if set
             if (isset($image['output']['data'])) {
 
-                 // Remove avatar from storage
-                 Storage::deleteDirectory($targetDirectory);
+                // Create avatar folder inside storage
+                Storage::makeDirectory($targetDirectory);
 
                 // Save the file
                 $name = $image['output']['name'];
@@ -33,6 +32,9 @@ class Upload
 
                 // $img = Image::make('public/foo.jpg');
                 // $img->resize(60, 60);
+
+                if($old_value)
+                    \File::delete("$path/$old_value");
 
                 $output = Slim::saveFile($data,$name,$path);
 

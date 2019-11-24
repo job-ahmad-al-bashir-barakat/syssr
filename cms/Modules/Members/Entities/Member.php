@@ -75,7 +75,7 @@ class Member extends Authenticatable
 
     function getAvatarUrlAttribute() {
         if($this->avatar)
-            return url("storage/avatar/$this->id/$this->avatar");
+            return url("storage/avatar/$this->avatar");
     }
 
     function getResumeFileUrlAttribute() {

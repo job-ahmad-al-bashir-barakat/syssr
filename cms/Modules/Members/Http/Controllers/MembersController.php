@@ -72,6 +72,8 @@ class MembersController extends Controller
         $data = $request->input();
         $lang = request('lang');
 
+        $data['password'] = bcrypt($data['password']);
+        $data['api_token'] = \Str::random(60);
         $data['mobile'] = $data['mobile_full'];
         $data['country_id'] = $data['country'];
         $data['city_id'] = $data['city'];
@@ -98,20 +100,22 @@ class MembersController extends Controller
 //----------------------------------------------------------------------//
     public function update(Request $request, $id){
 
-        if($request->get('password',''))
+        if($request->get('password','')) {
             $data = $request->input();
-        else
+            $data['password'] = bcrypt($data['password']);
+        } else {
             $data = $request->except('password');
+        }
 
         $data['mobile'] = $data['mobile_full'];
         $data['country_id'] = $data['country'];
         $data['city_id'] = $data['city'];
         $data['occupation_id'] = $data['current_occupation'];
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
-        $data['avatar'] = \Upload::avatar();
 
         $member = Member::findOrFail($id);
         $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
+        $data['avatar'] = \Upload::avatar($member->avatar);
         $member->update($data);
 
         if($data['research_interests'])
