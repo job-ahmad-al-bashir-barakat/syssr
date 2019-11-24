@@ -11,7 +11,7 @@ return [
     'member_fields'             =>      'Member Fields',
     'field_name'                =>      'Field Name',
     'field_visibility'          =>      'Field Visibility',
-    'over_ride'                 =>      'Over Ride',
+    'over_ride'                 =>      'Override',
     'required'                  =>      'Required ',
     'public'                    =>      'Public',
     'internal'                  =>      'Internal',

@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
+@section('title',trans('app.title_contact'))
+
 @section('content')
     @include('partials._breadcrumbs',['title' => trans('app.contact'), 'banner' => asset('img/syssr/contact-us-banner.jpg')])
     <div class="main-wrapper">
         <main class="main-container">
-            @if(count($contacts)>0)
+            @if(count($contacts)>1)
                 <div class="brk-tabs tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                     <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
                         @foreach($contacts as $contact)
@@ -20,7 +22,11 @@
                     </div>
                 </div>
             @else
-                @include('_contact', ['contact' =>  $contact])
+                @if(count($contacts)>0)
+                    @include('_contact', ['contact' =>  $contacts->first()])
+                @else
+                    <div class="pt-80 pb-80"></div>
+                @endif
             @endif
         </main>
     </div>

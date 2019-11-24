@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap4-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugin/air-datepicker/css/datepicker.min.css') }}">
 @endsection
 
 @section('content')
-    <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="img/demo_magazine/1920x195_1.jpg" data-brk-library="component__breadcrumbs_css">
+    <div class="breadcrumbs__section breadcrumbs__section-grayscale pt-130 pb-60 bg__style lazyload" data-bg="{{$banner_url}}" data-brk-library="component__breadcrumbs_css">
         <div class="full__size-absolute brk-bg-black opacity-70"></div>
         <div class="container">
             <div class="breadcrumbs__wrapper align-items-center">
@@ -105,7 +106,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">{{ trans('app.birth_date') }}</label>
-                                                            <input id="date-id-round" class="brk-form-date" name="birth_date" type="date" value="{{ $user->birth_date ?? '' }}">
+                                                            <input id="date-id-round" class="air-datepicker" data-language="{{$lang}}" name="birth_date" type="text" value="{{ $user->birth_date ?? '' }}">
                                                             <div class="d-inline-block"></div>
                                                         </div>
                                                         <div class="mb-50">
@@ -129,7 +130,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="website-id-round">{{ trans('app.website') }}</label>
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="website-id-round">{{ trans('app.personal_website') }}</label>
                                                             <input id="website-id-round" dir="ltr" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? 'http://' }}" placeholder="http://www.website.com">
                                                         </div>
                                                     </div>
@@ -386,6 +387,9 @@
         </div>
     @endcomponent
 
+    <script src="{{ asset('custom/plugin/air-datepicker/js/datepicker.min.js') }}"></script>
+    <script src="{{ asset("custom/plugin/air-datepicker/js/i18n/datepicker.$lang.js") }}"></script>
+
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
 
@@ -406,4 +410,12 @@
 
     <script src="{{ asset('custom/js/form.js') }}"></script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
+
+    <script>
+        jQuery(function(){
+            jQuery('.air-datepicker').datepicker({
+                language: '{{$lang}}',
+            });
+        });
+    </script>
 @endsection
