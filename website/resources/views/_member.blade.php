@@ -388,7 +388,8 @@
     @endcomponent
 
     <script src="{{ asset('custom/plugin/air-datepicker/js/datepicker.min.js') }}"></script>
-    <script src="{{ asset("custom/plugin/air-datepicker/js/i18n/datepicker.$lang.js") }}"></script>
+    <script src="{{ asset("custom/plugin/air-datepicker/js/i18n/datepicker.en.js") }}"></script>
+    <script src="{{ asset("custom/plugin/air-datepicker/js/i18n/datepicker.ar.js") }}"></script>
 
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>

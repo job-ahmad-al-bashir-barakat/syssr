@@ -16,7 +16,7 @@
     <link rel="stylesheet" id="brk-skin-color" href="{{ asset('css/skins/brk-dark-blue-1.css') }}">
     <link id="brk-base-color" rel="stylesheet" href="{{ asset('css/skins/brk-base-color.css') }}">
     <link rel="stylesheet" id="brk-direction-offsets" href="{{ asset("css/assets/offsets-$dir.css") }}">
-    <link id="brk-css-min" rel="stylesheet" href="{{ asset('css/assets/styles.min.css') }}">
+    <link id="brk-css-min" rel="stylesheet" href="{{ asset("css/assets/styles-$dir.min.css") }}">
     <!-- vertical nav -->
     <link rel="stylesheet" href="{{asset('vendor/vertical-fixed-navigation/js/modernizr.js')}}">
     <link rel="stylesheet" href="{{asset('vendor/vertical-fixed-navigation/css/style.css')}}">
