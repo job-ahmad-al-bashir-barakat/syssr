@@ -167,8 +167,8 @@
                                                     @else
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                                                            <input id="brk-pass-form" name="password" type="password" required data-parsley-errors-container="#pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
-                                                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            <input id="brk-pass-form" name="password" type="password" required data-parsley-errors-container="#password-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;">
+                                                            <div id="password-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>

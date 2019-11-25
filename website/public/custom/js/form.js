@@ -32,7 +32,9 @@ function form_call(form = '.form-ajax', callback) {
                 contentType: false,
                 processData: false,
                 success: function(res) {
-                    alert_message();
+
+                    if(res.success)
+                        alert_message();
 
                     if(callback)
                         callback(res);
@@ -40,7 +42,45 @@ function form_call(form = '.form-ajax', callback) {
                     if(res.intended)
                         window.location.href = res.intended;
                 },
-                error: function() {  },
+                error: function(res) {
+
+                    if(res.responseJSON.errors) {
+
+                        // fill error
+                        jQuery.each(res.responseJSON.errors, function (name, error) {
+
+                            var name = name.replace(/_/g,'-'),
+                                $element = jQuery(`#${name}-error`);
+
+                            if($element.length) {
+                                $element.text(error);
+                            }
+                        });
+
+                        // move to element
+                        jQuery.each(res.responseJSON.errors, function (name, error) {
+
+                            var name = name.replace(/_/g,'-'),
+                                $element = jQuery(`#${name}-error`),
+                                tabs = $element.closest('.tabs'),
+                                tab = $element.closest('.tab');
+
+                            if($element.length) {
+                                if(tabs) {
+                                    var findTabInsideTabs = tabs.find(`[data-tab=${ tab.attr('id') }]`);
+                                    if(!findTabInsideTabs.hasClass('active'))
+                                        findTabInsideTabs.click();
+                                }
+                                jQuery('html, body').animate({
+                                    scrollTop: $element.offset().top - 200
+                                }, 100);
+                            }
+
+                            return false;
+                        });
+                    }
+
+                },
             });
             return false;
         })
@@ -56,10 +96,10 @@ function form_call(form = '.form-ajax', callback) {
                     var findTabInsideTabs = tabs.find(`[data-tab=${ tab.attr('id') }]`);
                     if(!findTabInsideTabs.hasClass('active'))
                         findTabInsideTabs.click();
-                    jQuery('html, body').animate({
-                        scrollTop: $element.offset().top - 200
-                    }, 100);
                 }
+                jQuery('html, body').animate({
+                    scrollTop: $element.offset().top - 200
+                }, 100);
             }
 
         });

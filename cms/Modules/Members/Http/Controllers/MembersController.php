@@ -8,10 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
 use Modules\Members\Entities\Member;
 use Modules\Members\Entities\MemberField;
-use Modules\Members\Http\Requests\MemberRequest;
-use Modules\Members\Http\Requests\MembersRequest;
 use Yajra\Datatables\Datatables;
-use LaravelLocalization;
 
 
 class MembersController extends Controller
@@ -69,6 +66,30 @@ class MembersController extends Controller
 //----------------------------------------------------------------------//
     public function store(Request $request)
     {
+        \App::setLocale(request('lang'));
+        $validator = \Validator::make($request->all(),[
+            'username'   => [
+                "required",
+                Rule::unique('members'),
+                "max:255"
+            ],
+            'email' => [
+                'required',
+                Rule::unique('members'),
+            ],
+            'first_name' => "required|max:255",
+            'last_name'  => "required|max:255",
+            'country'    => "required",
+            'city'       => "required",
+            'password'   => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->messages()
+            ], 422);
+        }
+
         $data = $request->input();
         $lang = request('lang');
 
@@ -99,6 +120,29 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function update(Request $request, $id){
+
+        \App::setLocale(request('lang'));
+        $validator = \Validator::make($request->all(),[
+            'username'   => [
+                "required",
+                Rule::unique('members')->ignore(\Auth::id()),
+                "max:255"
+            ],
+            'email' => [
+                'required',
+                Rule::unique('members')->ignore(\Auth::id()),
+            ],
+            'first_name' => "required|max:255",
+            'last_name'  => "required|max:255",
+            'country'    => "required",
+            'city'       => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->messages()
+            ], 422);
+        }
 
         if($request->get('password','')) {
             $data = $request->input();
