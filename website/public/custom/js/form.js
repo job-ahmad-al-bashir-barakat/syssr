@@ -237,6 +237,12 @@ function cityCountryChange() {
     });
 }
 
+function initDatepicker() {
+    jQuery('.air-datepicker').datepicker({
+        language: site_lang,
+    });
+}
+
 jQuery(function () {
     form_call('.form-ajax',function (res) {
         if(res.resume_file)
@@ -244,6 +250,7 @@ jQuery(function () {
     });
     slim_call();
     summernote();
+    initDatepicker();
     intlTelInputInit();
     cityCountryChange();
     addressAutocomplete();

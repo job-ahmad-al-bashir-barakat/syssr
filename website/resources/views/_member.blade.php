@@ -410,12 +410,4 @@
 
     <script src="{{ asset('custom/js/form.js') }}"></script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
-
-    <script>
-        jQuery(function(){
-            jQuery('.air-datepicker').datepicker({
-                language: '{{$lang}}',
-            });
-        });
-    </script>
 @endsection
