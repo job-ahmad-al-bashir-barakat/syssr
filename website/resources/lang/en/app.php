@@ -15,6 +15,7 @@ return [
     'copyright' => '<span class="font__weight-bold">SySSR</span> All rights reserved',
     'well_done' => 'Well done!',
     'success_message' => 'Data is saved successfully',
+    'verify_account_member' => 'Welcome Back. 😟 Your Account is not verified until now. 🙏 Please wait until admin accept your account',
 
     // header
     'home' => 'Home',
