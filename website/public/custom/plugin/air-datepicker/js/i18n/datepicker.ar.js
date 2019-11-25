@@ -1,12 +1,25 @@
 ;(function ($) { $.fn.datepicker.language['ar'] = {
-    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-    months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
-    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    today: 'Today',
-    clear: 'Clear',
-    dateFormat: 'mm/dd/yyyy',
+    days: ['الأحد', 'الاثنين', 'الاثنين', 'الاثنين', 'الخميس', 'الجمعة', 'السبت'],
+    daysShort: ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
+    daysMin: ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
+    months: ['يناير','فبراير','مارس','أبريل','مايو','يونيو', 'يوليو','أغسطس','سبتمبر','أكتوبر','نوڤمبر','ديسمبر'],
+    monthsShort: ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوڤ', 'ديس'],
+    today: 'اليوم',
+    clear: 'مسح',
+    dateFormat: 'dd/mm/yyyy',
     timeFormat: 'hh:ii aa',
-    firstDay: 0
-}; })(jQuery);
+    firstDay: 0,
+    am: "ص",
+    pm: "م",
+    defaultOverrides: {
+      prevHtml: '<svg><path d="M 14,12 l 5,5 l -5,5"></path></svg>',
+      nextHtml: '<svg><path d="M 17,12 l -5,5 l 5,5"></path></svg>',
+      monthsField: 'months',
+      daysField: 'days',
+      navTitles: {
+        days: 'MM yyyy',
+        months: 'yyyy',
+        years: 'yyyy1 - yyyy2'
+      }
+    }
+  }; })(jQuery);
