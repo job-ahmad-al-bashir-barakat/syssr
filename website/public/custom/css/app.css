@@ -106,3 +106,39 @@ body a {
 .brk-form-strict [type="text"]:not([disabled]), .brk-form-strict [type="search"]:not([disabled]), .brk-form-strict [type="password"]:not([disabled]), .brk-form-strict [type="email"]:not([disabled]), .brk-form-strict [type="tel"]:not([disabled]), .brk-form-strict textarea:not([disabled]) {
     font-size: 1rem;
 }
+
+.form-group.req label:not(.radio-inline):after,
+span.req:after {
+    font-family: monospace;
+    position: absolute;
+    content: "*";
+    color: #F44336 !important;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 18px;
+}
+
+.facebook-color {
+    background-image: none !important;
+    color: #3B5998 !important;
+}
+.facebook-bg-color {
+    background-image: none !important;
+    background-color: #3B5998 !important;
+}
+.linkedin-color {
+    background-image: none !important;
+    color: #007bb5 !important;
+}
+.linkedin-bg-color {
+    background-image: none !important;
+    background-color: #007bb5 !important;
+}
+.github-color {
+    background-image: none !important;
+    color: #333 !important;
+}
+.github-bg-color {
+    background-image: none !important;
+    background-color: #333 !important;
+}

@@ -53,9 +53,12 @@ return [
     // profile
     'name' => 'الاسم',
     'general' => 'عام',
+    'personal_info' =>  'معلومات شخصية',
+    'address'   =>  'العنوان',
     'gender' => 'جنس',
     'birth_date' => 'تاريخ الميلاد',
     'save' => 'حفظ',
+    'update'    =>  'تعديل',
     'click_me' => 'اضغط هنا',
     'choose_here' => 'أختر قيمة',
     'male' => 'ذكر',

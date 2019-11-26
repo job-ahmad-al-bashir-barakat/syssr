@@ -53,9 +53,12 @@ return [
     // profile
     'name' => 'Name',
     'general' => 'General',
+    'personal_info' =>  'Personal Information',
+    'address'   =>  'Address',
     'gender' => 'Gender',
     'birth_date' => 'Birth date',
     'save' => 'Save',
+    'update'    =>  'Update',
     'click_me' => 'Click Me',
     'choose_here' => 'Choose here',
     'male' => 'Male',

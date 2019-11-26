@@ -16,15 +16,13 @@
                     {{ $slot ?? '' }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-inside-out btn-md font__weight-bold brk-library-rendered rendered" data-brk-library="component__button" data-dismiss="modal">
-                        <span class="before">{{ trans('app.close') }}</span>
-                        <span class="text">{{ trans('app.click_me') }}</span>
-                        <span class="after">{{ trans('app.close') }}</span>
+                    <button type="button" class="btn btn-gradient btn-md border-radius-10 font__weight-bold" data-brk-library="component__button" data-dismiss="modal">
+                        <i class="fa fa-times icon-inside" aria-hidden="true"></i>
+                        <span>{{ trans('app.close') }}</span>
                     </button>
-                    <button type="submit" class="btn btn-inside-out btn-md font__weight-bold brk-library-rendered rendered" data-brk-library="component__button">
-                        <span class="before">{{ trans('app.save') }}</span>
-                        <span class="text">{{ trans('app.click_me') }}</span>
-                        <span class="after">{{ trans('app.save') }}</span>
+                    <button type="submit" class="btn btn-gradient btn-md border-radius-10 font__weight-bold" data-brk-library="component__button">
+                        <i class="fa fa-save icon-inside" aria-hidden="true"></i>
+                        <span>{{ trans('app.save') }}</span>
                     </button>
                 </div>
             </div>

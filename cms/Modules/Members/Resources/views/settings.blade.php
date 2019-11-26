@@ -99,20 +99,24 @@
                                                 </label>
                                             </td>
                                             <td class="text-center">
-                                                <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger">
-                                                    <label>
-                                                        <input type="checkbox" {{$memberField->required=='T' ? 'checked' : ''}} class="required" name="required_{{$memberField->field_code}}">
-                                                        <span></span>
-                                                    </label>
-                                                </span>
+                                                @if($memberField->required!='NA')
+                                                    <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger">
+                                                        <label>
+                                                            <input type="checkbox" {{$memberField->required=='T' ? 'checked' : ''}} class="required" name="required_{{$memberField->field_code}}">
+                                                            <span></span>
+                                                        </label>
+                                                    </span>
+                                                @endif
                                             </td>
                                             <td class="text-center">
-                                                <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--dark">
-                                                    <label>
-                                                        <input type="checkbox" {{$memberField->over_ride=='T' ? 'checked' : ''}} class="over-ride" name="over_ride_{{$memberField->field_code}}">
-                                                        <span></span>
-                                                    </label>
-                                                </span>
+                                                @if($memberField->over_ride!='NA')
+                                                    <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--dark">
+                                                        <label>
+                                                            <input type="checkbox" {{$memberField->over_ride=='T' ? 'checked' : ''}} class="over-ride" name="over_ride_{{$memberField->field_code}}">
+                                                            <span></span>
+                                                        </label>
+                                                    </span>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

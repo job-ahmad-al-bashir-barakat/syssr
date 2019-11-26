@@ -40,7 +40,9 @@ class HomeController extends Controller
         $country = \Api::country();
         $occupation = \Api::occupation();
 
-        return view('join_us', compact('user','country', 'occupation'));
+        $membersFieldsSettings = \Api::getMembersFieldsSettings();
+
+        return view('join_us', compact('user','country', 'occupation', 'membersFieldsSettings'));
     }
 //--------------------------------------------------------------------------//
     public function news_society(){

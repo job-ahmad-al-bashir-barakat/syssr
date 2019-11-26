@@ -38,7 +38,7 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function getMemberFields(Request $request){
-        $memberFields = MemberField::all();
+        $memberFields = MemberField::all(['field_code', 'field_visibility', 'required', 'over_ride'])->keyBy('field_code');
         return $memberFields;
     }
 //----------------------------------------------------------------------//

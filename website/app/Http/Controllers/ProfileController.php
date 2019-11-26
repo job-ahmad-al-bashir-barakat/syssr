@@ -30,6 +30,8 @@ class ProfileController extends Controller
             $city = \Api::city($user->country->code);
         $occupation = \Api::occupation();
 
-        return view('profile', compact('user','country', 'city', 'occupation'));
+        $membersFieldsSettings = \Api::getMembersFieldsSettings();
+
+        return view('profile', compact('user','country', 'city', 'occupation', 'membersFieldsSettings'));
     }
 }

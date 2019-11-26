@@ -19,14 +19,29 @@ class CreateMemberFieldsTable extends Migration
             $table->bigIncrements('id');
             $table->string('field_code');
             $table->string('field_visibility',10)->default('PUBLIC')->comment = 'values: PUBLIC, INTERNAL, PRIVATE';
-            $table->string('required',1)->default('F')->comment = 'values: T, F';
-            $table->string('over_ride',1)->default('F')->comment = 'values: T, F';
+            $table->string('required',2)->default('F')->comment = 'values: T, F';
+            $table->string('over_ride',2)->default('F')->comment = 'values: T, F';
             $table->timestamps();
         });
 
-        // $memberFields = get_members_fields();
+        // $memberFields = get_members_fields(); 
         $memberFields = [
             [
+                'field_code'        =>  'username',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'F',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'bio',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'F',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'avatar',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'F',
+                'over_ride'         =>  'F',
+            ],[
                 'field_code'        =>  'first_name',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
@@ -37,12 +52,32 @@ class CreateMemberFieldsTable extends Migration
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'personal_email',
+                'field_code'        =>  'email',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
                 'field_code'        =>  'society_email',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'NA',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'date_of_join',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'NA',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'birth_date',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'F',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'gender',
+                'field_visibility'  =>  'PUBLIC',
+                'required'          =>  'F',
+                'over_ride'         =>  'F',
+            ],[
+                'field_code'        =>  'mobile',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
@@ -52,17 +87,17 @@ class CreateMemberFieldsTable extends Migration
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'mobile_phone',
+                'field_code'        =>  'country',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'social_links',
+                'field_code'        =>  'city',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'location',
+                'field_code'        =>  'street_location',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
@@ -92,7 +127,7 @@ class CreateMemberFieldsTable extends Migration
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'member_bio',
+                'field_code'        =>  'resume',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
@@ -102,7 +137,7 @@ class CreateMemberFieldsTable extends Migration
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
             ],[
-                'field_code'        =>  'resume',
+                'field_code'        =>  'social_links',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
                 'over_ride'         =>  'F',
