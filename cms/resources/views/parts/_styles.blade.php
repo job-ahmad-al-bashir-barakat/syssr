@@ -42,6 +42,12 @@ span.req:after {
     padding-left: 6px;
     font-size: 18px;
 }
+.app-version-header{
+    margin: auto 0;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
 .invalid-feedback{
     display: block;
 }
