@@ -32,7 +32,8 @@ class HomeController extends Controller
     }
 //--------------------------------------------------------------------------//
     public function members_society(){
-        return view('members_society');
+        $members = \Api::members();
+        return view('members_society',['members' => $members]);
     }
 //--------------------------------------------------------------------------//
     public function join_us(){

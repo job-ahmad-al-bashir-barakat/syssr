@@ -32,6 +32,20 @@ body a {
     height: 25px;
 }
 
+.brk-form-strict [type="text"]:not([disabled]), .brk-form-strict [type="search"]:not([disabled]), .brk-form-strict [type="password"]:not([disabled]), .brk-form-strict [type="email"]:not([disabled]), .brk-form-strict [type="tel"]:not([disabled]), .brk-form-strict textarea:not([disabled]) {
+    font-size: 1rem;
+}
+
+.form-group.req label:not(.radio-inline):after, span.req:after {
+    font-family: monospace;
+    position: absolute;
+    content: "*";
+    color: #F44336 !important;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 18px;
+}
+
 /*slim*/
 .slim {
     border-radius: 25px;
@@ -97,27 +111,15 @@ body a {
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
 }
-
 .brk-tables table.dataTable tbody tr:nth-child(2n+1) {
     background-color: #f8fafe;
     border: none !important;
 }
-
-.brk-form-strict [type="text"]:not([disabled]), .brk-form-strict [type="search"]:not([disabled]), .brk-form-strict [type="password"]:not([disabled]), .brk-form-strict [type="email"]:not([disabled]), .brk-form-strict [type="tel"]:not([disabled]), .brk-form-strict textarea:not([disabled]) {
-    font-size: 1rem;
+.dataTables_filter .brk-form-wrap {
+    margin-top: 0;
 }
 
-.form-group.req label:not(.radio-inline):after,
-span.req:after {
-    font-family: monospace;
-    position: absolute;
-    content: "*";
-    color: #F44336 !important;
-    padding-left: 6px;
-    padding-right: 6px;
-    font-size: 18px;
-}
-
+/*extra*/
 .facebook-color {
     background-image: none !important;
     color: #3B5998 !important;

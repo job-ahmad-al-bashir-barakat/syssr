@@ -10,6 +10,10 @@ class Api
         $this->lang = \LaravelLocalization::getCurrentLocale();
     }
 //--------------------------------------------------------------------------//
+    public function members(){
+        return $this->request->get("members");
+    }
+//--------------------------------------------------------------------------//
     public function member(){
         $id = \Auth::id();
         return $this->request->get("member/{$id}");

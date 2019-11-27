@@ -7,8 +7,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Settings\Entities\Association;
+use Modules\Settings\Entities\City;
 use Modules\Settings\Entities\Country;
 use Modules\Settings\Entities\Degree;
+use Modules\Settings\Entities\Occupation;
 use Modules\Settings\Entities\ResearchInterest;
 use Modules\Settings\Entities\Skill;
 
@@ -76,6 +78,8 @@ class Member extends Authenticatable
     function getAvatarUrlAttribute() {
         if($this->avatar)
             return url("storage/avatar/$this->avatar");
+        else
+            return 'custom/img/user-image.png';
     }
 
     function getResumeFileUrlAttribute() {
@@ -85,6 +89,10 @@ class Member extends Authenticatable
 
     function country() {
         return $this->belongsTo(Country::class);
+    }
+
+    function city() {
+        return $this->belongsTo(City::class);
     }
 
     function research_interests() {
@@ -101,5 +109,9 @@ class Member extends Authenticatable
 
     function associations() {
         return $this->belongsToMany(Association::class)->withTimestamps();
+    }
+
+    function occupation() {
+        return $this->belongsTo(Occupation::class);
     }
 }
