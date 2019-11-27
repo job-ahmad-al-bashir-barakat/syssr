@@ -256,8 +256,13 @@ function cityCountryChange() {
     jQuery('#city').change(function () {
         var country = jQuery('#country').find('option:selected').text();
         var city = jQuery(this).find('option:selected').text();
+        var text = `${city}, ${country}`;
+        var streetAddress = jQuery('#street-address');
+            streetAddress.val(text);
+
         getLatLngGoogle(`${country} ${city}`).done(function (result) {
             jQuery('#location-country-city').val(`${result.lat()},${result.lng()}`);
+            jQuery('#location-address').val(`${result.lat()},${result.lng()}`);
         });
     });
 
