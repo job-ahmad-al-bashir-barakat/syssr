@@ -89,6 +89,8 @@ return [
     'add' => 'اضافة ',
     'download_file' => 'حمل الملف',
 
+    // members society
+
     // contact
     'your_name' => 'الاسم',
     'subject'   =>  'الموضوع',

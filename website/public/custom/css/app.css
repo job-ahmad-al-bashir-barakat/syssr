@@ -119,6 +119,14 @@ body a {
     margin-top: 0;
 }
 
+.brk-tables-avatar tr td {
+    vertical-align: middle;
+}
+.table-avatar {
+    max-width: 50%;
+    border-radius: 50%;
+}
+
 /*extra*/
 .facebook-color {
     background-image: none !important;

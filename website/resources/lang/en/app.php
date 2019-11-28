@@ -89,6 +89,8 @@ return [
     'add' => 'Add ',
     'download_file' => 'Download File',
 
+    // members society
+
     // contact
     'your_name' => 'Your Name',
     'subject'   =>  'Subject',

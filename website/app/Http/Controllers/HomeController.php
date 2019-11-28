@@ -31,11 +31,6 @@ class HomeController extends Controller
         return view('society_goals', compact('our_goals'));
     }
 //--------------------------------------------------------------------------//
-    public function members_society(){
-        $members = \Api::members();
-        return view('members_society',['members' => $members]);
-    }
-//--------------------------------------------------------------------------//
     public function join_us(){
         $user = new Member();
         $country = \Api::country();

@@ -187,9 +187,12 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
 
+        // Package ServiceProvider
+        Cocur\Slugify\Bridge\Laravel\SlugifyServiceProvider::class,
+
         // CMS Package
-        \Packages\Upload\Providers\UploadServiceProvider::class,
-        \Packages\Helpers\Providers\HelpersServiceProvider::class
+        Packages\Upload\Providers\UploadServiceProvider::class,
+        Packages\Helpers\Providers\HelpersServiceProvider::class
     ],
 
     /*
@@ -241,9 +244,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // Package Facade
+        "Slugify" => Cocur\Slugify\Bridge\Laravel\SlugifyFacade::class,
+
         // CMS Package
-        'Upload' => \Packages\Upload\Facades\Upload::class,
-        'Helpers' => \Packages\Helpers\Facades\Helpers::class,
+        'Upload' => Packages\Upload\Facades\Upload::class,
+        'Helpers' => Packages\Helpers\Facades\Helpers::class,
     ],
 
 ];

@@ -50,6 +50,10 @@ class RouteUrls
     {
         return $this->localizeUrl('about-society/members-society');
     }
+    public function membersSocietyDetail($slug)
+    {
+        return $this->localizeUrl("about-society/members-society/$slug");
+    }
     public function joinUs()
     {
         return $this->localizeUrl('about-society/join-us');

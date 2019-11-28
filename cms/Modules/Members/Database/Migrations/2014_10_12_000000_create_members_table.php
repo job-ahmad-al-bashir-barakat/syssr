@@ -22,6 +22,7 @@ class CreateMembersTable extends Migration
             $table->string('last_name'); // r
             $table->text('bio')->nullable();
             $table->string('username')->unique(); // r
+            $table->string('slug')->unique(); // r
             $table->string('society_email')->nullable()->unique();
             $table->string('email')->unique(); // r
             $table->timestamp('email_verified_at')->nullable();

@@ -10,6 +10,9 @@ class Upload
 {
     function avatar($old_value = null)
     {
+        if(empty(request('avatar')))
+            return $old_value;
+
         $image = Slim::getImages('avatar');
         $uploadDirectory = "app\\public\\avatar\\";
         $targetDirectory = "public\\avatar\\";
@@ -50,7 +53,7 @@ class Upload
     function file($input_name, $old_value = null, $custom_path = '') {
 
         if(empty(request($input_name)))
-            return '';
+            return $old_value;
 
         $file = $_FILES[$input_name] ?? [];
 

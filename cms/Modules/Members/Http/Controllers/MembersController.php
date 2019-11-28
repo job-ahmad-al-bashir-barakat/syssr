@@ -28,8 +28,14 @@ class MembersController extends Controller
         return view('members::create');
     }
 //----------------------------------------------------------------------//
-    public function show($id){
-        return Member::with(['research_interests', 'skills', 'degrees', 'associations'])->where('id',$id)->first();
+    public function show($slug){
+
+        $member = Member::with(['research_interests', 'skills', 'degrees', 'associations']);
+
+        if(is_numeric($slug))
+            return $member->where('id',$slug)->first();
+        else
+            return $member->where('slug',$slug)->first();
     }
 //----------------------------------------------------------------------//
     public function settings(){
@@ -93,6 +99,7 @@ class MembersController extends Controller
         $data = $request->input();
         $lang = request('lang');
 
+        $data['slug'] = \Slugify::slugify($data['username']);
         $data['password'] = bcrypt($data['password']);
         $data['api_token'] = \Str::random(60);
         $data['mobile'] = $data['mobile_full'];
@@ -151,6 +158,7 @@ class MembersController extends Controller
             $data = $request->except('password');
         }
 
+        $data['slug'] = \Slugify::slugify($data['username']);
         $data['mobile'] = $data['mobile_full'];
         $data['country_id'] = $data['country'];
         $data['city_id'] = $data['city'];

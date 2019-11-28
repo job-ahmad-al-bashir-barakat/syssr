@@ -10,15 +10,14 @@
         <main class="main-container pb-50 pt-70">
             <section>
                 <div class="container">
-                    <div class="brk-tables brk-tables-strict font__family-montserrat brk-form-strict" data-brk-library="component__tables">
+                    <div class="brk-tables brk-tables-avatar brk-tables-strict font__family-montserrat brk-form-strict" data-brk-library="component__tables">
                         <table>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th class="active" scope="col">Avatar <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th class="active" style="width: 30px;" scope="col">Avatar <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                     <th scope="col">First Name <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                     <th scope="col">Last Name <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th scope="col">Degree <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                     <th scope="col">Country <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                     <th scope="col">Detail <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                 </tr>
@@ -28,13 +27,14 @@
                                     @foreach($members as $index => $member)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td><img src="{{ $member->avatar_url }}" alt="{{ $member->first_name }}"></td>
+                                        <td><img class="table-avatar" src="{{ $member->avatar_url }}" alt="{{ $member->first_name }}"></td>
                                         <td>{{ $member->first_name }}</td>
                                         <td>{{ $member->last_name }}</td>
-                                        <td>Degree1,Degree2</td>{{-- {{ collect($member->degree)->pluck('name')->join(',') }}--}}
                                         <td>{{ $member->country->name }}</td>
                                         <td>
-                                            <a href="#">Detail</a>
+                                            <a href="{{ RouteUrls::membersSocietyDetail($member->slug) }}" class="btn btn-gradient btn-lg border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-110" data-brk-library="component__button">
+                                                <span><i class="fa fa-user"></i> Info</span>
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach

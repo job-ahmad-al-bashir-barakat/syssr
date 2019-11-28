@@ -21,8 +21,10 @@ Route::group([
     Route::get('about-society','HomeController@about_society')->name('about-society');
     Route::get('about-society/who-we-are', 'HomeController@who_we_are')->name('who-we-are');
     Route::get('about-society/society-goals', 'HomeController@society_goals')->name('society-goals');
-    Route::get('about-society/members-society', 'HomeController@members_society')->name('members-society');
     Route::get('about-society/join-us', 'HomeController@join_us')->name('join-us')->middleware(['guest']);
+
+    Route::get('about-society/members-society', 'MemberController@index')->name('members-society');
+    Route::get('about-society/members-society/{slug}', 'MemberController@show')->name('member-society');
 
     Route::get('news-society', 'HomeController@news_society')->name('news-society');
     Route::get('news-society/ads', 'HomeController@ads')->name('ads');
@@ -34,7 +36,7 @@ Route::group([
     Route::get('workshop', 'HomeController@workshop')->name('news-members');
     Route::get('contact', 'ContactController@index')->name('contact');
 
-    Route::get('profile', 'ProfileController@index')->name('profile');
+    Route::get('profile', 'ProfileController@show')->name('profile');
 
     Auth::routes(['verify' => false, 'register' => false]);
 });
