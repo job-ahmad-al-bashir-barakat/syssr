@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/members', "Api\MembersController@index");
-Route::middleware('auth:api')->get('/member/{id}', "MembersController@show");
+Route::get('/member/{id}', "MembersController@show");
 Route::post('/member', "MembersController@store");
 Route::middleware('auth:api')->put('/member/{id}' ,"MembersController@update");
 
