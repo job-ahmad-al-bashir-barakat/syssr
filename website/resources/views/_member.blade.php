@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @include('partials._breadcrumbs',['title' => $member->username , 'banner' => $banner_url)])
+    @include('partials._breadcrumbs',['title' => $member->username ?? $title , 'banner' => $banner_url])
     <div class="main-wrapper">
         <main class="main-container">
             <h1 class="sr-only">Profile</h1>
