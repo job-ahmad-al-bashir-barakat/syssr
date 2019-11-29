@@ -57,6 +57,7 @@ class Api
 //--------------------------------------------------------------------------//
     public function getMembersFieldsSettings(){
         $response = $this->request->get("members/get-fields-settings");
+        return $response;
     }
 //--------------------------------------------------------------------------//
 
