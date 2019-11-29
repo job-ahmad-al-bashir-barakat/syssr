@@ -6,7 +6,7 @@
         <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
             <ul class="kt-menu__nav ">
                 <li style="margin: auto;">
-                    <span class="app-version-header">V.{{Config::get('app.version')}}</span>
+                    <span class="app-version-header kt-badge kt-badge--inline kt-badge--success">V.{{Config::get('app.version')}}</span>
                 </li>
             </ul>
         </div>

@@ -197,7 +197,7 @@
                             <div class="cfa__wrapper cfa__minimal bg__style overlay__white text-center text-lg-left lazyload border-radius-25 dark-shadow" data-bg="img/1170x108_2.jpg" data-brk-library="component__call_to_action">
                                 <h4 class="font__family-montserrat font__size-21 font__weight-bold no-wrap">Download Resume</h4>
                                 <p class="font__family-open-sans font__size-14 text-dark text-center text-lg-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor nean massa. Cum sociis natoque penatibus et magnis dis parturient mnsectetes.</p>
-                                <a href="#" class="btn btn-gradient btn-lg border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                                <a href="#" class="btn btn-gradient btn-md border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-200" data-brk-library="component__button">
                                     <span>Download</span>
                                 </a>
                             </div>
