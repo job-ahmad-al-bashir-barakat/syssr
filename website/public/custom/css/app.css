@@ -21,6 +21,10 @@ body a {
     filter: none !important;
 }
 
+.syssr-user-menu{
+    max-width: 350px;
+}
+
 /*form*/
 .jq-selectbox.disabled .jq-selectbox__select {
     background: #e2e2e21a;

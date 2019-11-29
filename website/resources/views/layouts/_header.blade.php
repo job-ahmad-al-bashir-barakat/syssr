@@ -127,7 +127,7 @@
                     </div>
 
                     @auth
-                        <div class="brk-user brk-header__item">
+                        <!-- <div class="brk-user brk-header__item">
                             <div class="brk-user__open"><i class="fa fa-user"></i>
                                 <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
                             </div>
@@ -153,6 +153,31 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="brk-user brk-mini-cart brk-header__item">
+                            <div class="brk-user__open"><i class="fa fa-user"></i>
+                                <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
+                            </div>
+                            <div class="syssr-user-menu brk-mini-cart__menu">
+                                <div class="brk-mini-cart__header">
+                                    <span class="font__family-montserrat font__weight-bold font__size-18">
+                                        <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" width="60" alt="image">
+                                        <span>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+                                    </span>
+                                </div>
+                                <div class="brk-mini-cart__products">
+                                    <a class="brk-mini-cart__product" href="{{ RouteUrls::profile() }}">
+                                        <h4 class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2"><span class="fa fa-user mx-3"></span> {{ trans('app.profile') }}</h4>
+                                    </a>
+                                    <a class="brk-mini-cart__product" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <h4 class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2"><span class="fas fa-sign-out-alt mx-3"></span> {{ trans('app.logout') }}</h4>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     @endauth
 
@@ -160,7 +185,7 @@
                         <a href="{{ RouteUrls::login() }}">
                             <div class="brk-user brk-header__item">
                                 <div class="brk-user__open">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fas fa-sign-in-alt"></i>
                                     <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
                                 </div>
                             </div>
