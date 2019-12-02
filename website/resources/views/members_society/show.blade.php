@@ -27,14 +27,17 @@
                                     <h3 class="font__family-montserrat font__size-24 line__height-28 font__weight-bold mt-20">{{ $member->username }}</h3>
                                     <h4 class="brk-dark-font-color font__family-open-sans font__size-16 font__weight-normal">{{ "$member->first_name $member->last_name" }}</h4>
                                 </div>
+                                @if($member->bio)
                                 <div class="brk-forum-author-card__about pt-30 pr-40 pb-30 pl-40">
                                     <p class="font__family-open-sans font__size-14 font__weight-semibold line__height-21 letter-spacing-20">
                                         {{ $member->bio ?? '' }}
                                     </p>
                                 </div>
+                                @endif
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="brk-forum-author-card__info pt-35 pr-35 pb-35 pl-40">
+                                            @if($member->email)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -45,6 +48,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @if($member->society_email)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -55,6 +60,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @if($member->birth_date)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -65,6 +72,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @if($member->gender)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -75,6 +84,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @if($member->website)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -85,6 +96,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+                                            @isset($member->occupation)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -94,6 +107,7 @@
                                                         <span class="font__weight-normal">{{ $member->occupation->name->$lang ?? '' }}</span>                                                    </div>
                                                 </div>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -168,42 +182,40 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if($member->publications)
                                 <div class="row">
-                                    {{--                                        'publications',--}}
                                     <div class="col-12">
                                         <div class="mb-60">
                                             <h4 class="title__divider title__divider--chevron font__size-21 font__weight-bold font__family-montserrat line__height-24 text-center" data-brk-library="component__dividers">
-							<span class="title__divider__wrapper">
-								Publications <span class="line brk-base-bg-gradient-chevron-pseudo"></span>
-							</span>
+                                                <span class="title__divider__wrapper">
+                                                    Publications <span class="line brk-base-bg-gradient-chevron-pseudo"></span>
+                                                </span>
                                             </h4>
                                             <div class="font__family-open-sans font__size-15 line__height-24 brk-dark-font-color pl-30 pr-30">
-                                                <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam
-                                                    lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
-                                                    rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
-                                                    rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper. Aenean vulputate eleifend tellus.</p>
+                                                {{ $member->publications }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
+                @if($member->resume_file)
                 <div class="container">
                     <div class="row mt-20">
                         <div class="col-12">
-                            {{--                                        'resume_file',--}}
                             <div class="cfa__wrapper cfa__minimal bg__style overlay__white text-center text-lg-left lazyload border-radius-25 dark-shadow" data-bg="img/1170x108_2.jpg" data-brk-library="component__call_to_action">
                                 <h4 class="font__family-montserrat font__size-21 font__weight-bold no-wrap">Download Resume</h4>
-                                <p class="font__family-open-sans font__size-14 text-dark text-center text-lg-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor nean massa. Cum sociis natoque penatibus et magnis dis parturient mnsectetes.</p>
-                                <a href="#" class="btn btn-gradient btn-md border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                                <a href="{{ $member->resume_file_url }}" class="btn btn-gradient btn-md border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-200" data-brk-library="component__button">
                                     <span>Download</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="mt-70 mt-md-130 pt-80 pb-80 overlay__dot bg__style text-center" style="background-image:url('img/bg-1920_1.jpg')" data-brk-library="component__social_block">
                     <div class="container all-light">
                         <h3 class="font__family-montserrat font__weight-semibold font__size-36 letter-spacing-100 mt-10">Follow
