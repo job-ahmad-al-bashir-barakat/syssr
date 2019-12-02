@@ -18,9 +18,17 @@ function slim_call() {
         slimCropper.slim();
 }
 
+function checkFieldValidation($this) {
+    $this.parsley().validate();
+}
 function form_call(form = '.form-ajax', callback) {
     var formAjax = jQuery(form);
-    if(formAjax.length)
+    if(formAjax.length) {
+        formAjax.find('select').change(function () {
+
+            if(checkFieldValidation)
+                checkFieldValidation(jQuery(this));
+        });
         formAjax.parsley().off('form:submit').on('form:submit', function() {
 
             var form = this.$element;
@@ -103,6 +111,7 @@ function form_call(form = '.form-ajax', callback) {
             }
 
         });
+    }
 }
 
 function addressAutocomplete() {
@@ -115,6 +124,11 @@ function addressAutocomplete() {
 function summernote() {
     jQuery('.summernote').summernote({
         height: 250,
+        callbacks: {
+            onKeyup: function(e) {
+                checkFieldValidation(jQuery(this));
+            }
+        }
     });
 }
 
@@ -199,6 +213,11 @@ function tagsInputAutocomplete() {
                 $this.tagsinput('add', item)
             })
     });
+    jQuery('.tagsinput').on('itemAdded', function(event) {
+        checkFieldValidation(jQuery(this));
+    }).on('itemRemoved', function(event) {
+        checkFieldValidation(jQuery(this));
+    });
     jQuery('input').on('keypress', function(e){
         if (e.keyCode == 13){
             e.keyCode = 188;
@@ -259,6 +278,8 @@ function cityCountryChange() {
         var text = `${city}, ${country}`;
         var streetAddress = jQuery('#street-address');
             streetAddress.val(text);
+            if(checkFieldValidation)
+                checkFieldValidation(streetAddress);
 
         getLatLngGoogle(`${country} ${city}`).done(function (result) {
             jQuery('#location-country-city').val(`${result.lat()},${result.lng()}`);
@@ -285,6 +306,11 @@ function cityCountryChange() {
 function initDatepicker() {
     jQuery('.air-datepicker').datepicker({
         language: site_lang,
+        dateFormat: 'yyyy-mm-dd',
+        onSelect: function() {
+            if(checkFieldValidation)
+                checkFieldValidation(this.Parsley.$element);
+        }
     });
 }
 
