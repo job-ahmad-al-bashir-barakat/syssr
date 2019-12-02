@@ -2,7 +2,9 @@
 
 @section('title',trans('app.title_members_society'))
 
-@include('_about_society_style')
+@component('_about_society_style')
+    <link rel="stylesheet" href="{{ asset('custom/plugin/lity/lity.min.css') }}">
+@endcomponent
 
 @section('content')
     @include('partials._breadcrumbs',['title' => trans('app.members_society'), 'banner' => asset('img/syssr/members-banner.jpg')])
@@ -27,7 +29,11 @@
                                     @foreach($members as $index => $member)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td><img class="table-avatar" src="{{ $member->avatar_url }}" alt="{{ $member->first_name }}"></td>
+                                        <td>
+                                            <a href="{{ $member->avatar_url }}" data-lity data-lity-target="{{ $member->avatar_url }}">
+                                                <img class="table-avatar" src="{{ $member->avatar_url }}" alt="{{ $member->first_name }}">
+                                            </a>
+                                        </td>
                                         <td>{{ $member->first_name }}</td>
                                         <td>{{ $member->last_name }}</td>
                                         <td>{{ $member->country->name }}</td>
@@ -50,12 +56,9 @@
 
 @section('script')
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('custom/plugin/lity/lity.min.js') }}"></script>
+    <script src="{{ asset('custom/js/app.js') }}"></script>
     <script>
-        jQuery('table').dataTable({
-            "destroy": true,
-            "drawCallback": function( settings ) {
-                // alert( 'DataTables has redrawn the table' );
-            }
-        });
+        initDatatable();
     </script>
 @endsection

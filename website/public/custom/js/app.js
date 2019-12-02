@@ -314,16 +314,14 @@ function initDatepicker() {
     });
 }
 
-jQuery(function () {
-    form_call('.form-ajax',function (res) {
-        if(res.resume_file)
-            jQuery('.resume_file_download').attr('href',res.resume_file);
+function initDatatable() {
+
+    jQuery('table').dataTable({
+        "destroy": true,
+        "drawCallback": function( settings ) {
+            // alert( 'DataTables has redrawn the table' );
+        }
     });
-    slim_call();
-    summernote();
-    initDatepicker();
-    intlTelInputInit();
-    cityCountryChange();
-    addressAutocomplete();
-    tagsInputAutocomplete();
-});
+
+}
+

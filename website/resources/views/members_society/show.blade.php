@@ -2,7 +2,9 @@
 
 @section('title',trans('app.title_members_society'))
 
-@include('_about_society_style')
+@component('_about_society_style')
+    <link rel="stylesheet" href="{{ asset('custom/plugin/lity/lity.min.css') }}">
+@endcomponent
 
 @section('content')
     @include('partials._breadcrumbs',[
@@ -21,7 +23,7 @@
                             <div class="mb-130"></div>
                             <div class="brk-forum-author-card d-flex flex-column mt-70" data-brk-library="component__forum_author">
                                 <div class="brk-forum-author-card__header d-flex flex-column align-items-center pt-70 pb-40">
-                                    <a href="#" class="brk-forum-author-card__img-container">
+                                    <a href="{{ $member->avatar_url }}" data-lity data-lity-target="{{ $member->avatar_url }}" class="brk-forum-author-card__img-container">
                                         <img class="brk-forum-author-card__img" src="{{ $member->avatar_url ?? '' }}" alt='Альтернативный "текст"'>
                                     </a>
                                     <h3 class="font__family-montserrat font__size-24 line__height-28 font__weight-bold mt-20">{{ $member->username }}</h3>
@@ -281,4 +283,8 @@
             </section>
         </main>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('custom/plugin/lity/lity.min.js') }}"></script>
 @endsection

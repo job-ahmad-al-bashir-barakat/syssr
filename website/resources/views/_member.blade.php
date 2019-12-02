@@ -641,6 +641,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0&libraries=places"></script>
     <script src="{{ asset('custom/plugin/google-address-autocomplete/google-address-autocomplete.min.js') }}"></script>
 
-    <script src="{{ asset('custom/js/form.js') }}"></script>
+    <script src="{{ asset('custom/js/app.js') }}"></script>
+    <script src="{{ asset('custom/js/member_init.js') }}"></script>
     <script src="{{ asset('custom/plugin/intl-tel-input/js/utils.js') }}"></script>
 @endsection
