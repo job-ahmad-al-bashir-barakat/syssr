@@ -22,10 +22,11 @@
                         @endif
                         <div class="brk-tabs tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                             <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
+                                <!-- <li data-tab="tab-1" class="brk-tab active"><span>{{ trans('app.personal_info') }}</span>{!! $membersFieldsSettings['tabs']['personal'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li> -->
                                 <li data-tab="tab-1" class="brk-tab active"><span>{{ trans('app.personal_info') }}</span><span class="req" style="margin-right: 10px;"></span></li>
-                                <li data-tab="tab-2" class="brk-tab"><span>{{ trans('app.address') }}</span><span class="req" style="margin-right: 10px;"></span></li>
-                                <li data-tab="tab-3" class="brk-tab"><span>{{ trans('app.resume') }}</span></li>
-                                <li data-tab="tab-4" class="brk-tab"><span>{{ trans('app.social_links') }}</span></li>
+                                <li data-tab="tab-2" class="brk-tab"><span>{{ trans('app.address') }}</span>{!! $membersFieldsSettings['tabs']['address'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
+                                <li data-tab="tab-3" class="brk-tab"><span>{{ trans('app.resume') }}</span>{!! $membersFieldsSettings['tabs']['resume'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
+                                <li data-tab="tab-4" class="brk-tab"><span>{{ trans('app.social_links') }}{!! $membersFieldsSettings['social_links']['required']=='T' ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</span></li>
                             </ul>
                             <div class="brk-tabs-content">
                                 <div id="tab-1" class="brk-tab-item tab text-center text-lg-left">
@@ -35,7 +36,7 @@
                                                 <div class="col-md-6">
                                                     <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->username->required=='T')
+                                                            @if($membersFieldsSettings['username']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }} <span class="req"></span></label>
                                                                 <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error">
                                                                 <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -45,7 +46,7 @@
                                                             @endif
                                                         </div>
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->bio->required=='T')
+                                                            @if($membersFieldsSettings['bio']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="bio-id-round">{{ trans('app.bio') }} <span class="req"></span></label>
                                                                 <textarea id="bio-id-round" class="brk-form-bio" name="bio" rows="6" required data-parsley-errors-container="#bio-error">{{ $user->bio ?? '' }}</textarea>
                                                                 <div id="bio-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -81,7 +82,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->first_name->required=='T')
+                                                            @if($membersFieldsSettings['first_name']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }} <span class="req"></span></label>
                                                                 <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error">
                                                                 <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -93,7 +94,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->last_name->required=='T')
+                                                            @if($membersFieldsSettings['last_name']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }} <span class="req"></span></label>
                                                                 <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error">
                                                                 <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -107,7 +108,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->email->required=='T')
+                                                            @if($membersFieldsSettings['email']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }} <span class="req"></span></label>
                                                                 <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error">
                                                                 <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -121,7 +122,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="mb-50">
-                                                                    @if($membersFieldsSettings->birth_date->required=='T')
+                                                                    @if($membersFieldsSettings['birth_date']['required']=='T')
                                                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="date-id-round">{{ trans('app.birth_date') }} <span class="req"></span></label>
                                                                         <input id="date-id-round" class="air-datepicker" data-language="{{$lang}}" name="birth_date" type="text" value="{{ $user->birth_date ?? '' }}" required  data-parsley-errors-container="#birth_date-error">
                                                                         <div id="birth_date-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -133,7 +134,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-50">
-                                                                    @if($membersFieldsSettings->gender->required=='T')
+                                                                    @if($membersFieldsSettings['gender']['required']=='T')
                                                                         <label class="brk-form-label font__family-montserrat font__weight-bold" for="gender">{{ trans('app.gender') }} <span class="req"></span></label>
                                                                         <select id="gender" name="gender" required  data-parsley-errors-container="#gender-error">
                                                                             <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
@@ -159,7 +160,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->mobile->required=='T')
+                                                            @if($membersFieldsSettings['mobile']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="mobile-id-round">{{ trans('app.mobile') }} <span class="req"></span></label>
                                                                 <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="" required  data-parsley-errors-container="#mobile-error">
                                                                 <div id="mobile-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -171,7 +172,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->personal_website->required=='T')
+                                                            @if($membersFieldsSettings['personal_website']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="website-id-round">{{ trans('app.personal_website') }} <span class="req"></span></label>
                                                                 <input id="website-id-round" dir="ltr" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? '' }}" placeholder="https://www.website.com" required  data-parsley-errors-container="#website-error">
                                                                 <div id="website-error" class="d-inline-block invalid-feedback pl-4"></div>
@@ -235,7 +236,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->country->required=='T')
+                                                            @if($membersFieldsSettings['country']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="country">{{ trans('app.country') }} <span class="req"></span></label>
                                                                 <select id="country" name="country" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" required  data-parsley-errors-container="#country-error">
                                                                     <option value="" selected disabled hidden>{{ trans('app.choose_here') }}</option>
@@ -257,7 +258,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->city->required=='T')
+                                                            @if($membersFieldsSettings['city']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="city">{{ trans('app.city') }} <span class="req"></span></label>
                                                                 <select id="city" name="city" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" @if(!$user->city_id) disabled @endif  required  data-parsley-errors-container="#city-error">
                                                                     @if($user->city_id)
@@ -285,7 +286,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings->street_location->required=='T')
+                                                            @if($membersFieldsSettings['street_location']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="street-address">{{ trans('app.street_address') }} <span class="req"></span></label>
                                                                 <input id="street-address" name="street_address" type="text" value="{{ $user->street_address ?? '' }}" required  data-parsley-errors-container="#street_address-error" />
                                                                 <input id="location-address" name="location_address" type="hidden" value="{{ $user->location ?? '' }}"/>
@@ -311,6 +312,19 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
+                                                            @if($membersFieldsSettings['research_interests']['required']=='T')
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
+                                                                    {{ trans('app.research_interests') }}
+                                                                    &nbsp;<span class="req"></span>&emsp;
+                                                                    <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.research_interests') }}" data-brk-library="component__button" data-title="{{ trans('app.research_interests') }}" data-action="{{ RouteUrls::setDataSettings('researchInterests') }}" data-target=".modal">
+                                                                        <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </button>
+                                                                </label>
+                                                                <input id="research-interests" name="research_interests" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('researchInterests') }}" value="" data-value="{{ Helpers::objectTags($user->research_interests) }}" required  data-parsley-errors-container="#research_interests-error"/>
+                                                                <div id="research_interests-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="research-interests">
                                                                 {{ trans('app.research_interests') }}
                                                                 <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.research_interests') }}" data-brk-library="component__button" data-title="{{ trans('app.research_interests') }}" data-action="{{ RouteUrls::setDataSettings('researchInterests') }}" data-target=".modal">
@@ -320,25 +334,53 @@
                                                                 </button>
                                                             </label>
                                                             <input id="research-interests" name="research_interests" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('researchInterests') }}" value="" data-value="{{ Helpers::objectTags($user->research_interests) }}"/>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">
-                                                                {{ trans('app.skills') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.skills') }}"  data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
-                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
-                                                                    <span class="before"></span>
-                                                                    <span class="after"></span>
-                                                                </button>
-                                                            </label>
-                                                            <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}" data-value="{{ Helpers::objectTags($user->skills) }}"/>
+                                                            @if($membersFieldsSettings['skills']['required']=='T')
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">
+                                                                    {{ trans('app.skills') }}
+                                                                    &nbsp;<span class="req"></span>&emsp;
+                                                                    <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.skills') }}"  data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
+                                                                        <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </button>
+                                                                </label>
+                                                                <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}" data-value="{{ Helpers::objectTags($user->skills) }}" required  data-parsley-errors-container="#skills-error" />
+                                                                <div id="skills-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            @else
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="skills">
+                                                                    {{ trans('app.skills') }}
+                                                                    <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.skills') }}"  data-brk-library="component__button" data-title="{{ trans('app.skills') }}" data-action="{{ RouteUrls::setDataSettings('skills') }}" data-target=".modal">
+                                                                        <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </button>
+                                                                </label>
+                                                                <input id="skills" name="skills" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('skills') }}" data-value="{{ Helpers::objectTags($user->skills) }}"/>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
+                                                        @if($membersFieldsSettings['degrees']['required']=='T')
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">
+                                                                {{ trans('app.degrees') }}
+                                                                &nbsp;<span class="req"></span>&emsp;
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.degrees') }}" data-brk-library="component__button"  data-title="{{ trans('app.degrees') }}" data-action="{{ RouteUrls::setDataSettings('degrees') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="degrees" name="degrees" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('degrees') }}" data-value="{{ Helpers::objectTags($user->degrees) }}" required  data-parsley-errors-container="#degrees-error" />
+                                                            <div id="degrees-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="degrees">
                                                                 {{ trans('app.degrees') }}
                                                                 <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.degrees') }}" data-brk-library="component__button"  data-title="{{ trans('app.degrees') }}" data-action="{{ RouteUrls::setDataSettings('degrees') }}" data-target=".modal">
@@ -348,10 +390,24 @@
                                                                 </button>
                                                             </label>
                                                             <input id="degrees" name="degrees" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('degrees') }}" data-value="{{ Helpers::objectTags($user->degrees) }}"/>
+                                                        @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
+                                                        @if($membersFieldsSettings['associations']['required']=='T')
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="associations">
+                                                                {{ trans('app.association') }}
+                                                                &nbsp;<span class="req"></span>&emsp;
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.association') }}"  data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal">
+                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                    <span class="before"></span>
+                                                                    <span class="after"></span>
+                                                                </button>
+                                                            </label>
+                                                            <input id="associations" name="associations" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('associations') }}" data-value="{{ Helpers::objectTags($user->associations) }}" required  data-parsley-errors-container="#associations-error" />
+                                                            <div id="associations-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="associations">
                                                                 {{ trans('app.association') }}
                                                                 <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.association') }}"  data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal">
@@ -361,31 +417,65 @@
                                                                 </button>
                                                             </label>
                                                             <input id="associations" name="associations" type="text" class="tagsinput" data-remote="{{ RouteUrls::getDataSettings('associations') }}" data-value="{{ Helpers::objectTags($user->associations) }}"/>
+                                                        @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
+                                                            @if($membersFieldsSettings['current_occupation']['required']=='T')
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">
+                                                                    {{ trans('app.current_occupation') }}
+                                                                    &nbsp;<span class="req"></span>&emsp;
+                                                                    <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.occupation') }}" data-brk-library="component__button"  data-title="{{ trans('app.occupation') }}" data-action="{{ RouteUrls::setDataSettings('occupations') }}" data-target=".modal">
+                                                                        <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </button>
+                                                                </label>
+                                                                <select id="current-occupation" name="current_occupation" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" data-search-limit="1" required  data-parsley-errors-container="#current_occupation-error">
+                                                                    <option value="" hidden>{{ trans('app.choose_here') }}</option>
+                                                                    @foreach($occupation as $item)
+                                                                        <option value="{{ $item->id }}" {{ $item->id == $user->occupation_id ? 'selected' : '' }}>{{ $item->name_lang }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                <div id="current_occupation-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="current-occupation">
-                                                                {{ trans('app.current_occupation') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.occupation') }}" data-brk-library="component__button"  data-title="{{ trans('app.occupation') }}" data-action="{{ RouteUrls::setDataSettings('occupations') }}" data-target=".modal">
-                                                                    <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
-                                                                    <span class="before"></span>
-                                                                    <span class="after"></span>
-                                                                </button>
-                                                            </label>
-
-                                                            <select id="current-occupation" name="current_occupation" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" data-search-limit="1">
-                                                                <option value="" hidden>{{ trans('app.choose_here') }}</option>
-                                                                @foreach($occupation as $item)
-                                                                    <option value="{{ $item->id }}" {{ $item->id == $user->occupation_id ? 'selected' : '' }}>{{ $item->name_lang }}</option>
-                                                                @endforeach
-                                                            </select>
+                                                                    {{ trans('app.current_occupation') }}
+                                                                    <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.occupation') }}" data-brk-library="component__button"  data-title="{{ trans('app.occupation') }}" data-action="{{ RouteUrls::setDataSettings('occupations') }}" data-target=".modal">
+                                                                        <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </button>
+                                                                </label>
+                                                                <select id="current-occupation" name="current_occupation" data-search="true" data-search-not-found="{{ trans('app.not_found') }}" data-search-placeholder="{{ trans('app.search_here') }}" data-search-limit="1">
+                                                                    <option value="" hidden>{{ trans('app.choose_here') }}</option>
+                                                                    @foreach($occupation as $item)
+                                                                        <option value="{{ $item->id }}" {{ $item->id == $user->occupation_id ? 'selected' : '' }}>{{ $item->name_lang }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
+                                                        @if($membersFieldsSettings['resume']['required']=='T')
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="resume">
+                                                                {{ trans('app.resume') }}
+                                                                &nbsp;<span class="req"></span>&emsp;
+                                                                @if($user->resume_file_url)
+                                                                    <a href="{{ $user->resume_file_url}}" class="resume_file_download icon__btn icon__btn-xs icon__btn-anim brk-library-rendered" data-brk-library="component__button" download title="{{ trans('app.download_file') }}">
+                                                                        <i class="fa fa-arrow-down icon-inside" aria-hidden="true"></i>
+                                                                        <span class="before"></span>
+                                                                        <span class="after"></span>
+                                                                    </a>
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" id="resume" name="resume_file" accept="application/pdf" required  data-parsley-errors-container="#resume-error">
+                                                            <div id="resume-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="resume">
                                                                 {{ trans('app.resume') }}
                                                                 @if($user->resume_file_url)
@@ -397,14 +487,21 @@
                                                                 @endif
                                                             </label>
                                                             <input type="file" id="resume" name="resume_file" accept="application/pdf">
+                                                        @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="mb-50">
+                                                        @if($membersFieldsSettings['publications']['required']=='T')
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="publications">{{ trans('app.publications') }} <span class="req"></span></label>
+                                                            <textarea id="publications" class="summernote" name="publications" cols="30" rows="10" required  data-parsley-errors-container="#publications-error">{{ $user->publications ?? '' }}</textarea>
+                                                            <div id="publications-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                        @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="publications">{{ trans('app.publications') }}</label>
                                                             <textarea id="publications" class="summernote" name="publications" cols="30" rows="10">{{ $user->publications ?? '' }}</textarea>
+                                                        @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -417,33 +514,66 @@
                                         <div class="col-lg-12">
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                 <div class="mb-50">
-                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form">Facebook</label>
-                                                    <div class="brk-form-date-wrap">
-                                                        <input id="brk-facebook-form" dir="ltr" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;">
-                                                        <span class="icon-before facebook-bg-color" style="left:7px;">
-                                                            <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
-                                                        </span>
-                                                    </div>
+                                                    @if($membersFieldsSettings['social_links']['required']=='T')
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form">Facebook <span class="req"></span></label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-facebook-form" dir="ltr" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#facebook-error">
+                                                            <span class="icon-before facebook-bg-color" style="left:7px;">
+                                                                <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div id="facebook-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                    @else
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form">Facebook</label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-facebook-form" dir="ltr" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;">
+                                                            <span class="icon-before facebook-bg-color" style="left:7px;">
+                                                                <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
 
                                                 <div class="mb-50">
-                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form">LinkedIn</label>
-                                                    <div class="brk-form-date-wrap">
-                                                        <input id="brk-linked-in-form" dir="ltr" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;">
-                                                        <span class="icon-before linkedin-bg-color" style="left:7px;">
-                                                            <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
-                                                        </span>
-                                                    </div>
+                                                    @if($membersFieldsSettings['social_links']['required']=='T')
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form">LinkedIn <span class="req"></span></label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-linked-in-form" dir="ltr" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#linkedin-error">
+                                                            <span class="icon-before linkedin-bg-color" style="left:7px;">
+                                                                <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div id="linkedin-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                    @else
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form">LinkedIn</label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-linked-in-form" dir="ltr" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;">
+                                                            <span class="icon-before linkedin-bg-color" style="left:7px;">
+                                                                <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
 
                                                 <div class="mb-50">
-                                                    <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub</label>
-                                                    <div class="brk-form-date-wrap">
-                                                        <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;">
-                                                        <span class="icon-before github-bg-color" style="left:7px;">
-                                                            <i class="fab fa-github" style="font-size: 1.5rem;"></i>
-                                                        </span>
-                                                    </div>
+                                                    @if($membersFieldsSettings['social_links']['required']=='T')
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub <span class="req"></span></label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#github-error">
+                                                            <span class="icon-before github-bg-color" style="left:7px;">
+                                                                <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div id="github-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                    @else
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub</label>
+                                                        <div class="brk-form-date-wrap">
+                                                            <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;">
+                                                            <span class="icon-before github-bg-color" style="left:7px;">
+                                                                <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                                                            </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
