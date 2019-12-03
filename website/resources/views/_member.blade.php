@@ -33,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-12 col-lg-6 order-2 order-lg-1">
                                                     <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['username']['required']=='T')
@@ -57,8 +57,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="brk-form p-5" style="width: 70%; margin: 0 auto;">
+                                                <div class="col-12 col-lg-6 order-1 order-lg-2">
+                                                    <div class="brk-form p-0 pt-5 pb-5 p-lg-5" style="width: 70%; margin: 0 auto;">
                                                         <div id="slim-cropper"
                                                              class="slim"
                                                              data-button-edit-title="Edit"
