@@ -127,33 +127,6 @@
                     </div>
 
                     @auth
-                        <!-- <div class="brk-user brk-header__item">
-                            <div class="brk-user__open"><i class="fa fa-user"></i>
-                                <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
-                            </div>
-                            <div class="brk-user__block">
-                                <div class="brk-user__content">
-                                    <div class="user-info">
-                                        <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" alt="image">
-                                        <div class="user-info-wrapper">
-                                            <div class="user-name font__family-montserrat">
-                                                <span>{{Auth::user()->first_name}}</span>
-                                            </div>
-                                            <div class="user-links">
-                                                <a href="{{ RouteUrls::profile() }}">{{ trans('app.profile') }}</a>
-                                                <a href="{{ route('logout') }}"
-                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    {{ trans('app.logout') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="brk-user brk-mini-cart brk-header__item">
                             <div class="brk-user__open"><i class="fa fa-user"></i>
                                 <div class="brk-user__title">{{ trans('app.user_menu') }}</div>

@@ -14,8 +14,4 @@ const mix = require('laravel-mix');
 mix
     .scripts([
         'resources/theme/js/scripts.js'
-    ], 'public/js/scripts.min.js')
-    .styles([
-        'resources/theme/scss/styles.css',
-        'resources/theme/scss/app.css',
-    ], 'public/css/assets/styles.min.css');
+    ], 'public/js/scripts.min.js');

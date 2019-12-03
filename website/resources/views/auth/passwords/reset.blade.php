@@ -104,6 +104,6 @@
     <script src="{{ asset('custom/plugin/parsley.js/parsley.min.js') }}"></script>
     <script src="{{ asset("custom/plugin/parsley.js/i18n/$lang.js") }}"></script>
     <script src="{{ asset('custom/js/app.js') }}"></script>
-    <script src="{{ asset('custom/js/member_init.js') }}"></script>
+    <script src="{{ asset('custom/js/membership_init.js') }}"></script>
 @endsection
 
