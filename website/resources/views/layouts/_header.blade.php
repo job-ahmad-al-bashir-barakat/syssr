@@ -127,28 +127,36 @@
                     </div>
 
                     @auth
-                        <div class="brk-user brk-mini-cart brk-header__item">
-                            <div class="brk-user__open"><i class="fa fa-user"></i>
-                                <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
+                        <div class="brk-user brk-header__item">
+                            <div class="brk-user__open d-flex">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span class="brk-user__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">{{ trans('app.user_menu') }}</span>
+                                <span class="brk-user__title">{{ trans('app.user_menu') }}</span>
                             </div>
-                            <div class="syssr-user-menu brk-mini-cart__menu">
-                                <div class="brk-mini-cart__header">
-                                    <span class="font__family-montserrat font__weight-bold font__size-18">
+                            <div class="brk-user__menu">
+                                <div class="brk-user__header">
+                                    <div class="d-flex align-items-center font__family-montserrat font__weight-bold font__size-18">
                                         <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" width="60" alt="image">
-                                        <span>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
-                                    </span>
+                                        <span class="ml-3">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
+                                    </div>
                                 </div>
-                                <div class="brk-mini-cart__products">
-                                    <a class="brk-mini-cart__product" href="{{ RouteUrls::profile() }}">
-                                        <h4 class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2"><span class="fa fa-user mx-3"></span> {{ trans('app.profile') }}</h4>
+                                <div class="brk-user__items">
+                                    <a href="{{ RouteUrls::profile() }}" class="brk-user__item">
+                                        <span class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2">
+                                            <i class="fa fa-user mx-3"></i>
+                                            {{ trans('app.profile') }}
+                                        </span>
                                     </a>
-                                    <a class="brk-mini-cart__product" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <h4 class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2"><span class="fas fa-sign-out-alt mx-3"></span> {{ trans('app.logout') }}</h4>
+                                    <a href="{{ route('logout') }}" class="brk-user__item"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="font__family-montserrat font__size-16 line__height-21 font__weight-semibold mx-2">
+                                            <i class="fas fa-sign-out-alt mx-3"></i>
+                                            {{ trans('app.logout') }}
+                                        </span>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -157,9 +165,10 @@
                     @guest
                         <a href="{{ RouteUrls::login() }}">
                             <div class="brk-user brk-header__item">
-                                <div class="brk-user__open">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                    <div class="brk-user__title">{{ trans('app.user_menu') }}</div>
+                                <div class="brk-user__open d-flex">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="brk-user__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">{{ trans('app.user_menu') }}</span>
+                                    <span class="brk-user__title">{{ trans('app.user_menu') }}</span>
                                 </div>
                             </div>
                         </a>

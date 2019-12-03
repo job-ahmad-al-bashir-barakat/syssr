@@ -2476,14 +2476,15 @@ function isSafari() {
         elementMobile('.brk-mini-cart', '.brk-mini-cart__open, .brk-mini-cart__info-open', '.brk-mini-cart__menu', widthDoc);
         elementMobile('.brk-social-links', '.brk-social-links__open', '.brk-social-links__block', widthDoc);
         elementMobile('.brk-search', '.brk-search__open', '.brk-search__block', widthDoc);
-        elementMobile('.brk-user', '.brk-user__open', '.brk-user__block', widthDoc);
+        elementMobile('.brk-user', '.brk-user__open, .brk-user__info-open', '.brk-user__menu', widthDoc);
 
-        $(window).on('resize', function () {
-          elementMobile('.brk-mini-cart', '.brk-mini-cart__open, .brk-mini-cart__info-open', '.brk-mini-cart__menu', widthDoc);
-          elementMobile('.brk-social-links', '.brk-social-links__open', '.brk-social-links__block', widthDoc);
-          elementMobile('.brk-search', '.brk-search__open', '.brk-search__block', widthDoc);
-          elementMobile('.brk-user', '.brk-user__open', '.brk-user__block', widthDoc);
-        });
+
+          $(window).on('resize', function () {
+              elementMobile('.brk-mini-cart', '.brk-mini-cart__open, .brk-mini-cart__info-open', '.brk-mini-cart__menu', widthDoc);
+              elementMobile('.brk-social-links', '.brk-social-links__open', '.brk-social-links__block', widthDoc);
+              elementMobile('.brk-search', '.brk-search__open', '.brk-search__block', widthDoc);
+              elementMobile('.brk-user', '.brk-user__open, .brk-user__info-open', '.brk-user__menu', widthDoc);
+          });
         /**
          * End element mobile
          */
@@ -2683,7 +2684,7 @@ function isSafari() {
           var windowWidth = window.innerWidth || $(window).width();
           if (windowWidth < 992) {return}
 
-          var brk_element_header = '.brk-mini-cart, .brk-social-links, .brk-user, .brk-search, .brk-lang, .brk-nav__sub-menu, .flexMenu-popup';
+          var brk_element_header = '.brk-user, .brk-mini-cart, .brk-social-links, .brk-search, .brk-lang, .brk-nav__sub-menu, .flexMenu-popup';
           $(brk_element_header).each(function () {
             var $this = $(this),
               widthOffset = (windowWidth / 2) + 350,
