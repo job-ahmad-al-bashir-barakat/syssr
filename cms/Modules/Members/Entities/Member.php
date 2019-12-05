@@ -18,7 +18,7 @@ class Member extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    protected $with = ['country'];
+    protected $with = ['country' ,'city'];
 
     /**
      * The attributes that are mass assignable.

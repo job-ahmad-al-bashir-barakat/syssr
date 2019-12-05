@@ -9,6 +9,11 @@
 </div>
 @yield('shared')
 <a href="#top" id="toTop"></a>
+<script>
+    var brk = {
+        gmap_api_key: "AIzaSyCDacJcoyPCr-jdlP9HK93h3YKNyf710J0"
+    };
+</script>
 <script src="{{ asset('js/scripts.min.js') }}"></script>
 <script src="{{ asset('vendor/vertical-fixed-navigation/js/main.js') }}"></script>
 

@@ -167,7 +167,7 @@ function intlTelInputInit() {
     });
     jQuery('.brk-form-mobile').on('keyup', function () {
         var $this = jQuery(this);
-        $this.closest('.iti').find('[name=mobile_full]').val(input.getNumber());
+        $this.closest('.iti').find('[name=mobile_full]').val(input.getNumber(intlTelInputUtils.numberFormat.INTERNATIONAL));
     });
 
     // load

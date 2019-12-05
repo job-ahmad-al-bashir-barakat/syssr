@@ -1,3 +1,5 @@
+@php($location = isset($member->location) ? explode(',',$member->location) : null)
+
 @extends('layouts.app')
 
 @section('title',trans('app.title_members_society'))
@@ -29,6 +31,7 @@
                                     <h3 class="font__family-montserrat font__size-24 line__height-28 font__weight-bold mt-20">{{ $member->username }}</h3>
                                     <h4 class="brk-dark-font-color font__family-open-sans font__size-16 font__weight-normal">{{ "$member->first_name $member->last_name" }}</h4>
                                 </div>
+
                                 @if($member->bio)
                                 <div class="brk-forum-author-card__about pt-30 pr-40 pb-30 pl-40">
                                     <p class="font__family-open-sans font__size-14 font__weight-semibold line__height-21 letter-spacing-20">
@@ -36,6 +39,7 @@
                                     </p>
                                 </div>
                                 @endif
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="brk-forum-author-card__info pt-35 pr-35 pb-35 pl-40">
@@ -51,6 +55,7 @@
                                                 </div>
                                             </div>
                                             @endif
+
                                             @if($member->society_email)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
@@ -63,6 +68,60 @@
                                                 </div>
                                             </div>
                                             @endif
+
+                                            @if($member->country_id)
+                                                <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <span class="font__weight-bold">Country:</span>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <span class="font__weight-normal">{{ $member->country->name ?? '' }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if($member->city_id)
+                                                <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <span class="font__weight-bold">City:</span>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <span class="font__weight-normal">{{ $member->city->name ?? '' }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @isset($member->occupation)
+                                                <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <span class="font__weight-bold">Occupation:</span>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <span class="font__weight-normal">{{ $member->occupation->name->$lang ?? '' }}</span>                                                    </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if($member->mobile)
+                                                <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <span class="font__weight-bold">Mobile:</span>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <span class="font__weight-normal">
+                                                                <a href="tel:{{ str_replace(' ','',$member->mobile) }}">{{ $member->mobile ?? '' }}</a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
                                             @if($member->birth_date)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
@@ -75,6 +134,7 @@
                                                 </div>
                                             </div>
                                             @endif
+
                                             @if($member->gender)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
@@ -87,6 +147,7 @@
                                                 </div>
                                             </div>
                                             @endif
+
                                             @if($member->website)
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
@@ -99,21 +160,12 @@
                                                 </div>
                                             </div>
                                             @endif
-                                            @isset($member->occupation)
-                                            <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <span class="font__weight-bold">Occupation:</span>
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <span class="font__weight-normal">{{ $member->occupation->name->$lang ?? '' }}</span>                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="brk-forum-author-card__info pt-35 pr-35 pb-35 pl-40">
+                                            @if(count($member->research_interests))
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -121,12 +173,18 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                                            <li><a href="#" rel="tag">Network</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
+                                                            @foreach($member->research_interests as $research_interest)
+                                                                <li>
+                                                                    <a href="javascript:void(0)" rel="tag">{{ $research_interest->name->{$lang} }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
+                                            @if(count($member->skills))
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -134,15 +192,18 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                                            <li><a href="#" rel="tag">Network</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
+                                                            @foreach($member->skills as $skill)
+                                                                <li>
+                                                                    <a href="javascript:void(0)" rel="tag">{{ $skill->name->{$lang} }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
+                                            @if(count($member->degrees))
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -150,15 +211,18 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                                            <li><a href="#" rel="tag">Network</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
+                                                            @foreach($member->degrees as $degree)
+                                                                <li>
+                                                                    <a href="javascript:void(0)" rel="tag">{{ $degree->name->{$lang} }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
+                                            @if(count($member->associations))
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
@@ -166,21 +230,16 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
-                                                            <li><a href="#" rel="tag">Network</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
-                                                            <li><a href="#" rel="tag">Development</a></li>
+                                                            @foreach($member->associations as $association)
+                                                                <li>
+                                                                    <a href="javascript:void(0)" rel="tag">{{ $association->name->{$lang} }}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            {{--                                            "research_interests"--}}
-                                            {{--                                            "skills"--}}
-                                            {{--                                            "degrees"--}}
-                                            {{--                                            "associations"--}}
-
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +263,7 @@
                         </div>
                     </div>
                 </div>
+
                 @if($member->resume_file)
                 <div class="container">
                     <div class="row mt-20">
@@ -218,52 +278,59 @@
                     </div>
                 </div>
                 @endif
+
                 <div class="mt-70 mt-md-130 pt-80 pb-80 overlay__dot bg__style text-center" style="background-image:url('img/bg-1920_1.jpg')" data-brk-library="component__social_block">
                     <div class="container all-light">
-                        <h3 class="font__family-montserrat font__weight-semibold font__size-36 letter-spacing-100 mt-10">Follow
-                            {{ $member->first_name }}</h3>
-                        <p class="font__size-16 font__family-open-sans line__height-26 text-gray-light mt-30">Lorem ipsum dolor sit amet,
-                            consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean <br class="hide show-md-block">massa. Cum
-                            sociis natoque penatibus et magnis dis parturient montes, </p>
+                        <h3 class="font__family-montserrat font__weight-semibold font__size-36 letter-spacing-100 mt-10">Follow {{ $member->first_name }}</h3>
                         <div class="row mt-20 justify-content-center">
 
-                            {{-- here --}}
-                            {{--                                        'facebook',--}}
-                            {{--                                        'linked_in',--}}
-                            {{--                                        'github',--}}
+                            @if($member->facebook)
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-round">
-                                    <a href="#" class="icon-wrap"><i class="brk-icon fab fa-facebook-f"></i></a>
+                                    <a href="{{ $member->facebook }}" class="icon-wrap"><i class="brk-icon fab fa-facebook-f"></i></a>
                                     <h4 class="font__family-montserrat font__weight-light font__size-28 text-primary">Facebook</h4>
                                     <p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
                                 </div>
                             </div>
+                            @endif
+
+                            @if($member->linked_in)
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-round">
-                                    <a href="#" class="icon-wrap"><i class="brk-icon fab fa-linkedin-in"></i></a>
+                                    <a href="{{ $member->linked_in }}" class="icon-wrap"><i class="brk-icon fab fa-linkedin-in"></i></a>
                                     <h4 class="font__family-montserrat font__weight-light font__size-28 text-primary">Linkedin</h4>
                                     <p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
                                 </div>
                             </div>
+                            @endif
+
+                            @if($member->github)
                             <div class="col-6 col-md-4 col-lg-2">
                                 <div class="social__icon-round">
-                                    <a href="#" class="icon-wrap"><i class="brk-icon fab fa-github"></i></a>
+                                    <a href="{{ $member->github }}" class="icon-wrap"><i class="brk-icon fab fa-github"></i></a>
                                     <h4 class="font__family-montserrat font__weight-light font__size-28 text-primary">Github</h4>
                                     <p class="font__family-montserrat font__weight-medium font__size-16">Follow Now</p>
                                 </div>
                             </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
-                {{-- here --}}
-                {{--                                        'mobile',--}}
-                {{--                                        'street_address',--}}
-                {{--                                        'location',--}}
-                {{--                                        'country_id',--}}
-                {{--                                        'city_id',--}}
+
+                @if($location)
                 <div class="brk-map" data-height="410" data-brk-library="component__map">
                     <div class="brk-map__section">
-                        <div class="brk-map__canvas" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="" data-offset-lat="" data-offset-lng="" data-lat="40.6898297" data-lng="-73.94250620000003" data-style="silver">
+                        <div class="brk-map__canvas"
+                             data-address="{{ $member->street_address ?? '' }}"
+                             data-zoom="13"
+                             data-type="roadmap"
+                             data-marker=""
+                             data-offset-lat="-0.0112"
+                             data-offset-lng=""
+                             data-lat="{{ $location[0] ?? '' }}"
+                             data-lng="{{ $location[1] ?? '' }}"
+                             data-style="silver">
                         </div>
                     </div>
                     <div class="brk-map__infoicon brk-map__infoicon_layout-three">
@@ -271,15 +338,28 @@
 							<i class="fal fa-map-marker-alt"></i>
 						</span>
                         <div class="brk-map__infoicon--text">
-                            <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22 mb-15">Chicago, USA</h4>
-                            <p class="font__size-16 line__height-28">Phasellus dolor. Maecenas ulum mollis diam. Pellentesqu</p>
-                            <a href="tel:8800123456789">
+
+                            <a href="" title="View on Google maps" class="p-0">
+                                @if($member->street_address)
+                                    <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22 mb-15">{{ $member->country->name }}</h4>
+                                    <p class="font__size-16 line__height-28">{{ $member->street_address }}</p>
+                                @endif
+                            </a>
+
+                            @if($member->mobile)
+                            <a href="tel:{{ str_replace(' ','',$member->mobile) }}">
 								<span>
 									<i class="fa fa-phone" aria-hidden="true"></i>
-								</span>8 800 123 456 789</a>
+								</span>
+                                {{ $member->mobile }}
+                            </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>
+                @endif
+
             </section>
         </main>
     </div>
