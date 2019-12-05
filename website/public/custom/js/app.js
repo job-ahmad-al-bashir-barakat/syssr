@@ -335,8 +335,8 @@ function initDatatable() {
 
         $wrap.wrapAll('<div class="brk-tables-lines__sort-nav"></div>');
         $first.prepend('<i class="fa fa-angle-double-left"></i>');
-        $previous.prepend('<i class="fa fa-angle-left"></i>');
-        $next.prepend('<i class="fa fa-angle-right"></i>');
+        $previous.prepend(`<i class='fa fa-angle-${left}'></i>`);
+        $next.prepend(`<i class='fa fa-angle-${right}'></i>`);
         $last.prepend('<i class="fa fa-angle-double-right"></i>');
     });
     /* brk-tables-lines__sort-nav */

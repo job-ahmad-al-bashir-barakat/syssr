@@ -3,8 +3,9 @@
 @section('title',trans('app.title_members_society'))
 
 @component('_about_society_style')
-    <link rel="stylesheet" href="{{ asset('css/components/tables.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/lity/lity.min.css') }}">
+    <link rel="stylesheet" href="{{ asset("css/components/$dir/tables.css") }}">
+    <link rel="stylesheet" href="{{ asset("custom/css/rtl/tables.css") }}">
+    <link rel="stylesheet" href="{{ asset("custom/plugin/lity/lity.min.css") }}">
 @endcomponent
 
 @section('content')

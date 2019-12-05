@@ -4,6 +4,8 @@
     var cms_api_url = "{{ config('api.cms_api_url') }}";
     var user_id = "{{ \Auth::id() }}";
     var site_lang = "{{ $lang }}";
+    var left = "{{ $left }}";
+    var right = "{{ $right }}";
 
     jQuery.ajaxSetup({
         data: {
