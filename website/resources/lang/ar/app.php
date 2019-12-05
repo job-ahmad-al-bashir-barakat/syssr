@@ -83,13 +83,17 @@ return [
     'research_interests' => 'الاهتمامات البحثية',
     'skills' => 'المهارات',
     'degrees' => 'الدرجات الجامعية',
-    'association' => 'الجمعيات',
+    'associations' => 'الجمعيات',
     'current_occupation' => 'المهنة الحالية',
     'occupation' => 'المهنة',
     'add' => 'اضافة ',
     'download_file' => 'حمل الملف',
 
     // members society
+    'detail' => 'التفاصيل',
+    'download_resume' => 'تحميل السيرة الذاتية',
+    'download' => 'تحميل',
+    'view_on_google_maps' => 'العرض على خرائط جوجل',
 
     // contact
     'your_name' => 'الاسم',

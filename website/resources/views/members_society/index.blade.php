@@ -3,6 +3,7 @@
 @section('title',trans('app.title_members_society'))
 
 @component('_about_society_style')
+    <link rel="stylesheet" href="{{ asset('css/components/tables.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/lity/lity.min.css') }}">
 @endcomponent
 
@@ -12,16 +13,16 @@
         <main class="main-container pb-50 pt-70">
             <section>
                 <div class="container">
-                    <div class="brk-tables brk-tables-avatar brk-tables-strict font__family-montserrat brk-form-strict" data-brk-library="component__tables">
+                    <div class="brk-tables brk-tables-avatar brk-tables-strict font__family-montserrat brk-form-strict">
                         <table>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th class="active" style="width: 30px;" scope="col">Avatar <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th scope="col">First Name <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th scope="col">Last Name <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th scope="col">Country <i class="fa fa-caret-down" aria-hidden="true"></i></th>
-                                    <th scope="col">Detail <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th scope="col">{{ trans('app.first_name') }} <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th scope="col">{{ trans('app.last_name') }} <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th scope="col">{{ trans('app.country') }} <i class="fa fa-caret-down" aria-hidden="true"></i></th>
+                                    <th scope="col">{{ trans('app.detail') }} <i class="fa fa-caret-down" aria-hidden="true"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,8 +56,8 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('custom/plugin/lity/lity.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('custom/js/app.js') }}"></script>
     <script>
         initDatatable();

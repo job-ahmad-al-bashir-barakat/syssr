@@ -323,5 +323,22 @@ function initDatatable() {
         }
     });
 
+    /* brk-tables-lines__sort-nav */
+    jQuery('.brk-tables').each(function () {
+        var $this = jQuery(this),
+            $wrap = $this.find('.dataTables_info, .dataTables_paginate'),
+            $paginate = $this.find('.dataTables_paginate'),
+            $first = $paginate.find('.first'),
+            $previous = $paginate.find('.previous'),
+            $next = $paginate.find('.next'),
+            $last = $paginate.find('.last');
+
+        $wrap.wrapAll('<div class="brk-tables-lines__sort-nav"></div>');
+        $first.prepend('<i class="fa fa-angle-double-left"></i>');
+        $previous.prepend('<i class="fa fa-angle-left"></i>');
+        $next.prepend('<i class="fa fa-angle-right"></i>');
+        $last.prepend('<i class="fa fa-angle-double-right"></i>');
+    });
+    /* brk-tables-lines__sort-nav */
 }
 

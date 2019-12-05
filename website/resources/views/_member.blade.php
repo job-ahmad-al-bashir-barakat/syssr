@@ -397,9 +397,9 @@
                                                         <div class="mb-50">
                                                         @if($membersFieldsSettings['associations']['required']=='T')
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="associations">
-                                                                {{ trans('app.association') }}
+                                                                {{ trans('app.associations') }}
                                                                 &nbsp;<span class="req"></span>&emsp;
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.association') }}"  data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal" tabindex="-1">
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.associations') }}"  data-brk-library="component__button"  data-title="{{ trans('app.associations') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal" tabindex="-1">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>
@@ -409,8 +409,8 @@
                                                             <div id="associations-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="associations">
-                                                                {{ trans('app.association') }}
-                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.association') }}"  data-brk-library="component__button"  data-title="{{ trans('app.association') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal" tabindex="-1">
+                                                                {{ trans('app.associations') }}
+                                                                <button class="icon__btn icon__btn-xs icon__btn-anim brk-library-rendered add-new-tag" title="{{ trans('app.add') . trans('app.associations') }}"  data-brk-library="component__button"  data-title="{{ trans('app.associations') }}" data-action="{{ RouteUrls::setDataSettings('associations') }}" data-target=".modal" tabindex="-1">
                                                                     <i class="fa fa-plus icon-inside" aria-hidden="true"></i>
                                                                     <span class="before"></span>
                                                                     <span class="after"></span>

@@ -83,13 +83,17 @@ return [
     'research_interests' => 'Research Interests',
     'skills' => 'Skills',
     'degrees' => 'Degrees',
-    'association' => 'Association',
+    'associations' => 'Associations',
     'current_occupation' => 'Current Occupation',
     'occupation' => 'Occupation',
     'add' => 'Add ',
     'download_file' => 'Download File',
 
     // members society
+    'detail' => 'Detail',
+    'download_resume' => 'Download Resume',
+    'download' => 'Download',
+    'view_on_google_maps' => 'View on Google maps',
 
     // contact
     'your_name' => 'Your Name',

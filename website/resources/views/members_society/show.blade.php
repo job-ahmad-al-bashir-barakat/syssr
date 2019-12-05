@@ -26,7 +26,7 @@
                             <div class="brk-forum-author-card d-flex flex-column mt-70" data-brk-library="component__forum_author">
                                 <div class="brk-forum-author-card__header d-flex flex-column align-items-center pt-70 pb-40">
                                     <a href="{{ $member->avatar_url }}" data-lity data-lity-target="{{ $member->avatar_url }}" class="brk-forum-author-card__img-container">
-                                        <img class="brk-forum-author-card__img" src="{{ $member->avatar_url ?? '' }}" alt='Альтернативный "текст"'>
+                                        <img class="brk-forum-author-card__img" src="{{ $member->avatar_url ?? '' }}" alt="{{ $member->username }}">
                                     </a>
                                     <h3 class="font__family-montserrat font__size-24 line__height-28 font__weight-bold mt-20">{{ $member->username }}</h3>
                                     <h4 class="brk-dark-font-color font__family-open-sans font__size-16 font__weight-normal">{{ "$member->first_name $member->last_name" }}</h4>
@@ -47,7 +47,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Email:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.email') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <span class="font__weight-normal">{{ $member->email ?? '' }}</span>
@@ -60,7 +60,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Society Email:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.society_email') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <span class="font__weight-normal">{{ $member->society_email ?? '' }}</span>
@@ -73,7 +73,7 @@
                                                 <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <span class="font__weight-bold">Country:</span>
+                                                            <span class="font__weight-bold">{{ trans('app.country') }}:</span>
                                                         </div>
                                                         <div class="col-8">
                                                             <span class="font__weight-normal">{{ $member->country->name ?? '' }}</span>
@@ -86,7 +86,7 @@
                                                 <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <span class="font__weight-bold">City:</span>
+                                                            <span class="font__weight-bold">{{ trans('app.city') }}:</span>
                                                         </div>
                                                         <div class="col-8">
                                                             <span class="font__weight-normal">{{ $member->city->name ?? '' }}</span>
@@ -99,7 +99,7 @@
                                                 <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <span class="font__weight-bold">Occupation:</span>
+                                                            <span class="font__weight-bold">{{ trans('app.occupation') }}:</span>
                                                         </div>
                                                         <div class="col-8">
                                                             <span class="font__weight-normal">{{ $member->occupation->name->$lang ?? '' }}</span>                                                    </div>
@@ -111,7 +111,7 @@
                                                 <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <span class="font__weight-bold">Mobile:</span>
+                                                            <span class="font__weight-bold">{{ trans('app.mobile') }}:</span>
                                                         </div>
                                                         <div class="col-8">
                                                             <span class="font__weight-normal">
@@ -126,7 +126,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Birth Date:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.birth_date') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <span class="font__weight-normal">{{ $member->birth_date ?? '' }}</span>
@@ -139,7 +139,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Gender:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.gender') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <span class="font__weight-normal">{{ $member->gender ?? '' }}</span>
@@ -152,7 +152,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Website:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.website') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <a href="{{ $member->website ?? '#' }}" class="font__weight-normal">{{ $member->website ?? '' }}</a>
@@ -163,13 +163,14 @@
 
                                         </div>
                                     </div>
+
                                     <div class="col-6">
                                         <div class="brk-forum-author-card__info pt-35 pr-35 pb-35 pl-40">
                                             @if(count($member->research_interests))
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Research Interests:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.research_interests') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
@@ -188,7 +189,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Skills:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.skills') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
@@ -207,7 +208,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Degrees:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.degrees') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
@@ -226,7 +227,7 @@
                                             <div class="brk-forum-author-card__info-item mb-20 font__family-montserrat font__size-14 line__height-16">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <span class="font__weight-bold">Associations:</span>
+                                                        <span class="font__weight-bold">{{ trans('app.associations') }}:</span>
                                                     </div>
                                                     <div class="col-8">
                                                         <ul class="brk-tags brk-tags_solid font__family-montserrat" data-brk-library="component__tags">
@@ -249,7 +250,7 @@
                                         <div class="mb-60">
                                             <h4 class="title__divider title__divider--chevron font__size-21 font__weight-bold font__family-montserrat line__height-24 text-center" data-brk-library="component__dividers">
                                                 <span class="title__divider__wrapper">
-                                                    Publications <span class="line brk-base-bg-gradient-chevron-pseudo"></span>
+                                                    {{ trans('app.publications') }} <span class="line brk-base-bg-gradient-chevron-pseudo"></span>
                                                 </span>
                                             </h4>
                                             <div class="font__family-open-sans font__size-15 line__height-24 brk-dark-font-color pl-30 pr-30">
@@ -269,9 +270,9 @@
                     <div class="row mt-20">
                         <div class="col-12">
                             <div class="cfa__wrapper cfa__minimal bg__style overlay__white text-center text-lg-left lazyload border-radius-25 dark-shadow" data-bg="img/1170x108_2.jpg" data-brk-library="component__call_to_action">
-                                <h4 class="font__family-montserrat font__size-21 font__weight-bold no-wrap">Download Resume</h4>
+                                <h4 class="font__family-montserrat font__size-21 font__weight-bold no-wrap">{{ trans('app.download_resume') }}</h4>
                                 <a href="{{ $member->resume_file_url }}" class="btn btn-gradient btn-md border-radius-5 font__family-montserrat font__weight-light brk-white-font-color btn-min-width-200" data-brk-library="component__button">
-                                    <span>Download</span>
+                                    <span>{{ trans('app.download') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -339,7 +340,7 @@
 						</span>
                         <div class="brk-map__infoicon--text">
 
-                            <a href="" title="View on Google maps" class="p-0">
+                            <a href="" title="{{ trans('app.view_on_google_maps') }}" class="p-0">
                                 @if($member->street_address)
                                     <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22 mb-15">{{ $member->country->name }}</h4>
                                     <p class="font__size-16 line__height-28">{{ $member->street_address }}</p>
