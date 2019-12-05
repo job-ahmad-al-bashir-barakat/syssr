@@ -340,12 +340,12 @@
 						</span>
                         <div class="brk-map__infoicon--text">
 
-                            <a href="" title="{{ trans('app.view_on_google_maps') }}" class="p-0">
-                                @if($member->street_address)
-                                    <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22 mb-15">{{ $member->country->name }}</h4>
-                                    <p class="font__size-16 line__height-28">{{ $member->street_address }}</p>
-                                @endif
+                            @if($member->street_address)
+                            <a href="https://www.google.com/maps/place/{{ $member->street_address }}{{  "/@" . $member->location }}" title="{{ trans('app.view_on_google_maps') }}" target="_blank" class="p-0">
+                                <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22 mb-15">{{ $member->country->name }}</h4>
+                                <p class="font__size-16 line__height-28">{{ $member->street_address }}</p>
                             </a>
+                            @endif
 
                             @if($member->mobile)
                             <a href="tel:{{ str_replace(' ','',$member->mobile) }}">
