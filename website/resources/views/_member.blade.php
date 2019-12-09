@@ -36,14 +36,9 @@
                                                 <div class="col-12 col-lg-6 order-2 order-lg-1">
                                                     <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings['username']['required']=='T')
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }} <span class="req"></span></label>
-                                                                <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error" tabindex="1">
-                                                                <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
-                                                            @else
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }}</label>
-                                                                <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" tabindex="1">
-                                                            @endif
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }} <span class="req"></span></label>
+                                                            <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error" tabindex="1">
+                                                            <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['bio']['required']=='T')
@@ -108,14 +103,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
-                                                            @if($membersFieldsSettings['email']['required']=='T')
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }} <span class="req"></span></label>
-                                                                <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error" tabindex="5">
-                                                                <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
-                                                            @else
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }}</label>
-                                                                <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" tabindex="5">
-                                                            @endif
+                                                            <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }} <span class="req"></span></label>
+                                                            <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error" tabindex="5">
+                                                            <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

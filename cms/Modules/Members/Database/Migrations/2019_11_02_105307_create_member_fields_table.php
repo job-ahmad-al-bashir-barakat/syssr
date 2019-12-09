@@ -29,7 +29,7 @@ class CreateMemberFieldsTable extends Migration
             [
                 'field_code'        =>  'username',
                 'field_visibility'  =>  'PUBLIC',
-                'required'          =>  'F',
+                'required'          =>  'NA',
                 'over_ride'         =>  'F',
             ],[
                 'field_code'        =>  'bio',
@@ -55,7 +55,7 @@ class CreateMemberFieldsTable extends Migration
                 'field_code'        =>  'email',
                 'field_visibility'  =>  'PUBLIC',
                 'required'          =>  'F',
-                'over_ride'         =>  'F',
+                'over_ride'         =>  'NA',
             ],[
                 'field_code'        =>  'society_email',
                 'field_visibility'  =>  'PUBLIC',

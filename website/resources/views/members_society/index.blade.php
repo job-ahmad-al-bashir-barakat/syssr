@@ -36,9 +36,9 @@
                                                 <img class="table-avatar" src="{{ $member->avatar_url }}" alt="{{ $member->first_name }}">
                                             </a>
                                         </td>
-                                        <td>{{ $member->first_name }}</td>
-                                        <td>{{ $member->last_name }}</td>
-                                        <td>{{ $member->country->name }}</td>
+                                        <td>{{ $member->first_name ?? '' }}</td>
+                                        <td>{{ $member->last_name ?? '' }}</td>
+                                        <td>{{ $member->country->name ?? '' }}</td>
                                         <td>
                                             <a href="{{ RouteUrls::membersSocietyDetail($member->slug) }}" class="btn btn-gradient btn-sm border-radius-5 font__family-montserrat font__weight-light brk-white-font-color" data-brk-library="component__button">
                                                 <span><i class="fa fa-user"></i> Info</span>

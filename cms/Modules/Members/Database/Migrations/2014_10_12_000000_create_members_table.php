@@ -18,8 +18,8 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name'); // r
-            $table->string('last_name'); // r
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->text('bio')->nullable();
             $table->string('username')->unique(); // r
             $table->string('society_email')->nullable()->unique();
@@ -36,8 +36,8 @@ class CreateMembersTable extends Migration
             $table->string('github')->nullable();
             $table->string('avatar')->nullable();
 
-            $table->integer('country_id'); // r
-            $table->integer('city_id'); // r
+            $table->integer('country_id')->nullable();
+            $table->integer('city_id')->nullable();
             $table->integer('occupation_id')->nullable();
             $table->string('street_address')->nullable();
             $table->string('location')->nullable();
