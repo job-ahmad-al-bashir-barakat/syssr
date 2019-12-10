@@ -16,5 +16,5 @@ return [
     'public'                    =>      'عام',
     'internal'                  =>      'داخلي',
     'private'                   =>      'خاص',
-
+    'confirm'                   =>      'تفعيل',
 ];

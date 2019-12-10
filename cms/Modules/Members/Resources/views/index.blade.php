@@ -40,7 +40,6 @@
 
 @section('js')
 <script>
-//----------------------------------------------------------------------------//
     $(function(){
 
         var membersDatatable = $('#membersDatatable').KTDatatable({
@@ -53,7 +52,7 @@
                         method: 'GET',
                     },
                 },
-                
+
 				pageSize: 10,
 				serverPaging: true,
 				serverFiltering: true,
@@ -120,6 +119,14 @@
                                 status[data.verified].title + '</span>';
                     },
                 }, {
+                    field: "confirm",title: "{{trans('members::main.activate')}}",width: 100,textAlign: 'center',
+                    template: function(data) {
+                        if(data.verified == 'N')
+                            return '<button type="button" class="btn btn-brand kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light member-activate">{{ trans('members::main.activate') }}</button>'
+                        else
+                            return '';
+                    },
+                }, {
                     field: "Actions",width: 80,title: "{{trans('cms.actions')}}",sortable: false,autoHide: false,overflow: 'visible',
                     template: function() {
                         return '\
@@ -158,32 +165,36 @@
                                 </div>\
                             ';
                     },
-            }],
-            
-            translate:{
-                records:{
-                    processing: '{{trans('datatable.processing')}}',
-                    noRecords: '{{trans('datatable.noRecords')}}',
-                },
-                toolbar:{
-                    pagination:{
-                        items:{
-                            default:{
-                                first: '{{trans('datatable.first')}}',
-                                prev: '{{trans('datatable.prev')}}',
-                                next: '{{trans('datatable.next')}}',
-                                last: '{{trans('datatable.last')}}',
-                                more: '{{trans('datatable.more')}}',
-                                input: '{{trans('datatable.input')}}',
-                                select: '{{trans('datatable.select')}}',
-                            },
-                            info: '{{trans('datatable.info')}}',
+                }],
+                translate:{
+                    records:{
+                        processing: '{{trans('datatable.processing')}}',
+                        noRecords: '{{trans('datatable.noRecords')}}',
+                    },
+                    toolbar:{
+                        pagination:{
+                            items:{
+                                default:{
+                                    first: '{{trans('datatable.first')}}',
+                                    prev: '{{trans('datatable.prev')}}',
+                                    next: '{{trans('datatable.next')}}',
+                                    last: '{{trans('datatable.last')}}',
+                                    more: '{{trans('datatable.more')}}',
+                                    input: '{{trans('datatable.input')}}',
+                                    select: '{{trans('datatable.select')}}',
+                                },
+                                info: '{{trans('datatable.info')}}',
+                            }
                         }
                     }
                 }
-            }
-
 		});
+    });
+//-----------------------------------------------------------------------------//
+    $(document).on('click','.member-activate', function () {
+        $.post("{{ route('members.activate') }}",{ _method: 'PUT' },function (res) {
+            $(this).remove();
+        })
     });
 //-----------------------------------------------------------------------------//
 </script>

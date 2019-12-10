@@ -202,4 +202,7 @@ class MembersController extends Controller
         })->make(true);
     }
 //----------------------------------------------------------------------//
+    public function activate() {
+        dd('aa');
+    }
 }
