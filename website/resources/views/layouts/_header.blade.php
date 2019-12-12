@@ -166,7 +166,7 @@
                         <a href="{{ RouteUrls::login() }}">
                             <div class="brk-user brk-header__item">
                                 <div class="brk-user__open d-flex">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
                                     <span class="brk-user__label font__family-montserrat font__weight-medium text-uppercase letter-spacing-60 font__size-10 opacity-80">{{ trans('app.user_menu') }}</span>
                                     <span class="brk-user__title">{{ trans('app.user_menu') }}</span>
                                 </div>

@@ -280,6 +280,7 @@
                 </div>
                 @endif
 
+                @if($member->facebook || $member->linked_in || $member->github)
                 <div class="mt-70 mt-md-130 pt-80 pb-80 overlay__dot bg__style text-center" style="background-image:url('img/bg-1920_1.jpg')" data-brk-library="component__social_block">
                     <div class="container all-light">
                         <h3 class="font__family-montserrat font__weight-semibold font__size-36 letter-spacing-100 mt-10">Follow {{ $member->first_name }}</h3>
@@ -318,6 +319,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
                 @if($location)
                 <div class="brk-map" data-height="410" data-brk-library="component__map">

@@ -70,25 +70,35 @@ class MembersController extends Controller
         return redirect(url('members/settings'))->with('message', $message);
     }
 //----------------------------------------------------------------------//
-    public function store(Request $request)
-    {
+    private function buildMembersRequiredFields($update=false){
+        $memberFields = MemberField::all(['field_code', 'field_visibility', 'required', 'over_ride'])->keyBy('field_code')->toArray();
+        $requiredFields = [
+            'username'   => ["required", "max:255"],
+            'email' => ['required'],
+        ];
+        if($update){
+            array_push($requiredFields['username'], Rule::unique('members')->ignore(\Auth::id()));
+            array_push($requiredFields['email'], Rule::unique('members')->ignore(\Auth::id()));
+        }else{
+            array_push($requiredFields['username'], Rule::unique('members'));
+            array_push($requiredFields['email'], Rule::unique('members'));
+            $requiredFields['password'] = ['required', 'string', 'min:8', 'confirmed'];
+        }
+
+        foreach($memberFields as $key => $memberField){
+            if($key!='username' && $key!='email' && $key!='password'){
+                if($memberField['required']=='T')
+                    $requiredFields[$key] = 'required';
+            }
+        }
+        return $requiredFields;
+    }
+//----------------------------------------------------------------------//
+    public function store(Request $request) {
         \App::setLocale(request('lang'));
-        $validator = \Validator::make($request->all(),[
-            'username'   => [
-                "required",
-                Rule::unique('members'),
-                "max:255"
-            ],
-            'email' => [
-                'required',
-                Rule::unique('members'),
-            ],
-            'first_name' => "required|max:255",
-            'last_name'  => "required|max:255",
-            'country'    => "required",
-            'city'       => "required",
-            'password'   => ['required', 'string', 'min:8', 'confirmed']
-        ]);
+        $requiredFields = $this->buildMembersRequiredFields();
+        
+        $validator = \Validator::make($request->all(),$requiredFields);
 
         if ($validator->fails()) {
             return response()->json([
@@ -103,9 +113,9 @@ class MembersController extends Controller
         $data['password'] = bcrypt($data['password']);
         $data['api_token'] = \Str::random(60);
         $data['mobile'] = $data['mobile_full'];
-        $data['country_id'] = $data['country'];
-        $data['city_id'] = $data['city'];
-        $data['occupation_id'] = $data['current_occupation'];
+        $data['country_id'] = isset($data['country']) ? $data['country'] : NULL;
+        $data['city_id'] = isset($data['city']) ? $data['city'] : NULL;
+        $data['occupation_id'] = isset($data['current_occupation']) ? $data['current_occupation'] : NULL;
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
         $data['avatar'] = \Upload::avatar();
         $data['resume_file'] = \Upload::file('resume_file', null, 'resume');
@@ -127,23 +137,10 @@ class MembersController extends Controller
     }
 //----------------------------------------------------------------------//
     public function update(Request $request, $id){
-
         \App::setLocale(request('lang'));
-        $validator = \Validator::make($request->all(),[
-            'username'   => [
-                "required",
-                Rule::unique('members')->ignore(\Auth::id()),
-                "max:255"
-            ],
-            'email' => [
-                'required',
-                Rule::unique('members')->ignore(\Auth::id()),
-            ],
-            'first_name' => "required|max:255",
-            'last_name'  => "required|max:255",
-            'country'    => "required",
-            'city'       => "required",
-        ]);
+        $requiredFields = $this->buildMembersRequiredFields(true);
+
+        $validator = \Validator::make($request->all(),$requiredFields);
 
         if ($validator->fails()) {
             return response()->json([

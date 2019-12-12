@@ -19,8 +19,7 @@
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-        <form id="settings-form" method="post" action="save-settings" class="kt-form">
-            <input name="_token" type="hidden" value="{!! csrf_token() !!}">
+        <form id="settings-form" class="kt-form">
             <!--begin::Portlet-->
             <div class="kt-portlet" data-ktportlet="true">
                 <div class="kt-portlet__head">
@@ -147,7 +146,29 @@
     $(function(){
     //=================================================//
     $('.save-settings').click(function(){
-        submit_form('settings-form');
+        var $this = $(this);
+        $this.attr('disabled','disabled');
+        var old_btn_html = $this.html();
+        $this.html('<i class="fa fa-spinner fa-spin"></i>');
+        var $form = $('#settings-form');
+        var data = $form.serialize();
+        $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          method: 'POST',
+          url: '{{url('members/save-settings')}}',
+          data: data
+      }).done(function (res) {
+        //  $.notify({
+        //     icon: 'glyphicon glyphicon-star',
+        //     message: 'Comment added successfully'
+        //   },{
+        //     type: 'success'
+        //   });
+          $this.removeAttr('disabled');
+          $this.html(old_btn_html);
+      });
     });
     //=================================================//
     $('#all-public').click(function(){
@@ -187,10 +208,6 @@
     function change_all_visibility(changeTo){
         $('.field-visibility').prop('checked',false);
         $('.field-visibility[value="'+changeTo+'"]').prop('checked',true);
-    }
-//----------------------------------------------------------------------------------------//
-    function submit_form(form_id){
-        $("#"+form_id).submit();
     }
 //----------------------------------------------------------------------------------------//
 </script>

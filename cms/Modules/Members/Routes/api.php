@@ -18,16 +18,3 @@ Route::post('/member', "MembersController@store");
 Route::middleware('auth:api')->put('/member/{id}' ,"MembersController@update");
 
 Route::get('members/get-fields-settings' ,"MembersController@getMemberFields");
-
-// for test
-// https://jamesmills.co.uk/2019/06/05/how-to-return-json-from-laravel-form-request-validation-errors/
-//Route::post('hi' ,function () {
-//    $validator = validator(['username' => ''], [
-//        'username'   => "required",
-//    ]);
-//
-//    if ($validator->fails()) {
-//        return $validator->errors()->toJson();
-//    }
-//
-//});
