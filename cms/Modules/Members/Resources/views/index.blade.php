@@ -115,14 +115,22 @@
                             'Y': {'title': '{{trans('cms.yes')}}', 'state': 'success'},
                             'N': {'title': '{{trans('cms.no')}}', 'state': 'danger'},
                         };
-                        return '<span class="kt-badge kt-badge--' + status[data.verified].state + ' kt-badge--dot"></span>&nbsp;<span class="kt-font-bold kt-font-' + status[data.verified].state + '">' +
-                                status[data.verified].title + '</span>';
+                        return `
+                            <span class="status-yes" ${data.verified == 'Y' ? '' : 'style="display:none;"'}>
+                                <span class="kt-badge kt-badge--${status['Y'].state} kt-badge--dot"></span>&nbsp;
+                                <span class="kt-font-bold kt-font-${status['Y'].state}">${status['Y'].title}</span>
+                            </span>
+                            <span class="status-no" ${data.verified == 'N' ? '' : 'style="display:none;"'}>
+                                <span class="kt-badge kt-badge--${status['N'].state} kt-badge--dot"></span>&nbsp;
+                                <span class="kt-font-bold kt-font-${status['N'].state}">${status['N'].title}</span>
+                            </span>
+                        `;
                     },
                 }, {
                     field: "confirm",title: "{{trans('members::main.activate')}}",width: 100,textAlign: 'center',
                     template: function(data) {
                         if(data.verified == 'N')
-                            return '<button type="button" class="btn btn-brand kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light member-activate">{{ trans('members::main.activate') }}</button>'
+                            return `<button type="button" class="btn btn-brand kt-spinner--right kt-spinner--sm kt-spinner--light member-activate" data-id="${data.id}">{{ trans('members::main.activate') }}</button>`;
                         else
                             return '';
                     },
@@ -192,9 +200,15 @@
     });
 //-----------------------------------------------------------------------------//
     $(document).on('click','.member-activate', function () {
-        $.post("{{ route('members.activate') }}",{ _method: 'PUT' },function (res) {
-            $(this).remove();
-        })
+        var $this = $(this),
+            id = $this.data('id');
+        $this.addClass('kt-spinner');
+        $.post(`{{ RouteUrls::membersActivate() }}/${id}`,{ _method: 'PUT' },function (res) {
+            var tr = $this.closest('tr');
+            tr.find('.status-no').hide();
+            tr.find('.status-yes').show();
+            $this.remove();
+        });
     });
 //-----------------------------------------------------------------------------//
 </script>

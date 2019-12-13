@@ -23,7 +23,7 @@ Route::group([
         Route::get('/getDatatableMembers', [
             'as' => 'getDatatableMembers.data', 'uses' => 'MembersController@getDatatableMembers',
         ]);
-        Route::put('/activate', [
+        Route::put('/activate/{id}', [
             'as' => 'members.activate', 'uses' => 'MembersController@activate',
         ]);
 

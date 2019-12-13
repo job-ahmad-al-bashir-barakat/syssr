@@ -49,3 +49,11 @@
 <!--end::Global Theme Bundle -->
 
 <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+    });
+</script>
