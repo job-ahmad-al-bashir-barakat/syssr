@@ -191,6 +191,7 @@ return [
         Cocur\Slugify\Bridge\Laravel\SlugifyServiceProvider::class,
 
         // CMS Package
+        Packages\Url\Providers\RouteUrlsServiceProvider::class,
         Packages\Upload\Providers\UploadServiceProvider::class,
         Packages\Helpers\Providers\HelpersServiceProvider::class
     ],
@@ -248,6 +249,7 @@ return [
         "Slugify" => Cocur\Slugify\Bridge\Laravel\SlugifyFacade::class,
 
         // CMS Package
+        'RouteUrls' => Packages\Url\Facades\RouteUrls::class,
         'Upload' => Packages\Upload\Facades\Upload::class,
         'Helpers' => Packages\Helpers\Facades\Helpers::class,
     ],

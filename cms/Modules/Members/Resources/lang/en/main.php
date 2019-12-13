@@ -16,5 +16,5 @@ return [
     'public'                    =>      'Public',
     'internal'                  =>      'Internal',
     'private'                   =>      'Private',
-    
+    'activate'                  =>      'Activate',
 ];

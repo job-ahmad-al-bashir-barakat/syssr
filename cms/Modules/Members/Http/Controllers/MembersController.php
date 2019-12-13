@@ -2,6 +2,7 @@
 
 namespace Modules\Members\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -97,7 +98,7 @@ class MembersController extends Controller
     public function store(Request $request) {
         \App::setLocale(request('lang'));
         $requiredFields = $this->buildMembersRequiredFields();
-        
+
         $validator = \Validator::make($request->all(),$requiredFields);
 
         if ($validator->fails()) {
@@ -199,4 +200,11 @@ class MembersController extends Controller
         })->make(true);
     }
 //----------------------------------------------------------------------//
+    public function activate($id) {
+        $member = Member::findOrFail($id);
+        $member->status = 'A';
+        $member->email_verified_at = Carbon::now();
+        $member->save();
+        return response()->json(['success' => true]);
+    }
 }
