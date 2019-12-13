@@ -32,12 +32,16 @@
 ## Steps every pull
 Open in each folder [cms, website] the cmd or terminal and execute the following commands:
  1. Execute in [cms] folder by (cmd or terminal) the commands: 
-   - `php artisan module:migrate-refresh` or `php artisan migrate:fresh`
+   - `php artisan module:migrate` or `php artisan migrate`
    - `php artisan module:seed`
+   - `php artisan cache:clear`
+   - `php artisan route:clear`
+   - `php artisan config:clear`
+   - `php artisan view:clear`
    - `composer update`
    - `composer dump-autoload`
  2. Execute in [website] folder by (cmd or terminal) the commands:
-   - `php artisan migrate:refresh`
+   - `php artisan migrate`
    - `composer update`
    - `composer dump-autoload`
    

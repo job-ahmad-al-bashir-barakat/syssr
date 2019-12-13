@@ -20,6 +20,8 @@
     };
     var lang = '{{$lang}}';
     var dir = '{{$dir}}';
+    var left = '{{$left}}';
+    var right = '{{$right}}';
     var cms_lang = {
         'yes'                   :   '{{trans('cms.yes')}}',
         'no'                    :   '{{trans('cms.no')}}',

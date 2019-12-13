@@ -1,8 +1,47 @@
 //----------------------------------------------------------------//
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-"+right,
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "1000",
+    "hideDuration": "2000",
+    "timeOut": "5000",
+    "extendedTimeOut": "3000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
+//----------------------------------------------------------------//
 $(function(){
     initAdditionalValidationClass();
     _summernote();
 });
+//----------------------------------------------------------------//
+function _toastr(title, msg, type='success'){
+    switch(type){
+        case 'success':
+            toastr.success(msg, title);
+        break;
+        case 'info':
+            toastr.info(msg, title);
+        break;
+        case 'warning':
+            toastr.warning(msg, title);
+        break;
+        case 'error':
+            toastr.error(msg, title);
+        break;
+        default:
+            toastr.success(msg, title);
+        break;
+    }
+    
+}
 //----------------------------------------------------------------//
 function initAdditionalValidationClass () {
     jQuery.validator.addClassRules({

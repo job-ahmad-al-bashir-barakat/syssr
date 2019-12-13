@@ -49,16 +49,18 @@ class MembersController extends Controller
         return $memberFields;
     }
 //----------------------------------------------------------------------//
-    public function saveSettings(Request $request){
-        $memberFields = ['first_name', 'last_name', 'personal_email', 'society_email', 'personal_website', 'mobile_phone', 'social_links', 'location', 'research_interests',
-                        'skills', 'degrees', 'associations', 'current_occupation', 'member_bio', 'publications', 'resume'];
+    public function saveMemberSettings(Request $request){
+        $memberFields = ['username', 'bio', 'avatar', 'first_name', 'last_name', 'email', 'society_email', 'date_of_join', 'birth_date', 'gender', 'mobile', 'personal_website',
+                'country', 'city', 'street_location', 'research_interests', 'skills', 'degrees', 'associations', 'current_occupation', 'resume', 'publications', 'social_links'];
         for ($i=0; $i < count($memberFields); $i++) {
             $memberField = MemberField::where('field_code', '=', $memberFields[$i])->firstOrFail();
             $memberField->field_visibility = $request[$memberFields[$i]];
-            if(isset($request['required_'.$memberFields[$i]]))
-                $memberField->required = 'T';
-            else
-                $memberField->required = 'F';
+            if($memberFields[$i] != 'username' && $memberFields[$i] != 'email' && $memberFields[$i] != 'society_email' && $memberFields[$i] != 'date_of_join'){
+                if(isset($request['required_'.$memberFields[$i]]))
+                    $memberField->required = 'T';
+                else
+                    $memberField->required = 'F';
+            }
 
             if(isset($request['over_ride_'.$memberFields[$i]]))
                 $memberField->over_ride = 'T';
@@ -68,7 +70,7 @@ class MembersController extends Controller
             $memberField->save();
         }
         $message = trans('cms.saved_successfully');
-        return redirect(url('members/settings'))->with('message', $message);
+        return response()->json(['message' => $message]);
     }
 //----------------------------------------------------------------------//
     private function buildMembersRequiredFields($update=false){
@@ -180,14 +182,11 @@ class MembersController extends Controller
         return response()->json(['success' => true, 'resume_file' => $member->resume_file_url]);
     }
 //----------------------------------------------------------------------//
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $member = Member::findOrFail($id);
+        $member->status = 'C';
+        $member->save();
+        return response()->json(['message' => trans('cms.deleted_successfully')]);
     }
 //----------------------------------------------------------------------//
     public function getDatatableMembers(){

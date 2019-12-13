@@ -16,5 +16,11 @@ return [
     'public'                    =>      'Public',
     'internal'                  =>      'Internal',
     'private'                   =>      'Private',
-    'activate'                  =>      'Activate',
+    'verify'                    =>      'Verify',
+    'verify_confirm'            =>      'Verify Confirm',
+    'verify_confirm_msg'        =>      'Are you sure to verify the member',
+    'verify_success_msg'        =>      'Verified successfully',
+    'delete_member'             =>      'Delete member',
+    'cant_delete_current_user'          =>      'Can not delete current user',
+    'cant_delete_admin_user'            =>      'Can not delete Admin',
 ];

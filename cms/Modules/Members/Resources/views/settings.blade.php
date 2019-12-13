@@ -152,22 +152,18 @@
         $this.html('<i class="fa fa-spinner fa-spin"></i>');
         var $form = $('#settings-form');
         var data = $form.serialize();
+        var method = 'post';
         $.ajax({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-          method: 'POST',
-          url: '{{url('members/save-settings')}}',
+          method: method,
+          url: 'save-member-settings',
           data: data
       }).done(function (res) {
-        //  $.notify({
-        //     icon: 'glyphicon glyphicon-star',
-        //     message: 'Comment added successfully'
-        //   },{
-        //     type: 'success'
-        //   });
-          $this.removeAttr('disabled');
-          $this.html(old_btn_html);
+            _toastr('', res.message);
+            $this.removeAttr('disabled');
+            $this.html(old_btn_html);
       });
     });
     //=================================================//

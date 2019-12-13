@@ -90,19 +90,17 @@
                     template: function(data, i) {
                         var stateNo = KTUtil.getRandomInt(0, 6);
 						var states = ['success','brand','danger','success','warning','primary','info'];
-						var state = states[stateNo];
-
-						var output = '<div class="kt-user-card-v2">\
-								<div class="kt-user-card-v2__pic">\
-									<div class="kt-badge kt-badge--xl kt-badge--' + state + '">' + data.full_name.substring(0, 1) + '</div>\
-								</div>\
-								<div class="kt-user-card-v2__details">\
-									<a href="#" class="kt-user-card-v2__name">' + data.full_name + '</a>\
-									<span class="kt-user-card-v2__desc">member role</span>\
-								</div>\
-							</div>';
-
-                        return output;
+                        return `
+                            <div class="kt-user-card-v2">
+								<div class="kt-user-card-v2__pic">
+									<div class="kt-badge kt-badge--xl kt-badge--${states[stateNo]}">${data.full_name.substring(0, 1)}</div>
+								</div>
+								<div class="kt-user-card-v2__details">
+									<a href="#" class="kt-user-card-v2__name">${data.full_name}</a>
+									<span class="kt-user-card-v2__desc">member role</span>
+								</div>
+							</div>
+                        `;
                     }
                 }, {
                     field: "username",title: "{{trans('members::main.username')}}",width: 125,
@@ -111,67 +109,54 @@
                 }, {
                     field: "verified",title: "{{trans('members::main.verified')}}",width: 100,textAlign: 'center',
                     template: function(data) {
-                        var status = {
-                            'Y': {'title': '{{trans('cms.yes')}}', 'state': 'success'},
-                            'N': {'title': '{{trans('cms.no')}}', 'state': 'danger'},
-                        };
-                        return `
-                            <span class="status-yes" ${data.verified == 'Y' ? '' : 'style="display:none;"'}>
-                                <span class="kt-badge kt-badge--${status['Y'].state} kt-badge--dot"></span>&nbsp;
-                                <span class="kt-font-bold kt-font-${status['Y'].state}">${status['Y'].title}</span>
-                            </span>
-                            <span class="status-no" ${data.verified == 'N' ? '' : 'style="display:none;"'}>
-                                <span class="kt-badge kt-badge--${status['N'].state} kt-badge--dot"></span>&nbsp;
-                                <span class="kt-font-bold kt-font-${status['N'].state}">${status['N'].title}</span>
-                            </span>
-                        `;
-                    },
-                }, {
-                    field: "confirm",title: "{{trans('members::main.activate')}}",width: 100,textAlign: 'center',
-                    template: function(data) {
                         if(data.verified == 'N')
-                            return `<button type="button" class="btn btn-brand kt-spinner--right kt-spinner--sm kt-spinner--light member-activate" data-id="${data.id}">{{ trans('members::main.activate') }}</button>`;
+                            return `
+                                    <button type="button" class="btn btn-danger btn-sm verify-member" data-id="${data.id}" data-name="${data.full_name}">{{ trans('members::main.verify') }}</button>
+                                    <span class="status-yes" style="display:none;">
+                                        <span class="kt-badge kt-badge--success kt-badge--dot"></span>&nbsp;
+                                        <span class="kt-font-bold kt-font-success">${'{{trans('cms.yes')}}'}</span>
+                                    </span>
+                                `;
                         else
-                            return '';
+                            return `
+                                <span class="status-yes">
+                                    <span class="kt-badge kt-badge--success kt-badge--dot"></span>&nbsp;
+                                    <span class="kt-font-bold kt-font-success">${'{{trans('cms.yes')}}'}</span>
+                                </span>
+                            `;
                     },
                 }, {
                     field: "Actions",width: 80,title: "{{trans('cms.actions')}}",sortable: false,autoHide: false,overflow: 'visible',
-                    template: function() {
-                        return '\
-                                <div class="dropdown">\
-                                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">\
-                                        <i class="flaticon-more-1"></i>\
-                                    </a>\
-                                    <div class="dropdown-menu dropdown-menu-right">\
-                                        <ul class="kt-nav">\
-                                            <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-expand"></i>\
-                                                    <span class="kt-nav__link-text">View</span>\
-                                                </a>\
-                                            </li>\
-                                            <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-contract"></i>\
-                                                    <span class="kt-nav__link-text">Edit</span>\
-                                                </a>\
-                                            </li>\
-                                            <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-trash"></i>\
-                                                    <span class="kt-nav__link-text">Delete</span>\
-                                                </a>\
-                                            </li>\
-                                            <li class="kt-nav__item">\
-                                                <a href="#" class="kt-nav__link">\
-                                                    <i class="kt-nav__link-icon flaticon2-mail-1"></i>\
-                                                    <span class="kt-nav__link-text">Export</span>\
-                                                </a>\
-                                            </li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            ';
+                    template: function(data) {
+                        return `
+                                <div class="dropdown">
+                                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">
+                                        <i class="flaticon-more-1"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <ul class="kt-nav">
+                                            <li class="kt-nav__item">
+                                                <a href="#" class="kt-nav__link">
+                                                    <i class="kt-nav__link-icon flaticon2-expand"></i>
+                                                    <span class="kt-nav__link-text">View</span>
+                                                </a>
+                                            </li>
+                                            <li class="kt-nav__item">
+                                                <a href="#" class="kt-nav__link">
+                                                    <i class="kt-nav__link-icon flaticon2-contract"></i>
+                                                    <span class="kt-nav__link-text">Edit</span>
+                                                </a>
+                                            </li>
+                                            <li class="kt-nav__item">
+                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete-member" data-id="${data.id}" data-name="${data.full_name}">
+                                                    <i class="kt-nav__link-icon fa fa-trash"></i>
+                                                    <span class="kt-nav__link-text">${'{{trans('cms.delete')}}'}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            `;
                     },
                 }],
                 translate:{
@@ -199,16 +184,54 @@
 		});
     });
 //-----------------------------------------------------------------------------//
-    $(document).on('click','.member-activate', function () {
+    $(document).on('click','.verify-member', function () {
         var $this = $(this),
-            id = $this.data('id');
-        $this.addClass('kt-spinner');
-        $.post(`{{ RouteUrls::membersActivate() }}/${id}`,{ _method: 'PUT' },function (res) {
-            var tr = $this.closest('tr');
-            tr.find('.status-no').hide();
-            tr.find('.status-yes').show();
-            $this.remove();
+            id = $this.data('id'),
+            name = $this.data('name'),
+            title = '{{trans('members::main.verify_confirm')}}',
+            confirm_msg = '{{trans('members::main.verify_confirm_msg')}} ('+name+')',
+            success_msg = '{{trans('members::main.verify_success_msg')}}';
+
+        _confirm(title, confirm_msg, 'info', function(){
+            $.post(`{{ RouteUrls::membersActivate() }}/${id}`,{ _method: 'PUT' },function (res) {
+                var tr = $this.closest('tr');
+                tr.find('.status-yes').show();
+                $this.remove();
+                _toastr('', success_msg);
+            });
         });
+        
+    });
+//-----------------------------------------------------------------------------//
+    $(document).on('click','.delete-member', function () {
+        var currentUser = {{Auth::user()->id}};
+        var $this = $(this),
+            id = $this.data('id'),
+            name = $this.data('name'),
+            title = '{{trans('members::main.verify_confirm')}}',
+            confirm_msg = '{{trans('members::main.delete_member')}} ('+name+')';
+
+        if(currentUser==id){
+            var msg = '{{trans('members::main.cant_delete_current_user')}}';
+            _alert(msg, 'error');
+        }else if(id==1){
+            var msg = '{{trans('members::main.cant_delete_admin_user')}}';
+            _alert(msg, 'error');
+        }else{
+            _confirm('', confirm_msg, 'warning', function(){
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'DELETE',
+                    url: 'members/' + id,
+                }).done(function(res) {
+                    _toastr('', res.message);
+                    membersDatatable.reload();
+                });
+            });
+        }
+        
     });
 //-----------------------------------------------------------------------------//
 </script>
