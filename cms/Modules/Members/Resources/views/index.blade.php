@@ -224,7 +224,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     method: 'DELETE',
-                    url: 'members/' + id,
+                    url: `{{ RouteUrls::membersDelete() }}/${id}`,
                 }).done(function(res) {
                     _toastr('', res.message);
                     membersDatatable.reload();

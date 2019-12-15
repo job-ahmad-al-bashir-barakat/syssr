@@ -19,4 +19,11 @@ class RouteUrls
 
         return $this->localizeUrl("members/activate{$id}");
     }
+
+    function membersDelete($id = '')
+    {
+        $id = $id ? "/$id" : '';
+
+        return $this->localizeUrl("members/{$id}");
+    }
 }
