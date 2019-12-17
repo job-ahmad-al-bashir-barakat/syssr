@@ -23,7 +23,7 @@
                 </div>
             @else
                 @if(count($contacts)>0)
-                    @include('_contact', ['contact' =>  $contacts->first()])
+                    @include('_contact', ['contact' =>  $contacts[0]])
                 @else
                     <div class="pt-80 pb-80"></div>
                 @endif
