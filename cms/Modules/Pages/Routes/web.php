@@ -14,11 +14,11 @@
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect']
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'auth']
 ], function() {
-   
+
     Route::prefix('pages')->group(function() {
-        
+
         Route::resource('contact-us', 'ContactUsController');
         Route::get('/getDatatableContactUs', [
             'as' => 'getDatatableContactUs.data', 'uses' => 'ContactUsController@getDatatableContactUs',

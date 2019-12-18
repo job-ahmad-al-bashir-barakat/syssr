@@ -10,7 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'auth']
+], function() {
 
-Route::prefix('projects')->group(function() {
-    Route::get('/', 'ProjectsController@index');
+    Route::prefix('projects')->group(function() {
+        Route::get('/', 'ProjectsController@index');
+    });
+
 });
+

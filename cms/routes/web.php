@@ -20,9 +20,9 @@ Route::group([
     //     return view('welcome');
     // });
 
-    Route::get('/', 'IndexController@index')->name('dashboard');
     // Route::get('/dashboard', 'IndexController@index')->name('dashboard');
 
+    Route::get('/', 'IndexController@index')->middleware(['auth'])->name('dashboard');
     Auth::routes(['verify' => true, 'register' => false]);
 });
 

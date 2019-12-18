@@ -11,6 +11,13 @@
 |
 */
 
-Route::prefix('news')->group(function() {
-    Route::get('/', 'NewsController@index');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'auth']
+], function() {
+
+    Route::prefix('news')->group(function() {
+        Route::get('/', 'NewsController@index');
+    });
+
 });

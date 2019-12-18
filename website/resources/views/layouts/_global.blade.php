@@ -18,6 +18,14 @@
             // 'Accept': 'application/json'
         }
     });
+
+    jQuery( document ).ajaxError(function( event, request, settings ) {
+        switch (request.status) {
+            case 401: {
+                window.location.href = request.responseJSON.redirect_url;
+            }
+        }
+    });
     // add FormData api_token
     jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
         if (originalOptions.data instanceof FormData) {

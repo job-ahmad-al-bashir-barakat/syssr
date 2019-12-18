@@ -58,4 +58,12 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         }
     });
+
+    $( document ).ajaxError(function( event, request, settings ) {
+        switch (request.status) {
+            case 401: {
+                window.location.href = request.responseJSON.redirect_url;
+            }
+        }
+    });
 </script>

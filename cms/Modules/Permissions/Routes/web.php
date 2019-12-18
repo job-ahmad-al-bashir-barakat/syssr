@@ -11,6 +11,13 @@
 |
 */
 
-Route::prefix('permissions')->group(function() {
-    Route::get('/', 'PermissionsController@index');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'auth']
+], function() {
+
+    Route::prefix('permissions')->group(function () {
+        Route::get('/', 'PermissionsController@index');
+    });
+
 });
