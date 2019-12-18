@@ -49,8 +49,10 @@ class Handler extends ExceptionHandler
     {
         if(request()->ajax())
         {
-            if ($exception instanceof TokenMismatchException) {
+            if ($exception instanceof AuthenticationException) {
                 return response()->json(['redirect_url' => route('login')] ,401);
+            } else if ($exception instanceof TokenMismatchException) {
+                return response()->json(['action' => 'reload'] ,503);
             }
         }
 

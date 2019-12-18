@@ -3,7 +3,10 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,8 +51,10 @@ class Handler extends ExceptionHandler
     {
         if(request()->ajax())
         {
-            if ($exception instanceof TokenMismatchException) {
+            if ($exception instanceof AuthenticationException) {
                 return response()->json(['redirect_url' => route('login')] ,401);
+            } else if ($exception instanceof TokenMismatchException) {
+                return response()->json(['action' => 'reload'] ,503);
             }
         }
 

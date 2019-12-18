@@ -63,6 +63,10 @@
         switch (request.status) {
             case 401: {
                 window.location.href = request.responseJSON.redirect_url;
+            }; break;
+            case 503: {
+                if(request.responseJSON.action == 'reload')
+                    window.location.reload();
             }
         }
     });
