@@ -31,7 +31,7 @@
                                 <label>{{trans('cms.en')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea name="description_en" class="summernote req">{!! $description_en !!}</textarea>
+                                <textarea id="description_en" name="description_en" class="ckeditor req" row="8">{!! $description_en !!}</textarea>
                             </div>
                         </div>
                         <div class="row mt-4">
@@ -39,7 +39,7 @@
                                 <label>{{trans('cms.ar')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea name="description_ar" class="summernote req">{!! $description_ar !!}</textarea>
+                                <textarea id="description_ar" name="description_ar" class="ckeditor req" row="8">{!! $description_ar !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -59,9 +59,10 @@
 @stop
 
 @section('js')
+<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 <script>
 //----------------------------------------------------------------------------------------//
-    $(function(){
+$(function(){
     //=================================================//
     $('.save-about').click(function(){
         submit_form('about-form');

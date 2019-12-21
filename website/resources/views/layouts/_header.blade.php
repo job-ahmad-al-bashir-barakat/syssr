@@ -105,7 +105,7 @@
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}&title=&summary=&source=" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                                 <a href="https://twitter.com/home?status={{url()->current()}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>                                
                                 <a href="whatsapp://send?text={{url()->current()}}" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                                <a href="mailto:?body={{url()->current()}}&subject=SySSR" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                <a href="mailto:?body={{url()->current()}}&subject={{substr(strrchr(url()->current(),"/"),1)}}" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
