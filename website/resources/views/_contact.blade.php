@@ -4,7 +4,6 @@
             <div class="col-lg-5">
                 <div class="wow fadeInRight">
                     <h1 class="font__family-montserrat font__size-56 line__height-60 font__weight-thin mb-30">
-                        {{ trans('app.need_help') }} <br>
                         <span class="font__weight-bold">{{ trans('app.contact') }}</span>
                     </h1>
                     @if($contact['address'])
