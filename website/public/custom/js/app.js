@@ -303,15 +303,19 @@ function cityCountryChange() {
     });
 }
 
-function initDatepicker() {
+function initDatepicker(dateFormat) {
     jQuery('.air-datepicker').datepicker({
         language: site_lang,
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: dateFormat, // yyyy-mm-dd
         onSelect: function() {
             if(checkFieldValidation)
                 checkFieldValidation(this.Parsley.$element);
         }
     });
+}
+
+function initYearpicker(){
+    jQuery('.yearpicker').yearpicker();
 }
 
 function initDatatable() {

@@ -6,6 +6,6 @@
             <span class="sr-only">{{ trans('app.close') }}</span>
         </button>
         <i class="start-icon far fa-check-circle"></i>
-        <strong class="font__weight-semibold">{{ trans('app.well_done') }}</strong> {{ $message ?? trans('app.success_message') }}.
+        {{ $message ?? trans('app.success_message') }}.
     </div>
 </div>

@@ -317,6 +317,7 @@ body a {
     outline: none;
     padding: 0 25px 0 25px;
     border-radius: 0 50px 50px 0;
+    direction: ltr;
 }
 .iti__country-list {
     z-index: 999;
@@ -327,6 +328,10 @@ body a {
 .iti-mobile .iti--container {
     right: 5%;
     left: 5%;
+}
+.iti__flag-container{
+    right: 0 !important;
+    left: auto !important;
 }
 
 /*summer note*/

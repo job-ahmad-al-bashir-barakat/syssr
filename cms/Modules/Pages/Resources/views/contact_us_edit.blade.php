@@ -103,15 +103,12 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col">
-                                        <label>{{trans('pages::main.phone')}} <span class="req"></span></label>
+                                        <label>{{trans('pages::main.phone')}}</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col">
-                                        <input type="text" class="form-control req @error('phone') is-invalid @enderror" name="phone" id="phone" value="@error('phone') {!!old('phone')!!} @else {!! $contactUs->phone !!} @enderror">
-                                        @error('phone')
-                                            <div id="phone-error" class="error invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{!! $contactUs->phone !!}">
                                     </div>
                                 </div>
                             </div>
@@ -137,15 +134,12 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col">
-                                        <label>{{trans('pages::main.mobile').' (1)'}} <span class="req"></span></label>
+                                        <label>{{trans('pages::main.mobile').' (1)'}}</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col">
-                                        <input type="text" class="form-control req @error('mobile_1') is-invalid @enderror" name="mobile_1" id="mobile_1" value="@error('mobile_1') {!!old('mobile_1')!!} @else {!! $contactUs->mobile_1 !!} @enderror">
-                                        @error('mobile_1')
-                                            <div id="mobile_1-error" class="error invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                        <input type="text" class="form-control" name="mobile_1" id="mobile_1" value="{!! $contactUs->mobile_1 !!}">
                                     </div>
                                 </div>
                             </div>

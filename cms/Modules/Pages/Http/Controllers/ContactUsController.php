@@ -26,8 +26,6 @@ class ContactUsController extends Controller{
             'name_ar'               =>  'required',
             'contact_email'         =>  'required|email',
             'info_email'            =>  'required|email',
-            'phone'                 =>  'required',
-            'mobile_1'              =>  'required',
         ]);
 
         $contactUs = new ContactUs();
@@ -75,8 +73,6 @@ class ContactUsController extends Controller{
             'name_ar'               =>  'required',
             'contact_email'         =>  'required|email',
             'info_email'            =>  'required|email',
-            'phone'                 =>  'required',
-            'mobile_1'              =>  'required',
         ]);
 
         $contactUs->setTranslation('name', 'en', $request['name_en']);

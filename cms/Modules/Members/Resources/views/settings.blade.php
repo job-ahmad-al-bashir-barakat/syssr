@@ -147,9 +147,7 @@
     //=================================================//
     $('.save-settings').click(function(){
         var $this = $(this);
-        $this.attr('disabled','disabled');
-        var old_btn_html = $this.html();
-        $this.html('<i class="fa fa-spinner fa-spin"></i>');
+        $this.attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
         var $form = $('#settings-form');
         var data = $form.serialize();
         var method = 'post';
@@ -162,8 +160,7 @@
           data: data
       }).done(function (res) {
             _toastr('', res.message);
-            $this.removeAttr('disabled');
-            $this.html(old_btn_html);
+            $this.removeAttr('disabled').removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
       });
     });
     //=================================================//

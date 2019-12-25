@@ -29,7 +29,7 @@
                                 <li data-tab="tab-4" class="brk-tab"><span>{{ trans('app.social_links') }}{!! $membersFieldsSettings['social_links']['required']=='T' ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</span></li>
                             </ul>
                             <div class="brk-tabs-content">
-                                <div id="tab-1" class="brk-tab-item tab text-center text-lg-left">
+                                <div id="tab-1" class="brk-tab-item tab text-center text-lg-left" style="display: block;">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="row">
@@ -37,7 +37,7 @@
                                                     <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-username-form">{{ trans('app.username') }} <span class="req"></span></label>
-                                                            <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error" tabindex="1">
+                                                            <input id="brk-username-form" name="username" type="text" placeholder="{{ trans('app.username') }}" value="{{ $user->username ?? '' }}" required data-parsley-errors-container="#username-error" data-parsley-pattern-message="{{trans('app.username_pattern_msg')}}" pattern="[A-Za-z_][A-Za-z0-9_]*" tabindex="1" dir="ltr">
                                                             <div id="username-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="mb-50">
@@ -104,7 +104,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-email-form">{{ trans('app.email') }} <span class="req"></span></label>
-                                                            <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error" tabindex="5">
+                                                            <input id="brk-email-form" name="email" type="email" placeholder="{{ trans('app.email') }}" value="{{ $user->email ?? '' }}" required  data-parsley-errors-container="#email-error" tabindex="5" dir="ltr">
                                                             <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     </div>
@@ -152,11 +152,11 @@
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['mobile']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="mobile-id-round">{{ trans('app.mobile') }} <span class="req"></span></label>
-                                                                <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="" required  data-parsley-errors-container="#mobile-error" tabindex="8">
+                                                                <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="" required  data-parsley-errors-container="#mobile-error" tabindex="8" dir="ltr">
                                                                 <div id="mobile-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                             @else
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="mobile-id-round">{{ trans('app.mobile') }}</label>
-                                                                <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="" tabindex="8">
+                                                                <input id="mobile-id-round" class="brk-form-mobile" name="mobile" type="text" value="{{ $user->mobile ?? '' }}" placeholder="" tabindex="8" dir="ltr">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -164,11 +164,11 @@
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['personal_website']['required']=='T')
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="website-id-round">{{ trans('app.personal_website') }} <span class="req"></span></label>
-                                                                <input id="website-id-round" dir="ltr" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? '' }}" placeholder="https://www.website.com" required  data-parsley-errors-container="#website-error" tabindex="9">
+                                                                <input id="website-id-round" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? '' }}" placeholder="https://www.website.com" required  data-parsley-errors-container="#website-error" tabindex="9" dir="ltr">
                                                                 <div id="website-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                             @else
                                                                 <label class="brk-form-label font__family-montserrat font__weight-bold" for="website-id-round">{{ trans('app.personal_website') }}</label>
-                                                                <input id="website-id-round" dir="ltr" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? '' }}" placeholder="https://www.website.com" tabindex="9">
+                                                                <input id="website-id-round" class="brk-form-website" name="website" type="text" value="{{ $user->website ?? '' }}" placeholder="https://www.website.com" tabindex="9" dir="ltr">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -505,18 +505,18 @@
                                             <div class="brk-form brk-form-round" data-brk-library="component__form">
                                                 <div class="mb-50">
                                                     @if($membersFieldsSettings['social_links']['required']=='T')
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form">Facebook <span class="req"></span></label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form" style="text-align: left;">Facebook <span class="req"></span></label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-facebook-form" dir="ltr" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#facebook-error" tabindex="22">
+                                                            <input id="brk-facebook-form" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#facebook-error" tabindex="22" dir="ltr">
                                                             <span class="icon-before facebook-bg-color" style="left:7px;">
                                                                 <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
                                                             </span>
                                                         </div>
                                                         <div id="facebook-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                     @else
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form">Facebook</label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-facebook-form" style="text-align: left;">Facebook</label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-facebook-form" dir="ltr" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;" tabindex="22">
+                                                            <input id="brk-facebook-form" name="facebook" type="text" placeholder="https://facebook.com/{your-id}" value="{{ $user->facebook ?? '' }}" style="padding-left: 55px;" tabindex="22" dir="ltr">
                                                             <span class="icon-before facebook-bg-color" style="left:7px;">
                                                                 <i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i>
                                                             </span>
@@ -526,18 +526,18 @@
 
                                                 <div class="mb-50">
                                                     @if($membersFieldsSettings['social_links']['required']=='T')
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form">LinkedIn <span class="req"></span></label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form" style="text-align: left;">LinkedIn <span class="req"></span></label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-linked-in-form" dir="ltr" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#linkedin-error" tabindex="23">
+                                                            <input id="brk-linked-in-form" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#linkedin-error" tabindex="23" dir="ltr">
                                                             <span class="icon-before linkedin-bg-color" style="left:7px;">
                                                                 <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
                                                             </span>
                                                         </div>
                                                         <div id="linkedin-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                     @else
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form">LinkedIn</label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-linked-in-form" style="text-align: left;">LinkedIn</label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-linked-in-form" dir="ltr" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;" tabindex="23">
+                                                            <input id="brk-linked-in-form" name="linked_in" type="text" placeholder="https://linkedin.com/in/{your-id}" value="{{ $user->linked_in ?? '' }}" style="padding-left: 55px;" tabindex="23" dir="ltr">
                                                             <span class="icon-before linkedin-bg-color" style="left:7px;">
                                                                 <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
                                                             </span>
@@ -547,18 +547,18 @@
 
                                                 <div class="mb-50">
                                                     @if($membersFieldsSettings['social_links']['required']=='T')
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub <span class="req"></span></label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form" style="text-align: left;">GitHub <span class="req"></span></label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#github-error" tabindex="24" >
+                                                            <input id="brk-github-form" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;" required  data-parsley-errors-container="#github-error" tabindex="24" dir="ltr">
                                                             <span class="icon-before github-bg-color" style="left:7px;">
                                                                 <i class="fab fa-github" style="font-size: 1.5rem;"></i>
                                                             </span>
                                                         </div>
                                                         <div id="github-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                     @else
-                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form">GitHub</label>
+                                                        <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-github-form" style="text-align: left;">GitHub</label>
                                                         <div class="brk-form-date-wrap">
-                                                            <input id="brk-github-form" dir="ltr" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;" tabindex="24" >
+                                                            <input id="brk-github-form" name="github" type="text" placeholder="https://github.com/{your-id}" value="{{ $user->github ?? '' }}" style="padding-left: 55px;" tabindex="24" dir="ltr">
                                                             <span class="icon-before github-bg-color" style="left:7px;">
                                                                 <i class="fab fa-github" style="font-size: 1.5rem;"></i>
                                                             </span>
