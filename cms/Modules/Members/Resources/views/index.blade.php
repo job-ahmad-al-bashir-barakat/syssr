@@ -142,7 +142,7 @@
                                                 </a>
                                             </li>
                                             <li class="kt-nav__item">
-                                                <a href="#" class="kt-nav__link">
+                                                <a href="{{ url('members') }}/${data.id}/edit" class="kt-nav__link">
                                                     <i class="kt-nav__link-icon flaticon2-contract"></i>
                                                     <span class="kt-nav__link-text">Edit</span>
                                                 </a>
@@ -200,7 +200,7 @@
                 _toastr('', success_msg);
             });
         });
-        
+
     });
 //-----------------------------------------------------------------------------//
     $(document).on('click','.delete-member', function () {
@@ -231,7 +231,7 @@
                 });
             });
         }
-        
+
     });
 //-----------------------------------------------------------------------------//
 </script>

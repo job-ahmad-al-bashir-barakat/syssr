@@ -19,7 +19,6 @@ Route::group([
 
     Route::prefix('members')->group(function() {
 
-        Route::resource('/', 'MembersController');
         Route::get('/getDatatableMembers', [
             'as' => 'getDatatableMembers.data', 'uses' => 'MembersController@getDatatableMembers',
         ]);
@@ -29,7 +28,7 @@ Route::group([
 
         Route::get('/settings', 'MembersController@settings');
         Route::post('/save-member-settings', 'MembersController@saveMemberSettings');
-
     });
 
+    Route::resource('members', 'MembersController');
 });

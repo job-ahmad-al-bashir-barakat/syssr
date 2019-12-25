@@ -49,8 +49,8 @@
 
                                 <!--begin: Form Wizard Form-->
                                 <form id="userForm" method="post" action="{{ route('users.update', $user->id) }}" class="kt-form"  style="width:80%">
-                                    
-                                    @method('PATCH') 
+
+                                    @method('PATCH')
                                     @csrf
 
                                     <!--begin: Form Wizard Step 1-->
@@ -130,7 +130,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
 @stop

@@ -29,6 +29,12 @@ class MembersController extends Controller
         return view('members::create');
     }
 //----------------------------------------------------------------------//
+    public function edit($id){
+
+        $user = Member::findOrFail($id);
+        return view('members::edit')->with('user', $user);
+    }
+//----------------------------------------------------------------------//
     public function show($slug){
 
         $member = Member::with(['research_interests', 'skills', 'degrees', 'associations']);
