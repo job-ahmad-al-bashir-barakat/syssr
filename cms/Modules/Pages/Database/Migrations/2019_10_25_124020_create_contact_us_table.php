@@ -20,8 +20,8 @@ class CreateContactUsTable extends Migration
             $table->string('default',1);
             $table->string('contact_email');
             $table->string('info_email');
-            $table->string('phone');
-            $table->string('mobile_1');
+            $table->string('phone')->nullable();
+            $table->string('mobile_1')->nullable();
             $table->string('mobile_2')->nullable();
             $table->string('address')->nullable();
             $table->string('lat')->nullable();

@@ -109,26 +109,6 @@
                         </ul>
                     </div>
                 </li>
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                    <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                        <span class="kt-menu__link-icon"><i class="fa fa-tags"></i></span>
-                        <span class="kt-menu__link-text">{{trans('cms.permissions_roles')}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                    </a>
-                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
-                        <ul class="kt-menu__subnav">
-                            <li class="kt-menu__item " aria-haspopup="true">
-                                <a href="custom/apps/inbox.html" class="kt-menu__link ">
-                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.permissions')}}</span>
-                                </a>
-                            </li>
-                            <li class="kt-menu__item " aria-haspopup="true">
-                                <a href="custom/apps/inbox.html" class="kt-menu__link ">
-                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">{{trans('cms.roles')}}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
                 <li class="kt-menu__item  kt-menu__item--submenu <?= ( strpos($current_params, 'ContactUsController') || strpos($current_params, 'AboutUsController') || strpos($current_params, 'OurGoalsController') || strpos($current_params, 'WhoWeAreController')) ? 'kt-menu__item--open' : ''; ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                     <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                         <span class="kt-menu__link-icon"><i class="fa fa-copy"></i></span>
@@ -203,12 +183,6 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-                <li class="kt-menu__item <?= ( strpos($current_params, 'SettingsController@lang_vars') ) ? 'kt-menu__item--active' : ''; ?>" aria-haspopup="true">
-                    <a href="{{url('settings/lang-vars')}}" class="kt-menu__link ">
-                        <span class="kt-menu__link-icon"><i class="fa fa-language"></i></span>
-                        <span class="kt-menu__link-text">{{trans('cms.lang_vars')}}</span>
-                    </a>
                 </li>
                 <li class="kt-menu__item " aria-haspopup="true">
                     <a href="custom/apps/inbox.html" class="kt-menu__link ">

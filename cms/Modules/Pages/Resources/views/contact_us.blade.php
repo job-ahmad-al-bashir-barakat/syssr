@@ -108,10 +108,6 @@
                 }, {
                     field: "info_email",title: "{{trans('pages::main.info_email')}}",width: 125,
                 }, {
-                    field: "phone",title: "{{trans('pages::main.phone')}}",width: 125,
-                }, {
-                    field: "mobile_1",title: "{{trans('pages::main.mobile')}} (1)",width: 125,
-                }, {
                     field: "default",title: "{{trans('cms.default')}}",width: 100,textAlign: 'center',
                     template: function(data) {
                         var status = {

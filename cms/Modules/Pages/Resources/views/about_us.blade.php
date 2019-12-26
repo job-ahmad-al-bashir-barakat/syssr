@@ -31,7 +31,7 @@
                                 <label>{{trans('cms.en')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea id="description_en" name="description_en" class="ckeditor req" row="8">{!! $description_en !!}</textarea>
+                                <textarea id="description_en" name="description_en" class="ckeditor req" row="8" dir="ltr">{!! $description_en !!}</textarea>
                             </div>
                         </div>
                         <div class="row mt-4">
@@ -39,7 +39,7 @@
                                 <label>{{trans('cms.ar')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea id="description_ar" name="description_ar" class="ckeditor req" row="8">{!! $description_ar !!}</textarea>
+                                <textarea id="description_ar" name="description_ar" class="ckeditor req" row="8" dir="rtl">{!! $description_ar !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,13 @@
 //----------------------------------------------------------------------------------------//
 $(function(){
     //=================================================//
+
+        // console.log('hi-');
+        // _toastr('', 'message');
+    //=================================================//
     $('.save-about').click(function(){
+        CKEDITOR.instances['description_en'].updateElement();
+        CKEDITOR.instances['description_ar'].updateElement();
         submit_form('about-form');
     });
     //=================================================//
@@ -72,6 +78,7 @@ $(function(){
 //----------------------------------------------------------------------------------------//
     function submit_form(form_id){
         $("#"+form_id).validate();
+        $('.save-about').attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
         $("#"+form_id).submit();
     }
 //----------------------------------------------------------------------------------------//
