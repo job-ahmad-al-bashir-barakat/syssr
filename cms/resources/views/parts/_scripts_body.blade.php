@@ -34,6 +34,13 @@
         'are_you_sure'          :   '{{trans('cms.are_you_sure')}}',
         'warning'               :   '{{trans('cms.warning')}}',
     }
+//----------------------------------------------------------------//
+function showMessageOnLoad(){
+    @if(session()->has('message'))
+        _toastr('', '{{ session()->get("message") }}');
+    @endif
+}
+//----------------------------------------------------------------//
 </script>
 
 <!-- end::Global Config -->

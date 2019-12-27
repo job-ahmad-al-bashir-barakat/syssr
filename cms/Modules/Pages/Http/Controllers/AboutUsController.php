@@ -30,7 +30,7 @@ class AboutUsController extends Controller{
         $aboutUs->save();
         
         $message = trans('cms.saved_successfully');
-        return redirect(url('pages/about-us'))->with('message', $message);
+        return redirect()->back()->with('message', $message);
     }
 //------------------------------------------------------------------------//
     public function getAboutUs(Request $request){

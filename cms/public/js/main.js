@@ -20,6 +20,7 @@ toastr.options = {
 $(function(){
     initAdditionalValidationClass();
     _summernote();
+    showMessageOnLoad();
 });
 //----------------------------------------------------------------//
 function _toastr(title, msg, type='success'){
@@ -41,6 +42,25 @@ function _toastr(title, msg, type='success'){
         break;
     }
     
+}
+//----------------------------------------------------------------//
+function submit_form(form_id, button_class){
+    $("#"+form_id).validate();
+    $('.'+button_class).attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
+    $("#"+form_id).submit();
+}
+//----------------------------------------------------------------//
+function _block_cont(cont_class, msg='', state='primary'){
+    KTApp.block('.'+cont_class, {
+        overlayColor: '#000000',
+        type: 'v2',
+        state: state,
+        message: msg,
+    });
+}
+//----------------------------------------------------------------//
+function _unblock_cont(cont_class){
+    KTApp.unblock('.'+cont_class);
 }
 //----------------------------------------------------------------//
 function initAdditionalValidationClass () {

@@ -4,19 +4,7 @@
 
 @section('content')
 
-    <!-- begin:: Subheader -->
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('cms.who_we_are')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold save-who-we-are">{{trans('cms.save')}}</a>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Subheader -->
-
+    @include('parts._subheader', ['subheader_title' => trans('cms.who_we_are'), 'save_btn' => 'save-who-we-are'])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -31,7 +19,7 @@
                                 <label>{{trans('cms.en')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea name="description_en" class="ckeditor req">{!! $description_en !!}</textarea>
+                                <textarea id="description_en" name="description_en" class="ckeditor req">{!! $description_en !!}</textarea>
                             </div>
                         </div>
                         <div class="row mt-4">
@@ -39,7 +27,7 @@
                                 <label>{{trans('cms.ar')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea name="description_ar" class="ckeditor req">{!! $description_ar !!}</textarea>
+                                <textarea id="description_ar" name="description_ar" class="ckeditor req">{!! $description_ar !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -62,18 +50,21 @@
 <script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 <script>
 //----------------------------------------------------------------------------------------//
-    $(function(){
+_block_cont('kt-portlet', '{{trans('cms.please_wait')}}');
+//----------------------------------------------------------------------------------------//
+$(function(){
     //=================================================//
     $('.save-who-we-are').click(function(){
-        submit_form('who-we-are-form');
+        CKEDITOR.instances['description_en'].updateElement();
+        CKEDITOR.instances['description_ar'].updateElement();
+        submit_form('who-we-are-form', 'save-who-we-are');
+    });
+    //=================================================//
+    CKEDITOR.on('instanceReady', function() { 
+        _unblock_cont('kt-portlet');
     });
     //=================================================//
 });
-//----------------------------------------------------------------------------------------//
-    function submit_form(form_id){
-        $("#"+form_id).validate();
-        $("#"+form_id).submit();
-    }
 //----------------------------------------------------------------------------------------//
 </script>
 @endsection

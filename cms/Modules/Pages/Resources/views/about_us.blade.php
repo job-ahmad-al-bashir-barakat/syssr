@@ -4,19 +4,7 @@
 
 @section('content')
 
-    <!-- begin:: Subheader -->
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('cms.about_us')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold save-about">{{trans('cms.save')}}</a>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Subheader -->
-
+    @include('parts._subheader', ['subheader_title' => trans('cms.about_us'), 'save_btn' => 'save-about'])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -62,25 +50,21 @@
 <script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 <script>
 //----------------------------------------------------------------------------------------//
+    _block_cont('kt-portlet', '{{trans('cms.please_wait')}}');
+//----------------------------------------------------------------------------------------//
 $(function(){
-    //=================================================//
-
-        // console.log('hi-');
-        // _toastr('', 'message');
     //=================================================//
     $('.save-about').click(function(){
         CKEDITOR.instances['description_en'].updateElement();
         CKEDITOR.instances['description_ar'].updateElement();
-        submit_form('about-form');
+        submit_form('about-form', 'save-about');
+    });
+    //=================================================//
+    CKEDITOR.on('instanceReady', function() { 
+        _unblock_cont('kt-portlet');
     });
     //=================================================//
 });
-//----------------------------------------------------------------------------------------//
-    function submit_form(form_id){
-        $("#"+form_id).validate();
-        $('.save-about').attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
-        $("#"+form_id).submit();
-    }
 //----------------------------------------------------------------------------------------//
 </script>
 @endsection
