@@ -25,40 +25,14 @@
 
 @section('content')
 
-    <!-- begin:: Subheader -->
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('pages::main.add_contact_us')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="{{url('pages/contact-us')}}" class="btn btn-default btn-bold">{{trans('cms.back')}}</a>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-brand btn-bold">{{trans('cms.actions')}}</button>
-                    <button type="button" class="btn btn-brand btn-bold dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <ul class="kt-nav">
-                            <li class="kt-nav__item">
-                                <a href="JavaScript:Void(0);" class="kt-nav__link save_add_new">
-                                    <i class="kt-nav__link-icon fa fa-plus"></i>
-                                    <span class="kt-nav__link-text">{{trans('cms.save_add_new')}}</span>
-                                </a>
-                            </li>
-                            <li class="kt-nav__item">
-                                <a href="JavaScript:Void(0);" class="kt-nav__link save_exit">
-                                    <i class="kt-nav__link-icon fa fa-save"></i>
-                                    <span class="kt-nav__link-text">{{trans('cms.save_exit')}}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Subheader -->
-
+    @include('parts._subheader', [
+        'subheader_title' => trans('pages::main.add_contact_us'), 
+        'actions' => [
+                        ['name' => trans('cms.save_add_new'), 'class' => 'save_add_new', 'icon' => 'fa fa-plus'],
+                        ['name' => trans('cms.save_exit'), 'class' => 'save_exit', 'icon' => 'fa fa-save'],
+        ],
+        'back' => true
+    ])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -141,7 +115,11 @@
                                     <div class="form-group col">
                                         <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--success">
                                             <label>
-                                                <input type="checkbox" name="default">
+                                                @if($setDefault=='Y')
+                                                    <input type="checkbox" checked name="default">
+                                                @else
+                                                    <input type="checkbox" disabled name="default">
+                                                @endif
                                                 <span></span>
                                             </label>
                                         </span>                                        
@@ -336,12 +314,12 @@
 <script src="{{ asset('plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
 <script src="{{ asset('theme/js/pages/crud/forms/widgets/bootstrap-switch.js') }}" type="text/javascript"></script>
 <script>
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     function intlTelInputFixPadding() {
         var width = $('.iti').find('.iti__flag-container').width();
         $('.iti').find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
     }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     function _intlTelInput(ele_id){
         var input = window.intlTelInput( document.querySelector('#'+ele_id),{
             allowExtensions: true,
@@ -370,7 +348,7 @@
             intlTelInputFixPadding();
         });
     }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     $(function(){
         //=================================================//
         _intlTelInput('phone');
@@ -378,21 +356,17 @@
         _intlTelInput('mobile_2');
         //=================================================//
          $('.save_exit').click(function(){
-            submit_form('contact-form','exit');
+            $('#submit_type').val('exit');
+            submit_form('contact-form', 'save_exit', 'save_add_new');
         });
         //=================================================//
         $('.save_add_new').click(function(){
-            submit_form('contact-form','add_new');
+            $('#submit_type').val('add_new');
+            submit_form('contact-form', 'save_add_new', 'save_exit');
         });
         //=================================================//
     });
-    //----------------------------------------------------------------------------------------//
-    function submit_form(form_id, submit_type){
-        $("#"+form_id).validate();
-        $('#submit_type').val(submit_type);
-        $("#"+form_id).submit();
-    }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
 </script>
 
 <script src="{{ asset('plugins/intl-tel-input/js/utils.js') }}"></script>

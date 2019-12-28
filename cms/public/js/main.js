@@ -44,9 +44,12 @@ function _toastr(title, msg, type='success'){
     
 }
 //----------------------------------------------------------------//
-function submit_form(form_id, button_class){
+function submit_form(form_id, button_class, disable_button){
     $("#"+form_id).validate();
-    $('.'+button_class).attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
+    if($("#"+form_id).valid()){
+        $('.'+button_class).attr('disabled','disabled').addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light');
+        $('.'+disable_button).attr('disabled','disabled')
+    }
     $("#"+form_id).submit();
 }
 //----------------------------------------------------------------//

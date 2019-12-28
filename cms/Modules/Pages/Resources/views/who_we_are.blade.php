@@ -19,7 +19,7 @@
                                 <label>{{trans('cms.en')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea id="description_en" name="description_en" class="ckeditor req">{!! $description_en !!}</textarea>
+                                <textarea id="description_en" name="description_en" class="ckeditor req" row="8" dir="ltr">{!! $description_en !!}</textarea>
                             </div>
                         </div>
                         <div class="row mt-4">
@@ -27,7 +27,7 @@
                                 <label>{{trans('cms.ar')}} <span class="req"></span></label>
                             </div>
                             <div class="col-10">
-                                <textarea id="description_ar" name="description_ar" class="ckeditor req">{!! $description_ar !!}</textarea>
+                                <textarea id="description_ar" name="description_ar" class="ckeditor req" row="8" dir="rtl">{!! $description_ar !!}</textarea>
                             </div>
                         </div>
                     </div>

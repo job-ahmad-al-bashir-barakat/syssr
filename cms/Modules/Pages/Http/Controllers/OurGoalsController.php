@@ -30,7 +30,7 @@ class OurGoalsController extends Controller{
         $ourGoals->save();
         
         $message = trans('cms.saved_successfully');
-        return redirect(url('pages/our-goals'))->with('message', $message);
+        return redirect()->back()->with('message', $message);
     }
 //------------------------------------------------------------------------//
     public function getOurGoals(Request $request){

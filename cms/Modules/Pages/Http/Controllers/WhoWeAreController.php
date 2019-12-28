@@ -30,7 +30,7 @@ public function store(Request $request){
     $whoWeAre->save();
     
     $message = trans('cms.saved_successfully');
-    return redirect(url('pages/who-we-are'))->with('message', $message);
+    return redirect()->back()->with('message', $message);
 }
 //------------------------------------------------------------------------//
 public function getWhoWeAre(Request $request){

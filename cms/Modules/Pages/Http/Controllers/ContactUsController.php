@@ -12,12 +12,16 @@ use Modules\Pages\Entities\ContactUs;
 class ContactUsController extends Controller{
 //----------------------------------------------------------------------//
     public function index(){
-        $contactUs = ContactUs::find(1);
-        return view('pages::contact_us',compact('contactUs'));
+        return view('pages::contact_us');
     }
 //----------------------------------------------------------------------//
     public function create(){
-        return view('pages::contact_us_create');
+        $canDefault = ContactUs::where('default', '=' ,'Y')->get();
+        $setDefault = 'Y';
+        if(!$canDefault->isEmpty()){
+            $setDefault = 'N';
+        }
+        return view('pages::contact_us_create', compact('setDefault'));
     }
 //----------------------------------------------------------------------//
     public function store(Request $request){
@@ -64,7 +68,12 @@ class ContactUsController extends Controller{
     }
 //----------------------------------------------------------------------//
     public function edit(ContactUs $contactUs){
-        return view('pages::contact_us_edit', compact('contactUs'));
+        $canDefault = ContactUs::where('default', '=' ,'Y')->get();
+        $setDefault = 'Y';
+        if(!$canDefault->isEmpty() && $contactUs->default=='N'){
+            $setDefault = 'N';
+        }
+        return view('pages::contact_us_edit', compact('contactUs', 'setDefault'));
     }
 //----------------------------------------------------------------------//
     public function update(Request $request, ContactUs $contactUs){

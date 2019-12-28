@@ -4,19 +4,7 @@
 
 @section('content')
 
-    <!-- begin:: Subheader -->
-    <div class="kt-subheader kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('cms.contact_us')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="{{url('pages/contact-us/create')}}" class="btn btn-label-brand btn-bold">{{trans('pages::main.add_contact_us')}}</a>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Subheader -->
-
+    @include('parts._subheader', ['subheader_title' => trans('cms.contact_us'), 'link' => url('pages/contact-us/create'), 'link_name' => trans('pages::main.add_contact_us')])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">

@@ -4,18 +4,7 @@
 
 @section('content')
 
-    <!-- begin:: Content Head -->
-    <div class="kt-subheader kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('members::main.members_settings')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold save-settings">{{trans('cms.save')}}</a>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Content Head -->
+    @include('parts._subheader', ['subheader_title' => trans('members::main.members_settings'), 'save_btn' => 'save-settings'])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">

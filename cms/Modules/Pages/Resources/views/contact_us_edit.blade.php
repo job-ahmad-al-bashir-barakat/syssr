@@ -25,20 +25,11 @@
 
 @section('content')
 
-    <!-- begin:: Subheader -->
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">{{trans('pages::main.update_contact_us')}}</h3>
-            </div>
-            <div class="kt-subheader__toolbar">
-                <a href="{{url('pages/contact-us')}}" class="btn btn-default btn-bold">{{trans('cms.back')}}</a>
-                <a href="Javascript:void(0);" class="btn btn-label-brand btn-bold update-contact-us">{{trans('cms.update')}}</a>
-            </div>
-        </div>
-    </div>
-    <!-- end:: Subheader -->
-
+    @include('parts._subheader', [
+        'subheader_title' => trans('pages::main.update_contact_us'), 
+        'update_btn' => 'update-contact-us',
+        'back' => true
+    ])
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -122,7 +113,11 @@
                                     <div class="form-group col">
                                         <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--success">
                                             <label>
-                                                <input type="checkbox" {{$contactUs->default=='Y' ? 'checked' : ''}} name="default">
+                                                @if($setDefault=='Y')
+                                                    <input type="checkbox" {{$contactUs->default=='Y' ? 'checked' : ''}} name="default">
+                                                @else
+                                                    <input type="checkbox" disabled name="default">
+                                                @endif
                                                 <span></span>
                                             </label>
                                         </span>                                        
@@ -313,12 +308,12 @@
 <script src="{{ asset('plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
 <script src="{{ asset('theme/js/pages/crud/forms/widgets/bootstrap-switch.js') }}" type="text/javascript"></script>
 <script>
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     function intlTelInputFixPadding() {
         var width = $('.iti').find('.iti__flag-container').width();
         $('.iti').find('input').css('padding-left', width > 0 ? (parseInt(width) + 20) + 'px' : '120px' );
     }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     function _intlTelInput(ele_id){
         var input = window.intlTelInput( document.querySelector('#'+ele_id),{
             allowExtensions: true,
@@ -347,7 +342,7 @@
             intlTelInputFixPadding();
         });
     }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
     $(function(){
         //=================================================//
         _intlTelInput('phone');
@@ -355,17 +350,11 @@
         _intlTelInput('mobile_2');
         //=================================================//
          $('.update-contact-us').click(function(){
-            submit_form('contact-form');
+            submit_form('contact-form', 'update-contact-us');
         });
         //=================================================//
     });
-    //----------------------------------------------------------------------------------------//
-    function submit_form(form_id, submit_type){
-        $("#"+form_id).validate();
-        $('#submit_type').val(submit_type);
-        $("#"+form_id).submit();
-    }
-    //----------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------//
 </script>
 
 <script src="{{ asset('plugins/intl-tel-input/js/utils.js') }}"></script>
