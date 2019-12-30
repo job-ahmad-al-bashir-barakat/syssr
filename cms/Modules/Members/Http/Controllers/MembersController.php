@@ -166,8 +166,10 @@ class MembersController extends Controller
 
         $data['slug'] = \Slugify::slugify($data['username']);
         $data['mobile'] = $data['mobile_full'];
-        $data['country_id'] = $data['country'];
-        $data['city_id'] = $data['city'];
+        if(isset($data['country']))
+            $data['country_id'] = $data['country'];
+        if(isset($data['city']))
+            $data['city_id'] = $data['city'];
         $data['occupation_id'] = $data['current_occupation'];
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
 

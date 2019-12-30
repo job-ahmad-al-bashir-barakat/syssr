@@ -222,6 +222,9 @@ body a {
 .brk-header_style-7-popup .brk-user__header {
     box-shadow: none;
     border-bottom: 1px solid #e5e5e5; }
+.brk-user__header img {
+    border-radius: 50%;
+}
 .brk-user__items {
     overflow: auto;
     /*@media (max-height: 870px) {

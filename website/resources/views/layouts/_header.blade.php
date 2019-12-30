@@ -103,7 +103,7 @@
                             <div class="brk-social-links__content">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url()->current()}}&title=&summary=&source=" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                                <a href="https://twitter.com/home?status={{url()->current()}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>                                
+                                <a href="https://twitter.com/home?status={{url()->current()}}" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                                 <a href="whatsapp://send?text={{url()->current()}}" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                                 <a href="mailto:?body={{url()->current()}}&subject={{substr(strrchr(url()->current(),"/"),1)}}" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="brk-user__menu">
                                 <div class="brk-user__header">
                                     <div class="d-flex align-items-center font__family-montserrat font__weight-bold font__size-18">
-                                        <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" width="60" alt="image">
+                                        <img src="{{ Auth::user()->avatar_url ?? asset('custom/img/user-image.png') }}" width="45" alt="image">
                                         <span class="ml-3">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                                     </div>
                                 </div>

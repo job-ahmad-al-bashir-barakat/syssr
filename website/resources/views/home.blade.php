@@ -8,7 +8,7 @@
 @section('content')
 
     @include('layouts._vertical_nav',[
-            'sections_id'       =>  ['home-banners', 'last-projects', 'last-news', 'section-4', 'section-5', 'follow-us']
+        'sections_id' =>  ['home-banners', 'last-projects', 'last-news', 'section-4', 'section-5', 'follow-us']
     ])
 
     <div class="wrapper" style="margin-top:72px;">
