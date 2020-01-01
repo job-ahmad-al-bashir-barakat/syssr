@@ -1,7 +1,7 @@
 @section('style')
     <style>.magazine-big-font{background-image:url(img/demo_magazine/1222x167_1.jpg);font-size: 156px;line-height: 156px;color:rgba(var(--brand-primary-rgb), .82);}@media (max-width: 767px){.magazine-big-font{font-size: 66px;line-height: 70px;}}</style>
     <link rel="stylesheet" href="{{ asset('custom/plugin/slim-cropper/slim/slim.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('custom/plugin/intl-tel-input/css/intlTelInput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset("custom/plugin/intl-tel-input/css/intlTelInput-$dir.min.css") }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap4-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css') }}">
     <link rel="stylesheet" href="{{ asset('custom/plugin/summernote/summernote-bs4.css') }}">
@@ -22,11 +22,10 @@
                         @endif
                         <div class="brk-tabs tabs brk-tabs-simple" data-hash="true" data-brk-library="component__tabs">
                             <ul class="brk-tabs-nav font__family-montserrat font__weight-bold">
-                                <!-- <li data-tab="tab-1" class="brk-tab active"><span>{{ trans('app.personal_info') }}</span>{!! $membersFieldsSettings['tabs']['personal'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li> -->
-                                <li data-tab="tab-1" class="brk-tab active"><span>{{ trans('app.personal_info') }}</span><span class="req" style="margin-right: 10px;"></span></li>
-                                <li data-tab="tab-2" class="brk-tab"><span>{{ trans('app.address') }}</span>{!! $membersFieldsSettings['tabs']['address'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
-                                <li data-tab="tab-3" class="brk-tab"><span>{{ trans('app.resume') }}</span>{!! $membersFieldsSettings['tabs']['resume'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
-                                <li data-tab="tab-4" class="brk-tab"><span>{{ trans('app.social_links') }}{!! $membersFieldsSettings['social_links']['required']=='T' ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</span></li>
+                                <li data-tab="tab-1" data-order="1" class="brk-tab active"><span>{{ trans('app.personal_info') }}</span><span class="req" style="margin-right: 10px;"></span></li>
+                                <li data-tab="tab-2" data-order="2" class="brk-tab"><span>{{ trans('app.address') }}</span>{!! $membersFieldsSettings['tabs']['address'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
+                                <li data-tab="tab-3" data-order="3" class="brk-tab"><span>{{ trans('app.resume') }}</span>{!! $membersFieldsSettings['tabs']['resume'] ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</li>
+                                <li data-tab="tab-4" data-order="4" class="brk-tab"><span>{{ trans('app.social_links') }}{!! $membersFieldsSettings['social_links']['required']=='T' ? '<span class="req" style="margin-right: 10px;"></span>' : '' !!}</span></li>
                             </ul>
                             <div class="brk-tabs-content">
                                 <div id="tab-1" class="brk-tab-item tab text-center text-lg-left" style="display: block;">
@@ -195,17 +194,18 @@
                                                     @if($update)
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                                                            <input id="brk-pass-form" name="password" type="password" data-parsley-equalto="#brk-confirm-pass-form" data-parsley-errors-container="#pass-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
+                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" data-parsley-errors-container="#password-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
+                                                            <div id="password-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }}</label>
-                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="11">
-                                                            <div id="pass-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" data-parsley-errors-container="#confirm-pass-error" data-parsley-equalto="#brk-pass-form" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="11">
+                                                            <div id="confirm-pass-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     @else
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }} <span class="req"></span></label>
-                                                            <input id="brk-pass-form" name="password" type="password" required data-parsley-errors-container="#password-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
+                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" required data-parsley-errors-container="#password-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
                                                             <div id="password-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="col-md-6 mb-50">
@@ -574,14 +574,22 @@
                                 @include('partials._alert',['hide' => true])
                             </div>
                             <div class="text-center pt-70">
-                                <button type="submit" class="btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                                <button type="button" class="d-none tab-previous btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                                    <i class="fas fa-chevron-circle-{{$left}} icon-inside" aria-hidden="true"></i>
+                                    <span>{{ trans('app.previous') }}</span>
+                                </button>
+                                <button type="submit" class="d-none btn submit-btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
                                     @if($update)
                                         <i class="fa fa-edit icon-inside" aria-hidden="true"></i>
                                         <span>{{ trans('app.update') }}</span>
                                     @else
                                         <i class="fa fa-save icon-inside" aria-hidden="true"></i>
-                                        <span>{{ trans('app.save') }}</span>
+                                        <span>{{ trans('app.submit') }}</span>
                                     @endif
+                                </button>
+                                <button type="button" class="tab-next btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                                    <i class="fas fa-chevron-circle-{{$right}} icon-inside" aria-hidden="true"></i>
+                                    <span>{{ trans('app.next') }}</span>
                                 </button>
                             </div>
                         </div>
