@@ -20,20 +20,26 @@ class OccupationsController extends Controller
     public function store(Request $request){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $occupation = Occupation::all()->where('name_ar', $request['name_ar']);
-        //     if ($occupation->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.occupation') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $occupation = Occupation::all()->where('name_en', $request['name_en']);
-        //     if ($occupation->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.occupation') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $occupation = Occupation::where('name->ar', $request['name_ar'])->get();
+            if ($occupation->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $occupation = Occupation::where('name->en', $request['name_en'])->get();
+            if ($occupation->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.saved_successfully');
             $occupation = new Occupation();
@@ -67,20 +73,26 @@ class OccupationsController extends Controller
     public function update(Request $request, $id){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $occupation = Occupation::all()->where('name_ar', $request['name_ar']);
-        //     if ($occupation->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.occupation') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $occupation = Occupation::all()->where('name_en', $request['name_en']);
-        //     if ($occupation->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.occupation') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $occupation = Occupation::where('name->ar', $request['name_ar'])->where('id', '!=', $id)->get();
+            if ($occupation->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $occupation = Occupation::where('name->en', $request['name_en'])->where('id', '!=', $id)->get();
+            if ($occupation->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.updated_successfully');
             $occupation = Occupation::findOrFail($id);

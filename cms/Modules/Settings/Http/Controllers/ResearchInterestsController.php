@@ -20,20 +20,26 @@ class ResearchInterestsController extends Controller
     public function store(Request $request){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $researchInterest = ResearchInterest::all()->where('name_ar', $request['name_ar']);
-        //     if ($researchInterest->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $researchInterest = ResearchInterest::all()->where('name_en', $request['name_en']);
-        //     if ($researchInterest->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $researchInterest = ResearchInterest::where('name->ar', $request['name_ar'])->get();
+            if ($researchInterest->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $researchInterest = ResearchInterest::where('name->en', $request['name_en'])->get();
+            if ($researchInterest->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.saved_successfully');
             $researchInterest = new ResearchInterest();
@@ -67,20 +73,26 @@ class ResearchInterestsController extends Controller
     public function update(Request $request, $id){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $researchInterest = ResearchInterest::all()->where('name_ar', $request['name_ar']);
-        //     if ($researchInterest->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $researchInterest = ResearchInterest::all()->where('name_en', $request['name_en']);
-        //     if ($researchInterest->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $researchInterest = ResearchInterest::where('name->ar', $request['name_ar'])->where('id', '!=', $id)->get();
+            if ($researchInterest->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $researchInterest = ResearchInterest::where('name->en', $request['name_en'])->where('id', '!=', $id)->get();
+            if ($researchInterest->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.updated_successfully');
             $researchInterest = ResearchInterest::findOrFail($id);

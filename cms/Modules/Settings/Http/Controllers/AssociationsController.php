@@ -20,20 +20,26 @@ class AssociationsController extends Controller
     public function store(Request $request){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $association = Association::all()->where('name_ar', $request['name_ar']);
-        //     if ($association->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.association') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $association = Association::all()->where('name_en', $request['name_en']);
-        //     if ($association->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.association') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $association = Association::where('name->ar', $request['name_ar'])->get();
+            if ($association->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $association = Association::where('name->en', $request['name_en'])->get();
+            if ($association->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.saved_successfully');
             $association = new Association();
@@ -67,20 +73,26 @@ class AssociationsController extends Controller
     public function update(Request $request, $id){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $association = Association::all()->where('name_ar', $request['name_ar']);
-        //     if ($association->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.association') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $association = Association::all()->where('name_en', $request['name_en']);
-        //     if ($association->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.association') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $association = Association::where('name->ar', $request['name_ar'])->where('id', '!=', $id)->get();
+            if ($association->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $association = Association::where('name->en', $request['name_en'])->where('id', '!=', $id)->get();
+            if ($association->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.updated_successfully');
             $association = Association::findOrFail($id);

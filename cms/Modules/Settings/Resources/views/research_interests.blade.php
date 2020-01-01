@@ -9,12 +9,12 @@
         <form id="interest-form">
             <input type="hidden" id="id">
             <div class="form-group">
-                <label>{{trans('cms.name').' '.trans('cms.en')}} <span class="req"></span></label>
-                <input type="text" name="name_en" id="name_en" dir="ltr" class="form-control">
+                <label for="name_en">{{trans('cms.name').' '.trans('cms.en')}} <span class="req"></span></label>
+                <input type="text" name="name_en" id="name_en" dir="ltr" class="form-control req">
             </div>
             <div class="form-group">
-                <label>{{trans('cms.name').' '.trans('cms.ar')}} <span class="req"></span></label>
-                <input type="text" name="name_ar" id="name_ar" dir="rtl" class="form-control">
+                <label for="name_ar">{{trans('cms.name').' '.trans('cms.ar')}} <span class="req"></span></label>
+                <input type="text" name="name_ar" id="name_ar" dir="rtl" class="form-control req">
             </div>
         </form>
     </div>
@@ -49,32 +49,31 @@
 
     $dialog.find('#add_btn').unbind('click').click(function(){
         var $form = $dialog.find('#interest-form');
-        // var is_validate = $form.validate();
-        // console.log(is_validate);
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            method: 'POST',
-            url: 'research-interests',
-            data: $form.serialize()
-        }).done(function (res) {
-            if (res.success) {
-                _alert('{{trans('cms.deleted_successfully')}}','success');
-                researchInterestsDatatable.reload();
-                _dialog('close');
-            } else {
-                _alert(res.message,'error');
-                _dialog('close');
-            }
-        });
+        if($form.valid()){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                url: 'research-interests',
+                data: $form.serialize()
+            }).done(function (res) {
+                if (res.success) {
+                    _toastr('', res.message);
+                    researchInterestsDatatable.reload();
+                    _dialog('close');
+                } else {
+                    _alert('', 'error', res.message);
+                }
+            });
+        }
     });
  }
  //---------------------------------------------------------------------------//
  function update_interest(){
     var $this = $(this);
     var id = $this.attr('data-id');
-    var name = $this.attr('data-name');
+    var name = $(this).attr('data-name_'+lang);
     var $content = $('#interest-form').clone();
     var title = '{{trans('settings::main.update_research_interest')}} ('+name+')';
     $.get('research-interests/'+id+'/edit',function(res){
@@ -85,31 +84,30 @@
     var $dialog = _dialog(title, $content, {update:true});
     $dialog.find('#update_btn').unbind('click').click(function(){
         var $form = $dialog.find('#interest-form');
-        // var is_validate = $form.validate();
-        // console.log(is_validate);
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            method: 'PATCH',
-            url: 'research-interests/' + id,
-            data: $form.serialize()
-        }).done(function (res) {
-            if (res.success) {
-                _alert(res.message,'success');
-                researchInterestsDatatable.reload();
-                _dialog('close');
-            } else {
-                _alert(res.message,'error');
-                _dialog('close');
-            }
-        });
+        if($form.valid()){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'PATCH',
+                url: 'research-interests/' + id,
+                data: $form.serialize()
+            }).done(function (res) {
+                if (res.success) {
+                    _toastr('', res.message);
+                    researchInterestsDatatable.reload();
+                    _dialog('close');
+                } else {
+                    _alert('', 'error', res.message);
+                }
+            });
+        }
     });
  }
  //---------------------------------------------------------------------------//
 function delete_interest(){
     var id = $(this).attr('data-id');
-    var name = $(this).attr('data-name');
+    var name = $(this).attr('data-name_'+lang);
     var msg = '{{trans('settings::main.delete_research_interest')}} ('+ name + ')';
     _confirm('', msg, 'warning', function(){
         $.ajax({
@@ -120,12 +118,11 @@ function delete_interest(){
             url: 'research-interests/' + id,
         }).done(function(res) {
             if (res.success) {
-                _alert(res.message,'success');
+                _toastr('', res.message);
                 researchInterestsDatatable.reload();
                 _dialog('close');
             } else {
                 _alert(res.message,'error');
-                _dialog('close');
             }
         });
     });
@@ -134,123 +131,26 @@ function delete_interest(){
     var researchInterestsDatatable;
 //----------------------------------------------------------------------------//
     $(function(){
-        
         $('.add-interest').click(add_interest);
 
-        researchInterestsDatatable = $('#researchInterestsDatatable').KTDatatable({
-			// datasource definition
-			data: {
-				type: 'remote',
-				source: {
-					read: {
-                        url: '{!! route('getDatatableResearchInterests.data') !!}',
-                        method: 'GET',
-                    },
-                },
-                
-				pageSize: 10,
-				serverPaging: true,
-				serverFiltering: true,
-				serverSorting: true,
-			},
-
-			// layout definition
-			layout: {
-				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
-                footer: false, // display/hide footer
-                icons:{
-                    pagination: {
-                        next: 'fa fa-angle-{{$right}}',
-                        prev: 'fa fa-angle-{{$left}}',
-                        first: 'fa la-angle-double-{{$left}}',
-                        last: 'fa fa-angle-double-{{$right}}',
-                        more: 'fa fa-ellipsis-h'
-                    }
-                },
-			},
-
-			// column sorting
-			sortable: true,
-			pagination: true,
-
-			// columns definition
-			columns: [{
-				field: 'id',title: '#',sortable: false,width: 5,
-                    selector: {
-                        class: 'kt-checkbox--solid'
-                    },
-                    textAlign: 'center',
-                }, {
-                    field: "name_en",title: "{{trans('cms.name').' '.trans('cms.en')}}",width: 150,
-                }, {
-                    field: "name_ar",title: "{{trans('cms.name').' '.trans('cms.ar')}}",width: 150,
-                }, {
-                    field: "code",title: "{{trans('cms.code')}}",width: 100,
-                }, {
-                    field: "Actions",width: 80,title: "{{trans('cms.actions')}}",sortable: false,autoHide: false,overflow: 'visible',
-                    template: function(data) {
-                        return '\
-                                <div class="dropdown">\
-                                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">\
-                                        <i class="flaticon-more-1"></i>\
-                                    </a>\
-                                    <div class="dropdown-menu dropdown-menu-right">\
-                                        <ul class="kt-nav">\
-                                            <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link update_interest" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
-                                                    <i class="kt-nav__link-icon fa fa-edit"></i>\
-                                                    <span class="kt-nav__link-text">{{trans('cms.edit')}}</span>\
-                                                </a>\
-                                            </li>\
-                                            <li class="kt-nav__item">\
-                                                <a href="JavaScript:Void(0);" class="kt-nav__link delete_interest" data-id="'+data.id+'" data-name="'+data['name_'+lang]+'">\
-                                                    <i class="kt-nav__link-icon fa fa-trash"></i>\
-                                                    <span class="kt-nav__link-text">{{trans('cms.delete')}}</span>\
-                                                </a>\
-                                            </li>\
-                                        </ul>\
-                                    </div>\
-                                </div>\
-                            ';
-                    },
-            }],
-            
-            translate:{
-                records:{
-                    processing: '{{trans('datatable.processing')}}',
-                    noRecords: '{{trans('datatable.noRecords')}}',
-                },
-                toolbar:{
-                    pagination:{
-                        items:{
-                            default:{
-                                first: '{{trans('datatable.first')}}',
-                                prev: '{{trans('datatable.prev')}}',
-                                next: '{{trans('datatable.next')}}',
-                                last: '{{trans('datatable.last')}}',
-                                more: '{{trans('datatable.more')}}',
-                                input: '{{trans('datatable.input')}}',
-                                select: '{{trans('datatable.select')}}',
-                            },
-                            info: '{{trans('datatable.info')}}',
-                        }
-                    }
-                }
-            }
-
-        });
-        
-        $(researchInterestsDatatable).on('kt-datatable--on-init', function() {
-            $(researchInterestsDatatable).find('.delete_interest').click(delete_interest);
-            $(researchInterestsDatatable).find('.update_interest').click(update_interest);
-            console.log('init');
-        });
-
-        $(researchInterestsDatatable).on('kt-datatable--on-reloaded', function() {
-            $(researchInterestsDatatable).find('.delete_interest').click(delete_interest);
-            $(researchInterestsDatatable).find('.update_interest').click(update_interest);
-            console.log('reloaded');
-        });
+        var columns = [
+            {field: "name_en",title: "{{trans('cms.name').' '.trans('cms.en')}}",width: 150},
+            {field: "name_ar",title: "{{trans('cms.name').' '.trans('cms.ar')}}",width: 150},
+            {field: "code",title: "{{trans('cms.code')}}",width: 100,}
+        ];
+        var actions = {
+            update : {
+                title: '{{trans('cms.edit')}}', class: 'update_interest', icon: 'fa fa-edit', callback: update_interest
+            },
+            delete : {
+                title: '{{trans('cms.delete')}}', class: 'delete_interest', icon: 'fa fa-trash', callback: delete_interest
+            },
+        }
+        researchInterestsDatatable = _datatable('researchInterestsDatatable',
+                                                    '{!! route('getDatatableResearchInterests.data') !!}',
+                                                    columns,
+                                                    actions,
+                                                    true);
 
     });
 //-----------------------------------------------------------------------------//   

@@ -15,7 +15,7 @@ toastr.options = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-  };
+};
 //----------------------------------------------------------------//
 $(function(){
     initAdditionalValidationClass();
@@ -41,7 +41,6 @@ function _toastr(title, msg, type='success'){
             toastr.success(msg, title);
         break;
     }
-    
 }
 //----------------------------------------------------------------//
 function submit_form(form_id, button_class, disable_button){
@@ -86,10 +85,121 @@ function initAdditionalValidationClass () {
     });
 }
 //----------------------------------------------------------------//
-function _alert(msg, type){
+function buildDatatableActionsTemplate (actions={}, data='') {
+    var actions_template = ``;
+    var data_attr = '';
+    if(data){
+        $.each(data, function(index, item) {
+            if(typeof(item) != 'object')
+                data_attr += ' data-'+index+'="'+item+'"';
+        });
+    }
+    if(actions){
+        var actions_template = `
+                    <div class="dropdown">
+                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">
+                            <i class="flaticon-more-1"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <ul class="kt-nav">`;
+                            $.each(actions, function() {
+            actions_template += `   <li class="kt-nav__item">
+                                        <a href="JavaScript:Void(0);" class="kt-nav__link `+this.class+`" `+data_attr+`>
+                                            <i class="kt-nav__link-icon `+this.icon+`"></i>
+                                            <span class="kt-nav__link-text">`+this.title+`</span>
+                                        </a>
+                                    </i>`;
+                            });
+        actions_template += `</ul>
+                        </div>
+                    </div>
+        `;
+    }    
+    return actions_template;
+}
+//----------------------------------------------------------------//
+function _datatable(table_id, url, columns={}, actions={}, selector=false){
+    var idCol = { field: 'id',title: '#',sortable: false,width: 30,textAlign: 'center'};
+    if(selector){
+        idCol['selector'] =  {
+            class: 'kt-checkbox--solid'
+        };
+    }
+    var eleColumns = [idCol];
+    $.each(columns, function(index, item) {
+        eleColumns.push(item);
+    });
+    eleColumns.push({
+        field: "Actions",width: 80,title: actions_label,sortable: false,autoHide: false,overflow: 'visible',
+        template: function(data) {
+            return buildDatatableActionsTemplate(actions, data);
+        }
+    });
+    var eleDatatable = $('#'+table_id).KTDatatable({
+        // datasource definition
+        data: {
+            type: 'remote',
+            source: {
+                read: {
+                    url: url,
+                    method: 'GET',
+                },
+            },
+            pageSize: 10,
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true,
+        },
+
+        // layout definition
+        layout: {
+            scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+            footer: false, // display/hide footer
+            icons:{
+                pagination: {
+                    next: 'fa fa-angle-'+right,
+                    prev: 'fa fa-angle-'+left,
+                    first: 'fa la-angle-double-'+left,
+                    last: 'fa fa-angle-double-'+right,
+                    more: 'fa fa-ellipsis-h'
+                }
+            },
+        },
+
+        // column sorting
+        sortable: true,
+        pagination: true,
+
+        // columns definition
+        columns: eleColumns,
+        
+        translate: datatable_translate
+
+    });
+    
+    if(actions){
+        $(eleDatatable).on('kt-datatable--on-init', function() {
+            $.each(actions, function(index, item) {
+                $(eleDatatable).find('.'+item['class']).click(item['callback']);
+            });
+            console.log('init');
+        });
+
+        $(eleDatatable).on('kt-datatable--on-reloaded', function() {
+            $.each(actions, function(index, item) {
+                $(eleDatatable).find('.'+item['class']).click(item['callback']);
+            });
+            console.log('reloaded');
+        });
+    }
+    return eleDatatable;
+}
+//----------------------------------------------------------------//
+function _alert(msg, type, html=''){
     swal.fire({
         title: '',
         text: msg,
+        html: html,
         type: type,
         confirmButtonText: cms_lang.ok,
     });

@@ -20,20 +20,26 @@ class SkillsController extends Controller
     public function store(Request $request){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $skill = Skill::all()->where('name_ar', $request['name_ar']);
-        //     if ($skill->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $skill = Skill::all()->where('name_en', $request['name_en']);
-        //     if ($skill->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $skill = Skill::where('name->ar', $request['name_ar'])->get();
+            if ($skill->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $skill = Skill::where('name->en', $request['name_en'])->get();
+            if ($skill->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.saved_successfully');
             $skill = new Skill();
@@ -67,20 +73,26 @@ class SkillsController extends Controller
     public function update(Request $request, $id){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $skill = Skill::all()->where('name_ar', $request['name_ar']);
-        //     if ($skill->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $skill = Skill::all()->where('name_en', $request['name_en']);
-        //     if ($skill->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.skill') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $skill = Skill::where('name->ar', $request['name_ar'])->where('id', '!=', $id)->get();
+            if ($skill->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $skill = Skill::where('name->en', $request['name_en'])->where('id', '!=', $id)->get();
+            if ($skill->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.updated_successfully');
             $skill = Skill::findOrFail($id);

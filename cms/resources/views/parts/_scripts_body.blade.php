@@ -22,6 +22,7 @@
     var dir = '{{$dir}}';
     var left = '{{$left}}';
     var right = '{{$right}}';
+    var actions_label = '{{trans('cms.actions')}}';
     var cms_lang = {
         'yes'                   :   '{{trans('cms.yes')}}',
         'no'                    :   '{{trans('cms.no')}}',
@@ -33,7 +34,29 @@
         'cancel'                :   '{{trans('cms.cancel')}}',
         'are_you_sure'          :   '{{trans('cms.are_you_sure')}}',
         'warning'               :   '{{trans('cms.warning')}}',
-    }
+    };
+    var datatable_translate = {
+            records:{
+                processing: '{{trans('datatable.processing')}}',
+                noRecords: '{{trans('datatable.noRecords')}}',
+            },
+            toolbar:{
+                pagination:{
+                    items:{
+                        default:{
+                            first: '{{trans('datatable.first')}}',
+                            prev: '{{trans('datatable.prev')}}',
+                            next: '{{trans('datatable.next')}}',
+                            last: '{{trans('datatable.last')}}',
+                            more: '{{trans('datatable.more')}}',
+                            input: '{{trans('datatable.input')}}',
+                            select: '{{trans('datatable.select')}}',
+                        },
+                        info: '{{trans('datatable.info')}}',
+                    }
+                }
+            }
+        };
 //----------------------------------------------------------------//
 function showMessageOnLoad(){
     @if(session()->has('message'))

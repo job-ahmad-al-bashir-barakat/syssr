@@ -20,20 +20,26 @@ class DegreesController extends Controller
 public function store(Request $request){
     $success = true;
     $message = '';
-    // if($request['name_ar']!='') {
-    //     $degree = Degree::all()->where('name_ar', $request['name_ar']);
-    //     if ($degree->isNotEmpty()) {
-    //         $success = false;
-    //         $message .= "<div><b>" . trans('cms.degree') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-    //     }
-    // }
-    // if($request['name_en']!='') {
-    //     $degree = Degree::all()->where('name_en', $request['name_en']);
-    //     if ($degree->isNotEmpty()) {
-    //         $success = false;
-    //         $message .= "<div><b>" . trans('cms.degree') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-    //     }
-    // }
+    if($request['name_ar']!='') {
+        $degree = Degree::where('name->ar', $request['name_ar'])->get();
+        if ($degree->isNotEmpty()) {
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+        }
+    }else{
+        $success = false;
+        $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+    }
+    if($request['name_en']!='') {
+        $degree = Degree::where('name->en', $request['name_en'])->get();
+        if ($degree->isNotEmpty()) {
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+        }
+    }else{
+        $success = false;
+        $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+    }
     if($success){
         $message = trans('cms.saved_successfully');
         $degree = new Degree();
@@ -69,20 +75,26 @@ public function store(Request $request){
     public function update(Request $request, $id){
         $success = true;
         $message = '';
-        // if($request['name_ar']!='') {
-        //     $degree = Degree::all()->where('name_ar', $request['name_ar']);
-        //     if ($degree->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.degree') . ' ' . trans('main.ar') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
-        // if($request['name_en']!='') {
-        //     $degree = Degree::all()->where('name_en', $request['name_en']);
-        //     if ($degree->isNotEmpty()) {
-        //         $success = false;
-        //         $message .= "<div><b>" . trans('cms.degree') . ' ' . trans('main.en') . '</b>: ' . trans('validation.unique').'</div>';
-        //     }
-        // }
+        if($request['name_ar']!='') {
+            $degree = Degree::where('name->ar', $request['name_ar'])->where('id', '!=', $id)->get();
+            if ($degree->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.ar') . '</b>: ' . trans('cms.required').'</div>';
+        }
+        if($request['name_en']!='') {
+            $degree = Degree::where('name->en', $request['name_en'])->where('id', '!=', $id)->get();
+            if ($degree->isNotEmpty()) {
+                $success = false;
+                $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.unique').'</div>';
+            }
+        }else{
+            $success = false;
+            $message .= "<div><b>" . trans('cms.name') . ' ' . trans('cms.en') . '</b>: ' . trans('cms.required').'</div>';
+        }
         if($success){
             $message = trans('cms.updated_successfully');
             $degree = Degree::findOrFail($id);
