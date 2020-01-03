@@ -18,15 +18,32 @@ function navigateMemberTabs(){
     jQuery('.tab-next').click(function(){
         var $current_tab = jQuery('.brk-tab.active');
         var order = $current_tab.data('order');
-        if(order==1){
-            jQuery('.tab-previous').removeClass('d-none');
-        }else if(order==3){
-            jQuery('.tab-next').addClass('d-none');
-            jQuery('.submit-btn').removeClass('d-none');
-        }else{//2
-            
+        var move = true;
+        var focused = false;
+        jQuery('#tab-'+order+' [required]').each(function(){
+            var check = jQuery(this).parsley().validate();
+            if(check==true){
+                move = true;
+            }else{
+                move = false;
+                if(!focused){
+                    jQuery(this).focus();
+                    focused = true;
+                }
+
+            }
+        });
+        if(move){
+            if(order==1){
+                jQuery('.tab-previous').removeClass('d-none');
+            }else if(order==3){
+                jQuery('.tab-next').addClass('d-none');
+                jQuery('.submit-btn').removeClass('d-none');
+            }else{//2
+                
+            }
+            jQuery('[data-tab="tab-'+(order+1)+'"]').click();
         }
-        jQuery('[data-tab="tab-'+(order+1)+'"]').click();
     });
 
     jQuery('.tab-previous').click(function(){

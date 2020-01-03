@@ -36,27 +36,27 @@
         'warning'               :   '{{trans('cms.warning')}}',
     };
     var datatable_translate = {
-            records:{
-                processing: '{{trans('datatable.processing')}}',
-                noRecords: '{{trans('datatable.noRecords')}}',
-            },
-            toolbar:{
-                pagination:{
-                    items:{
-                        default:{
-                            first: '{{trans('datatable.first')}}',
-                            prev: '{{trans('datatable.prev')}}',
-                            next: '{{trans('datatable.next')}}',
-                            last: '{{trans('datatable.last')}}',
-                            more: '{{trans('datatable.more')}}',
-                            input: '{{trans('datatable.input')}}',
-                            select: '{{trans('datatable.select')}}',
-                        },
-                        info: '{{trans('datatable.info')}}',
-                    }
+        records:{
+            processing: '{{trans('datatable.processing')}}',
+            noRecords: '{{trans('datatable.noRecords')}}',
+        },
+        toolbar:{
+            pagination:{
+                items:{
+                    default:{
+                        first: '{{trans('datatable.first')}}',
+                        prev: '{{trans('datatable.prev')}}',
+                        next: '{{trans('datatable.next')}}',
+                        last: '{{trans('datatable.last')}}',
+                        more: '{{trans('datatable.more')}}',
+                        input: '{{trans('datatable.input')}}',
+                        select: '{{trans('datatable.select')}}',
+                    },
+                    info: '{{trans('datatable.info')}}',
                 }
             }
-        };
+        }
+    };
 //----------------------------------------------------------------//
 function showMessageOnLoad(){
     @if(session()->has('message'))

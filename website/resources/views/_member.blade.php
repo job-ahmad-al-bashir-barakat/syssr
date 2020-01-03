@@ -210,7 +210,7 @@
                                                         </div>
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-confirm-pass-form">{{ trans('app.confirm_password') }} <span class="req"></span></label>
-                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" data-parsley-equalto="#brk-pass-form" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" data-parsley-errors-container="#confirm-pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="11">
+                                                            <input id="brk-confirm-pass-form" name="password_confirmation" type="password" required data-parsley-equalto="#brk-pass-form" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" data-parsley-errors-container="#confirm-pass-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="11">
                                                             <div id="confirm-pass-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                     @endif
