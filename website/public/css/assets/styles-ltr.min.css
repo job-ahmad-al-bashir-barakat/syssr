@@ -14513,7 +14513,8 @@ a.badge .badge-primary {
     .brk-form-strict [type="search"][required] + .input-label:after,
     .brk-form-strict [type="password"][required] + .input-label:after,
     .brk-form-strict [type="email"][required] + .input-label:after,
-    .brk-form-strict [type="tel"][required] + .input-label:after {
+    .brk-form-strict [type="tel"][required] + .input-label:after,
+    .brk-form-strict textarea[required] + .input-label:after {
       content: "*";
       position: absolute;
       color: var(--brand-primary);

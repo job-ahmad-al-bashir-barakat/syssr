@@ -35,6 +35,7 @@ Route::group([
 
     Route::get('workshop', 'HomeController@workshop')->name('news-members');
     Route::get('contact', 'ContactController@index')->name('contact');
+    Route::post('contact-email', 'ContactController@contactEmail')->name('contact-email');
 
     Route::get('profile', 'ProfileController@show')->name('profile');
 

@@ -40,25 +40,29 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6">
-                <form action="#" class="brk-subscribe-mail brk-subscribe-mail_dark brk-form-strict pt-15 wow fadeInLeft" data-brk-library="component__form">
+                <form id="contact-form-{{$contact['id']}}" class="form-ajax brk-form-strict pt-15 wow fadeInLeft" enctype="multipart/form-data" method="POST" action="{{route('contact-email')}}" data-parsley-validate>
                     <div class="row">
                         <div class="col-12">
-                            <input type="text" name="subject" placeholder="{{ trans('app.subject') }}">
+                            <input type="text" name="subject" required data-parsley-errors-container="#subject-error" placeholder="{{ trans('app.subject') }}">
+                            <div id="subject-error" class="d-inline-block invalid-feedback pl-4"></div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <input type="text" name="full_name" placeholder="{{ trans('app.your_name') }}">
+                            <input type="text" name="full_name" required data-parsley-errors-container="#name-error" placeholder="{{ trans('app.your_name') }}">
+                            <div id="name-error" class="d-inline-block invalid-feedback pl-4"></div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <input type="text" name="email" placeholder="{{ trans('app.your_mail') }}">
+                            <input type="email" name="email" required data-parsley-errors-container="#email-error" placeholder="{{ trans('app.your_mail') }}">
+                            <div id="email-error" class="d-inline-block invalid-feedback pl-4"></div>
                         </div>
                         <div class="col-12">
-                            <textarea name="message" class="bordered-bottom" placeholder="{{ trans('app.your_question') }}" style="min-height: 110px;"></textarea>
+                            <textarea name="message" class="bordered-bottom" required data-parsley-errors-container="#message-error" placeholder="{{ trans('app.your_question') }}" style="min-height: 110px;"></textarea>
+                            <div id="message-error" class="d-inline-block invalid-feedback pl-4"></div>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-inside-out btn-lg btn-icon border-radius-30 mt-25 btn-shadow" data-brk-library="component__button">
+                        <button type="submit" class="btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
                             <i class="fas fa-envelope icon-inside"></i>
-                            <span class="before">{{ trans('app.send_message') }}</span><span class="text">{{ trans('app.send_message') }}</span><span class="after">{{ trans('app.send_message') }}</span>
+                            <span>{{ trans('app.send_message') }}</span>
                         </button>
                     </div>
                 </form>

@@ -33,6 +33,8 @@ function form_call(form = '.form-ajax', callback) {
 
             var form = this.$element;
             var formData = new FormData(form[0]);
+            console.log(form.attr('action'));
+            console.log(form.attr('method'));
             jQuery.ajax({
                 url: form.attr('action'),
                 data: formData,
