@@ -15,7 +15,8 @@ return [
     'title_verify_email' => 'SySSR Verify Account',
     'copyright' => '<span class="font__weight-bold">SySSR</span> All rights reserved',
     'well_done' => 'Well done!',
-    'success_message' => 'Your details has been submitted for review. We will get back to you with 48 hours',
+    'success_message' => 'Operation done successfuly.',
+    'profile_message' => 'Your details has been submitted for review. We will get back to you with 48 hours',
     'verify_account_member' => 'Welcome Back. 😟 Your Account is not verified until now. 🙏 Please wait until admin accept your account',
     'syssr' =>  'Syrian Society for Scientific Research',
 

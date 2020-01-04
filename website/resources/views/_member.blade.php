@@ -463,7 +463,7 @@
                                                                     </a>
                                                                 @endif
                                                             </label>
-                                                            <input type="file" id="resume" name="resume_file" accept="application/pdf" required  data-parsley-errors-container="#resume-error" tabindex="20">
+                                                            <input type="file" id="resume" name="resume" accept="application/pdf" required  data-parsley-errors-container="#resume-error" tabindex="20">
                                                             <div id="resume-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         @else
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="resume">
@@ -476,7 +476,7 @@
                                                                     </a>
                                                                 @endif
                                                             </label>
-                                                            <input type="file" id="resume" name="resume_file" accept="application/pdf" tabindex="20">
+                                                            <input type="file" id="resume" name="resume" accept="application/pdf" tabindex="20">
                                                         @endif
                                                         </div>
                                                     </div>
@@ -571,7 +571,7 @@
                                 </div>
                             </div>
                             <div class="pt-20">
-                                @include('partials._alert',['hide' => true])
+                                @include('partials._alert',['hide' => true, 'message' => trans('app.profile_message')])
                             </div>
                             <div class="text-center pt-70">
                                 <button type="button" class="d-none tab-previous btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">

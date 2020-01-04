@@ -127,7 +127,7 @@ class MembersController extends Controller
         $data['occupation_id'] = isset($data['current_occupation']) ? $data['current_occupation'] : NULL;
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
         $data['avatar'] = \Upload::avatar();
-        $data['resume_file'] = \Upload::file('resume_file', null, 'resume');
+        $data['resume_file'] = \Upload::file('resume', null, 'resume');
         $data['type'] = 'M';
         $data['status'] = 'I';
 
@@ -174,7 +174,7 @@ class MembersController extends Controller
         $data['location'] = $data['location_address'] ?? $data['location_country_city'];
 
         $member = Member::findOrFail($id);
-        $data['resume_file'] = \Upload::file('resume_file', $member->resume_file, 'resume');
+        $data['resume_file'] = \Upload::file('resume', $member->resume_file, 'resume');
         $data['avatar'] = \Upload::avatar($member->avatar);
         $member->update($data);
 
