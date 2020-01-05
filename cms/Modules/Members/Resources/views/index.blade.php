@@ -41,7 +41,6 @@
 @section('js')
 <script>
     $(function(){
-
         var membersDatatable = $('#membersDatatable').KTDatatable({
 			// datasource definition
 			data: {
@@ -136,15 +135,9 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <ul class="kt-nav">
                                             <li class="kt-nav__item">
-                                                <a href="#" class="kt-nav__link">
-                                                    <i class="kt-nav__link-icon flaticon2-expand"></i>
-                                                    <span class="kt-nav__link-text">View</span>
-                                                </a>
-                                            </li>
-                                            <li class="kt-nav__item">
                                                 <a href="{{ url('members') }}/${data.id}/edit" class="kt-nav__link">
                                                     <i class="kt-nav__link-icon flaticon2-contract"></i>
-                                                    <span class="kt-nav__link-text">Edit</span>
+                                                    <span class="kt-nav__link-text">${"{{ trans('cms.edit') }}"}</span>
                                                 </a>
                                             </li>
                                             <li class="kt-nav__item">
@@ -182,57 +175,54 @@
                     }
                 }
 		});
-    });
-//-----------------------------------------------------------------------------//
-    $(document).on('click','.verify-member', function () {
-        var $this = $(this),
-            id = $this.data('id'),
-            name = $this.data('name'),
-            title = '{{trans('members::main.verify_confirm')}}',
-            confirm_msg = '{{trans('members::main.verify_confirm_msg')}} ('+name+')',
-            success_msg = '{{trans('members::main.verify_success_msg')}}';
+        //-----------------------------------------------------------------------------//
+        $(document).on('click','.verify-member', function () {
+            var $this = $(this),
+                id = $this.data('id'),
+                name = $this.data('name'),
+                title = '{{trans('members::main.verify_confirm')}}',
+                confirm_msg = '{{trans('members::main.verify_confirm_msg')}} ('+name+')',
+                success_msg = '{{trans('members::main.verify_success_msg')}}';
 
-        _confirm(title, confirm_msg, 'info', function(){
-            $.post(`{{ RouteUrls::membersActivate() }}/${id}`,{ _method: 'PUT' },function (res) {
-                var tr = $this.closest('tr');
-                tr.find('.status-yes').show();
-                $this.remove();
-                _toastr('', success_msg);
-            });
-        });
-
-    });
-//-----------------------------------------------------------------------------//
-    $(document).on('click','.delete-member', function () {
-        var currentUser = {{Auth::user()->id}};
-        var $this = $(this),
-            id = $this.data('id'),
-            name = $this.data('name'),
-            title = '{{trans('members::main.verify_confirm')}}',
-            confirm_msg = '{{trans('members::main.delete_member')}} ('+name+')';
-
-        if(currentUser==id){
-            var msg = '{{trans('members::main.cant_delete_current_user')}}';
-            _alert(msg, 'error');
-        }else if(id==1){
-            var msg = '{{trans('members::main.cant_delete_admin_user')}}';
-            _alert(msg, 'error');
-        }else{
-            _confirm('', confirm_msg, 'warning', function(){
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: 'DELETE',
-                    url: `{{ RouteUrls::membersDelete() }}/${id}`,
-                }).done(function(res) {
-                    _toastr('', res.message);
-                    membersDatatable.reload();
+            _confirm(title, confirm_msg, 'info', function(){
+                $.post(`{{ RouteUrls::membersActivate() }}/${id}`,{ _method: 'PUT' },function (res) {
+                    var tr = $this.closest('tr');
+                    tr.find('.status-yes').show();
+                    $this.remove();
+                    _toastr('', success_msg);
                 });
             });
-        }
 
+        });
+        //-----------------------------------------------------------------------------//
+        $(document).on('click','.delete-member', function () {
+
+            var currentUser = {{Auth::user()->id}};
+            var $this = $(this),
+                id = $this.data('id'),
+                name = $this.data('name'),
+                title = '{{trans('members::main.verify_confirm')}}',
+                confirm_msg = '{{trans('members::main.delete_member')}} ('+name+')';
+
+            if(currentUser==id){
+                var msg = '{{trans('members::main.cant_delete_current_member')}}';
+                _alert(msg, 'error');
+            }else if(id==1){
+                var msg = '{{trans('members::main.cant_delete_admin_member')}}';
+                _alert(msg, 'error');
+            }else{
+                _confirm('', confirm_msg, 'warning', function(){
+                    $.ajax({
+                        method: 'delete',
+                        url: `{{ RouteUrls::membersDelete() }}/${id}`,
+                    }).done(function(res) {
+                        _toastr('', res.message);
+                        membersDatatable.reload();
+                    });
+                });
+            }
+        });
+        //-----------------------------------------------------------------------------//
     });
-//-----------------------------------------------------------------------------//
 </script>
 @endsection

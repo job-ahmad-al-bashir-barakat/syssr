@@ -193,6 +193,7 @@ class MembersController extends Controller
     public function destroy($id){
         $member = Member::findOrFail($id);
         $member->status = 'C';
+        $member->deleted_at = Carbon::now();
         $member->save();
         return response()->json(['message' => trans('cms.deleted_successfully')]);
     }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', trans('users::main.edit_user'))
+@section('title', trans('members::main.edit_member'))
 
 @section('css')
     <link href="{{ asset('theme/css/pages/wizard/wizard-4.css') }}" rel="stylesheet" type="text/css"/>
@@ -13,7 +13,7 @@
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
-                    <h3 class="kt-subheader__title">{{trans('users::main.edit_user')}}</h3>
+                    <h3 class="kt-subheader__title">{{trans('members::main.edit_member')}}</h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                 </div>
                 <div class="kt-subheader__toolbar">

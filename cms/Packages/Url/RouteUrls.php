@@ -24,6 +24,6 @@ class RouteUrls
     {
         $id = $id ? "/$id" : '';
 
-        return $this->localizeUrl("members/{$id}");
+        return $this->localizeUrl("members{$id}");
     }
 }

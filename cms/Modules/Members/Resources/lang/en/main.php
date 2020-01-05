@@ -20,7 +20,8 @@ return [
     'verify_confirm'            =>      'Verify Confirm',
     'verify_confirm_msg'        =>      'Are you sure to verify the member',
     'verify_success_msg'        =>      'Verified successfully',
+    'edit_member'               =>      'Edit Member',
     'delete_member'             =>      'Delete member',
-    'cant_delete_current_user'          =>      'Can not delete current user',
-    'cant_delete_admin_user'            =>      'Can not delete Admin',
+    'cant_delete_current_member'  =>      'Can not delete current member',
+    'cant_delete_admin_member'    =>      'Can not delete Admin',
 ];
