@@ -77,24 +77,50 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['first_name']['required']=='T')
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }} <span class="req"></span></label>
-                                                                <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-error" tabindex="3">
-                                                                <div id="firstname-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="first_name_en">{{ trans('app.first_name').' '.trans('app.en') }} <span class="req"></span></label>
+                                                                <input id="first_name_en" name="first_name_en" type="text" placeholder="{{ trans('app.first_name').' '.trans('app.en') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-en-error" tabindex="3">
+                                                                <div id="firstname-en-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                             @else
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-firstname-form">{{ trans('app.first_name') }}</label>
-                                                                <input id="brk-firstname-form" name="first_name" type="text" placeholder="{{ trans('app.first_name') }}" value="{{ $user->first_name ?? '' }}" tabindex="3">
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="first_name_en">{{ trans('app.first_name').' '.trans('app.en') }}</label>
+                                                                <input id="first_name_en" name="first_name_en" type="text" placeholder="{{ trans('app.first_name').' '.trans('app.en') }}" value="{{ $user->first_name ?? '' }}" tabindex="3">
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-50">
                                                             @if($membersFieldsSettings['last_name']['required']=='T')
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }} <span class="req"></span></label>
-                                                                <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-error" tabindex="4">
-                                                                <div id="lastname-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="last_name_en">{{ trans('app.last_name').' '.trans('app.en') }} <span class="req"></span></label>
+                                                                <input id="last_name_en" name="last_name_en" type="text" placeholder="{{ trans('app.last_name').' '.trans('app.en') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-en-error" tabindex="3">
+                                                                <div id="lastname-en-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                             @else
-                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-lastname-form">{{ trans('app.last_name') }}</label>
-                                                                <input id="brk-lastname-form" name="last_name" type="text" placeholder="{{ trans('app.last_name') }}" value="{{ $user->last_name ?? '' }}" tabindex="4">
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="last_name_en">{{ trans('app.last_name').' '.trans('app.en') }}</label>
+                                                                <input id="last_name_en" name="last_name_en" type="text" placeholder="{{ trans('app.last_name').' '.trans('app.en') }}" value="{{ $user->last_name ?? '' }}" tabindex="3">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            @if($membersFieldsSettings['first_name']['required']=='T')
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="first_name_ar">{{ trans('app.first_name').' '.trans('app.ar') }} <span class="req"></span></label>
+                                                                <input id="first_name_ar" name="first_name_ar" type="text" placeholder="{{ trans('app.first_name').' '.trans('app.ar') }}" value="{{ $user->first_name ?? '' }}" required  data-parsley-errors-container="#firstname-ar-error" tabindex="4">
+                                                                <div id="firstname-ar-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            @else
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="first_name_ar">{{ trans('app.first_name').' '.trans('app.ar') }}</label>
+                                                                <input id="first_name_ar" name="first_name_ar" type="text" placeholder="{{ trans('app.first_name').' '.trans('app.ar') }}" value="{{ $user->first_name ?? '' }}" tabindex="4">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-50">
+                                                            @if($membersFieldsSettings['last_name']['required']=='T')
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="last_name_ar">{{ trans('app.last_name').' '.trans('app.ar') }} <span class="req"></span></label>
+                                                                <input id="last_name_ar" name="last_name_ar" type="text" placeholder="{{ trans('app.last_name').' '.trans('app.ar') }}" value="{{ $user->last_name ?? '' }}" required  data-parsley-errors-container="#lastname-ar-error" tabindex="4">
+                                                                <div id="lastname-ar-error" class="d-inline-block invalid-feedback pl-4"></div>
+                                                            @else
+                                                                <label class="brk-form-label font__family-montserrat font__weight-bold" for="last_name_ar">{{ trans('app.last_name').' '.trans('app.ar') }}</label>
+                                                                <input id="last_name_ar" name="last_name_ar" type="text" placeholder="{{ trans('app.last_name').' '.trans('app.ar') }}" value="{{ $user->last_name ?? '' }}" tabindex="4">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -194,7 +220,7 @@
                                                     @if($update)
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }}</label>
-                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" data-parsley-errors-container="#password-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
+                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" data-parsley-errors-container="#password-error" data-parsley-error-message="{{ trans('app.save_as_pass_message') }}" data-parsley-pattern-message="{{trans('app.password_pattern_msg')}}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
                                                             <div id="password-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="col-md-6 mb-50">
@@ -205,7 +231,7 @@
                                                     @else
                                                         <div class="col-md-6 mb-50">
                                                             <label class="brk-form-label font__family-montserrat font__weight-bold" for="brk-pass-form">{{ trans('app.password') }} <span class="req"></span></label>
-                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" required data-parsley-errors-container="#password-error" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
+                                                            <input id="brk-pass-form" name="password" type="password" minlength="8" required data-parsley-errors-container="#password-error" data-parsley-pattern-message="{{trans('app.password_pattern_msg')}}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;&#x2022;" tabindex="10">
                                                             <div id="password-error" class="d-inline-block invalid-feedback pl-4"></div>
                                                         </div>
                                                         <div class="col-md-6 mb-50">

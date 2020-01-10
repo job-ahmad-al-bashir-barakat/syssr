@@ -13,10 +13,13 @@ use Modules\Settings\Entities\Degree;
 use Modules\Settings\Entities\Occupation;
 use Modules\Settings\Entities\ResearchInterest;
 use Modules\Settings\Entities\Skill;
+use Spatie\Translatable\HasTranslations;
 
 class Member extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, HasTranslations;
+    
+    public $translatable = ['first_name', 'last_name'];
 
     protected $with = ['country' ,'city'];
 
@@ -86,6 +89,14 @@ class Member extends Authenticatable
     function getResumeFileUrlAttribute() {
         if($this->resume_file)
             return url("storage/files/resume/$this->resume_file");
+    }
+
+    function first_name(){
+        return $this->getTranslation('first_name', 'en');
+    }
+
+    function last_name(){
+        return $this->getTranslation('last_name', 'en');
     }
 
     function country() {

@@ -19,12 +19,14 @@ class GlobalComposer{
         $lang = LaravelLocalization::getCurrentLocale();
         $left = ($dir=='ltr')? 'left':'right';
         $right = ($dir=='ltr')? 'right':'left';
+        $ar = trans('app.ar');
+        $en = trans('app.en');
         $name_route = \Route::currentRouteName();
         $cms_api_url = config('api.cms_api_url');
 
         $default_contact = \Api::getDefaultContactUs();
 
-        $view->with(compact('lang', 'dir', 'left', 'right', 'name_route', 'cms_api_url', 'default_contact'));
+        $view->with(compact('lang', 'dir', 'left', 'right', 'ar', 'en', 'name_route', 'cms_api_url', 'default_contact'));
     }
 //------------------------------------------------------------------------------//
 }

@@ -292,7 +292,7 @@
             <div class="kt-portlet" data-ktportlet="true">
                 <div class="kt-portlet__body">
                     <div class="row">
-                        <div class="col-lg-4 offset-lg-3">
+                        <div class="col-lg-4 offset-lg-4">
                             <button type="button" class="update-contact-us btn btn-success btn-block btn-md kt-font-bold kt-font-transform-u"><i class="fa fa-edit"></i> {{trans('cms.update')}}</button>
                         </div>
                     </div>

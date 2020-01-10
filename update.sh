@@ -1,6 +1,7 @@
 #!/bin/bash
 date
-git pull
+git_pull_result=$(git pull)
+if [ "$git_pull_result" == "Already up to date." ]; then echo "Nothing to do .. quitting!"; exit; fi
 pushd .
 cd cms
 /opt/cpanel/ea-php73/root/usr/bin/php artisan migrate

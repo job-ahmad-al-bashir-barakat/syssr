@@ -19,6 +19,10 @@ return [
     'profile_message' => 'Your details has been submitted for review. We will get back to you with 48 hours',
     'verify_account_member' => 'Welcome Back. 😟 Your Account is not verified until now. 🙏 Please wait until admin accept your account',
     'syssr' =>  'Syrian Society for Scientific Research',
+    'ar_name'   =>      'Arabic',
+    'en_name'   =>      'English',
+    'ar'    =>      '(AR)',
+    'en'    =>      '(EN)',
 
     //meta
     'meta_description'  =>  'An independent non-profit organization that aims to support scientific research in Syria in particular and the Arab world in general. The association manages a number of diverse projects that cover various aspects of scientific research, starting with translation and publishing, and ending with encouraging youth initiatives and scientific clubs.',
@@ -98,6 +102,7 @@ return [
     'add' => 'Add ',
     'download_file' => 'Download File',
     'username_pattern_msg'  =>  'Username accept only English letters, numbers and underscore (_) but not start with number',
+    'password_pattern_msg'  =>  'Password must be minimum 8 characters, at least one uppercase letter, one lowercase letter, one number',
 
     // members society
     'detail' => 'Detail',

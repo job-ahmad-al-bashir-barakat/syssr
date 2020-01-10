@@ -5,7 +5,7 @@ jQuery(function () {
     });
     slim_call();
     summernote();
-    initDatepicker('yyyy');
+    initDatepicker('yyyy-mm-dd');
     intlTelInputInit();
     cityCountryChange();
     addressAutocomplete();

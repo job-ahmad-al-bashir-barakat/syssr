@@ -95,10 +95,8 @@ class ContactUsController extends Controller{
         $contactUs['phone'] = $request['phone'];
         $contactUs['mobile_1'] = $request['mobile_1'];
         $contactUs['mobile_2'] = $request['mobile_2'];
-        if($request['address_en'])
-            $contactUs->setTranslation('address', 'en', $request['address_en']);
-        if($request['address_ar'])
-            $contactUs->setTranslation('address', 'ar', $request['address_ar']);
+        $contactUs->setTranslation('address', 'en', $request['address_en']);
+        $contactUs->setTranslation('address', 'ar', $request['address_ar']);
         $contactUs['lat'] = $request['lat'];
         $contactUs['lng'] = $request['lng'];
         $contactUs['facebook'] = $request['facebook'];

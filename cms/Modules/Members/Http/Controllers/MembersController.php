@@ -96,8 +96,17 @@ class MembersController extends Controller
 
         foreach($memberFields as $key => $memberField){
             if($key!='username' && $key!='email' && $key!='password'){
-                if($memberField['required']=='T')
-                    $requiredFields[$key] = 'required';
+                if($memberField['required']=='T'){
+                    if($key=='first_name'){
+                        $requiredFields['first_name_en'] = 'required';
+                        $requiredFields['first_name_ar'] = 'required';
+                    }elseif($key=='last_name'){
+                        $requiredFields['last_name_en'] = 'required';
+                        $requiredFields['last_name_ar'] = 'required';
+                    }else{
+                        $requiredFields[$key] = 'required';
+                    }
+                }
             }
         }
         return $requiredFields;
@@ -118,6 +127,14 @@ class MembersController extends Controller
         $data = $request->input();
         $lang = request('lang');
 
+        $data['first_name'] =  [
+            'en' => $data['first_name_en'],
+            'ar' => $data['first_name_ar']
+        ];
+        $data['last_name'] =  [
+            'en' => $data['last_name_en'],
+            'ar' => $data['last_name_ar']
+        ];
         $data['slug'] = \Slugify::slugify($data['username']);
         $data['password'] = bcrypt($data['password']);
         $data['api_token'] = \Str::random(60);
@@ -164,6 +181,14 @@ class MembersController extends Controller
             $data = $request->except('password');
         }
 
+        $data['first_name'] =  [
+            'en' => $data['first_name_en'],
+            'ar' => $data['first_name_ar']
+        ];
+        $data['last_name'] =  [
+            'en' => $data['last_name_en'],
+            'ar' => $data['last_name_ar']
+        ];
         $data['slug'] = \Slugify::slugify($data['username']);
         $data['mobile'] = $data['mobile_full'];
         if(isset($data['country']))
