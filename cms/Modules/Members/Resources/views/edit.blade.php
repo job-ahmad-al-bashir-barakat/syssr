@@ -61,7 +61,7 @@
                                                 id="Path" fill="#000000" opacity="0.3"/>
                                         </g>
                                     </svg>
-                                    Profile
+                                    {{ trans('members::apa.profile') }}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -79,44 +79,22 @@
                                                 id="Mask-Copy" fill="#000000" fill-rule="nonzero"/>
                                         </g>
                                     </svg>
-                                    Account
+                                    {{ trans("members::main.account") }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_3" role="tab">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         width="24px" height="24px" viewBox="0 0 24 24" version="1.1"
-                                         class="kt-svg-icon">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect id="bound" x="0" y="0" width="24" height="24"/>
-                                            <path
-                                                d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
-                                                id="Path-50" fill="#000000" opacity="0.3"/>
-                                            <path
-                                                d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z"
-                                                id="Mask" fill="#000000" opacity="0.3"/>
-                                            <path
-                                                d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z"
-                                                id="Mask-Copy" fill="#000000" opacity="0.3"/>
-                                        </g>
-                                    </svg>
-                                    Change Password
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_4" role="tab">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect id="bound" x="0" y="0" width="24" height="24"/>
                                             <path d="M6,2 L18,2 C19.6568542,2 21,3.34314575 21,5 L21,19 C21,20.6568542 19.6568542,22 18,22 L6,22 C4.34314575,22 3,20.6568542 3,19 L3,5 C3,3.34314575 4.34314575,2 6,2 Z M12,11 C13.1045695,11 14,10.1045695 14,9 C14,7.8954305 13.1045695,7 12,7 C10.8954305,7 10,7.8954305 10,9 C10,10.1045695 10.8954305,11 12,11 Z M7.00036205,16.4995035 C6.98863236,16.6619875 7.26484009,17 7.4041679,17 C11.463736,17 14.5228466,17 16.5815,17 C16.9988413,17 17.0053266,16.6221713 16.9988413,16.5 C16.8360465,13.4332455 14.6506758,12 11.9907452,12 C9.36772908,12 7.21569918,13.5165724 7.00036205,16.4995035 Z" id="Combined-Shape" fill="#000000"/>
                                         </g>
                                     </svg>
-                                    Address
+                                    {{ trans('members::main.address') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_5" role="tab">
+                                <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_4" role="tab">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect id="bound" x="0" y="0" width="24" height="24"/>
@@ -129,7 +107,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_6" role="tab">
+                                <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_5" role="tab">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect id="bound" x="0" y="0" width="24" height="24"/>
@@ -137,11 +115,9 @@
                                             <path d="M24.0690576,13.8973499 C24.0690576,13.1346331 24.2324969,10.1246259 21.8580869,7.73659596 C20.2600137,6.12944276 17.8683518,5.85068794 15.0081639,5.72356847 L15.0081639,1.83791555 C15.0081639,1.42370199 14.6723775,1.08791555 14.2581639,1.08791555 C14.0718537,1.08791555 13.892213,1.15726043 13.7542266,1.28244533 L7.24606818,7.18681951 C6.93929045,7.46513642 6.9162184,7.93944934 7.1945353,8.24622707 C7.20914339,8.26232899 7.22444472,8.27778811 7.24039592,8.29256062 L13.7485543,14.3198102 C14.0524605,14.6012598 14.5269852,14.5830551 14.8084348,14.2791489 C14.9368329,14.140506 15.0081639,13.9585047 15.0081639,13.7695393 L15.0081639,9.90761477 C16.8241562,9.95755456 18.1177196,10.0730665 19.2929978,10.4469645 C20.9778605,10.9829796 22.2816185,12.4994368 23.2042718,14.996336 L23.2043032,14.9963244 C23.313119,15.2908036 23.5938372,15.4863432 23.9077781,15.4863432 L24.0735976,15.4863432 C24.0735976,15.0278051 24.0690576,14.3014082 24.0690576,13.8973499 Z" id="Shape" fill="#000000" fill-rule="nonzero" transform="translate(15.536799, 8.287129) scale(-1, 1) translate(-15.536799, -8.287129) "/>
                                         </g>
                                     </svg>
-                                    Social Links
+                                    {{ trans('members::main.social_links') }}
                                 </a>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -160,24 +136,22 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">Personal Info:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::app.personal_info') }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.avatar") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="kt-avatar kt-avatar--outline kt-avatar--circle-"
                                                              id="kt_user_edit_avatar">
                                                             <div class="kt-avatar__holder"
-                                                                 style="background-image: url(&quot;http://keenthemes.com/metronic/preview/default/custom/user/assets/media/users/300_20.jpg&quot;);"></div>
+                                                                 style="background-image: url('{{ asset('img/user-image.png') }}');"></div>
                                                             <label class="kt-avatar__upload" data-toggle="kt-tooltip"
-                                                                   title="" data-original-title="Change avatar">
+                                                                   title="" data-original-title="{{ trans("members::app.change_avatar") }}">
                                                                 <i class="fa fa-pen"></i>
-                                                                <input type="file" name="profile_avatar"
-                                                                       accept=".png, .jpg, .jpeg">
+                                                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
                                                             </label>
-                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip"
-                                                                  title="" data-original-title="Cancel avatar">
+                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="{{ trans("members::app.cancel") }}">
                                                     <i class="fa fa-times"></i>
                                                 </span>
                                                         </div>
@@ -185,88 +159,88 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Bio</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.bio") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <textarea class="form-control" rows="6"></textarea>
+                                                        <textarea name="bio" class="form-control" rows="6" placeholder="{{ trans("members::main.bio") }}"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.first_name') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control" type="text" value="Nick">
+                                                        <input name="first_name" class="form-control" type="text" value="{{ $member->first_name ?? '' }}" placeholder="{{ trans('members::main.first_name') }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.last_name') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control" type="text" value="Bold">
+                                                        <input name="last_name" class="form-control" type="text" value="{{ $member->last_name ?? '' }}" placeholder="{{ trans('members::main.last_name') }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Birth Date</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.birth_date") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control" type="text" value="Loop Inc.">
+                                                        <input name="birth_date" class="form-control" type="date" value="{{ $member->birth_date ?? '' }}" placeholder="{{ trans("members::main.birth_date") }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label
-                                                        class="col-xl-3 col-lg-3 col-form-label">Communication</label>
+                                                        class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.gender") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="kt-checkbox-inline">
                                                             <label class="kt-checkbox">
-                                                                <input type="radio" name="radio" id="radio"> Male
+                                                                <input type="radio" name="gender" id="gender" value="M"> {{ trans("members::main.male") }}
                                                                 <span></span>
                                                             </label>
                                                             <label class="kt-checkbox">
-                                                                <input type="radio" name="radio" id="radio"> Female
+                                                                <input type="radio" name="gender" id="gender" value="F"> {{ trans("members::main.female") }}
                                                                 <span></span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Mobile</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.mobile') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="la la-phone"></i></span>
                                                             </div>
-                                                            <input type="text" class="form-control" value="+35278953712"
-                                                                   placeholder="Phone" aria-describedby="basic-addon1">
+                                                            <input name="mobile" type="text" class="form-control" value="{{ $member->mobile ?? '' }}"
+                                                                   placeholder="{{ trans('members::main.mobile') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Society Email</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.society_email') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i
                                                                         class="la la-at"></i></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   value="nick.bold@loop.com" placeholder="Email"
+                                                            <input name="society_email" type="email" class="form-control"
+                                                                   value="{{ $member->society_email ?? '' }}" placeholder="{{ trans('members::main.society_email') }}"
                                                                    aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Personal Website</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.personal_website') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i
                                                                         class="la la-link"></i></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   value="www.website.com" placeholder="Personal Website"
+                                                            <input name="website" type="url" class="form-control"
+                                                                   value="{{ $member->website ?? '#' }}" placeholder="{{ trans('members::main.personal_website') }}"
                                                                    aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group-last row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Date Of Join</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.date_of_join') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input class="form-control" type="text" value="1-1-1992">
+                                                        <input class="form-control" type="text" value="{{ Carbon\Carbon::parse($member->created_at ?? '')->format('d-m-Y')  }}" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,7 +248,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="tab-pane" id="kt_user_edit_tab_2" role="tabpanel">
                                 <div class="kt-form kt-form--label-right">
                                     <div class="kt-form__body">
@@ -283,39 +256,43 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">Account:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::mian.account") }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Username</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.username")  }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <div
-                                                            class="kt-spinner kt-spinner--sm kt-spinner--success kt-spinner--right kt-spinner--input">
-                                                            <input class="form-control" type="text" value="nick84">
-                                                        </div>
+                                                        <input name="username" class="form-control" type="text" value="{{ $member->username ?? '' }}" placeholder="{{ trans("members::main.username") }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Email
-                                                        Address</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.password") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
-                                                            <div class="input-group-prepend"><span
-                                                                    class="input-group-text"><i
-                                                                        class="la la-at"></i></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   value="nick.watson@loop.com" placeholder="Email"
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-lock"></i></span></div>
+                                                            <input name="password" type="text" class="form-control"
+                                                                   value="{{ $member->password ?? "" }}" placeholder="{{ trans("members::main.password") }}"
                                                                    aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.email_address") }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                                            <input name="email" type="email" class="form-control"
+                                                                   value="{{ $member->email ?? "" }}" placeholder="{{ trans("members::main.email_address") }}"
+                                                                   aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group form-group-last row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Deactivate</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.deactivate") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <button type="button"
                                                                 class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">
-                                                            Deactivate account ?
+                                                            {{ trans("members::app.deactivate_account") }}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -324,7 +301,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="tab-pane" id="kt_user_edit_tab_3" role="tabpanel">
                                 <div class="kt-form kt-form--label-right">
                                     <div class="kt-form__body">
@@ -333,30 +309,32 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">Change Your Password:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::main.address') }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Current
-                                                        Password</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.country") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input type="password" class="form-control" value=""
-                                                               placeholder="Current password">
+                                                        <select class="form-control" id="country" name="country"></select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">New Password</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.city") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input type="password" class="form-control" value=""
-                                                               placeholder="New password">
+                                                        <select class="form-control" id="city" name="city"></select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group form-group-last row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Verify
-                                                        Password</label>
+
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.street_address') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <input type="password" class="form-control" value=""
-                                                               placeholder="Verify password">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span
+                                                                    class="input-group-text"><i class="la la-map-marker"></i></span>
+                                                            </div>
+                                                            <input type="text" name="facebook" class="form-control" value="{{ $member->street_address ?? '' }}" placeholder="{{ trans('members::main.street_address') }}" aria-describedby="basic-addon1">
+                                                            <input type="hidden" name="location">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -364,8 +342,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="tab-pane" id="kt_user_edit_tab_6" role="tabpanel">
+                            <div class="tab-pane" id="kt_user_edit_tab_4" role="tabpanel">
                                 <div class="kt-form kt-form--label-right">
                                     <div class="kt-form__body">
                                         <div class="kt-section kt-section--first">
@@ -373,39 +350,108 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">Change Social Links:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::mian.account") }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Facebook</label>
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.skills') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <select class="form-control kt-select2" id="kt_select2_3" name="skills" multiple="multiple">
+                                                           <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.degrees') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <select class="form-control kt-select2" id="kt_select2_3" name="degrees" multiple="multiple">
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.associations') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <select class="form-control kt-select2" id="kt_select2_3" name="associations" multiple="multiple">
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.research_interests') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <select class="form-control kt-select2" id="kt_select2_3" name="research_interests" multiple="multiple">
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.occupation') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <select class="form-control kt-select2" id="kt_select2_6" name="occupation">
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.publications') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <textarea name="publications" class="form-control" rows="6" placeholder="{{ trans("members::main.publications") }}"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.resume') }}</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input name="resume" class="form-control" type="file" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="kt_user_edit_tab_5" role="tabpanel">
+                                <div class="kt-form kt-form--label-right">
+                                    <div class="kt-form__body">
+                                        <div class="kt-section kt-section--first">
+                                            <div class="kt-section__body">
+                                                <div class="row">
+                                                    <label class="col-xl-3"></label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::main.change_social_links') }}:</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.facebook') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-facebook-f"></i></span>
                                                             </div>
-                                                            <input type="text" class="form-control" value="" placeholder="Facebook Page" aria-describedby="basic-addon1">
+                                                            <input type="text" name="facebook" class="form-control" value="{{ $member->facebook ?? '' }}" placeholder="{{ trans('members::main.facebook_page') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">LinkedIn</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.linked_in') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-linkedin-in"></i></span>
                                                             </div>
-                                                            <input type="text" class="form-control" value="" placeholder="Linkedin Page" aria-describedby="basic-addon1">
+                                                            <input type="text" name="linked_in" class="form-control" value="{{ $member->linked_in ?? '' }}" placeholder="{{ trans('members::main.linkedin_page') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group-last row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">GitHub</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">{{ trans('members::main.github') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-github"></i></span>
                                                             </div>
-                                                            <input type="text" class="form-control" value="" placeholder="Github Page" aria-describedby="basic-addon1">
+                                                            <input type="text" name="github" class="form-control" value="{{ $member->github ?? '' }}" placeholder="{{ trans('members::main.github_page') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -414,15 +460,14 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="kt-portlet__foot">
                         <div class="kt-form__actions">
                             <div class="row">
                                 <div class="col-lg-9 ml-lg-auto">
-                                    <button type="submit" class="btn btn-label-brand btn-bold update">Save changes</button>
-                                    <button type="reset" class="btn btn-clean btn-bold">Cancel</button>
+                                    <button type="submit" class="btn btn-label-brand btn-bold update">{{ trans("members::main.update") }}</button>
+                                    <button type="reset" class="btn btn-clean btn-bold">{{ trans("members::app.cancel") }}</button>
                                 </div>
                             </div>
                         </div>
@@ -432,157 +477,18 @@
         </div>
         <!-- end:: Content -->
     </div>
-
-
-
-
-
-{{--
-    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-
-
-        <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-            <div class="kt-wizard-v4" id="kt_user_add_user">
-
-                <div class="kt-portlet">
-                    <div class="kt-portlet__body kt-portlet__body--fit">
-                        <div class="kt-grid">
-                            <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v4__wrapper">
-
-                                <!--begin: Form Wizard Form-->
-                                <form id="userForm" method="post" action="{{ route('users.update', $user->id) }}"
-                                      class="kt-form" style="width:80%">
-
-                                @method('PATCH')
-                                @csrf
-
-                                <!--begin: Form Wizard Step 1-->
-                                    <div class="kt-wizard-v4__content">
-                                        <div class="kt-section kt-section--first">
-                                            <div class="kt-wizard-v4__form">
-                                                <div class="row">
-                                                    <div class="col-xl-12">
-                                                        <div class="kt-section__body">
-                                                            <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.profile_photo')}}</label>
-                                                                <div class="col-lg-9 col-xl-6">
-                                                                    <div class="kt-avatar kt-avatar--outline"
-                                                                         id="kt_user_add_avatar">
-                                                                        <div class="kt-avatar__holder"></div>
-                                                                        <label class="kt-avatar__upload"
-                                                                               data-toggle="kt-tooltip"
-                                                                               title="{{trans('users::main.change_profile_photo')}}">
-                                                                            <i class="fa fa-pen"></i>
-                                                                            <input type="file" name="profile_photo">
-                                                                        </label>
-                                                                        <span class="kt-avatar__cancel"
-                                                                              data-toggle="kt-tooltip"
-                                                                              title="{{trans('users::main.remove_profile_photo')}}">
-                                                                            <i class="fa fa-times"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.first_name')}}
-                                                                    *</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="first_name"
-                                                                           value="@error('first_name') {!!old('first_name')!!} @else {!! $user->first_name !!} @enderror"
-                                                                           class="form-control req @error('first_name') is-invalid @enderror">
-                                                                    @error('first_name')
-                                                                    <div id="first_name-error"
-                                                                         class="error invalid-feedback">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.last_name')}}</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="last_name"
-                                                                           value="@error('last_name') {!!old('last_name')!!} @else {!! $user->last_name !!} @enderror"
-                                                                           class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.username')}}
-                                                                    *</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="text" name="username"
-                                                                           value="@error('username') {!!old('username')!!} @else {!! $user->username !!} @enderror"
-                                                                           class="form-control req @error('username') is-invalid @enderror">
-                                                                    @error('username')
-                                                                    <div id="username-error"
-                                                                         class="error invalid-feedback">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">{{trans('users::main.email')}}
-                                                                    *</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input type="email" name="email"
-                                                                           value="@error('email') {!!old('email')!!} @else {!! $user->email !!} @enderror"
-                                                                           class="form-control req email @error('email') is-invalid @enderror">
-                                                                    @error('email')
-                                                                    <div id="email-error"
-                                                                         class="error invalid-feedback">{{ $message }}</div>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end: Form Wizard Step 1-->
-
-                                    <!--begin: Form Actions -->
-                                    <div class="kt-form__actions">
-                                        <button type="button"
-                                                class="update btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u">
-                                            <i class="fa fa-edit"></i> {{trans('cms.update')}}</button>
-                                    </div>
-                                    <!--end: Form Actions -->
-
-                                </form>
-                                <!--end: Form Wizard Form-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
---}}
-
 @stop
 
 @section('js')
     <script>
-        //----------------------------------------------------------------------------------------//
         $(function () {
-            var avatar = new KTAvatar('kt_user_add_avatar');
-            //=================================================//
+            var avatar = new KTAvatar('kt_user_edit_avatar');
+            //================================================//
             $('.update').click(function () {
-                submit_form();
+                $("#userForm").validate();
+                $("#userForm").submit();
             });
             //=================================================//
         });
-
-        //----------------------------------------------------------------------------------------//
-        function submit_form() {
-            $("#userForm").validate();
-            $("#userForm").submit();
-        }
-
-        //----------------------------------------------------------------------------------------//
     </script>
 @stop
