@@ -17,7 +17,7 @@ class AutocompleteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $vendor   = 'Select2';
+    protected $vendor   = 'autocomplete';
 
     /**
      * Package name.
