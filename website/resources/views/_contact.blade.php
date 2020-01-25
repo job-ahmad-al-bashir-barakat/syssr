@@ -7,10 +7,12 @@
                         <span class="font__weight-bold">{{ trans('app.contact') }}</span>
                     </h1>
                     @if($contact['address'])
-                        <p class="font__family-open-sans font__weight-bold font__size-14 mb-15">
-                            <i class="brk-footer-icon text-middle fas fa-map-marker-alt line__height-24 brk-base-font-color"></i>
-                            <span>{{$contact['address'][$lang]}}</span>
-                        </p>
+                        @if(isset($contact['address'][$lang]))
+                            <p class="font__family-open-sans font__weight-bold font__size-14 mb-15">
+                                <i class="brk-footer-icon text-middle fas fa-map-marker-alt line__height-24 brk-base-font-color"></i>
+                                <span>{{$contact['address'][$lang]}}</span>
+                            </p>
+                        @endif
                     @endif
                     @if($contact['info_email'])
                         <p class="font__family-open-sans font__weight-bold font__size-14 mb-15">
@@ -60,7 +62,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
+                        <button type="submit" class="send-email btn btn-gradient btn-lg border-radius-10 font__weight-bold brk-white-font-color btn-min-width-200" data-brk-library="component__button">
                             <i class="fas fa-envelope icon-inside"></i>
                             <span>{{ trans('app.send_message') }}</span>
                         </button>

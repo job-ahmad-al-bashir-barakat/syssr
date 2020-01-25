@@ -35,6 +35,11 @@ function form_call(form = '.form-ajax', callback) {
             var formData = new FormData(form[0]);
             console.log(form.attr('action'));
             console.log(form.attr('method'));
+
+            var $submit_btn = jQuery(form).find('button[type="submit"]').attr('disabled','disabled');
+            var pre_btn_class = $submit_btn.find('i').attr('class');
+            $submit_btn.find('i').attr('class', 'fa fa-spinner fa-spin icon-inside');
+
             jQuery.ajax({
                 url: form.attr('action'),
                 data: formData,
@@ -51,6 +56,8 @@ function form_call(form = '.form-ajax', callback) {
 
                     if(res.intended)
                         window.location.href = res.intended;
+
+                    $submit_btn.removeAttr('disabled').find('i').attr('class', pre_btn_class);
                 },
                 error: function(res) {
 
