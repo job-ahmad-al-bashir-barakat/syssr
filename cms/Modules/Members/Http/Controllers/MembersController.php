@@ -31,8 +31,8 @@ class MembersController extends Controller
 //----------------------------------------------------------------------//
     public function edit($id){
 
-        $user = Member::findOrFail($id);
-        return view('members::edit')->with('user', $user);
+        $member = Member::findOrFail($id);
+        return view('members::edit')->with('member', $member);
     }
 //----------------------------------------------------------------------//
     public function show($slug){
@@ -237,7 +237,16 @@ class MembersController extends Controller
         $member = Member::findOrFail($id);
         $member->status = 'A';
         $member->email_verified_at = Carbon::now();
+        $member->deleted_at = null;
         $member->save();
         return response()->json(['success' => true]);
+    }
+    //----------------------------------------------------------------------//
+    public function deactivate($id) {
+        $member = Member::findOrFail($id);
+        $member->status = 'I';
+        $member->deleted_at = Carbon::now();
+        $member->save();
+        return \response()->json(['redirect' => \RouteUrls::members()]);
     }
 }

@@ -61,7 +61,7 @@
                                                 id="Path" fill="#000000" opacity="0.3"/>
                                         </g>
                                     </svg>
-                                    {{ trans('members::apa.profile') }}
+                                    {{ trans('members::main.profile') }}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -121,7 +121,7 @@
                         </ul>
                     </div>
                 </div>
-               <form id="userForm" method="post" action="{{ route('users.update', $user->id) }}" class="kt-form">
+               <form id="userForm" method="post" action="{{ route('users.update', $member->id) }}" class="kt-form">
 
                     @method('PUT')
                     @csrf
@@ -136,7 +136,7 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::app.personal_info') }}:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::main.personal_info') }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -151,7 +151,7 @@
                                                                 <i class="fa fa-pen"></i>
                                                                 <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
                                                             </label>
-                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="{{ trans("members::app.cancel") }}">
+                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="{{ trans("members::main.cancel") }}">
                                                     <i class="fa fa-times"></i>
                                                 </span>
                                                         </div>
@@ -256,7 +256,7 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::mian.account") }}:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::main.account") }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -271,7 +271,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text"><i class="la la-lock"></i></span></div>
                                                             <input name="password" type="text" class="form-control"
-                                                                   value="{{ $member->password ?? "" }}" placeholder="{{ trans("members::main.password") }}"
+                                                                   placeholder="{{ trans("members::main.password") }}"
                                                                    aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
@@ -282,17 +282,16 @@
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
                                                             <input name="email" type="email" class="form-control"
-                                                                   value="{{ $member->email ?? "" }}" placeholder="{{ trans("members::main.email_address") }}"
-                                                                   aria-describedby="basic-addon1">
+                                                                   value="{{ $member->email ?? "" }}" placeholder="{{ trans("members::main.email_address") }}">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group-last row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label">{{ trans("members::main.deactivate") }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <button type="button"
+                                                        <button id="deactive-account" type="button"
                                                                 class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">
-                                                            {{ trans("members::app.deactivate_account") }}
+                                                            {{ trans("members::main.deactivate_account") }}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -350,7 +349,7 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::mian.account") }}:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans("members::main.resume_cv") }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -419,7 +418,7 @@
                                                 <div class="row">
                                                     <label class="col-xl-3"></label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::main.change_social_links') }}:</h3>
+                                                        <h3 class="kt-section__title kt-section__title-sm">{{ trans('members::main.social_links') }}:</h3>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -429,7 +428,7 @@
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-facebook-f"></i></span>
                                                             </div>
-                                                            <input type="text" name="facebook" class="form-control" value="{{ $member->facebook ?? '' }}" placeholder="{{ trans('members::main.facebook_page') }}" aria-describedby="basic-addon1">
+                                                            <input type="text" name="facebook" class="form-control" value="{{ $member->facebook ?? '' }}" placeholder="{{ trans('members::main.facebook') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -440,7 +439,7 @@
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-linkedin-in"></i></span>
                                                             </div>
-                                                            <input type="text" name="linked_in" class="form-control" value="{{ $member->linked_in ?? '' }}" placeholder="{{ trans('members::main.linkedin_page') }}" aria-describedby="basic-addon1">
+                                                            <input type="text" name="linked_in" class="form-control" value="{{ $member->linked_in ?? '' }}" placeholder="{{ trans('members::main.linked_in') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -451,7 +450,7 @@
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text"><i class="fab fa-github"></i></span>
                                                             </div>
-                                                            <input type="text" name="github" class="form-control" value="{{ $member->github ?? '' }}" placeholder="{{ trans('members::main.github_page') }}" aria-describedby="basic-addon1">
+                                                            <input type="text" name="github" class="form-control" value="{{ $member->github ?? '' }}" placeholder="{{ trans('members::main.github') }}" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -467,7 +466,7 @@
                             <div class="row">
                                 <div class="col-lg-9 ml-lg-auto">
                                     <button type="submit" class="btn btn-label-brand btn-bold update">{{ trans("members::main.update") }}</button>
-                                    <button type="reset" class="btn btn-clean btn-bold">{{ trans("members::app.cancel") }}</button>
+                                    <button type="reset" class="btn btn-clean btn-bold">{{ trans("members::main.cancel") }}</button>
                                 </div>
                             </div>
                         </div>
@@ -487,6 +486,9 @@
             $('.update').click(function () {
                 $("#userForm").validate();
                 $("#userForm").submit();
+            });
+            $('#deactive-account').on('click',function () {
+                $.post('{{ \RouteUrls::deactiveAccount($member->id) }}',{'_method' : 'PUT'});
             });
             //=================================================//
         });

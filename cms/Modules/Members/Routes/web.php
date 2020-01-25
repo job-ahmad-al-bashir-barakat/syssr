@@ -25,6 +25,10 @@ Route::group([
         Route::put('/activate/{id}', [
             'as' => 'members.activate', 'uses' => 'MembersController@activate',
         ]);
+        Route::put('/deactivate/{id}', [
+            'as' => 'members.deactivate', 'uses' => 'MembersController@deactivate',
+        ]);
+
 
         Route::get('/settings', 'MembersController@settings');
         Route::post('/save-member-settings', 'MembersController@saveMemberSettings');

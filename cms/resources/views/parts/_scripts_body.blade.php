@@ -89,6 +89,12 @@ function showMessageOnLoad(){
         }
     });
 
+    $( document ).ajaxSuccess(function( event, request, settings ) {
+        var redirect = request.responseJSON.redirect != undefined ? request.responseJSON.redirect : false;
+        if(redirect)
+            window.location.href = request.responseJSON.redirect;
+    });
+
     $( document ).ajaxError(function( event, request, settings ) {
         switch (request.status) {
             case 401: {
