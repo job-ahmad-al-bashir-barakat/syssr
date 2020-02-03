@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'category' => [
-        'model'   => \App\Category::class,
+    'example' => [
+        'model'   => \App\Example::class,
         'conditions' => [
-            ["category_type_id" , '=' ,'request:key']
+            ["example_id" , '=' ,'request:key']
         ]
     ]
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Component\Autocomplete\Http\Handler;
+namespace Packages\Autocomplete\Http\Handler;
 
 use Illuminate\Http\Request;
 

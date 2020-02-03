@@ -1,6 +1,6 @@
 <?php
 
-namespace Component\Autocomplete;
+namespace Packages\Autocomplete;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -8,7 +8,7 @@ use Illuminate\Routing\Router;
 
 /**
  * Class AutocompleteServiceProvider
- * @package Component\Autocomplete
+ * @package Packages\Autocomplete
  */
 class AutocompleteServiceProvider extends ServiceProvider
 {
@@ -26,7 +26,7 @@ class AutocompleteServiceProvider extends ServiceProvider
      */
     protected $package  = 'autocomplete';
 
-    protected $namespace = 'Component\Autocomplete\Http\Controllers';
+    protected $namespace = 'Packages\Autocomplete\Http\Controllers';
 
     protected $middleware;
 
@@ -81,7 +81,7 @@ class AutocompleteServiceProvider extends ServiceProvider
     protected function registerController()
     {
         // register our controller
-        $this->app->make('Component\Autocomplete\Http\Controllers\AutocompleteController');
+        $this->app->make('Packages\Autocomplete\Http\Controllers\AutocompleteController');
     }
 
     protected function registerHelper()

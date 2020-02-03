@@ -1,8 +1,8 @@
 <?php
 
-namespace Component\Autocomplete\Http\Controllers;
+namespace Packages\Autocomplete\Http\Controllers;
 
-use Component\Autocomplete\Http\Handler\Autocomplete;
+use Packages\Autocomplete\Http\Handler\Autocomplete;
 use Illuminate\Http\Request;
 use Exception;
 use Route;

@@ -355,7 +355,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-xl-3 col-lg-3">{{ trans('members::main.skills') }}</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <select class="form-control kt-select2" id="kt_select2_3" name="skills" multiple="multiple">
+                                                        <select class="form-control kt-select2 select" id="kt_select2_3" name="skills" multiple="multiple">
                                                            <option></option>
                                                         </select>
                                                     </div>
