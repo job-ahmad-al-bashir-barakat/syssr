@@ -74,14 +74,20 @@ function showMessageOnLoad(){
 <script src="{{ asset('js/summernote/summernote-ext-rtl.js') }}" type="text/javascript"></script>
 
 @if($lang=='ar')
-    <script src="{{ asset('js/jquery_validate/localization/messages_ar.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/jquery_validate/localization/messages_ar.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/summernote/summernote-ar-AR.js') }}" type="text/javascript"></script>
 @endif
 
 <!--end::Global Theme Bundle -->
 
+<script src="{{ asset('plugins/autocomplete/js/autocomplete.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
 
+{{--cms/public/plugins/autocomplete/js/autocomplete.js--}}
+{{--cms/public/plugins/autocomplete/plugin/select2/js/select2.js--}}
+{{--cms/public/plugins/autocomplete/plugin/select2/js/i18n/ar.js--}}
+{{--./assets/vendors/general/select2/dist/css/select2.css--}}
+{{--./assets/js/demo1/pages/crud/forms/widgets/select2.js--}}
 <script>
     $.ajaxSetup({
         headers: {

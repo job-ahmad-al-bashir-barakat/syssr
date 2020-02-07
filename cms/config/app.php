@@ -193,7 +193,8 @@ return [
         // CMS Package
         Packages\Url\Providers\RouteUrlsServiceProvider::class,
         Packages\Upload\Providers\UploadServiceProvider::class,
-        Packages\Helpers\Providers\HelpersServiceProvider::class
+        Packages\Helpers\Providers\HelpersServiceProvider::class,
+        Packages\Autocomplete\AutocompleteServiceProvider::class
     ],
 
     /*
